@@ -1,0 +1,386 @@
+% =========================================================================
+% SciPost LaTeX template
+% Version 2021-08
+%
+% Submissions to SciPost Journals should make use of this template.
+%
+% INSTRUCTIONS: simply look for the `TODO:' tokens and adapt your file.
+%
+% You can also make use of our empty "skeleton" templates for each Journal,
+% e.g. SciPostPhys_skeleton.tex
+% =========================================================================
+
+
+% TODO: uncomment ONE of the class declarations below
+
+% Class declaration format: \documentclass[submission, {DOI label of journal}]{SciPost}
+% where the DOI label of the journal should be one of:
+% Phys          (for SciPost Physics)
+% PhysCore      (for SciPost Physics Core)
+% PhysLectNotes (for SciPost Physics Lecture Notes)
+% PhysProc      (for SciPost Physics Proceedings -> !! Please use the conference-specific template which you will find on our website !!
+% PhysCodeb     (for SciPost Physics Codebases)
+% Astro         (for SciPost Astronomy)
+% Bio           (for SciPost Biology)
+% Chem          (for SciPost Chemistry)
+% CompSci       (for SciPost Computer Science)
+% Math          (for SciPost Mathematics)
+
+
+%% PHYSICS:
+% If you are submitting a paper to SciPost Physics: uncomment next line
+%\documentclass[submission, Phys]{SciPost}
+% If you are submitting a paper to SciPost Physics Core: uncomment next line
+%\documentclass[submission, PhysCore]{SciPost}
+% If you are submitting a paper to SciPost Physics Lecture Notes: uncomment next line
+\documentclass[submission, PhysLectNotes]{SciPost}
+% If you are submitting a paper to SciPost Physics Proceedings: uncomment next line
+%\documentclass[submission, PhysProc]{SciPost}
+% If you are submitting a paper to SciPost Physics Codebases: uncomment next line
+%\documentclass[submission, PhysCodeb]{SciPost}
+
+
+
+% Prevent all line breaks in inline equations.
+\binoppenalty=10000
+\relpenalty=10000
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage[bitstream-charter]{mathdesign}
+\urlstyle{sf}
+
+% Fix \cal and \mathcal characters look (so it's not the same as \mathscr)
+\DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
+
+\begin{document}
+
+% TODO: write your article's title here.
+% The article title is centered, Large boldface, and should fit in two lines
+\begin{center}{\Large \textbf{
+Notes for  the reading club\\
+}}\end{center}
+
+% TODO: write the author list here. Use first name (+ other initials) + surname format.
+% Separate subsequent authors by a comma, omit comma and use "and" for the last author.
+% Mark the corresponding author with a superscript star.
+\begin{center}
+Reading Club%\textsuperscript{1},
+%Aah B. Cee\textsuperscript{2} and
+%Gee K. See\textsuperscript{3$\star$}
+\end{center}
+
+% TODO: write all affiliations here.
+% Format: institute, city, country
+\begin{center}
+%{\bf 1} Affiliation1
+%\\
+%{\bf 2} Affiliation2
+%\\
+%{\bf 3} Affiliation2
+%\\
+% TODO: provide email address of corresponding author
+%${}^\star$ {\small \sf CorrespondingAuthor@email.address}
+\end{center}
+
+\begin{center}
+\today
+\end{center}
+
+% For convenience during refereeing (optional),
+% you can turn on line numbers by uncommenting the next line:
+%\linenumbers
+% You should run LaTeX twice in order for the line numbers to appear.
+
+\section*{Abstract}
+{\bf
+The Yellow Book Notes. It is good to write notes!
+}
+
+
+% TODO: include a table of contents (optional)
+% Guideline: if your paper is longer that 6 pages, include a TOC
+% To remove the TOC, simply cut the following block
+\vspace{10pt}
+\noindent\rule{\textwidth}{1pt}
+\tableofcontents\thispagestyle{fancy}
+\noindent\rule{\textwidth}{1pt}
+\vspace{10pt}
+
+
+\section{Preliminary}
+\subsection{Conventions}
+{\it Metric tensor and Coordinate.--}  The metric tensor in Minkowski and Eclidean space-time is defined as
+\begin{equation}
+    \eta = \begin{Bmatrix}
+        +1 &   &\\
+           & -1& \\
+           &   & ...
+    \end{Bmatrix}
+\end{equation}
+and
+\begin{equation}
+    \eta = \begin{Bmatrix}
+        +1 &   &\\
+           & +1& \\
+           &   & ...
+    \end{Bmatrix}
+\end{equation}
+respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = \{t, \mathop{x}\limits^\rightarrow\}$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
+
+{\it $\gamma$ matrices.--}   The $\gamma$ matrices follow the Clifford algebra
+\begin{equation}
+    \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
+\end{equation}
+In Minkowski space time, the $\gamma$ matrices can be chosen as
+\begin{eqnarray}
+    \gamma^0 &=& \sigma^x \nonumber \\
+    \gamma^1 &=&  -i\sigma^y,
+\end{eqnarray}
+while in Elidean space, they can be chosen as
+\begin{eqnarray}
+    \gamma^0 &=& \sigma^x \nonumber \\
+    \gamma^1 &=& \sigma^y.
+\end{eqnarray}
+
+
+\subsection{Free fermions}
+In Minkowski space time, the Lagrange density for the free fermion reads
+\begin{equation}
+    \mathcal{L} = \frac{g}{2}\left(\psi^1\ i(\partial t + \partial x)\ \psi^1 + \psi^2\ i(\partial t - \partial x)\ \psi^2 \right).
+\end{equation}
+In terms of $\psi = (\psi^1,\psi^2)$, one can write the theory as
+\begin{eqnarray}
+    \mathcal{L} &=& \frac{g}{2} \left ( \ \psi^\dagger i\partial_t \psi + \psi^\dagger \ \sigma^z \ i\partial_x \psi \ \right) \nonumber \\
+    &=& \frac{g}{2} \left ( \ \psi^\dagger \sigma^x\sigma^x i\partial_t \psi + \psi^\dagger \ -i\sigma^x\sigma^y \ i\partial_x \psi \ \right) \nonumber\\
+    &=& \frac{g}{2} \psi^\dagger \sigma^x \left(\sigma^x i \partial_t - i\sigma^y i\partial_x \right) \psi \nonumber \\
+    &=& \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi
+\end{eqnarray}
+where we used 
+\begin{equation}
+    \gamma^0 = \sigma^x \quad \gamma^1 = -i\sigma^y
+\end{equation}
+
+\subsubsection{Wick rotation}
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as 
+\begin{equation}
+    i\ S_M \rightarrow -\ S_E.
+\end{equation}
+Specifically, 
+\begin{eqnarray}
+    i\ S[\psi] &=& i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
+    &=& i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi + i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
+    &=& -\int dxd\tau \ \frac{g}{2} \psi^\dagger \partial_\tau \psi - \int dxd(-i t) \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
+    &=&  -\int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi - \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
+    &=&  -\int dxd\tau \ \frac{g}{2} \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
+\end{eqnarray}
+where $\tau = -it$. The Eulidean space action can be written as
+\begin{equation}
+    S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
+\end{equation}
+
+\subsubsection{1+1d free fermions: Legendre transformation: from \mathcal{L} to H}
+A lattice version free fermion theory Eq.~$2.38$ reads
+\begin{equation}
+    \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
+\end{equation}
+The canonical momentum corresponding to $\psi_n$ is 
+\begin{equation}
+    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = -\frac{i}{2}\psi_n.
+\end{equation}
+So that the Hamiltonian is 
+\begin{eqnarray}
+    \mathcal{H} &=& \sum_n \pi_n \dot{\psi_n} - \mathcal{L} \nonumber\\
+      &=& -\frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
+      &=& -i \sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
+\end{eqnarray}
+While it shoud be 
+\begin{equation}
+    \mathcal{H} = -\frac{i}{2}\sum_n\psi_n \psi_{n+1}.
+\end{equation}
+If we'd like to keep defining the derivative of Grassmann number according to the order of left-to-right, we need to define the Hamiltonian as
+\begin{equation}
+    \mathcal{H} = \sum_n \dot{\psi_n} \pi_n - \mathcal{L} =  - \frac{i}{2} \sum_n \psi_n \psi_{n+1}
+\end{equation}
+
+\subsection{Free boson}
+The action for the free boson in the Minkoswki space time reads
+\begin{equation}
+    S = \frac{1}{2}g\int \ dxdt \ \partial_\mu \phi \partial^\mu \phi,
+\end{equation}
+where $\phi$ is a real scalar field. After Wick rotation $\tau = it$, it becomes
+\begin{eqnarray}
+    i\ S &=& \frac{i}{2}g\int \ dxdt \ \partial_t \phi \partial_t \phi - \frac{i}{2}g\int \ dxdt \ \partial_x \phi \partial_x \phi \nonumber \\
+    &=& -\frac{1}{2}g\int \ dxd\tau \ \partial_\tau \phi \partial_\tau \phi - \frac{1}{2}g\int \ dxdit \ \partial_x \phi \partial_x \phi \nonumber \\
+    &=& -\frac{1}{2}g\int \ dxd\tau \ \partial_\mu \phi \partial^\mu \phi
+\end{eqnarray}
+The Euclidean action reads
+\begin{equation}
+    S_E = \frac{1}{2}g\int \ d^2x \ \partial_\mu \phi \partial^\mu \phi.
+\end{equation}
+The two point correlation up to a constant term is
+\begin{equation}
+    \langle \phi(x) \phi(y) \rangle = -\frac{1}{2\pi g} \mathrm{ln} (\rho).
+\end{equation}
+
+\subsection{Symmetries at the classical level}
+The action becomes different after a coordinate transformation. We say it has a symmetry if it remains unchanged and a Noether current can be derived from the symmetry. The coordinate transformation is denoted as
+\begin{equation}
+    x'^\mu = x^\mu + \omega_a \frac{\delta x^\mu}{\delta \omega_a}
+\end{equation}
+and the field changes according to 
+\begin{equation}
+    \phi'(x') = \phi(x) + \omega_a \frac{\delta F}{\delta \omega_a}(x)
+\end{equation}
+where $\omega_a$ is a constant and small parameter.
+
+By definition, the change of the action $\delta S$ disappears for a symmetric transformation. We can get nothing new from this. If we allow $\omega_a$ to be arbitrary, the leading contribution to $\delta S$ becomes
+\begin{equation}
+    \delta S = -\int d^2x j^\mu \partial_\mu \omega_a,  
+\end{equation}
+where we introduced the the current $j^\mu$. We assume it decreases fast when approaching infinite. So that one obtains 
+\begin{equation}
+    \delta S = \int d^2x\ \partial_\mu j^\mu \ \omega_a.
+\end{equation}
+This equations holds for all the field configurations. If we require the field configuration to be the one obeying the equation, the action should be invariant for arbitrary coordinate transformation and one finds the conservation of $j^\mu$
+\begin{equation}
+    \partial_\mu j^\mu = 0.
+\end{equation}
+
+\subsubsection{Energy-momentum tensor}
+The canonical energy-momentum tensor is defined to be the Noether current of the translation transformation
+\begin{eqnarray}
+    x'^\mu &=& x^\mu + \epsilon^\nu \delta^\mu_\nu \\
+    T^{\mu\nu} &=& -\eta^{\mu\nu} L + \frac{\partial L}{\partial(\partial_\mu \phi)}\partial_\nu \phi.
+\end{eqnarray}
+This definition of $T^{\mu\nu}$ is not guaranteed to be symmetric between the two indices (The requirement of a symmetric $T^{\mu\nu}$ will be clear later). 
+
+Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor 
+\begin{equation}
+\delta g_{\mu\nu} = -\partial_\mu\epsilon_\nu -\partial_\nu\epsilon_\mu
+\end{equation}
+the action remains invariant since this is nothing but a reparametrization of the theory. So that one finds
+\begin{equation}
+    \delta S = 0 = -\frac{1}{2} \int d^dx \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
+\end{equation}
+So that one can define the energy-momentum tensor as
+\begin{equation}
+    T^{\mu\nu} = -2\frac{\delta S}{\delta g_{\mu\nu}}
+\end{equation}
+up to a surface term.
+
+Another way to make the energy-momentum tensor symmetric is add a surface term to the canonical one. One can show that with rotation symmetry, such a term can be constructed to make $T^{\mu\nu}$ symmetric.
+
+\subsection{Symmetry at the quantum level}
+All the field configurations contribute to the quantum theory, so that one has no Noether current in general. Still the symmetry has constraints to the quantum theory. For the $n-$point correlation functions, one has
+\begin{eqnarray}
+\langle \phi(x'_1)...\phi(x'_n) \rangle &=& \frac{1}{Z}\int [D\phi]\ \phi(x'_1)...\phi(x'_n) \ e^{-S[\phi]} \\
+&=& \frac{1}{Z}\int [D\phi']\ \phi'(x'_1)...\phi'(x'_n) \ e^{-S'[\phi']} \\
+&=& \frac{1}{Z}\int [D\phi]\ F(\phi(x_1))...F(\phi(x_n)) \ e^{-S[\phi]} \\
+&=& \langle\ F(\phi(x_1))...F(\phi(x_n)) \ \rangle
+\end{eqnarray}
+in which we assumed the functional integral measure does not change and the coordinate transformation is a rigid one ($\omega_a$ is a constant).
+\subsubsection{Ward identity}
+As stated above there is no conserved current at the quantum level. The infinitesimal coordinate transformation at the quantum level results in the so-called Ward identity.
+
+We denote the change of fields as
+\begin{equation}
+    \phi'(x) = \phi(x) -i\omega_a\ G_a\ \phi(x).
+\end{equation}
+The infinitesimal coordinate transformation ($\omega_a$ now is arbitrary) changes the correlation as (We only consider the first order perturbation contribution) 
+\begin{eqnarray}
+\langle \phi'(x_1)... \phi'(x_n)\rangle &=& \langle \phi(x_1)... \phi(x_n)\rangle \\ 
+&=& \frac{1}{Z} \int [D\phi'] (X+\delta X) e^{-S[\phi] - \int d^dx\partial_\mu j^\mu \omega_a} \\
+&=& \frac{1}{Z} \int [D\phi] (X+\delta X) e^{-S[\phi] - \int d^dx\partial_\mu j^\mu \omega_a} \\
+&=& \langle X \rangle - \int [D\phi] \int d^dx\ X \partial_\mu j^\mu \omega_a e^{-S[\phi]} - \int [D\phi] \delta X  e^{-S[\phi]}
+\end{eqnarray}
+so that one finds
+\begin{equation}
+    \langle\delta X\rangle = \int d^dx \ \partial_\mu\langle j^\mu \ X\rangle \omega_a(x).
+\end{equation}
+As
+\begin{eqnarray}
+\delta X &=& -i \sum_i \phi(x_1)...G_a \phi(x_i)...\phi(x_n)\omega_a(x_i) \\
+&=& -i \int d^dx \sum_i \phi(x_1)...G_a \phi(x_i)...\phi(x_n)\delta(x-x_i)\omega_a(x)
+\end{eqnarray}
+Since $\omega_a$ is arbitrary, one obtains the Ward identity
+\begin{equation}
+    \partial_\mu\langle j^\mu \ X\rangle = -i \sum_i \delta(x-x_i)\ \langle \phi(x_1)...G_a \phi(x_i)...\phi(x_n).
+\end{equation}
+So that for each symmetry, there exists a Ward identity, i.e., a constraint to the correlation function. With enough symmetries, one can get all the information of the correlation functions.
+
+\subsection{Renormalization group}
+\subsubsection{Dimensional analysis and renormalizability of QFT}
+Let's start with the canonical dimension of fields and couplings in the action,
+\begin{equation}
+    S = \int d^dx \ \mathcal{L}(\phi, \lambda).
+\end{equation}
+Since the action is dimensionless, every term in $\mathcal{L}$ has an energy scaling dimension of
+\begin{equation}
+    \Delta(\mathcal{L}) = [\mathcal{L}] = \omega^d
+\end{equation}
+which determines the canonical dimension fields and couplings. The renormalizability of a QFT is directly obtained from the energy dimension of Feynman diagrams,
+\begin{equation}
+    \mathcal{D} = d - E_{\phi} \Delta (\phi) - \Delta (\lambda_i)
+\end{equation}
+where $E_{\phi}$ is the number of external fields and $\lambda_i$ the couplings in the theory. A nice discussion about renormalizability can be found online (https://web2.ph.utexas.edu/~vadim/
+Classes/2022f/notes.html).
+
+Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
+
+\subsubsection{Wilson-Kadanoff renormalization scheme}
+The renormalization group builds up the modern understanding of QFT, which is regarded as an effective field theory. Here we briefly recall the Wilson-Kadanoff scheme. In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. 
+
+One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts. The fast modes are integrated to result in a new theory 
+\begin{equation}
+    e^{-S'(\phi)_{\Lambda/s}} = \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)}
+\end{equation}
+with a smaller cutoff $\Lambda/s$. This theory can not be compared with the original theory, since they have different cutoffs. Another rescaling step 
+\begin{equation}
+    \boldsymbol{k'} = \boldsymbol{k} s
+\end{equation}
+is required to restore the 
+
+%\section{Conclusion}
+%You must include a conclusion.
+
+%\section*{Acknowledgements}
+%Acknowledgements should follow immediately after the conclusion.
+
+% TODO: include author contributions
+%\paragraph{Author contributions}
+%This is optional. If desired, contributions should be succinctly described in a single short paragraph, using author initials.
+
+% TODO: include funding information
+%\paragraph{Funding information}
+%Authors are required to provide funding information, including relevant agencies and grant numbers with linked author's initials. Correctly-provided data will be linked to funders listed in the \href{https://www.crossref.org/services/funder-registry/}{\sf Fundref registry}.
+
+
+\begin{appendix}
+
+\end{appendix}
+
+
+% TODO:
+% Provide your bibliography here. You have two options:
+
+% FIRST OPTION - write your entries here directly, following the example below, including Author(s), Title, Journal Ref. with year in parentheses at the end, followed by the DOI number.
+%\begin{thebibliography}{99}
+%\bibitem{1931_Bethe_ZP_71} H. A. Bethe, {\it Zur Theorie der Metalle. i. Eigenwerte und Eigenfunktionen der linearen Atomkette}, Zeit. f{\"u}r Phys. {\bf 71}, 205 (1931), \doi{10.1007\%2FBF01341708}.
+%\bibitem{arXiv:1108.2700} P. Ginsparg, {\it It was twenty years ago today... }, \url{http://arxiv.org/abs/1108.2700}.
+%\end{thebibliography}
+
+% SECOND OPTION:
+% Use your bibtex library
+% \bibliographystyle{SciPost_bibstyle} % Include this style file here only if you are not using our template
+\bibliography{refs.bib}
+
+\nolinenumbers
+
+\end{document}
