@@ -188,7 +188,7 @@ where $\tau = -it$. The Eulidean space action can be written as
     S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
 \end{equation}
 
-\subsubsection{1+1d free fermions: Legendre transformation: from $\mathcal{L}$ to H}
+\subsubsection{1+1d free fermions: Legendre transformation}
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
@@ -264,11 +264,11 @@ The canonical energy-momentum tensor is defined to be the Noether current of the
 \end{eqnarray}
 This definition of $T^{\mu\nu}$ is not guaranteed to be symmetric between the two indices (The requirement of a symmetric $T^{\mu\nu}$ will be clear later). 
 
-Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor 
+Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor (which means the theory is coupled with the dynamical backgroud)
 \begin{equation}
 \delta g_{\mu\nu} = -\partial_\mu\epsilon_\nu -\partial_\nu\epsilon_\mu
 \end{equation}
-the action remains invariant since this is nothing but a reparametrization of the theory. So that one finds
+the action remains invariant since this is nothing but a reparametrization of the theory (general coordinate covariance). So that one finds
 \begin{equation}
     \delta S = 0 = -\frac{1}{2} \int d^dx \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
 \end{equation}
@@ -338,7 +338,7 @@ Classes/2022f/notes.html).
 Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
 
 \subsubsection{Wilson-Kadanoff renormalization scheme}
-The renormalization group builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. Here we briefly recall the Wilson-Kadanoff scheme. 
+The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e. the Wilson-Kadanoff RG scheme. 
 
 In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts. The fast modes are integrated out to result in a new theory 
 \begin{equation}
@@ -362,14 +362,17 @@ The zero points of the $\beta$ function are solutions of fixed points of the RG 
 \begin{equation}
 \beta_i(\lambda_j^*) = 0.
 \end{equation}
-Near the fixed point, usually one can approimate the beta function as an linear eigen problem. Eigenvalues of the RG transformation imply how fast $\lambda_i$ flow to or away from $\lambda^*$, which are nothing but the scaling dimensions $\Delta(\lambda_i)$ of the corresponding parameter
+Near the fixed point, usually one can approimate the beta function as an linear eigen problem. Eigenvalues of the RG transformation imply how fast $\lambda_i$ flow to or away from $\lambda^*$, which are nothing but the scaling dimensions $\Delta(\tilde{\lambda}_i)$ of the corresponding parameter
 \begin{equation}
-\frac{\partial \tilde{\lambda}_i}{\partial \mathrm{log}(s)} = \left( d - \Delta (\tilde{\lambda}_i) \right) \tilde{\lambda}_i
+\frac{\partial \tilde{\lambda}_i}{\partial \mathrm{log}(s)} = \Delta \left(\tilde{\lambda}_i \right) \tilde{\lambda}_i
 \end{equation}
-where $\tilde{\lambda}_i$ is usually a linear combination of the orginal paramters.
+where $\tilde{\lambda}_i$ is usually a linear combination of the orginal paramters (here we shifted the fixed point to be zero and $\tilde{\lambda}_i$ means the distance to the fixed point).
 
-\subsection{Example: perturbative RG analysis of $\phi^4$ theory}
+There also exist many other RG schemes. One may integrate out all high-energy modes $\vert k \vert > \Lambda$. Usually one encounters divergent at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ as a continuous number and make perturbation around the upper or lower critical dimension, which is denoted as $d \mp \epsilon$ expansion. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point and does not need to do usual Feynmann diagram calculations.
 
+
+\subsubsection{Example: perturbative RG analysis of $\phi^4$ theory}
+\subsubsection{Example: perturbative RG analysis of BKT transition}
 
 \section{Conformal group in d=2}
 
