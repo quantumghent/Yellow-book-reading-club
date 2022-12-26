@@ -53,11 +53,14 @@
 }
 
 \usepackage[bitstream-charter]{mathdesign}
+\usepackage{amsmath}
 \urlstyle{sf}
 
 % Fix \cal and \mathcal characters look (so it's not the same as \mathscr)
 \DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
 \DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
+
+\DeclareMathOperator{\Ima}{Im}
 
 \begin{document}
 
@@ -185,7 +188,7 @@ where $\tau = -it$. The Eulidean space action can be written as
     S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
 \end{equation}
 
-\subsubsection{1+1d free fermions: Legendre transformation: from \mathcal{L} to H}
+\subsubsection{1+1d free fermions: Legendre transformation: from $\mathcal{L}$ to H}
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
@@ -347,38 +350,112 @@ with a smaller cutoff $\Lambda/s$. This theory can not be compared with the orig
 \end{equation}
 is required to restore the 
 
-%\section{Conclusion}
-%You must include a conclusion.
+\section{Conformal group in d=2}
 
-%\section*{Acknowledgements}
-%Acknowledgements should follow immediately after the conclusion.
+In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$.
 
-% TODO: include author contributions
-%\paragraph{Author contributions}
-%This is optional. If desired, contributions should be succinctly described in a single short paragraph, using author initials.
+\appendix
 
-% TODO: include funding information
-%\paragraph{Funding information}
-%Authors are required to provide funding information, including relevant agencies and grant numbers with linked author's initials. Correctly-provided data will be linked to funders listed in the \href{https://www.crossref.org/services/funder-registry/}{\sf Fundref registry}.
+\section{Central extensions of Lie algebras}
+In this section $\mathfrak{g},\mathfrak{h},...$ denote (possibly infinite) Lie algebras over some field $\mathbb{K} = \mathbb{R}, \mathbb{C}$. This section is mainly based on Wikipedia and~\cite{Schottenloher}.
+\subsection{Extensions}
+{\bf Definition:} A \emph{Lie algebra extension} is a short exact sequence of Lie algebras:
+\begin{equation}
+	\mathfrak{h}\overset{\iota}{\rightarrow}\mathfrak{e}\overset{\pi}{\rightarrow}\mathfrak{g}.
+\end{equation}
+One calls $\mathfrak{e}$ an extension of $\mathfrak{g}$ by $\mathfrak{h}$. By exactness of the sequence one has $\mathfrak{g}\cong\mathfrak{e}\slash\Ima\iota$.\\
 
+{\bf Definition:} A \emph{central extension} is an extension $\mathfrak{e}$ of $\mathfrak{g}$ by $\mathfrak{h}$, such that $\Ima \iota$ is contained in the center of $\mathfrak{e}$, $\iota(\mathfrak{h})\subseteq Z(\mathfrak{e})$.\\
 
-\begin{appendix}
+Notice that for a central extension $\mathfrak{h}$ is necessarily abelian. We now introduce a notion of trivial central extensions as follows:
 
-\end{appendix}
+{\bf Definition:} A Lie algebra extension
+\begin{equation}
+	\mathfrak{h}\overset{\iota}{\rightarrow}\mathfrak{e}\overset{\pi}{\rightarrow}\mathfrak{g}
+\end{equation}
+\emph{splits} if there exists a Lie algebra morphism $\beta: \mathfrak{g}\mapsto\mathfrak{e}$ such that $\pi\circ\beta = \text{id}_{\mathfrak{e}}$. $\beta$ is called a splitting map.\\
 
+A central extension
+\begin{equation}
+	\mathfrak{h}\overset{\iota}{\rightarrow}\mathfrak{e}\overset{\pi}{\rightarrow}\mathfrak{g}.
+\end{equation}
+that splits is trivial in the sense that it is equivalent\footnote{To do: introduce the notion of equivalent extensions.} to one where $\mathfrak{e}\cong\mathfrak{g}\oplus\mathfrak{h}$.\\
 
-% TODO:
-% Provide your bibliography here. You have two options:
+Let us now consider a central extension and a map (not necesserily a Lie algebra homomorphism) $\beta:\mathfrak{g}\rightarrow\mathfrak{e}$ such that $\pi\circ\beta = \text{id}_{\mathfrak{e}}$. From this map construct
+$\Theta: \mathfrak{g}\times\mathfrak{g}\rightarrow\mathfrak{h}$ as follows:
+\begin{equation}
+	\Theta(x,y) := \left[\Theta(x),\Theta(y)\right] - \Theta\left([x,y]\right).
+\end{equation}
+This map is:
+\begin{enumerate}
+	\item \label{prop:antisym} Antisymmetric.
+	\item \label{prop:bilinear} Bilinear.
+	\item \label{prop:Jacobi} Satisfies $\Theta(x,[y,z]) + \Theta(y,[z,x]) + \Theta(z,[x,y]) = 0$. 
+\end{enumerate}
+Given $\Theta$ one can now show that there is an isomorphism between the vector spaces $\mathfrak{e}\cong\mathfrak{g}\oplus\mathfrak{h}$ that is given by:
+\begin{equation}
+	\Psi:\mathfrak{g}\oplus\mathfrak{h}\mapsto\mathfrak{e}:(x,y)\mapsto\beta(x) + y.
+\end{equation}
+A Lie bracket on $\mathfrak{g}\oplus\mathfrak{h}$ is given by:
+\begin{equation}
+	[x\oplus z, y\oplus z']_{\mathfrak{e}} := [x,y]_\mathfrak{g} + \Theta(x,y).
+\end{equation}
 
-% FIRST OPTION - write your entries here directly, following the example below, including Author(s), Title, Journal Ref. with year in parentheses at the end, followed by the DOI number.
-%\begin{thebibliography}{99}
-%\bibitem{1931_Bethe_ZP_71} H. A. Bethe, {\it Zur Theorie der Metalle. i. Eigenwerte und Eigenfunktionen der linearen Atomkette}, Zeit. f{\"u}r Phys. {\bf 71}, 205 (1931), \doi{10.1007\%2FBF01341708}.
-%\bibitem{arXiv:1108.2700} P. Ginsparg, {\it It was twenty years ago today... }, \url{http://arxiv.org/abs/1108.2700}.
-%\end{thebibliography}
+{\bf Lemma:} In the above construction $\beta$ is a splitting map if and only if
+\begin{equation}
+	\Theta(x,y) = \mu([x,y]),
+\end{equation}
+for some $\mu\in\text{Hom}(\mathfrak{g},\mathfrak{h})$.\\
 
-% SECOND OPTION:
-% Use your bibtex library
-% \bibliographystyle{SciPost_bibstyle} % Include this style file here only if you are not using our template
+Now comes the classification of central extensions of Lie algebras:\\
+
+{\bf Theorem:} Every central extension comes from a map $\Theta$ that satisfies the above properties (\ref{prop:antisym}-\ref{prop:Jacobi}). Conversely, every central extension gives rise to a map $\Theta$ that satisfies the above properties (\ref{prop:antisym}-\ref{prop:Jacobi}).
+
+\subsection{Lie algebra cohomology}
+The classification of Lie algebra extensions is very satisfying. It smells a lot like a cohomological classification. Indeed, the extensions are classified by functions depending on two variables satisfying the condition (\ref{prop:Jacobi}) that is exactly the one needed to fulfill the Jacobi identity of the central extension. Moreover, the central extension is trivial if the \emph{2-cocycle} $\Theta$ is trivial in the following sense: $\Theta(x,y) = \mu([x,y])$. This is reminiscent of considering 2-cocycles to be trivial if they are equal to a coboundary. Let us put this on a bit more rigorous footing.\\
+
+{\bf Definitions:}
+\begin{enumerate}
+	\item $Z^2(\mathfrak{g},\mathfrak{h}) = \left\{\Theta\in\Lambda^2(\mathfrak{g},\mathfrak{h})|\Theta:(\ref{prop:Jacobi})\right\}$.
+	\item $B^2(\mathfrak{g},\mathfrak{h})=\left\{\Theta:\mathfrak{g}\times\mathfrak{g}\mapsto\mathfrak{h}|\exists\mu\in\text{Hom}(\mathfrak{g},\mathfrak{h}):\Theta(-,-)=\mu([-,-])\right\}$.
+	\item $H^2(\mathfrak{g},\mathfrak{h}):=Z^2(\mathfrak{g},\mathfrak{h})/B^2(\mathfrak{g},\mathfrak{h})$.
+\end{enumerate}
+$H^2$ is of course called the second cohomology group. We thus obtain the following reformulation of the classification of central extensions:\\
+
+{\bf Theorem:} The equivalence classes of central extensions
+\begin{equation}
+	\mathfrak{h}\overset{\iota}{\rightarrow}\mathfrak{e}\overset{\pi}{\rightarrow}\mathfrak{g}
+\end{equation}
+are in one-to-one correspondence with the elements of $H^2(\mathfrak{g},\mathfrak{h})$.\\
+
+For completeness, let us introduce a notion of cochain complexes for Lie algebras. A cochain $f$ is a alternating multilinear map $f$:
+\begin{equation}
+	f:\Lambda^n \mathfrak{g} \mapsto \mathfrak{h}.
+\end{equation}
+Here, $\mathfrak{h}$ is considered a $\mathfrak{g}$-module or -representation.
+
+The differential of an $n$-cochain is given by
+\begin{equation}
+\begin{aligned}
+	(d f)\left(x_1, \ldots, x_{n+1}\right) =
+	&\sum_i     (-1)^{i+1}x_i\, f\left(x_1, \ldots, \hat x_i, \ldots, x_{n+1}\right) + \\
+	&\sum_{i<j} (-1)^{i+j}      f\left(\left[x_i, x_j\right], x_1, \ldots, \hat x_i, \ldots, \hat x_j, \ldots, x_{n+1}\right)\, ,
+\end{aligned}
+\end{equation}
+
+so for example, with trivial action we obtain
+\begin{equation}
+	(df)(x_1,x_2) = f([x_1,x_2]),
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+	(df)(x_1,x_2,x_3) &= -f([x_1,x_2],x_3) + f([x_1,x_3],x_2) - f([x_2,x_3],x_1)\\
+	&= -f([x_1,x_2],x_3) - f([x_3,x_1],x_2) - f([x_2,x_3],x_1)\\
+	&= f(x_3,[x_1,x_2]) + f(x_2,[x_3,x_1]) + f(x_1,[x_2,x_3]).
+\end{aligned}
+\end{equation}
+So clearly, $Z^2(\mathfrak{g},\mathfrak{h})$ defined above is the group of 2-cocycles satisfying $d\Theta=0$ and $B^2(\mathfrak{g},\mathfrak{h})$ the set of coboundaries: $\Theta = d\mu$.
 \bibliography{refs.bib}
 
 \nolinenumbers
