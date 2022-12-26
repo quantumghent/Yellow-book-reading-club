@@ -338,17 +338,38 @@ Classes/2022f/notes.html).
 Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
 
 \subsubsection{Wilson-Kadanoff renormalization scheme}
-The renormalization group builds up the modern understanding of QFT, which is regarded as an effective field theory. Here we briefly recall the Wilson-Kadanoff scheme. In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. 
+The renormalization group builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. Here we briefly recall the Wilson-Kadanoff scheme. 
 
-One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts. The fast modes are integrated to result in a new theory 
+In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts. The fast modes are integrated out to result in a new theory 
 \begin{equation}
     e^{-S'(\phi)_{\Lambda/s}} = \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)}
 \end{equation}
-with a smaller cutoff $\Lambda/s$. This theory can not be compared with the original theory, since they have different cutoffs. Another rescaling step 
+with a smaller cutoff $\Lambda/s$ (Usually one can not integral out high energy modes exactly, hence perturbations based on Feynmann diagramm have to be adopted). This theory can not be compared with the original one, since they have different cutoffs. Another rescaling step 
 \begin{equation}
     \boldsymbol{k'} = \boldsymbol{k} s
 \end{equation}
-is required to restore the 
+is required to restore the cutoff or energy scale. So that one obtains a new theory at the same cutoff but with different parameters
+\begin{equation}
+S(\phi,\lambda')_\Lambda = -\mathrm{log} \left( \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)} \right),
+\end{equation}
+where we assumed the theory $S(\phi,\lambda)$ remains the same structure. Keep doing such RG procedures, one can find how the parameters $\lambda_i(s)$ flow in the parameter space along with the RG time $s$. 
+
+The fixed points are special in the parameter space, since they are scale invariant. The parameter near a fixed point $\lambda^*$ is called relevant or irrelevant when it flows away or close to $\lambda^*$, respectively. A RG program is to find all fixed points and analyse how the parameters flow near fixed points. One needs to solve the so-called $\beta$ equation
+\begin{equation}
+\beta_i(\lambda_j) = \frac{\partial \lambda_i}{\partial \mathrm{log}(s)}.
+\end{equation}
+The zero points of the $\beta$ function are solutions of fixed points of the RG program
+\begin{equation}
+\beta_i(\lambda_j^*) = 0.
+\end{equation}
+Near the fixed point, usually one can approimate the beta function as an linear eigen problem. Eigenvalues of the RG transformation imply how fast $\lambda_i$ flow to or away from $\lambda^*$, which are nothing but the scaling dimensions $\Delta(\lambda_i)$ of the corresponding parameter
+\begin{equation}
+\frac{\partial \tilde{\lambda}_i}{\partial \mathrm{log}(s)} = \left( d - \Delta (\tilde{\lambda}_i) \right) \tilde{\lambda}_i
+\end{equation}
+where $\tilde{\lambda}_i$ is usually a linear combination of the orginal paramters.
+
+\subsection{Example: perturbative RG analysis of $\phi^4$ theory}
+
 
 \section{Conformal group in d=2}
 
