@@ -185,7 +185,7 @@ where $\tau = -it$. The Eulidean space action can be written as
     S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
 \end{equation}
 
-\subsubsection{1+1d free fermions: Legendre transformation: from \mathcal{L} to H}
+\subsubsection{1+1d free fermions: Legendre transformation}
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
@@ -261,11 +261,11 @@ The canonical energy-momentum tensor is defined to be the Noether current of the
 \end{eqnarray}
 This definition of $T^{\mu\nu}$ is not guaranteed to be symmetric between the two indices (The requirement of a symmetric $T^{\mu\nu}$ will be clear later). 
 
-Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor 
+Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor (which means the theory is coupled with the dynamical backgroud)
 \begin{equation}
 \delta g_{\mu\nu} = -\partial_\mu\epsilon_\nu -\partial_\nu\epsilon_\mu
 \end{equation}
-the action remains invariant since this is nothing but a reparametrization of the theory. So that one finds
+the action remains invariant since this is nothing but a reparametrization of the theory (general coordinate covariance). So that one finds
 \begin{equation}
     \delta S = 0 = -\frac{1}{2} \int d^dx \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
 \end{equation}
