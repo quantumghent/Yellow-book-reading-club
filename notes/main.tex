@@ -62,6 +62,9 @@
 
 \DeclareMathOperator{\Ima}{Im}
 
+%----------hrz macros
+\newcommand{\ExOp}[1]{\left\langle#1\right\rangle}
+
 \begin{document}
 
 % TODO: write your article's title here.
@@ -337,24 +340,45 @@ Classes/2022f/notes.html).
 
 Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
 
-\subsubsection{Wilson-Kadanoff renormalization scheme}
+\subsubsection{Wilson-Kadanoff RG scheme}
 The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e. the Wilson-Kadanoff RG scheme. 
 
-In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts. The fast modes are integrated out to result in a new theory 
+In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts $\phi = \phi_f +\phi_s$. The fast modes are integrated out to result in a new theory 
 \begin{equation}
     e^{-S'(\phi)_{\Lambda/s}} = \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)}
 \end{equation}
-with a smaller cutoff $\Lambda/s$ (Usually one can not integral out high energy modes exactly, hence perturbations based on Feynmann diagramm have to be adopted). This theory can not be compared with the original one, since they have different cutoffs. Another rescaling step 
+with a smaller cutoff $\Lambda/s$. Generally, the action can be divided into three parts
 \begin{equation}
-    \boldsymbol{k'} = \boldsymbol{k} s
+S = S_f(\phi_f) + S_s(\phi_s) + S_c(\phi_f,\phi_s).
 \end{equation}
-is required to restore the cutoff or energy scale. So that one obtains a new theory at the same cutoff but with different parameters
+The new theory thus can be written as 
 \begin{equation}
-S(\phi,\lambda')_\Lambda = -\mathrm{log} \left( \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)} \right),
+\begin{aligned}
+    e^{-S'(\phi_s)_{\Lambda/s}} &= \int D\phi_f e^{-S_f - S_s - S_c} \\
+    &= e^{-S_s} Z_f \ \frac{\int \mathrm{D}\phi_f \ e^{-S_f} e^{-S_c}} {Z_f} \\
+    &= e^{-S_s}\ Z_f \ \langle e^{-S_c} \rangle_f
+\end{aligned}
 \end{equation}
-where we assumed the theory $S(\phi,\lambda)$ remains the same structure. Keep doing such RG procedures, one can find how the parameters $\lambda_i(s)$ flow in the parameter space along with the RG time $s$. 
+where $ Z_f = \int \mathrm{D}\phi_f \ e^{-\phi_f}$ is a constant and can be neglected (Note that it does contribute to the total free energy). The new action thus is 
+\begin{equation}
+\begin{aligned}
+S(\phi_s)_{\Lambda/s} &= -\mathrm{log} \left( \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)} \right) \\
+&= S_s - \mathrm{log} \left(\langle e^{-S_c} \rangle_f\right)
+\end{aligned}
+\end{equation}
+Usually one can not integral out high energy modes exactly, hence cumulant perturbations based on Feynmann diagramm have to be adopted. 
 
-The fixed points are special in the parameter space, since they are scale invariant. The parameter near a fixed point $\lambda^*$ is called relevant or irrelevant when it flows away or close to $\lambda^*$, respectively. A RG program is to find all fixed points and analyse how the parameters flow near fixed points. One needs to solve the so-called $\beta$ equation
+This theory can not be compared with the original one, since they have different cutoffs. Another rescaling step 
+\begin{equation}
+    \boldsymbol{k} \rightarrow s\ \boldsymbol{k}
+\end{equation}
+is required to restore the cutoff or energy scale. Since the field operators dependend on length scales, they also need to be rescaled 
+\begin{equation}
+     \phi \rightarrow s^{\Delta_\phi}\ \phi
+\end{equation}
+Now one obtains a new theory $S(\phi,\lambda)_\Lambda$ at the same cutoff but with different parameters, in which we assumed the theory $S(\phi,\lambda)$ remains the same structure. 
+
+Keep doing such RG procedures, one can find how the parameters $\lambda_i(s)$ flow in the parameter space along with the RG time $s$. These RG transformations of the parameters form a semi-group structure. In the whole parameter space, fixed points are special, since they are scale invariant. The parameter near a fixed point $\lambda^*$ is called relevant or irrelevant when it flows away or close to $\lambda^*$, respectively. A RG program is to find all fixed points and analyse how the parameters flow near fixed points. One needs to solve the so-called $\beta$ equation
 \begin{equation}
 \beta_i(\lambda_j) = \frac{\partial \lambda_i}{\partial \mathrm{log}(s)}.
 \end{equation}
@@ -362,21 +386,102 @@ The zero points of the $\beta$ function are solutions of fixed points of the RG 
 \begin{equation}
 \beta_i(\lambda_j^*) = 0.
 \end{equation}
-Near the fixed point, usually one can approimate the beta function as an linear eigen problem. Eigenvalues of the RG transformation imply how fast $\lambda_i$ flow to or away from $\lambda^*$, which are nothing but the scaling dimensions $\Delta(\tilde{\lambda}_i)$ of the corresponding parameter
+Near the fixed point, usually one can approimate the $\beta$ function as an linear eigen problem. Eigenvalues of the RG transformation imply how fast $\lambda_i$ flow to or away from $\lambda^*$, which are nothing but the scaling dimensions $\Delta(\tilde{\lambda}_i)$ of the corresponding parameter
 \begin{equation}
 \frac{\partial \tilde{\lambda}_i}{\partial \mathrm{log}(s)} = \Delta \left(\tilde{\lambda}_i \right) \tilde{\lambda}_i
 \end{equation}
-where $\tilde{\lambda}_i$ is usually a linear combination of the orginal paramters (here we shifted the fixed point to be zero and $\tilde{\lambda}_i$ means the distance to the fixed point).
+where $\tilde{\lambda}_i$ is a linear combination of the orginal paramters (here we shifted the fixed point to be zero and $\tilde{\lambda}_i$ means the distance to the fixed point $\lambda^*_i$). Note that the RG analysis here is also consistent with the renormalizability of a QFT. An irrelevant field ($\Delta\left(\lambda_i\right)<0$) vanishes at IR means it becomes divergent at UV.
 
-There also exist many other RG schemes. One may integrate out all high-energy modes $\vert k \vert > \Lambda$. Usually one encounters divergent at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ as a continuous number and make perturbation around the upper or lower critical dimension, which is denoted as $d \mp \epsilon$ expansion. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point and does not need to do usual Feynmann diagram calculations.
+There also exist many other RG schemes. For example, one may integrate out all high-energy modes $\vert k \vert > \Lambda$. There will be divergence at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ to be a real positive number and make perturbation around the upper or lower critical dimension, which is called as $d \mp \epsilon$ expansion in the literature. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. The scaling transformation of $a$ is canceled by the change of couplings in the theory. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point rather than doing Feynmann diagram calculations.
 
-
+\subsubsection{Example: poor man's scaling of Kondo effect}
 \subsubsection{Example: perturbative RG analysis of $\phi^4$ theory}
+The Ferromagnetic phase transition is usually modeled by a real scalar field theory
+\begin{equation}
+S = \int d^dx \ \left\{\frac{1}{2}\left(\Delta\phi\right)^2 + \sum_{n=1,2,4}\left(\frac{\lambda_n}{n!}\phi^n\right) \right\}
+\end{equation}
+where the field $\phi$ can be viewed as flucturations around the mean field solution $\phi_c$ of the action. Following the Wilson-Kadanoff RG scheme, we identify
+\begin{equation}
+\begin{aligned}
+&S_f = \int d^dx \ \left\{\frac{1}{2}\left(\Delta\phi_f\right)^2 + \frac{\lambda_2}{2}\phi_f^2 \right\} \\
+&S_s = \int d^dx \ \left\{\frac{1}{2}\left(\Delta\phi_s\right)^2 + \lambda_1 \phi_s + \frac{\lambda_2}{2}\phi_s^2 \right\} \\
+&S_c = \int d^dx \ \left\{ \frac{\lambda_4}{4!}\left(\phi_s + \phi_f\right)^4 \right\}.
+\end{aligned}
+\end{equation}
+At one-loop approximation, using cumulant expansion one can find
+\begin{equation}
+\begin{aligned}
+\langle e^{-S_c} \rangle_f = \mathrm{exp}\left\{{-\ExOp{S_c}_f + \frac{1}{2}\left( \ExOp{S_c^2}_f - \ExOp{S_c}_f^2\right)}\right\}
+\end{aligned}
+\end{equation}%•
+
+• In $\ExOp{S_c}_f$ there is a pure slow mode term $\frac{\lambda_4}{4!}\phi_s^4$ and another one
+\begin{equation}
+\begin{aligned}
+\frac{\lambda_4}{4!} C^2_4 \int d^dx  \phi_s^2 \ExOp{\phi_f(x)\phi_f(x)}_f = \int d^dx \left\{ \frac{\ExOp{\phi_f(x)\phi_f(x)}_f\lambda_4/2}{2}\ \phi_s^2\right\}
+\end{aligned}
+\end{equation}
+
+• In $\ExOp{S_c^2}_f - \ExOp{S_c}_f^2$ there is one term contributing to the one-loop result
+\begin{equation}
+\begin{aligned}
+\left( \frac{\lambda_4}{4!} C^2_4 \right)^2 \int d^dx \int d^dy \ \left(\phi_s(x)\phi_s(y)\right)^2 \ExOp{\phi_f(x) \phi_f(y)}_f^2
+\end{aligned}
+\end{equation}
+ 
 \subsubsection{Example: perturbative RG analysis of BKT transition}
 
 \section{Conformal group in d=2}
 
 In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$.
+
+\subsection{Correlation functions to OPE}
+Due to the local nature of field theory, we promote the correlation functions to expansion of non-singular operators, which is termed as operator product expansion (OPE). The idea is basically that far away from the operators inside a bounded region other operators can only feel them as a superposition of single operators (non-singular). The first OPE example follows from the conformal ward identity, which builds up the OPE between the energy momentum tensor and primary fields
+\begin{equation}
+	T(z) \phi(\omega) \sim \frac{h}{\left(z-\omega\right)^2} \phi(\omega) + \frac{1}{z-\omega} \partial \phi(\omega)
+\end{equation}
+where on the right hand side, the operators should be understood as to be calculated correlation functions with some other operators located far away from them.  Following the conventions defined in the first chapter, one can easily obtain the OPE of $T(z)$ with $\partial \phi$ for free boson
+\begin{equation}
+T(z) \partial\phi(\omega) \sim \frac{\partial \phi(\omega)}{\left(z-\omega\right)^2} + \frac{\partial_\omega^2 \phi(\omega)}{z-\omega}
+\end{equation}
+and $T(z)$ with $\psi$ for free fermion 
+\begin{equation}
+T(z) \psi(\omega) \sim \frac{\frac{1}{2} \psi(\omega)}{\left(z-\omega\right)^2} + \frac{\partial \psi(\omega)}{z-\omega}
+\end{equation}
+
+The OPE can be generalized to arbitrary fields
+\begin{equation}
+A(z) B(\omega) = \sum_{n=-\infty}^{\Delta(A) + \Delta(B)}\  \frac{\{AB\}_n(\omega)}{\left(z-\omega\right)^n}
+\end{equation}
+where $\{AB\}_n(\omega)$ are non-singular fields. Note that the total scaling dimensions can not be changed in OPE.
+
+
+
+\subsection{Energy-momentum tensor and central charge}
+The energy-momentum tensor is a quasi-primary field, which does not follow the OPE of $T$ with primaries. There is an aditional term proportional to central charge $c$ in the OPE
+\begin{equation}
+T(z)T(\omega) \sim \frac{c/2}{\left(z-\omega\right)^4} + \frac{2 T(\omega)}{\left(z-\omega\right)^2} + \frac{\partial T(\omega)}{z-\omega}.
+\end{equation}
+This term also exists in the conformal transormation of $T$
+\begin{equation}
+T'(\omega) = \left(\frac{dw}{dz}\right)^{-2} T(z) + \frac{c}{12}\{z;\omega\}
+\end{equation}
+where $\{z;\omega\}$ denotes the Schwarzian derivative. This is consistent with the fact that this term disappears under global conformal transtions which are true symmetry of CFT. 
+
+The central charge $c$ is related to the number of degrees of freedom in the theory. This can be reflected in the calculation of free energy density for a cylinder, which is related to the plane via a conformal transormation
+\begin{equation}
+\omega = \frac{L}{2\pi} \mathrm{log} (z).
+\end{equation}
+The energy-momentum tensor becomes 
+\begin{equation}
+T_{cyl}(\omega) = \left(\frac{2\pi}{L}\right)^2 \{T_{pl}(z)\ z^2 - \frac{c}{24}\}.
+\end{equation}
+The variation of free energy is a response to the change of metric. One can make a change only along with the circumference direction $\omega^0 \rightarrow \omega^0(1+\epsilon)$. Note that this is not a confromal transormation, which will result in the change of the metric tensor. One can find the free energy for a cylinder takes the form of
+\begin{equation}
+F = f_0 L - \frac{\pi c}{6L},
+\end{equation}
+which indicates that the conformal anomaly reflects the quantum fluctuation effect to the classifcal conformal symmetry.   
+
 
 \appendix
 
