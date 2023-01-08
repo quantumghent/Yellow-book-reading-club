@@ -476,12 +476,51 @@ The energy-momentum tensor becomes
 \begin{equation}
 T_{cyl}(\omega) = \left(\frac{2\pi}{L}\right)^2 \{T_{pl}(z)\ z^2 - \frac{c}{24}\}.
 \end{equation}
-The variation of free energy is a response to the change of metric. One can make a change only along with the circumference direction $\omega^0 \rightarrow \omega^0(1+\epsilon)$. Note that this is not a confromal transormation, which will result in the change of the metric tensor. One can find the free energy for a cylinder takes the form of
+The variation of free energy is a response to the change of metric. One can make another coordinate transformation only along with the circumference direction $\omega^0 \rightarrow \omega^0(1+\epsilon)$. Note that this is not a confromal transormation, which will result in the change of the metric tensor. One can find the free energy for a cylinder takes the form of
 \begin{equation}
 F = f_0 L - \frac{\pi c}{6L},
 \end{equation}
 which indicates that the conformal anomaly reflects the quantum fluctuation effect to the classifcal conformal symmetry.   
 
+\section{Operator formalism}
+In this section, we explore the quantization of the cft on a cylinder, which is related to the plane via a conformal transormation. 
+
+\subsection{Radial quantization}
+On the plane, one has the freedom to choose the direction of space or time for an Euclidean theory. Here we choose the radial direction to be time and the angle direction to be space. A conformal transformation
+\begin{equation}
+	\xi = \frac{L}{2\pi}\mathrm{log}\left(z\right)
+\end{equation}
+maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum thoery defined on a cylinder can be used to understand the plane. 
+
+One can immedialy find many important properties of the radial quantization from the confromal mapping. The time evolution operator, the Hamiltonian, on a cylinder corresponds the dialation operator on the plane and the translation operator, i.e.  the momentum, corresponds to the rotation operator on the plane. Such a quantization scheme for a cft is called radial quantization. The time ordering on a cylinder becomes radial ordering on a plane. As  a conseconce, the commutation of operators for a quantum theory is related to contour integrals through
+\begin{equation}
+	[A,B] = \oint_0 d\omega \oint_\omega dz \, a(z)b(\omega),
+\end{equation}
+where $A$ and $B$ are defined as equal time contour integral of local fields. Note that in the coutour integral, we have assumed that there is no other fields existing between the two integral circles, which means the time difference $\epsilon$ here should be infestimal small. In other words, the communicator defined here should be understood as equal-time communicator.
+
+{\it State-field correspondence} Following the quantum theory on a cylinder (an operator in inserted at infinit past time to the vaccum state), we define a state corresponding to the field $\phi(z,\bar{z})$
+\begin{equation}
+	\vert \phi \rangle = \lim_{z,\bar{z}\to 0}\phi(z,\bar{z})\vert0\rangle.
+\end{equation}
+Its dual state is defined as 
+\begin{equation}
+	\langle \phi \vert = \lim_{z,\bar{z}\to 0} \bar{z}^{-2h}z^{-2\bar{h}} \langle 0 \vert \phi(1/\bar{z},1/z).
+\end{equation}
+It is clear that states such definied are properly normalized. 
+
+\subsection{Virasoro agebra}
+With the radial quantization and state-field correspondence, one can re-express the conformal symmetry, i.e. the Virasoro algera conveniently.  We first introduce quantum operators for local fields and the energy-momentum tensor from equal-time contour integral (or equally mode expansion for local fields)
+\begin{equation}
+	\phi_n = \frac{1}{2\pi i}\oint dz \, z^{n+h-1} \phi(z),
+\end{equation}
+in which for the energy-momentum tensor $T(z)$ we denote its mode expansion operator as $L_n$. One then finds operators $L_n$ defind here obey Virasoro algebra using the OPE of $T(z)$ from a straightforward calculation. Again, the communicator between $L_n$ is meaningful as equal-time. One can also obtain the communicator between $L_n$ and $\phi_m$ 
+\begin{equation}
+	[L_n, \phi_m] = \left(n(h-1)-m\right) \phi_{n+m}.
+\end{equation}
+With the Virasoro generators $L_n$, one can also construct states as 
+\begin{equation}
+L_{-k_1}L_{-k_2} \cdots L_{-k_n} \vert \phi \rangle.
+\end{equation}•
 
 \appendix
 
