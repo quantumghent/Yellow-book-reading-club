@@ -173,7 +173,7 @@ where we used
     \gamma^0 = \sigma^x \quad \gamma^1 = -i\sigma^y
 \end{equation}
 
-\subsubsection{Wick rotation}
+{\it Wick rotation}
 It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as 
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
@@ -191,7 +191,7 @@ where $\tau = -it$. The Eulidean space action can be written as
     S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
 \end{equation}
 
-\subsubsection{1+1d free fermions: Legendre transformation}
+{\it $1+1d$ free fermions: Legendre transformation}
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
@@ -259,7 +259,7 @@ This equations holds for all the field configurations. If we require the field c
     \partial_\mu j^\mu = 0.
 \end{equation}
 
-\subsubsection{Energy-momentum tensor}
+{\it Energy-momentum tensor}
 The canonical energy-momentum tensor is defined to be the Noether current of the translation transformation
 \begin{eqnarray}
     x'^\mu &=& x^\mu + \epsilon^\nu \delta^\mu_\nu \\
@@ -292,7 +292,8 @@ All the field configurations contribute to the quantum theory, so that one has n
 &=& \langle\ F(\phi(x_1))...F(\phi(x_n)) \ \rangle
 \end{eqnarray}
 in which we assumed the functional integral measure does not change and the coordinate transformation is a rigid one ($\omega_a$ is a constant).
-\subsubsection{Ward identity}
+
+{\it Ward identity}
 As stated above there is no conserved current at the quantum level. The infinitesimal coordinate transformation at the quantum level results in the so-called Ward identity.
 
 We denote the change of fields as
@@ -322,7 +323,7 @@ Since $\omega_a$ is arbitrary, one obtains the Ward identity
 So that for each symmetry, there exists a Ward identity, i.e., a constraint to the correlation function. With enough symmetries, one can get all the information of the correlation functions.
 
 \subsection{Renormalization group}
-\subsubsection{Dimensional analysis and renormalizability of QFT}
+{\it Dimensional analysis and renormalizability of QFT}
 Let's start with the canonical dimension of fields and couplings in the action,
 \begin{equation}
     S = \int d^dx \ \mathcal{L}(\phi, \lambda).
@@ -340,7 +341,7 @@ Classes/2022f/notes.html).
 
 Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
 
-\subsubsection{Wilson-Kadanoff RG scheme}
+{\it Wilson-Kadanoff RG scheme}
 The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e. the Wilson-Kadanoff RG scheme. 
 
 In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts $\phi = \phi_f +\phi_s$. The fast modes are integrated out to result in a new theory 
@@ -394,8 +395,8 @@ where $\tilde{\lambda}_i$ is a linear combination of the orginal paramters (here
 
 There also exist many other RG schemes. For example, one may integrate out all high-energy modes $\vert k \vert > \Lambda$. There will be divergence at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ to be a real positive number and make perturbation around the upper or lower critical dimension, which is called as $d \mp \epsilon$ expansion in the literature. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. The scaling transformation of $a$ is canceled by the change of couplings in the theory. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point rather than doing Feynmann diagram calculations.
 
-\subsubsection{Example: poor man's scaling of Kondo effect}
-\subsubsection{Example: perturbative RG analysis of $\phi^4$ theory}
+{\it Example: poor man's scaling of Kondo effect}
+{\it Example: perturbative RG analysis of $\phi^4$ theory}
 The Ferromagnetic phase transition is usually modeled by a real scalar field theory
 \begin{equation}
 S = \int d^dx \ \left\{\frac{1}{2}\left(\Delta\phi\right)^2 + \sum_{n=1,2,4}\left(\frac{\lambda_n}{n!}\phi^n\right) \right\}
@@ -429,13 +430,22 @@ At one-loop approximation, using cumulant expansion one can find
 \end{aligned}
 \end{equation}
  
-\subsubsection{Example: perturbative RG analysis of BKT transition}
+{\it Example: perturbative RG analysis of BKT transition}
 
-\section{Conformal group in d=2}
+\section{Conformal symmetry in $d>2$ dimensions}
 
-In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$.
+\section{Conformal symmetry in two dimension}
+In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$. Locally on the algebra level, it becomes the infinite dimensional Witt algebra. In a quantum theory, one can introduce a central extension term and get the famous Virasoro algegra. It is this infinite dimensional symmetry that ensures fields in a cft have nice local properties. 
 
-\subsection{Correlation functions to OPE}
+\subsection{Global and local conformal symmetries}
+
+{\it Conformal mappings and Witt algebra}
+
+{\it Conformal Ward identity}
+
+{\it Virasoro algebra: Central extension of Witt algebra}
+
+\subsection{From correlation functions to OPE}
 Due to the local nature of field theory, we promote the correlation functions to expansion of non-singular operators, which is termed as operator product expansion (OPE). The idea is basically that far away from the operators inside a bounded region other operators can only feel them as a superposition of single operators (non-singular). The first OPE example follows from the conformal ward identity, which builds up the OPE between the energy momentum tensor and primary fields
 \begin{equation}
 	T(z) \phi(\omega) \sim \frac{h}{\left(z-\omega\right)^2} \phi(\omega) + \frac{1}{z-\omega} \partial \phi(\omega)
@@ -520,7 +530,11 @@ in which for the energy-momentum tensor $T(z)$ we denote its mode expansion oper
 With the Virasoro generators $L_n$, one can also construct states as 
 \begin{equation}
 L_{-k_1}L_{-k_2} \cdots L_{-k_n} \vert \phi \rangle.
-\end{equation}•
+\end{equation}
+
+\section{Boundary cft}
+CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary cft can be expressed as a cft defined on the upper half plane with a real axis at its bottom, at which fields obey conformal boundaries. A boundary changing operator is inserted at the origin point if the left and right half plane have different boundaries. This whole subject is related to a name, Cardy. He adopted the method of mirror image to map the anti-holomorphic part of the theory to the lower half plane, which resultes in a chiral cft defined on the whole plane.  Now the conformal symmetry realized on the plane can be used to study boundary cfts. For example, the two-point correlation functions becomes four-point chiral correlation functions in a boundary cft. The classification of boundary cfts is also closely realted to surface critical behaviors. Different surface critical behaviors are naturally understood as different conformal boundaries. 
+
 
 \appendix
 
