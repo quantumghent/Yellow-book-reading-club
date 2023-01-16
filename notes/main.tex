@@ -168,17 +168,17 @@ In terms of $\psi = (\psi^1,\psi^2)$, one can write the theory as
     &=& \frac{g}{2} \psi^\dagger \sigma^x \left(\sigma^x i \partial_t - i\sigma^y i\partial_x \right) \psi \nonumber \\
     &=& \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi
 \end{eqnarray}
-where we used 
+where we used
 \begin{equation}
     \gamma^0 = \sigma^x \quad \gamma^1 = -i\sigma^y
 \end{equation}
 
 {\it Wick rotation}
-It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as 
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
 \end{equation}
-Specifically, 
+Specifically,
 \begin{eqnarray}
     i\ S[\psi] &=& i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
     &=& i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi + i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
@@ -196,17 +196,17 @@ A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
 \end{equation}
-The canonical momentum corresponding to $\psi_n$ is 
+The canonical momentum corresponding to $\psi_n$ is
 \begin{equation}
     \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = -\frac{i}{2}\psi_n.
 \end{equation}
-So that the Hamiltonian is 
+So that the Hamiltonian is
 \begin{eqnarray}
     \mathcal{H} &=& \sum_n \pi_n \dot{\psi_n} - \mathcal{L} \nonumber\\
       &=& -\frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
       &=& -i \sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
 \end{eqnarray}
-While it shoud be 
+While it shoud be
 \begin{equation}
     \mathcal{H} = -\frac{i}{2}\sum_n\psi_n \psi_{n+1}.
 \end{equation}
@@ -240,7 +240,7 @@ The action becomes different after a coordinate transformation. We say it has a 
 \begin{equation}
     x'^\mu = x^\mu + \omega_a \frac{\delta x^\mu}{\delta \omega_a}
 \end{equation}
-and the field changes according to 
+and the field changes according to
 \begin{equation}
     \phi'(x') = \phi(x) + \omega_a \frac{\delta F}{\delta \omega_a}(x)
 \end{equation}
@@ -248,9 +248,9 @@ where $\omega_a$ is a constant and small parameter.
 
 By definition, the change of the action $\delta S$ disappears for a symmetric transformation. We can get nothing new from this. If we allow $\omega_a$ to be arbitrary, the leading contribution to $\delta S$ becomes
 \begin{equation}
-    \delta S = -\int d^2x j^\mu \partial_\mu \omega_a,  
+    \delta S = -\int d^2x j^\mu \partial_\mu \omega_a,
 \end{equation}
-where we introduced the the current $j^\mu$. We assume it decreases fast when approaching infinite. So that one obtains 
+where we introduced the the current $j^\mu$. We assume it decreases fast when approaching infinite. So that one obtains
 \begin{equation}
     \delta S = \int d^2x\ \partial_\mu j^\mu \ \omega_a.
 \end{equation}
@@ -265,7 +265,7 @@ The canonical energy-momentum tensor is defined to be the Noether current of the
     x'^\mu &=& x^\mu + \epsilon^\nu \delta^\mu_\nu \\
     T^{\mu\nu} &=& -\eta^{\mu\nu} L + \frac{\partial L}{\partial(\partial_\mu \phi)}\partial_\nu \phi.
 \end{eqnarray}
-This definition of $T^{\mu\nu}$ is not guaranteed to be symmetric between the two indices (The requirement of a symmetric $T^{\mu\nu}$ will be clear later). 
+This definition of $T^{\mu\nu}$ is not guaranteed to be symmetric between the two indices (The requirement of a symmetric $T^{\mu\nu}$ will be clear later).
 
 Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor (which means the theory is coupled with the dynamical backgroud)
 \begin{equation}
@@ -300,9 +300,9 @@ We denote the change of fields as
 \begin{equation}
     \phi'(x) = \phi(x) -i\omega_a\ G_a\ \phi(x).
 \end{equation}
-The infinitesimal coordinate transformation ($\omega_a$ now is arbitrary) changes the correlation as (We only consider the first order perturbation contribution) 
+The infinitesimal coordinate transformation ($\omega_a$ now is arbitrary) changes the correlation as (We only consider the first order perturbation contribution)
 \begin{eqnarray}
-\langle \phi'(x_1)... \phi'(x_n)\rangle &=& \langle \phi(x_1)... \phi(x_n)\rangle \\ 
+\langle \phi'(x_1)... \phi'(x_n)\rangle &=& \langle \phi(x_1)... \phi(x_n)\rangle \\
 &=& \frac{1}{Z} \int [D\phi'] (X+\delta X) e^{-S[\phi] - \int d^dx\partial_\mu j^\mu \omega_a} \\
 &=& \frac{1}{Z} \int [D\phi] (X+\delta X) e^{-S[\phi] - \int d^dx\partial_\mu j^\mu \omega_a} \\
 &=& \langle X \rangle - \int [D\phi] \int d^dx\ X \partial_\mu j^\mu \omega_a e^{-S[\phi]} - \int [D\phi] \delta X  e^{-S[\phi]}
@@ -342,9 +342,9 @@ Classes/2022f/notes.html).
 Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
 
 {\it Wilson-Kadanoff RG scheme}
-The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e. the Wilson-Kadanoff RG scheme. 
+The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e. the Wilson-Kadanoff RG scheme.
 
-In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts $\phi = \phi_f +\phi_s$. The fast modes are integrated out to result in a new theory 
+In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts $\phi = \phi_f +\phi_s$. The fast modes are integrated out to result in a new theory
 \begin{equation}
     e^{-S'(\phi)_{\Lambda/s}} = \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)}
 \end{equation}
@@ -352,7 +352,7 @@ with a smaller cutoff $\Lambda/s$. Generally, the action can be divided into thr
 \begin{equation}
 S = S_f(\phi_f) + S_s(\phi_s) + S_c(\phi_f,\phi_s).
 \end{equation}
-The new theory thus can be written as 
+The new theory thus can be written as
 \begin{equation}
 \begin{aligned}
     e^{-S'(\phi_s)_{\Lambda/s}} &= \int D\phi_f e^{-S_f - S_s - S_c} \\
@@ -360,24 +360,24 @@ The new theory thus can be written as
     &= e^{-S_s}\ Z_f \ \langle e^{-S_c} \rangle_f
 \end{aligned}
 \end{equation}
-where $ Z_f = \int \mathrm{D}\phi_f \ e^{-\phi_f}$ is a constant and can be neglected (Note that it does contribute to the total free energy). The new action thus is 
+where $ Z_f = \int \mathrm{D}\phi_f \ e^{-\phi_f}$ is a constant and can be neglected (Note that it does contribute to the total free energy). The new action thus is
 \begin{equation}
 \begin{aligned}
 S(\phi_s)_{\Lambda/s} &= -\mathrm{log} \left( \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)} \right) \\
 &= S_s - \mathrm{log} \left(\langle e^{-S_c} \rangle_f\right)
 \end{aligned}
 \end{equation}
-Usually one can not integral out high energy modes exactly, hence cumulant perturbations based on Feynmann diagramm have to be adopted. 
+Usually one can not integral out high energy modes exactly, hence cumulant perturbations based on Feynmann diagramm have to be adopted.
 
-This theory can not be compared with the original one, since they have different cutoffs. Another rescaling step 
+This theory can not be compared with the original one, since they have different cutoffs. Another rescaling step
 \begin{equation}
     \boldsymbol{k} \rightarrow s\ \boldsymbol{k}
 \end{equation}
-is required to restore the cutoff or energy scale. Since the field operators dependend on length scales, they also need to be rescaled 
+is required to restore the cutoff or energy scale. Since the field operators dependend on length scales, they also need to be rescaled
 \begin{equation}
      \phi \rightarrow s^{\Delta_\phi}\ \phi
 \end{equation}
-Now one obtains a new theory $S(\phi,\lambda)_\Lambda$ at the same cutoff but with different parameters, in which we assumed the theory $S(\phi,\lambda)$ remains the same structure. 
+Now one obtains a new theory $S(\phi,\lambda)_\Lambda$ at the same cutoff but with different parameters, in which we assumed the theory $S(\phi,\lambda)$ remains the same structure.
 
 Keep doing such RG procedures, one can find how the parameters $\lambda_i(s)$ flow in the parameter space along with the RG time $s$. These RG transformations of the parameters form a semi-group structure. In the whole parameter space, fixed points are special, since they are scale invariant. The parameter near a fixed point $\lambda^*$ is called relevant or irrelevant when it flows away or close to $\lambda^*$, respectively. A RG program is to find all fixed points and analyse how the parameters flow near fixed points. One needs to solve the so-called $\beta$ equation
 \begin{equation}
@@ -429,13 +429,13 @@ At one-loop approximation, using cumulant expansion one can find
 \left( \frac{\lambda_4}{4!} C^2_4 \right)^2 \int d^dx \int d^dy \ \left(\phi_s(x)\phi_s(y)\right)^2 \ExOp{\phi_f(x) \phi_f(y)}_f^2
 \end{aligned}
 \end{equation}
- 
+
 {\it Example: perturbative RG analysis of BKT transition}
 
 \section{Conformal symmetry in $d>2$ dimensions}
 
 \section{Conformal symmetry in two dimension}
-In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$. Locally on the algebra level, it becomes the infinite dimensional Witt algebra. In a quantum theory, one can introduce a central extension term and get the famous Virasoro algegra. It is this infinite dimensional symmetry that ensures fields in a cft have nice local properties. 
+In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$. Locally on the algebra level, it becomes the infinite dimensional Witt algebra. In a quantum theory, one can introduce a central extension term and get the famous Virasoro algegra. It is this infinite dimensional symmetry that ensures fields in a cft have nice local properties.
 
 \subsection{Global and local conformal symmetries}
 
@@ -454,7 +454,7 @@ where on the right hand side, the operators should be understood as to be calcul
 \begin{equation}
 T(z) \partial\phi(\omega) \sim \frac{\partial \phi(\omega)}{\left(z-\omega\right)^2} + \frac{\partial_\omega^2 \phi(\omega)}{z-\omega}
 \end{equation}
-and $T(z)$ with $\psi$ for free fermion 
+and $T(z)$ with $\psi$ for free fermion
 \begin{equation}
 T(z) \psi(\omega) \sim \frac{\frac{1}{2} \psi(\omega)}{\left(z-\omega\right)^2} + \frac{\partial \psi(\omega)}{z-\omega}
 \end{equation}
@@ -476,13 +476,13 @@ This term also exists in the conformal transormation of $T$
 \begin{equation}
 T'(\omega) = \left(\frac{dw}{dz}\right)^{-2} T(z) + \frac{c}{12}\{z;\omega\}
 \end{equation}
-where $\{z;\omega\}$ denotes the Schwarzian derivative. This is consistent with the fact that this term disappears under global conformal transtions which are true symmetry of CFT. 
+where $\{z;\omega\}$ denotes the Schwarzian derivative. This is consistent with the fact that this term disappears under global conformal transtions which are true symmetry of CFT.
 
 The central charge $c$ is related to the number of degrees of freedom in the theory. This can be reflected in the calculation of free energy density for a cylinder, which is related to the plane via a conformal transormation
 \begin{equation}
 \omega = \frac{L}{2\pi} \mathrm{log} (z).
 \end{equation}
-The energy-momentum tensor becomes 
+The energy-momentum tensor becomes
 \begin{equation}
 T_{cyl}(\omega) = \left(\frac{2\pi}{L}\right)^2 \{T_{pl}(z)\ z^2 - \frac{c}{24}\}.
 \end{equation}
@@ -490,17 +490,17 @@ The variation of free energy is a response to the change of metric. One can make
 \begin{equation}
 F = f_0 L - \frac{\pi c}{6L},
 \end{equation}
-which indicates that the conformal anomaly reflects the quantum fluctuation effect to the classifcal conformal symmetry.   
+which indicates that the conformal anomaly reflects the quantum fluctuation effect to the classifcal conformal symmetry.
 
 \section{Operator formalism}
-In this section, we explore the quantization of the cft on a cylinder, which is related to the plane via a conformal transormation. 
+In this section, we explore the quantization of the cft on a cylinder, which is related to the plane via a conformal transormation.
 
 \subsection{Radial quantization}
 On the plane, one has the freedom to choose the direction of space or time for an Euclidean theory. Here we choose the radial direction to be time and the angle direction to be space. A conformal transformation
 \begin{equation}
 	\xi = \frac{L}{2\pi}\mathrm{log}\left(z\right)
 \end{equation}
-maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum thoery defined on a cylinder can be used to understand the plane. 
+maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum thoery defined on a cylinder can be used to understand the plane.
 
 One can immedialy find many important properties of the radial quantization from the confromal mapping. The time evolution operator, the Hamiltonian, on a cylinder corresponds the dialation operator on the plane and the translation operator, i.e.  the momentum, corresponds to the rotation operator on the plane. Such a quantization scheme for a cft is called radial quantization. The time ordering on a cylinder becomes radial ordering on a plane. As  a conseconce, the commutation of operators for a quantum theory is related to contour integrals through
 \begin{equation}
@@ -512,28 +512,207 @@ where $A$ and $B$ are defined as equal time contour integral of local fields. No
 \begin{equation}
 	\vert \phi \rangle = \lim_{z,\bar{z}\to 0}\phi(z,\bar{z})\vert0\rangle.
 \end{equation}
-Its dual state is defined as 
+Its dual state is defined as
 \begin{equation}
 	\langle \phi \vert = \lim_{z,\bar{z}\to 0} \bar{z}^{-2h}z^{-2\bar{h}} \langle 0 \vert \phi(1/\bar{z},1/z).
 \end{equation}
-It is clear that states such definied are properly normalized. 
+It is clear that states such definied are properly normalized.
 
 \subsection{Virasoro agebra}
 With the radial quantization and state-field correspondence, one can re-express the conformal symmetry, i.e. the Virasoro algera conveniently.  We first introduce quantum operators for local fields and the energy-momentum tensor from equal-time contour integral (or equally mode expansion for local fields)
 \begin{equation}
 	\phi_n = \frac{1}{2\pi i}\oint dz \, z^{n+h-1} \phi(z),
 \end{equation}
-in which for the energy-momentum tensor $T(z)$ we denote its mode expansion operator as $L_n$. One then finds operators $L_n$ defind here obey Virasoro algebra using the OPE of $T(z)$ from a straightforward calculation. Again, the communicator between $L_n$ is meaningful as equal-time. One can also obtain the communicator between $L_n$ and $\phi_m$ 
+in which for the energy-momentum tensor $T(z)$ we denote its mode expansion operator as $L_n$. One then finds operators $L_n$ defind here obey Virasoro algebra using the OPE of $T(z)$ from a straightforward calculation. Again, the communicator between $L_n$ is meaningful as equal-time. One can also obtain the communicator between $L_n$ and $\phi_m$
 \begin{equation}
 	[L_n, \phi_m] = \left(n(h-1)-m\right) \phi_{n+m}.
 \end{equation}
-With the Virasoro generators $L_n$, one can also construct states as 
+With the Virasoro generators $L_n$, one can also construct states as
 \begin{equation}
 L_{-k_1}L_{-k_2} \cdots L_{-k_n} \vert \phi \rangle.
 \end{equation}
 
+\subsection{The Free Boson}
+\subsubsection{Canonical Quantization on the Cylinder}
+Let $\phi(x,t)$ be a free Boson field defined on a cylinder of circumference $L$, such that $\phi(x+L,t) = \phi(x,t)$. The Lagrangian of the boson field is
+\begin{equation}
+  \mathcal{L} = \frac{g}{2}\int dx \left\{(\partial_t\phi)^2-(\partial_x \phi)^2\right\}.
+\end{equation}
+We can Fourier transform $\phi$ as
+\begin{align}
+  \phi(x,t) &= \sum_n e^{\frac{2\pi}{L}inx}\phi_n(t), \\
+  \phi_n(t) &= \frac{1}{L}\int dx e^{-\frac{2\pi}{L}inx}\phi(x,t).
+\end{align}
+The Lagrangian can be reexpressed as
+\begin{equation}
+  \mathcal{L} = \frac{g}{2}\sum_n\left\{\dot{\phi}_n\dot{\phi}_{-n}-\left(\frac{2\pi n}{L}\right)^2\phi_n\phi_{-n}\right\}.
+\end{equation}
+The momentum conjugate to $\phi_n$ becomes
+\begin{equation}
+  \pi_n = gL\dot{\phi}_{-n}, \qquad [\phi_n,\pi_m] = i\delta_{nm}.
+\end{equation}
+The Hamiltonian can be expressed as
+\begin{equation}
+  H = \frac{1}{2gL}\sum_n\{\pi_n\pi_{-n}+(2\pi ng)^2\phi_n\phi_{-n}\}
+\end{equation}
+This corresponds to a sum of decoupled harmonic oscillators with frequencies $\omega = \frac{2\pi}{L}\lvert n\rvert$.
+
+We can introduce creation and annihalation operators, which allow the Hamiltonian to be expressed as
+\begin{equation}
+  H = \frac{1}{2gL}\pi_0^2+\frac{2\pi}{L}\sum_n\left(a_{-n}a_n+\bar{a}_{-n}\bar{a}_n\right).
+\end{equation}
+
+The following commutation relation holds
+\begin{equation}
+  [H,a_{-m}] = \frac{2\pi}{L}ma_{-m}.
+\end{equation}
+Applying $a_{-m}$ toan eigenstate with energy $E$, creates an eigenstate with energy $E+\frac{2\pi m}{L}$.
+The Fourier modes can be expressed as
+\begin{equation}
+  \phi_n = \frac{i}{n\sqrt{4\pi g}}(a_n-\bar{a}_{-n})
+\end{equation}
+The fields can be expressed as
+\begin{equation}
+  \phi(x,t) = \phi_0 + \frac{1}{gL}\pi_0t + \frac{i}{\sqrt{4\pi g}}\sum_{n \neq 0}\frac{1}{n}\left(a_ne^{\frac{2\pi i}{L} n(x-t)}-\bar{a}_{-n}e^{\frac{2\pi i}{L} n(x+t)}\right).
+\end{equation}
+Transforming to Euclidean space, we can define the following conformal coordinates
+\begin{equation}
+  z = e^{\frac{2\pi}{L}(\tau-ix)}, \qquad \bar{z} = e^{\frac{2\pi}{L}(\tau+ix)}.
+\end{equation}
+This results in
+\begin{equation}
+  \phi(z,\bar{z}) = \phi_0 - \frac{i}{4\pi g}\pi_0\ln(z\bar{z}) + \frac{i}{\sqrt{4\pi g}}\sum_{n \neq 0}\frac{1}{n}\left(a_n z^{-n}+\bar{a}_{n}\bar{z}^{-n}\right).
+\end{equation}
+The field $\phi$ is not a primary, however the holomorphic field $\partial \phi$ is.
+\begin{equation}
+  i \partial \phi(z)  = \frac{\pi_0}{4\pi g z}+\frac{i}{\sqrt{4\pi g}}\sum_{n \neq 0} a_n z^{-n-1}
+\end{equation}
+\subsubsection{Vertex Operators}
+There exists an infinite variety of local fields related to $\phi$ without introducing a scale. These are called the vertex operators $\mathcal{V}_\alpha$.
+\begin{equation}
+  \mathcal{V}_\alpha = :e^{i\alpha\phi(z,\bar{z})}:
+\end{equation}
+The vertex operators have conformal dimensions $h(\alpha)=\bar{h}(\alpha) = \frac{\alpha^2}{8\pi g}$.
+\subsection{The Fock Space}
+The eigenstates of $H$ can be labeled by the eigenvalues of $\pi_0$. This means that the Fock space is built upon a one-parameter family of vacua $\lvert{\alpha}\rangle$.
+
+We know that $T(z)$ is given by
+\begin{align}
+  T(z) &= -2\pi g :\partial \phi(z) \partial\phi(z) :\\
+  &= \frac{1}{2} \sum_{n,m}z^{-n-m-2}:a_na_m: .
+\end{align}
+From this we can derive the expression for the Virasoro operators
+\begin{align}
+  L_n &= \frac{1}{2}\sum_{m\in\mathbb{Z}}a_{n-m}a_m \quad(n\neq 0),\\
+  L_0 &= \sum_{n>0}a_{-n}a_n + \frac{1}{2}a_0^2.
+\end{align}
+This allows for the Hamiltonian to be expressed as
+\begin{equation}
+  H = \frac{2\pi}{L}(L_0+\bar{L}_0)
+\end{equation}
+Furthermore the elements of the Fock space $a_{-1}^{n_1}a_{-2}^{n_2}...\bar{a}_{-1}^{m_1}\bar{a}_{-2}^{m_2}...\lvert\alpha\rangle$ are eigenstates of $L_0$ with conformal dimensions $h=\frac{1}{2}\alpha^2+\sum_jjn_j$ and $\bar{h}=\frac{1}{2}\alpha^2+\sum_jjm_j$.
+The different vacua $\lvert \alpha\rangle$ are related to the absolute vacuum $\lvert 0\rangle$ by the vertex operators $\mathcal{V}_\alpha$.
+\subsubsection{Twisted Boundary Conditions}
+We can also assume anti-periodic boundary condition. This is compatible with the Lagrangian because it is quadratic in the fields. Changing to anti-periodic boundaries makes the summation index half-integer valued and removes the zero mode. There are now two vacua $\lvert 0_+ \rangle$ and $\lvert 0_- \rangle$.
+
+We have that
+\begin{equation}
+    \langle\phi\partial\phi\rangle = \frac{1}{w}\sum_{n>0}\left(\frac{w}{z}\right)^n.
+\end{equation}
+In the periodic case the sum is over integer values and becomes
+\begin{equation}
+  \langle\phi\partial\phi\rangle = \frac{1}{z-w}.
+\end{equation}
+In the anti-periodic case the sum is over half integer values and becomes
+\begin{equation}
+  \langle\phi\partial\phi\rangle = \sqrt{\frac{z}{w}}\frac{1}{z-w}.
+\end{equation}
+
+For the vacuum expactation value of the energy-momentum tensor, $\langle T(z)\rangle$, we have in the periodic case $\langle T(z)\rangle = 0$, but in the anti-periodic case $\langle T(z)\rangle=\frac{1}{16z^2}$.
+
+\subsubsection{Compactified Boson}
+We can identify $\phi$ with $\phi+2\pi R$ to get the compact boson. In general we can consider the boundary condition
+\begin{equation}
+  \phi(x+L,t) = \phi(x,t) + 2\pi m R,
+\end{equation}
+where $m$ represents the winding number of the field. This modifies the mode expansion as
+\begin{equation}
+  \phi(x,t) = \phi_0 + \frac{n}{gRL}t + \frac{2\pi m R}{L}x + \frac{i}{\sqrt{4\pi g}}\sum_{k\neq 0}\frac{1}{k}\left(a_ke^{\frac{2\pi i k}{L}(x-t)}-\bar{a}_{-k}e^{\frac{2\pi i k}{L}(x+t)}\right).
+\end{equation}
+After reexpressing in complex coordinates and taking the derivative we get
+\begin{equation}
+  i\partial\phi(z) = (\frac{n}{4\pi g R}+\frac{1}{2}mR)\frac{1}{z}+\frac{1}{\sqrt{4\pi g}\sum_{k\neq 0}a_k z^{-k-1}}.
+\end{equation}
+The virasoro operators $L_0$ and $\bar{L}_0$ can be expressed as
+\begin{align}
+  L_0 &= \sum_{n>0}a_{-n}a_n + 2\pi g \left(\frac{n}{4\pi g R}+\frac{1}{2}mR\right)^2\\
+  \bar{L}_0 &= \sum_{n>0}\bar{a}_{-n}\bar{a}_n + 2\pi g \left(\frac{n}{4\pi g R}-\frac{1}{2}mR\right)^2\\
+\end{align}
+\subsection{The Free Fermion}
+The free fermion action is given by
+\begin{equation}
+  S = \frac{1}{2}g\int d^2 x \Psi^\dagger\gamma^0\gamma^\mu\partial_\mu\Psi
+\end{equation}
+The central charge of this theory is $c=1/2$ and $\psi$ has as conformal dimension $h=1/2$.
+\subsubsection{Canonical Quantization on a Cylinder}
+We can take the mode expansion of $\psi$ at $t=0$ on a cylinder with circumference $L$. This gives
+\begin{equation}
+  \psi(x) = \sqrt{\frac{2\pi}{L}}\sum_kb_ke^{\frac{2\pi i}{L}k x}.
+\end{equation}
+There are two possible types of boundary conditions. With the periodic (Ramond) boundary conditions the index k takes on integer values. With anti-periodic (Neveu-Schwarz) boundary conditions the index k must take half-integer values.
+
+The Hamiltonian can be written as
+\begin{equation}
+  H = \sum_k>0\omega_k b_{-k}b_k +E_0, \qquad \omega_k = \frac{2\pi\lvert k\rvert}{L}.
+\end{equation}
+\subsubsection{Mapping onto the Plane}
+Mapping $\psi$ to the plane gives
+\begin{equation}
+  \psi_{cyl}(z) = \sqrt{\frac{2\pi z}{L}}\psi_{pl}(z)
+\end{equation}
+and thus
+\begin{equation}
+  \psi(z) = \sum_k b_k z^{-k-\frac{1}{2}}
+\end{equation}
+This transformation swaps the boundary Conditions
+\begin{align}
+  \psi(e^{2\pi i}z) &=\psi(z) \qquad(Ramond)\\
+  \psi(e^{2\pi i}z) &\psi(z) \qquad(Neveu-Schwarz)\\
+\end{align}
+
+The different sectors will have a different two-point correlation function. For the NS sector we have
+\begin{equation}
+  \langle\psi(z)\psi(w)\rangle = \frac{1}{z-w}.
+\end{equation}
+In the R sector we have
+\begin{equation}
+  \langle\psi(z)\psi(w)\rangle = \frac{1}{2}\frac{\sqrt{z/w}+\sqrt{w/z}}{z-w}.
+\end{equation}
+Furthermore depending on the boundary conditions the energy-momentum tensor will gain a non-zero expectation value.
+\begin{align}
+  \langle T(z)\rangle = 0 \qquad(Neveu-Schwarz)\\
+  \langle T(z)\rangle = \frac{1}{16z^2} \qquad(Ramond)\\
+\end{align}
+\subsubsection{Vacuum Energies}
+The energy momentum tensor on the plane can be written as
+\begin{equation}
+  T(z) = \frac{1}{2}\sum_{n,k}(k+\frac{1}{2})z^{-n-2}:b_{n-k}b_k:,
+\end{equation}
+which naturally leads to
+\begin{equation}
+  L_n = \frac{1}{2}\sum_k(k+\frac{1}{2}):b_{n-k}b_{k}:
+\end{equation}
+$L_0$ is given by different expressions depending on the boundary conditions.
+\begin{align}
+  L_0 &= \sum_{k>0}kb_{-k}b_k \qquad (NS)\\
+  L_0 &= \sum_{k>0}kb_{-k}b_k + \frac{1}{16} \qquad (R)\\
+\end{align}
+From this we can express the Hamiltonian as
+\begin{equation}
+  H = \frac{2\pi}{L}(L_0 + \bar{L}_0-\frac{c}{12}).
+\end{equation}
 \section{Boundary cft}
-CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary cft can be expressed as a cft defined on the upper half plane with a real axis at its bottom, at which fields obey conformal boundaries. A boundary changing operator is inserted at the origin point if the left and right half plane have different boundaries. This whole subject is related to a name, Cardy. He adopted the method of mirror image to map the anti-holomorphic part of the theory to the lower half plane, which resultes in a chiral cft defined on the whole plane.  Now the conformal symmetry realized on the plane can be used to study boundary cfts. For example, the two-point correlation functions becomes four-point chiral correlation functions in a boundary cft. The classification of boundary cfts is also closely realted to surface critical behaviors. Different surface critical behaviors are naturally understood as different conformal boundaries. 
+CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary cft can be expressed as a cft defined on the upper half plane with a real axis at its bottom, at which fields obey conformal boundaries. A boundary changing operator is inserted at the origin point if the left and right half plane have different boundaries. This whole subject is related to a name, Cardy. He adopted the method of mirror image to map the anti-holomorphic part of the theory to the lower half plane, which resultes in a chiral cft defined on the whole plane.  Now the conformal symmetry realized on the plane can be used to study boundary cfts. For example, the two-point correlation functions becomes four-point chiral correlation functions in a boundary cft. The classification of boundary cfts is also closely realted to surface critical behaviors. Different surface critical behaviors are naturally understood as different conformal boundaries.
 
 
 \appendix
@@ -572,7 +751,7 @@ This map is:
 \begin{enumerate}
 	\item \label{prop:antisym} Antisymmetric.
 	\item \label{prop:bilinear} Bilinear.
-	\item \label{prop:Jacobi} Satisfies $\Theta(x,[y,z]) + \Theta(y,[z,x]) + \Theta(z,[x,y]) = 0$. 
+	\item \label{prop:Jacobi} Satisfies $\Theta(x,[y,z]) + \Theta(y,[z,x]) + \Theta(z,[x,y]) = 0$.
 \end{enumerate}
 Given $\Theta$ one can now show that there is an isomorphism between the vector spaces $\mathfrak{e}\cong\mathfrak{g}\oplus\mathfrak{h}$ that is given by:
 \begin{equation}
