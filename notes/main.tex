@@ -544,7 +544,7 @@ L_{-k_1}L_{-k_2} \cdots L_{-k_n} \vert \phi \rangle.
 \end{equation}
 
 \subsection{The Free Boson}
-\subsubsection{Canonical Quantization on the Cylinder}
+{\it Canonical Quantization on the Cylinder}
 Let $\phi(x,t)$ be a free Boson field defined on a cylinder of circumference $L$, such that $\phi(x+L,t) = \phi(x,t)$. The Lagrangian of the boson field is
 \begin{equation}
   \mathcal{L} = \frac{g}{2}\int dx \left\{(\partial_t\phi)^2-(\partial_x \phi)^2\right\}.
@@ -598,7 +598,8 @@ The field $\phi$ is not a primary, however the holomorphic field $\partial \phi$
 \begin{equation}
   i \partial \phi(z)  = \frac{\pi_0}{4\pi g z}+\frac{i}{\sqrt{4\pi g}}\sum_{n \neq 0} a_n z^{-n-1}
 \end{equation}
-\subsubsection{Vertex Operators}
+
+{\it Vertex Operators}
 There exists an infinite variety of local fields related to $\phi$ without introducing a scale. These are called the vertex operators $\mathcal{V}_\alpha$.
 \begin{equation}
   \mathcal{V}_\alpha = :e^{i\alpha\phi(z,\bar{z})}:
@@ -623,7 +624,8 @@ This allows for the Hamiltonian to be expressed as
 \end{equation}
 Furthermore the elements of the Fock space $a_{-1}^{n_1}a_{-2}^{n_2}...\bar{a}_{-1}^{m_1}\bar{a}_{-2}^{m_2}...\lvert\alpha\rangle$ are eigenstates of $L_0$ with conformal dimensions $h=\frac{1}{2}\alpha^2+\sum_jjn_j$ and $\bar{h}=\frac{1}{2}\alpha^2+\sum_jjm_j$.
 The different vacua $\lvert \alpha\rangle$ are related to the absolute vacuum $\lvert 0\rangle$ by the vertex operators $\mathcal{V}_\alpha$.
-\subsubsection{Twisted Boundary Conditions}
+
+{\it Twisted Boundary Conditions}---
 We can also assume anti-periodic boundary condition. This is compatible with the Lagrangian because it is quadratic in the fields. Changing to anti-periodic boundaries makes the summation index half-integer valued and removes the zero mode. There are now two vacua $\lvert 0_+ \rangle$ and $\lvert 0_- \rangle$.
 
 We have that
@@ -641,7 +643,7 @@ In the anti-periodic case the sum is over half integer values and becomes
 
 For the vacuum expactation value of the energy-momentum tensor, $\langle T(z)\rangle$, we have in the periodic case $\langle T(z)\rangle = 0$, but in the anti-periodic case $\langle T(z)\rangle=\frac{1}{16z^2}$.
 
-\subsubsection{Compactified Boson}
+{\it Compactified Boson}
 We can identify $\phi$ with $\phi+2\pi R$ to get the compact boson. In general we can consider the boundary condition
 \begin{equation}
   \phi(x+L,t) = \phi(x,t) + 2\pi m R,
@@ -665,7 +667,8 @@ The free fermion action is given by
   S = \frac{1}{2}g\int d^2 x \Psi^\dagger\gamma^0\gamma^\mu\partial_\mu\Psi
 \end{equation}
 The central charge of this theory is $c=1/2$ and $\psi$ has as conformal dimension $h=1/2$.
-\subsubsection{Canonical Quantization on a Cylinder}
+
+{\it Canonical Quantization on a Cylinder}
 We can take the mode expansion of $\psi$ at $t=0$ on a cylinder with circumference $L$. This gives
 \begin{equation}
   \psi(x) = \sqrt{\frac{2\pi}{L}}\sum_kb_ke^{\frac{2\pi i}{L}k x}.
@@ -676,7 +679,8 @@ The Hamiltonian can be written as
 \begin{equation}
   H = \sum_k>0\omega_k b_{-k}b_k +E_0, \qquad \omega_k = \frac{2\pi\lvert k\rvert}{L}.
 \end{equation}
-\subsubsection{Mapping onto the Plane}
+
+{\it Mapping onto the Plane}
 Mapping $\psi$ to the plane gives
 \begin{equation}
   \psi_{cyl}(z) = \sqrt{\frac{2\pi z}{L}}\psi_{pl}(z)
@@ -704,7 +708,9 @@ Furthermore depending on the boundary conditions the energy-momentum tensor will
   \langle T(z)\rangle = 0 \qquad(Neveu-Schwarz)\\
   \langle T(z)\rangle = \frac{1}{16z^2} \qquad(Ramond)\\
 \end{align}
-\subsubsection{Vacuum Energies}
+
+
+{\it Vacuum Energies}
 The energy momentum tensor on the plane can be written as
 \begin{equation}
   T(z) = \frac{1}{2}\sum_{n,k}(k+\frac{1}{2})z^{-n-2}:b_{n-k}b_k:,
@@ -722,11 +728,12 @@ From this we can express the Hamiltonian as
 \begin{equation}
   H = \frac{2\pi}{L}(L_0 + \bar{L}_0-\frac{c}{12}).
 \end{equation}
-\section{Boundary cft}
-CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary cft can be expressed as a cft defined on the upper half plane with a real axis at its bottom, at which fields obey conformal boundaries. A boundary changing operator is inserted at the origin point if the left and right half plane have different boundaries. This whole subject is related to a name, Cardy. He adopted the method of mirror image to map the anti-holomorphic part of the theory to the lower half plane, which resultes in a chiral cft defined on the whole plane.  Now the conformal symmetry realized on the plane can be used to study boundary cfts. For example, the two-point correlation functions becomes four-point chiral correlation functions in a boundary cft. The classification of boundary cfts is also closely realted to surface critical behaviors. Different surface critical behaviors are naturally understood as different conformal boundaries.
 
 
-\section{Normal ordering}
+
+
+
+\subsection{Normal ordering}
 For free fields the OPE of the field with itself contains only one term with a constant prefactor. It can be regularized by normal ordering the fields, or equivalently, subtracting its expectation value.
 Using the former prescription for $T(z)T(w)$ only kills the $\propto c$ term. So clearly we need a more elaborate definition of normal ordering. We shall define proper normal ordering for general fields as subtracting all the singular terms from the OPE. We will write this normal ordering as
 \begin{equation}
@@ -770,12 +777,12 @@ Some warnings are in place:
 	\item With this definition of normal ordering, Wick's theorem needs to be revisited. This is done in Appendix 6.B of the Book.
 \end{enumerate}
 
-\section{Conformal families and Operator algebra}
+\subsection{Conformal families and Operator algebra}
 \epigraph{There's nothing stronger than family.}{D. T.}
 The goal of this section is to introduce the notion of conformal blocks and associated to this the method of conformal bootstrapping as a way to solve CFTs, ie. compute the correlation functions, explicitly. Before that we revisit the notion of descendant fields and conformal families.
 
 In the following we mostly only care about the holomorphic part of fields.
-\subsection{Descendant fields}
+{\it Descendant fields}
 A descendant is generated from a primary by acting with the Virasoro operators:
 \begin{equation}
 	\phi^{(-n)}(w) = (L_{-n}\phi)(w) = \frac{1}{2\pi i}\oint_w dz \frac{1}{(z-w)^{n-1}}T(z)\phi(w),
@@ -804,12 +811,13 @@ and so on, we find in a similar way that
 \begin{equation}
 	\expval{(L_{-k_1}...L_{-k_n}\phi)(w)X} = \mathcal{L}_{-k_1}...\mathcal{L}_{-k_n}\expval{\phi(w)X} \qquad (n\geq 1)
 \end{equation}
-\subsection{Conformal families}
+
+{\it Conformal families}
 A \emph{conformal family} is a set of states that transform according to a representation of the conformal group. A family contains a primary and its descendants. We will denote the conformal family associated with the primary $\phi$ by $[\phi]$. First descendants of a primary are sometimes called \emph{secondary fields}. Another way to say that a conformal family transforms under itself is to say that the OPE of $T(z)$ with any member of the family will be composed solely of other members within the same family. Concretely:
 \begin{equation}
 	T(z)\phi^{(-n)}(w) = \frac{cn(n^2-1)/12}{(z-w)^{n+2}}\phi(w) + \sum_{k=1}^{n}\frac{n+k}{(z-w)^{k+2}}\phi^{(k-n)}(w) + \sum_{k\geq 0}(z-w)^{k-2}\phi^{(-k,-n)}(w)
 \end{equation}
-\subsection{The operator algebra}
+{\it The operator algebra}
 The two - and three point functions of a CFT are fixed by conformal invariance. However, we need additional dynamical information to compute the three-point fusion coefficients $C_{ijk}$ (for example using a conformal bootstrap approach). This information is contained in the \emph{operator algebra}. The OPE which also includes the regular terms of all primary fields with each other. Using the operator algebra we can reduce all correlation functions to two-point correlation functions.
 
 First we choose a basis of fields such that $C_{\alpha\beta} = \delta_{\alpha\beta}$ in
@@ -837,8 +845,7 @@ An example is given in the Book. Even in a relatively simple case, finding the t
 
 In conclusion, given the central charge, the conformal dimensions and the three-point coefficients $C_{pnm}$, one can - in principle - determine the operator algebra. Using the operator algebra, all the n-point correlation functions can be computed and the entire theory is solved.
 
-\subsection{Conformal blocks}
-
+{\it Conformal blocks}
 Let us illustrate how the four-point functions can be reduced to three-point functions using the machinery introduced in the previous sections.
 
 We consider the four-point function
@@ -881,8 +888,7 @@ The partial wave factorizes in a holomorphic and antiholomorphic part, according
 \end{equation}
 we call these functions $\mathcal{F}$, the \emph{conformal blocks}. There is a recipe to compute these conformal blocks, even though it is a pain to compute these in practice. Physically speaking, these conformal blocks are the part in the four-point function that is fixed by conformal invariance. They depend on the anharmonic ratios via a series expansion. The remaining elements are the three-point coefficients, which are \emph{not} fixed by conformal invariance.
 
-\subsection{Crossing symmetry and the conformal bootstrap}
-
+{\it Crossing symmetry and the conformal bootstrap}
 What happens if we would choose instead of $z_4 = 0$, $z_1 = \infty$, $z_2 = 1$, $z_3 = x$ a different order of the fields? Following identities can be obtained relatively easy:
 \begin{equation}
 	G_{34}^{21}(x,\overline{x}) = G_{32}^{41}(1-x,1-\overline{x}),
@@ -931,6 +937,87 @@ which has a aesthetically pleasing pictorial interpretation:
 \end{tikzpicture}
 \end{figure}
 Crossing symmetry imposes $N^4$ constrains on the $N^3 + N$ parameters $C_{mn}^p$ and $h_p$. Exploiting crossing symmetry to compute these parameters is called \emph{conformal} bootstrap.
+
+\section{Boundary conformal field theory}
+CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary conformal field theory (BCFT) is a CFT defined on a two dimension manifold with one dimension boundaries. It is important theoretical tool in the study of surface critical behavior and open strings in string theories. 
+
+\subsection{BCFT in the open sector}
+We define a BCFT on a cylinder with two boundaries $B_a$ and $B_b$. The complex coordinate is denoted by $\omega = \tau + i \sigma$, where we identify the time $\tau$ ($\tau \in [0,2\pi t]$) direction to be periodic and space $\sigma$ ($\sigma \in [0,\pi]$) to be open. See the schematic figure in Fig.~\ref{fig_bcft}. When the time direction range is unbounded $t\rightarrow\infty$, the cylinder becomes a strip. Since the Hamiltonian $H_{ab}$ generating time evolution is defined at a fixed time with two boundaries, the whole Hilbert space is constrained by the boundary conditions at $B_a$ and $B_b$. To apply the powerful conformal symmetry to the strip, one can apply the conformal mapping $z = e^\omega = e^\tau e^{i\sigma}$ to relate the strip to the upper half-plane. The energy-momentum tensor has to be real at the boundary, so that
+\begin{equation} \label{Eq_T_open}
+    T(z) - \bar{T}(\bar{z})\vert_{\sigma=0,\pi} = 0
+\end{equation}
+or in terms of Laurent series 
+\begin{equation}
+    \sum_n L_n z^{-n-2} - \sum_n \bar{L}_n \bar{z}^{-n-2}\vert_{\sigma=0,\pi} = 0. 
+\end{equation}
+One then finds the two Virasoro algebra now reduces to a single algebra under the constraint $L_n = \bar{L}_n$. This is naturally satisfied if one identifies the antiholomorphic coordinate $\bar{z}$ in the upper half-plane to be the holomorphic one $z^*$ in the lower half-plane. As a result, a BCFT defined on a strip is mapped to a chiral CFT defined on a plane. 
+
+With this identification, one can express operators defined on a cylinder in terms of those defined on a plane. The Hamiltonian operator is 
+\begin{equation}
+    H_{ab} = L_0 - \frac{c}{24}. 
+\end{equation}
+The partition function can also be written down 
+\begin{equation}
+    Z_{ab} = \mathrm{Tr}\,\left( e^{-2\pi t\, H_{ab}}\right) = \mathrm{Tr}\,\left( q^{L_0-c/24}\right),
+\end{equation}
+where $q=e^{\pi i\, \tau_{open}}$ and the modular parameter $\tau_{open} = i\,t$. As stated above, the Hilbert space is determined by the boundaries $B_{a/b}$. A conformal family $[\phi_{h}(z)]$ appearing in the chiral theory should be consistent with the boundary conditions. The partition function can be written as 
+\begin{equation}
+    Z_{ab} = \sum_h n_{ab}^h\, \chi_h(q)
+\end{equation}
+where the non-negative integer $n_{ab}^h$ selects the conformal families appearing in the theory and the character $\chi_h(q) = \mathrm{Tr}_h\,\left( q^{L_0-c/24}\right)$.
+
+\subsection{BCFT in the closed sector}
+In the open sector the time direction is chosen to be periodic. Meanwhile one has the freedom to define the space $\sigma$ ($\sigma \in [0,2\pi]$) direction to be periodic and time $\tau$ to be open ($\tau \in [0,2\pi\,l]$), which is the closed sector. The calculation of partition function becomes a time evolution
+\begin{equation}
+    Z_{ab} = \langle a \vert e^{-2\pi l H} \vert b \rangle = \langle a \vert e^{-2\pi l (L_0 + \bar{L}_0 -c/12)} \vert b \rangle,
+\end{equation}
+where the time evolution operator $H$ defined on a cylinder is the dilation operator on the plane $H = L_0 + \bar{L}_0 - c/12$. Figure.~\ref{fig_bcft} shows the closed sector geometry.
+
+The physical constraint Eq.~\ref{Eq_T_open} in the closed sector now becomes 
+\begin{equation}
+    z^2 T(z) - \bar{z}^2 \bar{T}(\bar{z})\vert_{\tau=0,2\pi l} = 0.
+\end{equation}
+Note that due to the choice of time direction, the boundary condition is a constraint to the boundary state $\vert a \rangle$ and $\vert b\rangle$. In terms of Laurent modes, this is
+\begin{equation}
+    \begin{split}
+        \left(L_n - \bar{L}_{-n}\right) \vert a \rangle = 0.  
+    \end{split}
+\end{equation}
+The basis state of the solution is the so-called Ishibashi state
+\begin{equation}
+    \vert h \rangle\rangle = \sum_n \vert h,n\rangle \otimes U\overline{\vert h,n\rangle},
+\end{equation}
+where $U$ is an anti-unitary operator which commutes with Virasoro generators, $h$ denotes a conformal family $\phi_h$. If there are a finite number representations of the Virasoro algebar in the theory, one can construct physical boundary states, the Cardy states, in terms of the Ishibashi states
+\begin{equation}
+    \vert a \rangle = \sum_h c_a^h\, \vert h \rangle \rangle. 
+\end{equation}
+The partition function $Z_{ab}$ then reads
+\begin{equation}
+    Z_{ab} = \sum_h \left(c_a^h\right)^* c_b^h\, \chi_h(\tilde{q})
+\end{equation}
+where $\tilde{q} = e^{2\pi i \tau_{closed}}$ with the modular parameter $\tau_{closed} = 2i\,l = i/t$.
+
+\subsection{Open-closed BCFT duality}
+The open and closed sector theories are essentially describing the same $Z_{ab}$. They are related through a modular transformation of the modular parameter $\tau \rightarrow -1/\tau$ which exchange the role of space and time. The characters are related by a $S$ matrix 
+\begin{equation}
+    \chi_j(\tilde{q}) = \sum_i S^i_j\, \chi_i(q).
+\end{equation}
+This gives the Cardy conditions to the BCFT
+\begin{equation}
+\begin{split}
+    & n_{ab}^h = \sum_i \left(c_a^i\right)^* c_b^i\, S_i^h \\
+    & \left(c_a^h\right)^* c_b^h = \sum_i n_{ab}^i S^h_i.  
+\end{split}
+\end{equation}
+For minimal models the Cardy states can be constructed by requiring
+\begin{equation}
+\begin{split}
+    c_a^h &= S_a^h / \sqrt{S^h_0} \\
+    n_{ab}^h &= \sum_i \frac{\left(S_a^i\right)^* S_b^i S_h^i}{S_0^i}.
+\end{split}
+\end{equation}
+Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$ is the same as the fusion multiplicities $N_{ab}^h$. It is now clear that the conformal families appearing in the open sector theory is determined by the fusion of the primaries representing the Cardy states in the closed sector. 
+
 \appendix
 
 \section{Central extensions of Lie algebras}
