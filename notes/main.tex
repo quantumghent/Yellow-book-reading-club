@@ -125,7 +125,7 @@ The Yellow Book Notes. It is good to write notes!
 
 \section{Preliminary}
 \subsection{Conventions}
-{\it Metric tensor and Coordinate.--}  The metric tensor in Minkowski and Euclidean space-time is defined as
+{\bf Metric tensor and Coordinate.--}  The metric tensor in Minkowski and Euclidean space-time is defined as
 \begin{equation}
     \eta = \begin{Bmatrix}
         +1 &   &\\
@@ -143,7 +143,7 @@ and
 \end{equation}
 respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = \{t, \mathop{x}\limits^\rightarrow\}$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
 
-{\it $\gamma$ matrices.--}   The $\gamma$ matrices follow the Clifford algebra
+{\bf $\gamma$ matrices.--}   The $\gamma$ matrices follow the Clifford algebra
 \begin{equation}
     \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
 \end{equation}
@@ -158,14 +158,14 @@ while in Elidean space, they can be chosen as
     \gamma^1 &=& \sigma^y.
 \end{eqnarray}
 
-{\it Complex Coordinate.--}  In $2d$ CFT, complex coordinate is powerful as one can utilize the beautiful analytic properties of holomorphic functions. It is defined as 
+{\bf Complex Coordinate.--}  In $1+1d$ Minkoswki space, fields are functions of $x-t$ or $x+t$. In CFT, there are two independent Virasoro algebras, in which the holomorphic (resp. antiholomorphic) part has fields $\phi(x-t)$ ($\phi(x+t)$). It is more convenient to use imaginary time $\tau = it$ and complex coordinates. It is defined as 
 \begin{equation}
 \begin{aligned}
 z &= z^0 + i z^1 \\
 \bar{z} &= z^0 - i z^1.
 \end{aligned}
 \end{equation}  
-Note that here $z$ and $\bar{z}$ denote coordinates with upper index.
+Note that here $z$ and $\bar{z}$ denote coordinates with upper index. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. 
 
 \subsection{Free fermions}
 In Minkowski space time, the Lagrange density for the free fermion reads
@@ -184,7 +184,7 @@ where we used
     \gamma^0 = \sigma^x \quad \gamma^1 = -i\sigma^y
 \end{equation}
 
-{\it Wick rotation}
+{\bf Wick rotation}
 It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
@@ -202,7 +202,7 @@ where $\tau = -it$. The Eulidean space action can be written as
     S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
 \end{equation}
 
-{\it $1+1d$ free fermions: Legendre transformation}
+{\bf Hamiltonian formalism.---}
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
@@ -227,24 +227,51 @@ If we'd like to keep defining the derivative of Grassmann number according to th
 \end{equation}
 
 \subsection{Free boson}
-The action for the free boson in the Minkoswki space time reads
+The non-compact free boson in the Minkoswki space time reads
 \begin{equation}
-    S = \frac{1}{2}g\int \ dxdt \ \partial_\mu \phi \partial^\mu \phi,
+    S = \frac{1}{4\pi\,K}\int \ dxdt \ \partial_\mu \phi \partial^\mu \phi,
 \end{equation}
 where $\phi$ is a real scalar field. After Wick rotation $\tau = it$, it becomes
 \begin{eqnarray}
-    i\ S &=& \frac{i}{2}g\int \ dxdt \ \partial_t \phi \partial_t \phi - \frac{i}{2}g\int \ dxdt \ \partial_x \phi \partial_x \phi \nonumber \\
-    &=& -\frac{1}{2}g\int \ dxd\tau \ \partial_\tau \phi \partial_\tau \phi - \frac{1}{2}g\int \ dxdit \ \partial_x \phi \partial_x \phi \nonumber \\
-    &=& -\frac{1}{2}g\int \ dxd\tau \ \partial_\mu \phi \partial^\mu \phi
+    i\ S &=& \frac{i}{4\pi\,K}\int \ dxdt \ \partial_t \phi \partial_t \phi - \frac{i}{2}g\int \ dxdt \ \partial_x \phi \partial_x \phi \nonumber \\
+    &=& -\frac{1}{4\pi\,K}\int \ dxd\tau \ \partial_\tau \phi \partial_\tau \phi - \frac{1}{2}g\int \ dxdit \ \partial_x \phi \partial_x \phi \nonumber \\
+    &=& -\frac{1}{4\pi\,K}\int \ dxd\tau \ \partial_\mu \phi \partial^\mu \phi
 \end{eqnarray}
 The Euclidean action reads
 \begin{equation}
-    S_E = \frac{1}{2}g\int \ d^2x \ \partial_\mu \phi \partial^\mu \phi.
+    S_E = \frac{1}{4\pi\,K}\int \ d^2x \ \partial_\mu \phi \partial^\mu \phi.
 \end{equation}
+
+The theory can be defined on a cylinder in which the coordinate is $\omega = \tau + i\sigma$ where $\sigma$ is defined on a circle with a unit radius. We can use another complex coordinate
+\begin{equation}
+  z = e^\omega = e^\tau e^{i\sigma}
+\end{equation}
+to rewritte the theory on a plane parameterized with $z$.
+
 The two point correlation up to a constant term is
 \begin{equation}
-    \langle \phi(x) \phi(y) \rangle = -\frac{1}{2\pi g} \mathrm{ln} (\rho).
+    \langle \phi(x) \phi(y) \rangle = -K\,\mathrm{log} (r),
 \end{equation}
+where $r$ is the distance between the two points. This is consistent with the fact that the scaling dimension of $\phi$ is 0. The above result is actually not well defined as the two-point correlation has both short and long distance divergence. Let's rewritte the Euclidean action as 
+\begin{equation}
+	S_E = \frac{1}{2\pi\,K} \int\frac{d^2k}{(2\pi)^2}\, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
+\end{equation} 
+One finds the real-space two-point correlation function
+\begin{equation}
+	G(r) = \langle \phi(x) \phi(y) \rangle = 2\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}}{k^2}
+\end{equation}
+which is divergent at IR and UV. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
+\begin{equation}
+	G(r) - G(0) = 2\pi\,K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}-1}{k^2}.
+\end{equation}
+The large $k$ contribution results in
+\begin{equation}
+	G(r) - G(0) \sim -K\,\mathrm{log}(r)
+\end{equation}
+
+
+
+
 
 \subsection{Symmetries at the classical level}
 The action becomes different after a coordinate transformation. We say it has a symmetry if it remains unchanged and a Noether current can be derived from the symmetry. The coordinate transformation is denoted as
@@ -270,7 +297,7 @@ This equations holds for all the field configurations. If we require the field c
     \partial_\mu j^\mu = 0.
 \end{equation}
 
-{\it Energy-momentum tensor}
+{\bf Energy-momentum tensor}
 The canonical energy-momentum tensor is defined to be the Noether current of the translation transformation
 \begin{eqnarray}
     x'^\mu &=& x^\mu + \epsilon^\nu \delta^\mu_\nu \\
@@ -304,7 +331,7 @@ All the field configurations contribute to the quantum theory, so that one has n
 \end{eqnarray}
 in which we assumed the functional integral measure does not change and the coordinate transformation is a rigid one ($\omega_a$ is a constant).
 
-{\it Ward identity}
+{\bf Ward identity}
 As stated above there is no conserved current at the quantum level. The infinitesimal coordinate transformation at the quantum level results in the so-called Ward identity.
 
 We denote the change of fields as
@@ -334,7 +361,7 @@ Since $\omega_a$ is arbitrary, one obtains the Ward identity
 So that for each symmetry, there exists a Ward identity, i.e., a constraint to the correlation function. With enough symmetries, one can get all the information of the correlation functions.
 
 \subsection{Renormalization group}
-{\it Dimensional analysis and renormalizability of QFT}
+{\bf Dimensional analysis and renormalizability of QFT}
 Let's start with the canonical dimension of fields and couplings in the action,
 \begin{equation}
     S = \int d^dx \ \mathcal{L}(\phi, \lambda).
@@ -352,7 +379,7 @@ Classes/2022f/notes.html).
 
 Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
 
-{\it Wilson-Kadanoff RG scheme}
+{\bf Wilson-Kadanoff RG scheme}
 The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e. the Wilson-Kadanoff RG scheme.
 
 In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts $\phi = \phi_f +\phi_s$. The fast modes are integrated out to result in a new theory
@@ -406,8 +433,8 @@ where $\tilde{\lambda}_i$ is a linear combination of the orginal paramters (here
 
 There also exist many other RG schemes. For example, one may integrate out all high-energy modes $\vert k \vert > \Lambda$. There will be divergence at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ to be a real positive number and make perturbation around the upper or lower critical dimension, which is called as $d \mp \epsilon$ expansion in the literature. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. The scaling transformation of $a$ is canceled by the change of couplings in the theory. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point rather than doing Feynmann diagram calculations.
 
-{\it Example: poor man's scaling of Kondo effect}
-{\it Example: perturbative RG analysis of $\phi^4$ theory}
+{\bf Example: poor man's scaling of Kondo effect}
+{\bf Example: perturbative RG analysis of $\phi^4$ theory}
 The Ferromagnetic phase transition is usually modeled by a real scalar field theory
 \begin{equation}
 S = \int d^dx \ \left\{\frac{1}{2}\left(\Delta\phi\right)^2 + \sum_{n=1,2,4}\left(\frac{\lambda_n}{n!}\phi^n\right) \right\}
@@ -441,7 +468,7 @@ At one-loop approximation, using cumulant expansion one can find
 \end{aligned}
 \end{equation}
 
-{\it Example: perturbative RG analysis of BKT transition}
+{\bf Example: perturbative RG analysis of BKT transition}
 
 \section{Conformal symmetry in $d>2$ dimensions}
 
@@ -1094,11 +1121,11 @@ From the modular transformation properties of the $d$'s, it follows there are tw
 \end{align}
 This is twice the partition function of the Ising model on the torus!
 
-
-\section{Boundary conformal field theory}
+\section{Other topics}
+\subsection{Boundary conformal field theory}
 CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary conformal field theory (BCFT) is a CFT defined on a two dimension manifold with one dimension boundaries. It is important theoretical tool in the study of surface critical behavior, defects and open string theories. Note that one can also consider extended symmetry in a CFT, so that the Virasoro algebra is a subalgebra of the extended symmetry. The corresponding boundary condition (resp. boudary state) in the open (resp. closed) sector should also respect the extended algebra. It was shown than there are also symmetry-breaking boundary conditions which only respect the conformal symmetry. Here we only discuss conformal symmetry. 
 
-\subsection{BCFT in the open sector}
+{\bf BCFT in the open sector}
 We define a BCFT on a cylinder with two boundaries $B_a$ and $B_b$. The complex coordinate is denoted by $\omega = \tau + i \sigma$, where we identify the time $\tau$ ($\tau \in [0,2\pi t]$) direction to be periodic and space $\sigma$ ($\sigma \in [0,\pi]$) to be open. When the time direction range is unbounded $t\rightarrow\infty$, the cylinder becomes a strip. Since the Hamiltonian $H_{ab}$ generating time evolution is defined at a fixed time with two boundaries, the whole Hilbert space is constrained by the boundary conditions at $B_a$ and $B_b$. To apply the powerful conformal symmetry to the strip, one can apply the conformal mapping $z = e^\omega = e^\tau e^{i\sigma}$ to relate the strip to the upper half-plane. The energy-momentum tensor has to be real at the boundary, so that
 \begin{equation} \label{Eq_T_open}
     T(z) - \bar{T}(\bar{z})\vert_{\sigma=0,\pi} = 0
@@ -1123,12 +1150,12 @@ where $q=e^{\pi i\, \tau_{open}}$ and the modular parameter $\tau_{open} = i\,t$
 \end{equation}
 where the non-negative integer $n_{ab}^h$ selects the conformal families appearing in the theory and the character $\chi_h(q) = \mathrm{Tr}_h\,\left( q^{L_0-c/24}\right)$.
 
-\subsection{BCFT in the closed sector}
+{\bf BCFT in the closed sector}
 In the open sector the time direction is chosen to be periodic. Meanwhile one has the freedom to define the space $\sigma$ ($\sigma \in [0,2\pi]$) direction to be periodic and time $\tau$ to be open ($\tau \in [0,2\pi\,l]$), which is the closed sector. The calculation of partition function becomes a time evolution
 \begin{equation}
     Z_{ab} = \langle a \vert e^{-2\pi l H} \vert b \rangle = \langle a \vert e^{-2\pi l (L_0 + \bar{L}_0 -c/12)} \vert b \rangle,
 \end{equation}
-where the time evolution operator $H$ defined on a cylinder is the dilation operator on the plane $H = L_0 + \bar{L}_0 - c/12$. Figure.~\ref{fig_bcft} shows the closed sector geometry.
+where the time evolution operator $H$ defined on a cylinder is the dilation operator on the plane $H = L_0 + \bar{L}_0 - c/12$. 
 
 The physical constraint Eq.~\ref{Eq_T_open} in the closed sector now becomes 
 \begin{equation}
@@ -1154,7 +1181,7 @@ The partition function $Z_{ab}$ then reads
 \end{equation}
 where $\tilde{q} = e^{2\pi i \tau_{closed}}$ with the modular parameter $\tau_{closed} = 2i\,l = i/t$.
 
-\subsection{Open-closed BCFT duality}
+{\bf Open-closed BCFT duality}
 The open and closed sector theories are essentially describing the same $Z_{ab}$. They are related through a modular transformation of the modular parameter $\tau \rightarrow -1/\tau$ which exchange the role of space and time. The characters are related by a $S$ matrix 
 \begin{equation}
     \chi_j(\tilde{q}) = \sum_i S^i_j\, \chi_i(q).
@@ -1175,10 +1202,74 @@ For minimal models the Cardy states can be constructed by requiring
 \end{equation}
 Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$ is the same as the fusion multiplicities $N_{ab}^h$. It is now clear that the conformal families appearing in the open sector theory is determined by the fusion of the primaries representing the Cardy states in the closed sector. 
 
+\subsection{Bosonization}
+In the discussion of free compact boson theory, we have seen the vertex operator $V_1 = :e^{i\phi(z,\bar{z})}:$ has the same scaling dimension as a fermion operator and more importantly the free complex fermion and and the free compact boson (with a radius $R=1$) share the same partiton function. These facts indicate that the fermion and boson theories are dual to each other. 
+
+{\bf Dual field approach}\\
+Recall the compact boson compactified on a $2\pi\,R$ circle (we have chosen $K=2$) has the mode expansion
+\begin{equation}
+	\begin{split}
+		X(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z + \bar{j}_0\,\mathrm{ln}\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}+\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
+	\end{split}
+\end{equation} 
+Its conjugate momentum field $\pi(z,\bar{z}):=\frac{\partial\,L}{\partial\partial_tX(z,\bar{z}))} = \frac{1}{4\pi}\,i\,\partial_\tau X$ can be written as
+\begin{equation}
+	\pi(z,\bar{z}) = \frac{1}{4\pi} \left(i\partial X + i\bar{\partial} X\right) = \frac{1}{4\pi} \left(j(z) + \bar{j}(\bar{z})\right) = \frac{1}{4\pi} \partial_t X(z,\bar{z}),
+\end{equation}
+which is consistent with the quantization condition $[X(\tau,\sigma),\pi (\tau,\sigma')] = i\,\delta(\sigma-\sigma')$. Note the communication relation $[x_0,\,\left(j_0+\bar{j}_0\right)/2] = i$ has been assumed here. 
+
+It is usually convenient to introduce the dual field of $X(z,\bar{z})$
+\begin{equation}
+	\begin{split}
+		\theta(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z - \bar{j}_0\,\mathrm{ln}\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}-\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
+	\end{split}
+\end{equation} 
+One finds that 
+\begin{equation}
+	\begin{split}
+		j(z) &= i\partial\theta(z,\bar{z}) \\
+		\bar{j}(\bar{z}) &= -i\bar{\partial}\theta(z,\bar{z})\\
+		j+\bar{j} &= i\left(\partial\theta-\bar{\partial}\theta\right) = \partial_\sigma \theta(z,\bar{z}) = \partial_t X(z,\bar{z}) \\
+		j-\bar{j} &= i\left(\partial\theta+\bar{\partial}\theta\right) = \partial_t \theta(z,\bar{z}) = \partial_\sigma X(z,\bar{z})
+	\end{split}
+\end{equation}
+It is clear that the dual field $\theta(z,\bar{z})$ is compactified on a radius $\rho = 2/R$ circle. This means the duality above can be formulated as $R \rightarrow 2/R$. Now one can try to express the fermion operators in terms of $X$ and $\theta$. However, there are two difficulties using such an approach. 
+
+First, when one tries to rewritte the action in terms $\theta$ field, there is an extra minus sign in the action both in Minkoswki and Euclidean space. To ensure the convergence of the Euclidean space action, one has to use a different analytic continuuation $\tau = -i\,t$, which is not consistent with our convention.
+
+Second, the zero mode is not consistent with the quantization condition. This can be easily seen in the communicator $\left[x_0,\,\left(j_0+\bar{j}_0\right)\right] \neq i$. This contraction actually can be cured by introducing the chiral mass center $x_0 = \phi_0 + \bar{\phi}_0$ which satisfies
+\begin{equation}
+	\begin{split}
+		&\left[\phi_0,j_0\right] = i\\
+		&\left[\bar{\phi}_0,\bar{j}_0\right] = i\\
+		&\left[\phi_0,\bar{\phi}_0\right] = 0 \\
+		&\left[x_0,\left(j_0+\bar{j}_0\right)/2\right] = i.
+	\end{split}
+\end{equation}
+
+{\bf Chiral field approach}\\
+With the chiral mass center introduced above the compact boson field can be written as 
+\begin{equation}
+	\begin{split}
+		X(z,\bar{z}) &= \phi(z) + \bar{\phi}(\bar{z}) \\
+		\phi(z) &= \phi_0 -i\,j_0\,\mathrm{ln}\,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n} \\
+		\bar{\phi}(\bar{z}) &= \bar{\phi}_0 -i\,\bar{j}_0\,\mathrm{ln}\,\bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}.
+	\end{split}
+\end{equation} 
+Now we are ready to bosonize the fermion fields with the vertex operators
+\begin{equation}
+	\begin{split}
+		&\psi(z) \sim \mathcal{N}\left(e^{i\phi(z)}\right) \\
+		&\bar{\psi}(\bar{z}) \sim \mathcal{N}\left(e^{i\bar{\phi}(\bar{z})}\right)
+	\end{split}
+\end{equation}
+
 \appendix
 
 \section{Central extensions of Lie algebras}
 In this section $\mathfrak{g},\mathfrak{h},...$ denote (possibly infinite) Lie algebras over some field $\mathbb{K} = \mathbb{R}, \mathbb{C}$. This section is mainly based on Wikipedia and~\cite{Schottenloher}.
+
+
 \subsection{Extensions}
 {\bf Definition:} A \emph{Lie algebra extension} is a short exact sequence of Lie algebras:
 \begin{equation}
