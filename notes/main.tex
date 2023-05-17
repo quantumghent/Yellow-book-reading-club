@@ -130,15 +130,15 @@ The Yellow Book Notes. It is good to write notes!
     \eta = \begin{Bmatrix}
         +1 &   &\\
            & -1& \\
-           &   & ...
+           &   & \cdots
     \end{Bmatrix}
 \end{equation}
 and
 \begin{equation}
-    \eta = \begin{Bmatrix}
+    g = \begin{Bmatrix}
         +1 &   &\\
            & +1& \\
-           &   & ...
+           &   & \cdots
     \end{Bmatrix}
 \end{equation}
 respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = \{t, \mathop{x}\limits^\rightarrow\}$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
@@ -147,7 +147,7 @@ respectively, where the first index is the time. In the Yellow Book, without spe
 \begin{equation}
     \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
 \end{equation}
-In Minkowski space time, the $\gamma$ matrices can be chosen as
+In Minkowski space time , the $\gamma$ matrices can be chosen as
 \begin{eqnarray}
     \gamma^0 &=& \sigma^x \nonumber \\
     \gamma^1 &=&  -i\sigma^y,
@@ -158,14 +158,24 @@ while in Elidean space, they can be chosen as
     \gamma^1 &=& \sigma^y.
 \end{eqnarray}
 
-{\bf Complex Coordinate.--}  In $1+1d$ Minkoswki space, fields are functions of $x-t$ or $x+t$. In CFT, there are two independent Virasoro algebras, in which the holomorphic (resp. antiholomorphic) part has fields $\phi(x-t)$ ($\phi(x+t)$). It is more convenient to use imaginary time $\tau = it$ and complex coordinates. It is defined as 
+{\bf Complex Coordinate.--}  In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp. antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates. It is defined as 
 \begin{equation}
 \begin{aligned}
-z &= z^0 + i z^1 \\
-\bar{z} &= z^0 - i z^1.
+x^z &= x^0 + i x^1 \\
+x^{\bar{z}} &= x^0 - i x^1.
 \end{aligned}
 \end{equation}  
-Note that here $z$ and $\bar{z}$ denote coordinates with upper index. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. 
+Note that here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They are usually denoted by $z$ and $\bar{z}$. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. For example, the right and left mover scalar fields become $\phi(z)$ and $\bar{\phi}(\bar{z})$ respectively. In terms of the new coordinate the metric tensor is
+\begin{equation}
+	g_{\mu\nu} = \begin{Bmatrix}
+        0    & 1/2  \\
+        1/2  & 0     
+    \end{Bmatrix} \qquad
+	g^{\mu\nu} = \begin{Bmatrix}
+        0 & 2  \\
+        2 & 0
+    \end{Bmatrix}
+\end{equation}
 
 \subsection{Free fermions}
 In Minkowski space time, the Lagrange density for the free fermion reads
@@ -250,23 +260,23 @@ to rewritte the theory on a plane parameterized with $z$.
 
 The two point correlation up to a constant term is
 \begin{equation}
-    \langle \phi(x) \phi(y) \rangle = -K\,\mathrm{log} (r),
+    \langle \phi(x) \phi(y) \rangle = -K\,\mathrm{\log} (r),
 \end{equation}
 where $r$ is the distance between the two points. This is consistent with the fact that the scaling dimension of $\phi$ is 0. The above result is actually not well defined as the two-point correlation has both short and long distance divergence. Let's rewritte the Euclidean action as 
 \begin{equation}
-	S_E = \frac{1}{2\pi\,K} \int\frac{d^2k}{(2\pi)^2}\, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
+	S_E = \frac{1}{2\pi\,K} \int\frac{d^2k}{(2\pi)^2} \, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
 \end{equation} 
 One finds the real-space two-point correlation function
 \begin{equation}
-	G(r) = \langle \phi(x) \phi(y) \rangle = 2\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}}{k^2}
+	G(r) = \langle \phi(x) \phi(y) \rangle = 2\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\cos(\theta)}}{k^2}
 \end{equation}
-which is divergent at IR and UV. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
+which is divergent at IR and UV\,. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
 \begin{equation}
 	G(r) - G(0) = 2\pi\,K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}-1}{k^2}.
 \end{equation}
 The large $k$ contribution results in
 \begin{equation}
-	G(r) - G(0) \sim -K\,\mathrm{log}(r)
+	G(r) - G(0) \sim -K\,\log(r)
 \end{equation}
 
 
@@ -470,18 +480,38 @@ At one-loop approximation, using cumulant expansion one can find
 
 {\bf Example: perturbative RG analysis of BKT transition}
 
-\section{Conformal symmetry in $d>2$ dimensions}
+\section{Conformal symmetry in general dimensions}
 
 \section{Conformal symmetry in two dimension}
 In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$. Locally on the algebra level, it becomes the infinite dimensional Witt algebra. In a quantum theory, one can introduce a central extension term and get the famous Virasoro algegra. It is this infinite dimensional symmetry that ensures fields in a cft have nice local properties.
 
-\subsection{Global and local conformal symmetries}
+Any holomorphic or antiholomorphic transformations are allowed by the symmetry. Since the symmetry is represented by two independent Virasoro algebras (chiral and antichiral), in the following we only present the chiral part. This can also be shown from the the Noether current $T^{\mu\nu}$ corresponding to the coordinate translation symmetry. Recall that as a Noether current one has $\partial_\mu T^{\mu\nu} = 0$ and with rotation symmetry $T^{\mu\nu}$ is symmetric and traceless. In terms of the original coordinate
+\begin{equation}
+	\begin{aligned}
+		T^{zz} &= T^{00} + 2iT^{01} - T^{11} \\
+		T^{z\bar{z}} &= T^{00} - iT^{01} + iT^{10} + T^{11} \\
+		T^{\bar{z}\bar{z}} &= T^{00} - 2iT^{01} - T^{11}.
+	\end{aligned}
+\end{equation}
+One can find that 
+\begin{equation}
+	\begin{aligned}
+		\partial_z T^{zz} &= 0 \\
+		T^{z\bar{z}} &= 0 \\
+		\partial_{\bar{z}} T^{\bar{z}\bar{z}} &= 0.
+	\end{aligned}
+\end{equation}
+So that $T^{zz}$ and $T^{\bar{z}\bar{z}}$ are antiholomorphic and holomorphic functions respectively. We introduce $T(z) := T_{zz}(z)$ and $\bar{T}(\bar{z}) := T_{\bar{z}\bar{z}}(\bar{z})$ in the following. 
 
-{\it Conformal mappings and Witt algebra}
 
-{\it Conformal Ward identity}
 
-{\it Virasoro algebra: Central extension of Witt algebra}
+%\subsection{Global and local conformal symmetries}
+
+%{\it Conformal mappings and Witt algebra}
+
+%{\it Conformal Ward identity}
+
+%{\it Virasoro algebra: Central extension of Witt algebra}
 
 \subsection{From correlation functions to OPE}
 Due to the local nature of field theory, we promote the correlation functions to expansion of non-singular operators, which is termed as operator product expansion (OPE). The idea is basically that far away from the operators inside a bounded region other operators can only feel them as a superposition of single operators (non-singular). The first OPE example follows from the conformal ward identity, which builds up the OPE between the energy momentum tensor and primary fields
