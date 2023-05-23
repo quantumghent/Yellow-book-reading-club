@@ -1,47 +1,4 @@
-% =========================================================================
-% SciPost LaTeX template
-% Version 2021-08
-%
-% Submissions to SciPost Journals should make use of this template.
-%
-% INSTRUCTIONS: simply look for the `TODO:' tokens and adapt your file.
-%
-% You can also make use of our empty "skeleton" templates for each Journal,
-% e.g. SciPostPhys_skeleton.tex
-% =========================================================================
-
-
-% TODO: uncomment ONE of the class declarations below
-
-% Class declaration format: \documentclass[submission, {DOI label of journal}]{SciPost}
-% where the DOI label of the journal should be one of:
-% Phys          (for SciPost Physics)
-% PhysCore      (for SciPost Physics Core)
-% PhysLectNotes (for SciPost Physics Lecture Notes)
-% PhysProc      (for SciPost Physics Proceedings -> !! Please use the conference-specific template which you will find on our website !!
-% PhysCodeb     (for SciPost Physics Codebases)
-% Astro         (for SciPost Astronomy)
-% Bio           (for SciPost Biology)
-% Chem          (for SciPost Chemistry)
-% CompSci       (for SciPost Computer Science)
-% Math          (for SciPost Mathematics)
-
-
-%% PHYSICS:
-% If you are submitting a paper to SciPost Physics: uncomment next line
-%\documentclass[submission, Phys]{SciPost}
-% If you are submitting a paper to SciPost Physics Core: uncomment next line
-%\documentclass[submission, PhysCore]{SciPost}
-% If you are submitting a paper to SciPost Physics Lecture Notes: uncomment next line
 \documentclass[submission, PhysLectNotes]{SciPost}
-% If you are submitting a paper to SciPost Physics Proceedings: uncomment next line
-%\documentclass[submission, PhysProc]{SciPost}
-% If you are submitting a paper to SciPost Physics Codebases: uncomment next line
-%\documentclass[submission, PhysCodeb]{SciPost}
-
-
-
-% Prevent all line breaks in inline equations.
 \binoppenalty=10000
 \relpenalty=10000
 
@@ -69,11 +26,8 @@
 \newcommand{\ExOp}[1]{\left\langle#1\right\rangle}
 
 \begin{document}
-
-% TODO: write your article's title here.
-% The article title is centered, Large boldface, and should fit in two lines
 \begin{center}{\Large \textbf{
-Notes for  the reading club\\
+Note for 2d CFT\\
 }}\end{center}
 
 % TODO: write the author list here. Use first name (+ other initials) + surname format.
@@ -279,6 +233,12 @@ The large $k$ contribution results in
 	G(r) - G(0) \sim -K\,\log(r)
 \end{equation}
 
+A class of useful operators are the so-called (normal ordered) vertex operator $V_{\alpha}(x) :=\, e^{i\alpha\,\phi(x)}$. Its two point correlation reads
+\begin{equation}
+	\langle\, V_\alpha(x)\, V_{-\beta}(y)\, \rangle \sim \frac{\delta_{\alpha,\beta}}{r^{\alpha^2 K}}.
+\end{equation}
+One can find that the exponents of vertex operators in the correlation functions must sum up to zero. This is usually called neutral conditon for vertex operators. This actually reflects the $U(1)$ symmetry of the free scalar boson. 
+
 
 
 
@@ -321,7 +281,7 @@ Another definition that makes the energy-momentum tensor symmetric follows. In t
 \end{equation}
 the action remains invariant since this is nothing but a reparametrization of the theory (general coordinate covariance). So that one finds
 \begin{equation}
-    \delta S = 0 = -\frac{1}{2} \int d^dx \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
+    \delta S = 0 = -\frac{1}{2} \int d^d x \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
 \end{equation}
 So that one can define the energy-momentum tensor as
 \begin{equation}
@@ -1151,6 +1111,24 @@ From the modular transformation properties of the $d$'s, it follows there are tw
 \end{align}
 This is twice the partition function of the Ising model on the torus!
 
+\section{FRS/Categorical construction of RCFT}
+Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of the stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
+\begin{equation}
+	L_n - \bar{L}_{-n} \vert a \rangle = 0.
+\end{equation}
+For a defect $O_\alpha$ it requires
+\begin{equation}
+	\left[ L_n - \bar{L}_{-n},\, O_\alpha \right] = 0.
+\end{equation}
+Usually we require stronger constraint for the conformal defects 
+\begin{equation}
+	\begin{aligned}
+		\left[ L_n,\, O_\alpha \right] = 0 \\
+		\left[ \bar{L}_{n},\, O_\alpha \right] = 0
+	\end{aligned}
+\end{equation}
+which are called topological defects. The topological defects correspond to the topological aspects of CFT. A full understanding of CFT must also include the knowledge of boundaries and defects.
+
 \section{Other topics}
 \subsection{Boundary conformal field theory}
 CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary conformal field theory (BCFT) is a CFT defined on a two dimension manifold with one dimension boundaries. It is important theoretical tool in the study of surface critical behavior, defects and open string theories. Note that one can also consider extended symmetry in a CFT, so that the Virasoro algebra is a subalgebra of the extended symmetry. The corresponding boundary condition (resp. boudary state) in the open (resp. closed) sector should also respect the extended algebra. It was shown than there are also symmetry-breaking boundary conditions which only respect the conformal symmetry. Here we only discuss conformal symmetry. 
@@ -1235,11 +1213,44 @@ Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$
 \subsection{Bosonization}
 In the discussion of free compact boson theory, we have seen the vertex operator $V_1 = :e^{i\phi(z,\bar{z})}:$ has the same scaling dimension as a fermion operator and more importantly the free complex fermion and and the free compact boson (with a radius $R=1$) share the same partiton function. These facts indicate that the fermion and boson theories are dual to each other. 
 
+{\bf Bosonization dictonary for free fermions---}
+With the chiral mass center introduced above the chiral part of the compact boson field $X(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson. The current operator can be defind as 
+\begin{equation}
+	J(z) = i\sqrt{\frac{2}{K}}\partial \phi (z).
+\end{equation} 
+So that the chiral/anti-chiral part of the free compact boson can be written as 
+\begin{equation}
+	\begin{split}
+		\phi(z) &= \sqrt{\frac{K}{2}}\left(\phi_0 -i\,j_0\,\mathrm{ln}\,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n}\right) \\
+		\bar{\phi}(\bar{z}) &= \sqrt{\frac{K}{2}} \left(\bar{\phi}_0 -i\,\bar{j}_0\,\ln \,\bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}\right).
+	\end{split}
+\end{equation} 
+The zero mode of the current operator is quantitized to be 
+\begin{equation}
+	\begin{aligned}
+		j_0 &= \frac{1}{\sqrt{2}} \left( \frac{\sqrt{K}m}{R} + \frac{R}{\sqrt{K}n} \right) \\
+		\bar{j}_0 &= \frac{1}{\sqrt{2}} \left( \frac{\sqrt{K}m}{R} - \frac{R}{\sqrt{K}n} \right)
+	\end{aligned}
+\end{equation}
+One can also introduce its dual field $\tilde{X} := \phi(z) - \bar{\phi}(z)$. It is compactified on a circle with a radius $K/R$. This indicates that there are two $U(1)$ symmetry in the free compact boson theory, which correspond to $X$ and $\bar{X}$ fields respectively.
+
+Now we are ready to bosonize the fermion fields with the vertex operators
+\begin{equation}
+	\begin{split}
+		&\psi(z) \sim e^{i\sqrt{\frac{2}{K}}\,\phi(z)} \\
+		&\bar{\psi}(\bar{z}) \sim e^{i\sqrt{\frac{2}{K}}\,\bar{\phi}(\bar{z})}.
+	\end{split}
+\end{equation}
+
+
+
+
+\if_false:
 {\bf Dual field approach}\\
 Recall the compact boson compactified on a $2\pi\,R$ circle (we have chosen $K=2$) has the mode expansion
 \begin{equation}
 	\begin{split}
-		X(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z + \bar{j}_0\,\mathrm{ln}\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}+\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
+		X(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z + \bar{j}_0\,\ln\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}+\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
 	\end{split}
 \end{equation} 
 Its conjugate momentum field $\pi(z,\bar{z}):=\frac{\partial\,L}{\partial\partial_tX(z,\bar{z}))} = \frac{1}{4\pi}\,i\,\partial_\tau X$ can be written as
@@ -1294,6 +1305,8 @@ Now we are ready to bosonize the fermion fields with the vertex operators
 	\end{split}
 \end{equation}
 
+
+\fi
 \appendix
 
 \section{Central extensions of Lie algebras}
