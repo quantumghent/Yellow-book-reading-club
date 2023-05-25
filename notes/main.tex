@@ -1112,9 +1112,14 @@ From the modular transformation properties of the $d$'s, it follows there are tw
 This is twice the partition function of the Ising model on the torus!
 
 \section{FRS/Categorical construction of RCFT}
-Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of the stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
+The mordern lanuage (probaly not the final lanuage of course) for RCFTs is the so-called category theory. The chiral symmetry of a RCFT is described by a (semisimple) modular tensor category $\mathcal{C}$. A full CFT requires the knowledge of how to combine the chiral and anti-chiral parts. Historically modular invariance has been utilized to construct a full CFT. However there exist non-physical modular invariant theories. The required part is a semisimple module category $\mathcal{M}$ over $\mathcal{C}$. Physically $\mathcal{M}$ contain information of how bulk fields interact with boundaries or more generally defects. The category theory provides a unified and beautiful lanuage of how bulk, boudary and defect fields interact, which compose a full CFT. 
+
+\subsection{Chiral symmetry in RCFT}
+
+\subsection{Topological defects in Ising CFT}
+Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
 \begin{equation}
-	L_n - \bar{L}_{-n} \vert a \rangle = 0.
+	\left ( L_n - \bar{L}_{-n} \right ) \vert a \rangle = 0.
 \end{equation}
 For a defect $O_\alpha$ it requires
 \begin{equation}
@@ -1127,7 +1132,11 @@ Usually we require stronger constraint for the conformal defects
 		\left[ \bar{L}_{n},\, O_\alpha \right] = 0
 	\end{aligned}
 \end{equation}
-which are called topological defects. The topological defects correspond to the topological aspects of CFT. A full understanding of CFT must also include the knowledge of boundaries and defects.
+which are now called topological defects. They correspond to the topological aspects of CFT and serve the role of intertwiners between conformal boundaries. Since the topological defects commute with Virasoro generators, they can be viewed as genearlized symmetries. 
+
+Let's start with a simple example -- the Ising CFT $\mathcal{M}(4,3)$. There are three conformal boundaries/topological defects in Ising CFT which are labeled by primaries. Two defects can be fused into other defects when put close to each other. As a result their fusion forms a fusion algebra. In Ising CFT, the fusion algebra of defects is the same as that of primaries. This is true for all A-type minimal models. 
+
+
 
 \section{Other topics}
 \subsection{Boundary conformal field theory}
