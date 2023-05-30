@@ -1111,10 +1111,40 @@ From the modular transformation properties of the $d$'s, it follows there are tw
 \end{align}
 This is twice the partition function of the Ising model on the torus!
 
+
+
 \section{FRS/Categorical construction of RCFT}
-The mordern lanuage (probaly not the final lanuage of course) for RCFTs is the so-called category theory. The chiral symmetry of a RCFT is described by a (semisimple) modular tensor category $\mathcal{C}$. A full CFT requires the knowledge of how to combine the chiral and anti-chiral parts. Historically modular invariance has been utilized to construct a full CFT. However there exist non-physical modular invariant theories. The required part is a semisimple module category $\mathcal{M}$ over $\mathcal{C}$. Physically $\mathcal{M}$ contain information of how bulk fields interact with boundaries or more generally defects. The category theory provides a unified and beautiful lanuage of how bulk, boudary and defect fields interact, which compose a full CFT. 
+The mordern lanuage (probaly not the final lanuage of course) for RCFTs is the so-called category theory. The chiral symmetry of a RCFT is described by a (semisimple) modular tensor category $\mathcal{C}$. A full CFT requires the knowledge of how to combine the chiral and anti-chiral parts. Historically modular invariance has been utilized to construct a full CFT. However there exist non-physical modular invariant theories. The required part is a semisimple module category $\mathcal{M}$ over $\mathcal{C}$. Physically $\mathcal{M}$ contain information of how bulk fields interact with boundaries or more generally defects. Category theory provides a unified and beautiful lanuage of how bulk, boudary and defect fields interact, which compose a full CFT. 
 
 \subsection{Chiral symmetry in RCFT}
+
+\subsection{Orbifold RCFT and discrete torsion}
+With a given CFT $\mathcal{C}$ defined on $\mathcal{M}$ with a finite abelian group $G$ symmetry, it is possible to define different CFTs as orbifolded $C$ on $\mathcal{M}/G$. This can also be understood as gauging the global symmetry $G$ to obtain another different theory. 
+
+We start by inserting a symmetry projector $P := \frac{1}{|G|} \sum_{g \in G} g$ in the partition function 
+\begin{equation}
+	\begin{aligned}
+		Z = \mathrm{Tr}\left( P\,q^{L_0} \bar{q}^{\bar{L}_0} \right).
+	\end{aligned}
+\end{equation}
+However, this theory is usually not modular invariant, since a modular transformation can modifies the symmetry action in the time direction and generate different terms. One needs to consider the so-called twisted sectors in the Hilbert space $\mathcal{H}_h$ to construct a modular invariant theory. This twisted sector $\mathcal{H}_h$ is difind according to
+\begin{equation}
+	\phi(e^{2\pi i}z,e^{-2\pi i}\bar{z}) = h \circ \phi(z,\bar{z}).
+\end{equation}
+Now after symmetrilization, one writes down the orbifold theory
+\begin{equation}
+	\begin{aligned}
+		Z(q,\bar{q}) = \frac{1}{|G|}\sum_{g,h}\mathrm{Tr}_{\mathcal{H}_h}\left( g \, q^{L_0} \bar{q}^{\bar{L}_0} \right).
+	\end{aligned}
+\end{equation}
+
+For a given symmetry group $G$, there may exist different orbifold ways. It turns out one can use a complex phase, the discrete torsion $\epsilon(g,h)$ to characterize each orbifold theory
+\begin{equation}
+	\begin{aligned}
+		Z(q,\bar{q}) = \frac{1}{|G|}  \sum_{g,h} \epsilon(g,h) \, \mathrm{Tr}_{\mathcal{H}_h}\left( g \, q^{L_0} \bar{q}^{\bar{L}_0} \right),
+	\end{aligned}
+\end{equation}
+where $\epsilon(g,h) := \nu(g,h)/\nu(h,g)$ with $\nu(g_1,g_2)$ being two cocycles. The symmetry projector becomes $P_h := \frac{1}{|G|}\sum_g \epsilon(g,h)\,g$. 
 
 \subsection{Topological defects in Ising CFT}
 Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
