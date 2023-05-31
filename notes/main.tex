@@ -1119,9 +1119,11 @@ The mordern lanuage (probaly not the final lanuage of course) for RCFTs is the s
 \subsection{Chiral symmetry in RCFT}
 
 \subsection{Orbifold RCFT and discrete torsion}
-With a given CFT $\mathcal{C}$ defined on $\mathcal{M}$ with a finite abelian group $G$ symmetry, it is possible to define different CFTs as orbifolded $C$ on $\mathcal{M}/G$. This can also be understood as gauging the global symmetry $G$ to obtain another different theory. 
+With a given CFT $\mathcal{C}$ defined on $\mathcal{M}$ with a discrete global group symmetry $G$, it is possible to define a different CFT $C/G$ by gauging the global symmetry $G$~\cite{Douglas:aa,Gaberdiel_2000,Chang2019}.
 
-We start by inserting a symmetry projector $P := \frac{1}{|G|} \sum_{g \in G} g$ in the partition function 
+We first review the global symmetry $G$ in RCFT. Physically each symmetry operator $g$ can be represented by a line operator $\mathcal{L}_g$. As a symmetry, we require that $\mathcal{L}_g$ commutes with the chiral symmetry, hence $\mathcal{L}_g$ is a topological line operator. Two symmetry operators can be fused into a new one, in which the fusion rule follows the multiplication of group elements. When fusing three operators, there are two different ways. These two fusion orders are related by a $F$-move, characterized by $\alpha(g,h,k)\,:\, 3$-cocycles $G^3 \rightarrow U(1)$ up to coboundaries. A non-trivival 3-cocycle means the global symmetry $G$ is anomalous in which the fusion of $\mathcal{L}_g$ not associative.
+
+When $G$ is non-anomalous, we can construct orbifold theories. We start by inserting a symmetry projector $P := \frac{1}{|G|} \sum_{g \in G} \mathcal{L}_g$ in the partition function 
 \begin{equation}
 	\begin{aligned}
 		Z = \mathrm{Tr}\left( P\,q^{L_0} \bar{q}^{\bar{L}_0} \right).
@@ -1129,22 +1131,24 @@ We start by inserting a symmetry projector $P := \frac{1}{|G|} \sum_{g \in G} g$
 \end{equation}
 However, this theory is usually not modular invariant, since a modular transformation can modifies the symmetry action in the time direction and generate different terms. One needs to consider the so-called twisted sectors in the Hilbert space $\mathcal{H}_h$ to construct a modular invariant theory. This twisted sector $\mathcal{H}_h$ is difind according to
 \begin{equation}
-	\phi(e^{2\pi i}z,e^{-2\pi i}\bar{z}) = h \circ \phi(z,\bar{z}).
+	\phi(e^{2\pi i}z,e^{-2\pi i}\bar{z}) = \mathcal{L}_h \circ \phi(z,\bar{z}).
 \end{equation}
 Now after symmetrilization, one writes down the orbifold theory
 \begin{equation}
 	\begin{aligned}
-		Z(q,\bar{q}) = \frac{1}{|G|}\sum_{g,h}\mathrm{Tr}_{\mathcal{H}_h}\left( g \, q^{L_0} \bar{q}^{\bar{L}_0} \right).
+		Z(q,\bar{q}) = \frac{1}{|G|}\,\sum_{[g,h]=0}\mathrm{Tr}_{\mathcal{H}_h}\left( \mathcal{L}_g \, q^{L_0} \bar{q}^{\bar{L}_0} \right).
 	\end{aligned}
 \end{equation}
 
-For a given symmetry group $G$, there may exist different orbifold ways. It turns out one can use a complex phase, the discrete torsion $\epsilon(g,h)$ to characterize each orbifold theory
+For a given symmetry group $G$, there may exist different orbifold ways. It turns out one can use the second cohomology group $H^2(G,U(1))$ to classify orbifolds. This is known as discrete torsion in the literature. Specifically one can use $\epsilon(g,h)$ to characterize each orbifold theory
 \begin{equation}
 	\begin{aligned}
-		Z(q,\bar{q}) = \frac{1}{|G|}  \sum_{g,h} \epsilon(g,h) \, \mathrm{Tr}_{\mathcal{H}_h}\left( g \, q^{L_0} \bar{q}^{\bar{L}_0} \right),
+		Z(q,\bar{q}) = \frac{1}{|G|} \, \sum_{[g,h]=0} \epsilon(g,h) \, \mathrm{Tr}_{\mathcal{H}_h}\left( \mathcal{L}_g \, q^{L_0} \bar{q}^{\bar{L}_0} \right),
 	\end{aligned}
 \end{equation}
-where $\epsilon(g,h) := \nu(g,h)/\nu(h,g)$ with $\nu(g_1,g_2)$ being two cocycles. The symmetry projector becomes $P_h := \frac{1}{|G|}\sum_g \epsilon(g,h)\,g$. 
+where $\epsilon(g,h) := \nu(g,h)/\nu(h,g)$ with $\nu(g_1,g_2)$ being two cocycles. The symmetry projector becomes $P_h := \frac{1}{|G|}\sum_g \epsilon(g,h)\,\mathcal{L}_g$. 
+
+\subsection{Duality topological defect}
 
 \subsection{Topological defects in Ising CFT}
 Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
