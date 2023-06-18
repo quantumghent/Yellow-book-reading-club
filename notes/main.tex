@@ -173,22 +173,32 @@ A lattice version free fermion theory Eq.~$2.38$ reads
 \end{equation}
 The canonical momentum corresponding to $\psi_n$ is
 \begin{equation}
-    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = -\frac{i}{2}\psi_n.
+    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = \frac{i}{2}\psi_n.
 \end{equation}
 So that the Hamiltonian is
 \begin{eqnarray}
     \mathcal{H} &=& \sum_n \pi_n \dot{\psi_n} - \mathcal{L} \nonumber\\
-      &=& -\frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
-      &=& -i \sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
+      &=& \frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
+      &=& - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
 \end{eqnarray}
-While it shoud be
+
+Note that in the above we have adopted
 \begin{equation}
-    \mathcal{H} = -\frac{i}{2}\sum_n\psi_n \psi_{n+1}.
+	\delta \mathcal{L} = \pi\,\delta \dot{\psi}
 \end{equation}
-If we'd like to keep defining the derivative of Grassmann number according to the order of left-to-right, we need to define the Hamiltonian as
+which fixes the transformation to be 
 \begin{equation}
-    \mathcal{H} = \sum_n \dot{\psi_n} \pi_n - \mathcal{L} =  - \frac{i}{2} \sum_n \psi_n \psi_{n+1}
+	\mathcal{H} = \pi \,\dot{\psi} - \mathcal{L}.
 \end{equation}
+Equivalently we can also define the derivative as
+\begin{equation}
+	\delta \mathcal{L} = \delta \dot{\psi} \,\pi
+\end{equation}
+Now we have 
+\begin{equation}
+	\mathcal{H} = \dot{\psi} \, \pi - \mathcal{L}.
+\end{equation}
+
 
 \subsection{Free boson}
 The non-compact free boson in the Minkoswki space time reads
@@ -528,7 +538,7 @@ On the plane, one has the freedom to choose the direction of space or time for a
 \begin{equation}
 	\xi = \frac{L}{2\pi}\mathrm{log}\left(z\right)
 \end{equation}
-maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum thoery defined on a cylinder can be used to understand the plane.
+maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum theory defined on a cylinder can be used to understand the plane.
 
 One can immedialy find many important properties of the radial quantization from the confromal mapping. The time evolution operator, the Hamiltonian, on a cylinder corresponds the dialation operator on the plane and the translation operator, i.e.  the momentum, corresponds to the rotation operator on the plane. Such a quantization scheme for a cft is called radial quantization. The time ordering on a cylinder becomes radial ordering on a plane. As  a conseconce, the commutation of operators for a quantum theory is related to contour integrals through
 \begin{equation}
@@ -1118,10 +1128,12 @@ The mordern lanuage (probaly not the final lanuage of course) for RCFTs is the s
 
 \subsection{Chiral symmetry in RCFT}
 
-\subsection{Orbifold RCFT and discrete torsion}
-With a given CFT $\mathcal{C}$ defined on $\mathcal{M}$ with a discrete global group symmetry $G$, it is possible to define a different CFT $C/G$ by gauging the global symmetry $G$~\cite{Douglas:aa,Gaberdiel_2000,Chang2019}.
+\subsection{Verlinde lines in diagonal RCFT}
 
-We first review the global symmetry $G$ in RCFT. Physically each symmetry operator $g$ can be represented by a line operator $\mathcal{L}_g$. As a symmetry, we require that $\mathcal{L}_g$ commutes with the chiral symmetry, hence $\mathcal{L}_g$ is a topological line operator. Two symmetry operators can be fused into a new one, in which the fusion rule follows the multiplication of group elements. When fusing three operators, there are two different ways. These two fusion orders are related by a $F$-move, characterized by $\alpha(g,h,k)\,:\, 3$-cocycles $G^3 \rightarrow U(1)$ up to coboundaries. A non-trivival 3-cocycle means the global symmetry $G$ is anomalous in which the fusion of $\mathcal{L}_g$ not associative.
+\subsection{Global symmetry and orbifold RCFT with discrete torsion}
+With a given CFT $\mathcal{T}$ defined on $\mathcal{M}$ with a discrete global group symmetry $G$, it is possible to define a different CFT $\tilde{T} \sim T/G$ by gauging the global symmetry $G$~\cite{Douglas:aa,Gaberdiel_2000,Chang2019}. The orbifold theory $\tilde{T}$ then has a fusion category symmetry $\mathrm{Rep}(G)$. A symmetry operator or simple object in $\mathrm{Rep}(G)$ is labeled by $G$-representation. One-dimensional symmetry operators are invitable, while higher dimensional representations correspond to non-invitable symmetries. 
+
+We first review the global symmetry $G$ in RCFT. Physically each symmetry operator $g$ can be represented by a line operator $\mathcal{L}_g$. We further require that $\mathcal{L}_g$ commutes with the chiral vertext algebra in RCFT, hence $\mathcal{L}_g$ is topological, which are denoted as topological defect lines (TDLs)~\footnote{There may exist conformal line operators which are not topological.}. Two symmetry operators can be fused into a new one, in which the fusion rule follows the multiplication of group elements. When fusing three operators, there are two different ways. These two fusion orders are related by a $F$-move, characterized by $\alpha(g,h,k)\,:\, 3$-cocycles $G^3 \rightarrow U(1)$ up to coboundaries. A non-trivival 3-cocycle means the global symmetry $G$ is anomalous in which the fusion of $\mathcal{L}_g$ not associative.
 
 When $G$ is non-anomalous, we can construct orbifold theories. We start by inserting a symmetry projector $P := \frac{1}{|G|} \sum_{g \in G} \mathcal{L}_g$ in the partition function 
 \begin{equation}
@@ -1148,7 +1160,7 @@ For a given symmetry group $G$, there may exist different orbifold ways. It turn
 \end{equation}
 where $\epsilon(g,h) := \nu(g,h)/\nu(h,g)$ with $\nu(g_1,g_2)$ being two cocycles. The symmetry projector becomes $P_h := \frac{1}{|G|}\sum_g \epsilon(g,h)\,\mathcal{L}_g$. 
 
-\subsection{Duality topological defect}
+\subsection{Duality TDL and Self-dual orbifold}
 
 \subsection{Topological defects in Ising CFT}
 Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
@@ -1170,7 +1182,7 @@ which are now called topological defects. They correspond to the topological asp
 
 Let's start with a simple example -- the Ising CFT $\mathcal{M}(4,3)$. There are three conformal boundaries/topological defects in Ising CFT which are labeled by primaries. Two defects can be fused into other defects when put close to each other. As a result their fusion forms a fusion algebra. In Ising CFT, the fusion algebra of defects is the same as that of primaries. This is true for all A-type minimal models. 
 
-
+\subsection{Boundary states}
 
 \section{Other topics}
 \subsection{Boundary conformal field theory}
