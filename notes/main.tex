@@ -79,6 +79,7 @@ The Yellow Book Notes. It is good to write notes!
 
 \section{Preliminary}
 \subsection{Conventions}
+
 {\bf Metric tensor and Coordinate.--}  The metric tensor in Minkowski and Euclidean space-time is defined as
 \begin{equation}
     \eta = \begin{Bmatrix}
@@ -130,6 +131,31 @@ Note that here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They
         2 & 0
     \end{Bmatrix}
 \end{equation}
+
+{\bf Maxwell equation---}
+We define the vector-pontential or gauge field as 
+\begin{equation}
+	A^\mu := (\phi,\, A^i)
+\end{equation}
+and the field strength
+\begin{equation}
+	F^{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
+\end{equation}
+The conventional electric and magnetic field are related to $F^{\mu\nu}$ via
+\begin{equation}
+	\begin{aligned}
+		&F^{0i} = E_i \\
+		&F^{ij} = \epsilon^{ijk} B_k.
+	\end{aligned}
+\end{equation}
+Note that $E_i$ and $B_i$ are {\it not} vectors. The Maxwell equation now can be expressed in a compact form 
+\begin{equation}
+	\begin{aligned}
+		&\partial_\mu F^{\mu\nu} = j^\nu \\
+		&\epsilon_{\mu\nu\rho\sigma}\partial_\rho F_{\mu\nu} =0 
+	\end{aligned}
+\end{equation}
+where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$.
 
 \subsection{Free fermions}
 In Minkowski space time, the Lagrange density for the free fermion reads
