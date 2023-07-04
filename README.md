@@ -1,4 +1,4 @@
-# Yellow-book-reading-club
+# CFT-reading-club
 
 reference: 
 

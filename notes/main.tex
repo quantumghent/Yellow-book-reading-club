@@ -113,14 +113,16 @@ while in Elidean space, they can be chosen as
     \gamma^1 &=& \sigma^y.
 \end{eqnarray}
 
-{\bf Complex Coordinate.--}  In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp. antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates. It is defined as 
+{\bf Complex Coordinate.--}  In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp. antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates
 \begin{equation}
 \begin{aligned}
 x^z &= x^0 + i x^1 \\
-x^{\bar{z}} &= x^0 - i x^1.
+x^{\bar{z}} &= x^0 - i x^1 \\
+\partial_z &= \frac{1}{2} \left( \partial_0 - i\partial_1 \right) \\
+\partial_{\bar{z}} &= \frac{1}{2} \left( \partial_0 + i\partial_1 \right).
 \end{aligned}
 \end{equation}  
-Note that here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They are usually denoted by $z$ and $\bar{z}$. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. For example, the right and left mover scalar fields become $\phi(z)$ and $\bar{\phi}(\bar{z})$ respectively. In terms of the new coordinate the metric tensor is
+Here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They are usually denoted by $z$ and $\bar{z}$. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. For example, the right and left mover scalar fields become $\phi(z)$ and $\bar{\phi}(\bar{z})$ respectively. In terms of the new coordinate the metric tensor is
 \begin{equation}
 	g_{\mu\nu} = \begin{Bmatrix}
         0    & 1/2  \\
@@ -132,30 +134,7 @@ Note that here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They
     \end{Bmatrix}
 \end{equation}
 
-{\bf Maxwell equation---}
-We define the vector-pontential or gauge field as 
-\begin{equation}
-	A^\mu := (\phi,\, A^i)
-\end{equation}
-and the field strength
-\begin{equation}
-	F^{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
-\end{equation}
-The conventional electric and magnetic field are related to $F^{\mu\nu}$ via
-\begin{equation}
-	\begin{aligned}
-		&F^{0i} = E_i \\
-		&F^{ij} = \epsilon^{ijk} B_k.
-	\end{aligned}
-\end{equation}
-Note that $E_i$ and $B_i$ are {\it not} vectors. The Maxwell equation now can be expressed in a compact form 
-\begin{equation}
-	\begin{aligned}
-		&\partial_\mu F^{\mu\nu} = j^\nu \\
-		&\epsilon_{\mu\nu\rho\sigma}\partial_\rho F_{\mu\nu} =0 
-	\end{aligned}
-\end{equation}
-where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$.
+Note that one has the freedom to interprete $x^0$ as time or space, which only change conventions rather than physics. For example, the correlation functions of physical operators always contain the chiral and anti-chiral parts. In particular, in Euclidean space the theory has rotation symmetry. 
 
 \subsection{Free fermions}
 In Minkowski space time, the Lagrange density for the free fermion reads
@@ -163,34 +142,65 @@ In Minkowski space time, the Lagrange density for the free fermion reads
     \mathcal{L} = \frac{g}{2}\left(\psi^1\ i(\partial t + \partial x)\ \psi^1 + \psi^2\ i(\partial t - \partial x)\ \psi^2 \right).
 \end{equation}
 In terms of $\psi = (\psi^1,\psi^2)$, one can write the theory as
-\begin{eqnarray}
-    \mathcal{L} &=& \frac{g}{2} \left ( \ \psi^\dagger i\partial_t \psi + \psi^\dagger \ \sigma^z \ i\partial_x \psi \ \right) \nonumber \\
-    &=& \frac{g}{2} \left ( \ \psi^\dagger \sigma^x\sigma^x i\partial_t \psi + \psi^\dagger \ -i\sigma^x\sigma^y \ i\partial_x \psi \ \right) \nonumber\\
-    &=& \frac{g}{2} \psi^\dagger \sigma^x \left(\sigma^x i \partial_t - i\sigma^y i\partial_x \right) \psi \nonumber \\
-    &=& \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi
-\end{eqnarray}
-where we used
+\begin{equation}
+	\begin{aligned}
+		\mathcal{L} &= \frac{g}{2} \left ( \ \psi^\dagger i\partial_t \psi + \psi^\dagger \ \sigma^z \ i\partial_x \psi \ \right) \nonumber \\
+    &= \frac{g}{2} \left ( \ \psi^\dagger \sigma^x\sigma^x i\partial_t \psi + \psi^\dagger \ -i\sigma^x\sigma^y \ i\partial_x \psi \ \right) \nonumber\\
+    &= \frac{g}{2} \psi^\dagger \sigma^x \left(\sigma^x i \partial_t - i\sigma^y i\partial_x \right) \psi \nonumber \\
+    &= \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi\\
+	&= \frac{g}{2} \bar{\psi} \, i\gamma^\mu \partial_\mu \psi
+	\end{aligned}
+\end{equation}
+where we used the convention for the gamma matrix
 \begin{equation}
     \gamma^0 = \sigma^x \quad \gamma^1 = -i\sigma^y
 \end{equation}
 
-{\bf Wick rotation}
-It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as
+{\bf Wick rotation.---}
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon Wick rotation, the action changes as
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
 \end{equation}
-Specifically,
+Specifically, in terms of real fermion one has
+\begin{equation}
+	\begin{aligned}
+		-i\,S[\psi] &= -i\frac{g}{2}\int dxdt\,\left(\psi^1\ i(\partial_t + \partial_x)\ \psi^1 + \psi^2\ i(\partial_t - \partial_x)\ \psi^2 \right)\\
+		&= \frac{g}{2}\int dx d(i\tau)\left(\psi^1\ (\partial_t + \partial_x)\ \psi^1 + \psi^2\ (\partial_t - \partial_x)\ \psi^2 \right) \\
+		&= \frac{g}{2}\int dx d\tau \left(\psi^1\ (\partial_\tau + i\partial_x)\ \psi^1 + \psi^2\ (\partial_\tau - i \partial_x)\ \psi^2 \right) \\
+		&= \frac{g}{2}\int d^2x \,2\left(\psi^1 \bar{\partial} \psi^1 + \psi^2 \partial \psi^2 \right) \\
+		&= \frac{g}{2}\int d^2z\, \left(\psi^1 \bar{\partial} \psi^1 + \psi^2 \partial \psi^2 \right) \\
+	\end{aligned}
+\end{equation}
+or in terms of complex fermion
 \begin{eqnarray}
-    i\ S[\psi] &=& i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
-    &=& i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi + i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
-    &=& -\int dxd\tau \ \frac{g}{2} \psi^\dagger \partial_\tau \psi - \int dxd(-i t) \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
-    &=&  -\int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi - \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
-    &=&  -\int dxd\tau \ \frac{g}{2} \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
+    -i\ S[\psi] &=& -i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
+    &=& -i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi - i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
+    &=& \int dxd\tau \ \frac{g}{2} \psi^\dagger \partial_\tau \psi + \int dxd(-i t) \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
+    &=&  \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi + \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
+    &=&  \int dxd\tau \ \frac{g}{2} \psi^\dagger \gamma^1_E\gamma^\mu_E\partial_\mu \psi
 \end{eqnarray}
 where $\tau = -it$. The Eulidean space action can be written as
 \begin{equation}
-    S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
+    S_E = \frac{g}{2} \int d^2x \, \bar{\psi}\, \gamma^\mu_E\partial_\mu \psi
 \end{equation}
+where
+\begin{equation}
+	\begin{aligned}
+		\gamma_E^1 &= \sigma^x \\
+		\gamma_E^2 &= \sigma^y \\
+	\end{aligned}
+\end{equation}
+denote gamma matrix after Wick rotation. Note that the integral meausre also contriutes a $1/2$ factor. 
+
+The two point correlation function reads 
+\begin{equation}
+	\begin{aligned}
+		&\langle \psi^1(z,\bar{z}) \, \psi^1(w,\bar{w}) \rangle = \frac{1}{2\pi g} \frac{1}{z-w} \\
+		&\langle \psi^2(z,\bar{z}) \, \psi^2(w,\bar{w}) \rangle = \frac{1}{2\pi g} \frac{1}{\bar{z}-\bar{w}} \\
+		&\langle \psi^1(z,\bar{z}) \, \psi^2(w,\bar{w}) \rangle = 0\\
+	\end{aligned}
+\end{equation} 
+which means $\psi^1$ is chiral and $\psi^2$ is anti-chiral.
 
 {\bf Hamiltonian formalism.---}
 A lattice version free fermion theory Eq.~$2.38$ reads
@@ -276,7 +286,30 @@ A class of useful operators are the so-called (normal ordered) vertex operator $
 One can find that the exponents of vertex operators in the correlation functions must sum up to zero. This is usually called neutral conditon for vertex operators. This actually reflects the $U(1)$ symmetry of the free scalar boson. 
 
 
-
+\subsection{Maxwell equation}
+We define the vector-pontential or gauge field as 
+\begin{equation}
+	A^\mu := (\phi,\, A^i)
+\end{equation}
+and the field strength
+\begin{equation}
+	F^{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
+\end{equation}
+The conventional electric and magnetic field are related to $F^{\mu\nu}$ via
+\begin{equation}
+	\begin{aligned}
+		&F^{0i} = E_i \\
+		&F^{ij} = \epsilon^{ijk} B_k.
+	\end{aligned}
+\end{equation}
+Note that $E_i$ and $B_i$ are {\it not} vectors. The Maxwell equation now can be expressed in a compact form 
+\begin{equation}
+	\begin{aligned}
+		&\partial_\mu F^{\mu\nu} = j^\nu \\
+		&\epsilon_{\mu\nu\rho\sigma}\partial_\rho F_{\mu\nu} =0 
+	\end{aligned}
+\end{equation}
+where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$.
 
 
 \subsection{Symmetries at the classical level}
