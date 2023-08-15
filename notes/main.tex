@@ -1,47 +1,4 @@
-% =========================================================================
-% SciPost LaTeX template
-% Version 2021-08
-%
-% Submissions to SciPost Journals should make use of this template.
-%
-% INSTRUCTIONS: simply look for the `TODO:' tokens and adapt your file.
-%
-% You can also make use of our empty "skeleton" templates for each Journal,
-% e.g. SciPostPhys_skeleton.tex
-% =========================================================================
-
-
-% TODO: uncomment ONE of the class declarations below
-
-% Class declaration format: \documentclass[submission, {DOI label of journal}]{SciPost}
-% where the DOI label of the journal should be one of:
-% Phys          (for SciPost Physics)
-% PhysCore      (for SciPost Physics Core)
-% PhysLectNotes (for SciPost Physics Lecture Notes)
-% PhysProc      (for SciPost Physics Proceedings -> !! Please use the conference-specific template which you will find on our website !!
-% PhysCodeb     (for SciPost Physics Codebases)
-% Astro         (for SciPost Astronomy)
-% Bio           (for SciPost Biology)
-% Chem          (for SciPost Chemistry)
-% CompSci       (for SciPost Computer Science)
-% Math          (for SciPost Mathematics)
-
-
-%% PHYSICS:
-% If you are submitting a paper to SciPost Physics: uncomment next line
-%\documentclass[submission, Phys]{SciPost}
-% If you are submitting a paper to SciPost Physics Core: uncomment next line
-%\documentclass[submission, PhysCore]{SciPost}
-% If you are submitting a paper to SciPost Physics Lecture Notes: uncomment next line
 \documentclass[submission, PhysLectNotes]{SciPost}
-% If you are submitting a paper to SciPost Physics Proceedings: uncomment next line
-%\documentclass[submission, PhysProc]{SciPost}
-% If you are submitting a paper to SciPost Physics Codebases: uncomment next line
-%\documentclass[submission, PhysCodeb]{SciPost}
-
-
-
-% Prevent all line breaks in inline equations.
 \binoppenalty=10000
 \relpenalty=10000
 
@@ -69,11 +26,8 @@
 \newcommand{\ExOp}[1]{\left\langle#1\right\rangle}
 
 \begin{document}
-
-% TODO: write your article's title here.
-% The article title is centered, Large boldface, and should fit in two lines
 \begin{center}{\Large \textbf{
-Notes for  the reading club\\
+Note for 2d CFT\\
 }}\end{center}
 
 % TODO: write the author list here. Use first name (+ other initials) + surname format.
@@ -125,20 +79,21 @@ The Yellow Book Notes. It is good to write notes!
 
 \section{Preliminary}
 \subsection{Conventions}
+
 {\bf Metric tensor and Coordinate.--}  The metric tensor in Minkowski and Euclidean space-time is defined as
 \begin{equation}
     \eta = \begin{Bmatrix}
         +1 &   &\\
            & -1& \\
-           &   & ...
+           &   & \cdots
     \end{Bmatrix}
 \end{equation}
 and
 \begin{equation}
-    \eta = \begin{Bmatrix}
+    g = \begin{Bmatrix}
         +1 &   &\\
            & +1& \\
-           &   & ...
+           &   & \cdots
     \end{Bmatrix}
 \end{equation}
 respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = \{t, \mathop{x}\limits^\rightarrow\}$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
@@ -147,7 +102,7 @@ respectively, where the first index is the time. In the Yellow Book, without spe
 \begin{equation}
     \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
 \end{equation}
-In Minkowski space time, the $\gamma$ matrices can be chosen as
+In Minkowski space time , the $\gamma$ matrices can be chosen as
 \begin{eqnarray}
     \gamma^0 &=& \sigma^x \nonumber \\
     \gamma^1 &=&  -i\sigma^y,
@@ -158,14 +113,28 @@ while in Elidean space, they can be chosen as
     \gamma^1 &=& \sigma^y.
 \end{eqnarray}
 
-{\bf Complex Coordinate.--}  In $1+1d$ Minkoswki space, fields are functions of $x-t$ or $x+t$. In CFT, there are two independent Virasoro algebras, in which the holomorphic (resp. antiholomorphic) part has fields $\phi(x-t)$ ($\phi(x+t)$). It is more convenient to use imaginary time $\tau = it$ and complex coordinates. It is defined as 
+{\bf Complex Coordinate.--}  In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp. antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates
 \begin{equation}
 \begin{aligned}
-z &= z^0 + i z^1 \\
-\bar{z} &= z^0 - i z^1.
+x^z &= x^0 + i x^1 \\
+x^{\bar{z}} &= x^0 - i x^1 \\
+\partial_z &= \frac{1}{2} \left( \partial_0 - i\partial_1 \right) \\
+\partial_{\bar{z}} &= \frac{1}{2} \left( \partial_0 + i\partial_1 \right).
 \end{aligned}
 \end{equation}  
-Note that here $z$ and $\bar{z}$ denote coordinates with upper index. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. 
+Here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They are usually denoted by $z$ and $\bar{z}$. One can simply treat $z$ and $\bar{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. For example, the right and left mover scalar fields become $\phi(z)$ and $\bar{\phi}(\bar{z})$ respectively. In terms of the new coordinate the metric tensor is
+\begin{equation}
+	g_{\mu\nu} = \begin{Bmatrix}
+        0    & 1/2  \\
+        1/2  & 0     
+    \end{Bmatrix} \qquad
+	g^{\mu\nu} = \begin{Bmatrix}
+        0 & 2  \\
+        2 & 0
+    \end{Bmatrix}
+\end{equation}
+
+Note that one has the freedom to interprete $x^0$ as time or space, which only change conventions rather than physics. For example, the correlation functions of physical operators always contain the chiral and anti-chiral parts. In particular, in Euclidean space the theory has rotation symmetry. 
 
 \subsection{Free fermions}
 In Minkowski space time, the Lagrange density for the free fermion reads
@@ -173,34 +142,65 @@ In Minkowski space time, the Lagrange density for the free fermion reads
     \mathcal{L} = \frac{g}{2}\left(\psi^1\ i(\partial t + \partial x)\ \psi^1 + \psi^2\ i(\partial t - \partial x)\ \psi^2 \right).
 \end{equation}
 In terms of $\psi = (\psi^1,\psi^2)$, one can write the theory as
-\begin{eqnarray}
-    \mathcal{L} &=& \frac{g}{2} \left ( \ \psi^\dagger i\partial_t \psi + \psi^\dagger \ \sigma^z \ i\partial_x \psi \ \right) \nonumber \\
-    &=& \frac{g}{2} \left ( \ \psi^\dagger \sigma^x\sigma^x i\partial_t \psi + \psi^\dagger \ -i\sigma^x\sigma^y \ i\partial_x \psi \ \right) \nonumber\\
-    &=& \frac{g}{2} \psi^\dagger \sigma^x \left(\sigma^x i \partial_t - i\sigma^y i\partial_x \right) \psi \nonumber \\
-    &=& \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi
-\end{eqnarray}
-where we used
+\begin{equation}
+	\begin{aligned}
+		\mathcal{L} &= \frac{g}{2} \left ( \ \psi^\dagger i\partial_t \psi + \psi^\dagger \ \sigma^z \ i\partial_x \psi \ \right) \nonumber \\
+    &= \frac{g}{2} \left ( \ \psi^\dagger \sigma^x\sigma^x i\partial_t \psi + \psi^\dagger \ -i\sigma^x\sigma^y \ i\partial_x \psi \ \right) \nonumber\\
+    &= \frac{g}{2} \psi^\dagger \sigma^x \left(\sigma^x i \partial_t - i\sigma^y i\partial_x \right) \psi \nonumber \\
+    &= \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi\\
+	&= \frac{g}{2} \bar{\psi} \, i\gamma^\mu \partial_\mu \psi
+	\end{aligned}
+\end{equation}
+where we used the convention for the gamma matrix
 \begin{equation}
     \gamma^0 = \sigma^x \quad \gamma^1 = -i\sigma^y
 \end{equation}
 
-{\bf Wick rotation---}
-It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon doing the Wick rotation, the action changes as
+{\bf Wick rotation.---}
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon Wick rotation, the action changes as
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
 \end{equation}
-Specifically,
+Specifically, in terms of real fermion one has
+\begin{equation}
+	\begin{aligned}
+		-i\,S[\psi] &= -i\frac{g}{2}\int dxdt\,\left(\psi^1\ i(\partial_t + \partial_x)\ \psi^1 + \psi^2\ i(\partial_t - \partial_x)\ \psi^2 \right)\\
+		&= \frac{g}{2}\int dx d(i\tau)\left(\psi^1\ (\partial_t + \partial_x)\ \psi^1 + \psi^2\ (\partial_t - \partial_x)\ \psi^2 \right) \\
+		&= \frac{g}{2}\int dx d\tau \left(\psi^1\ (\partial_\tau + i\partial_x)\ \psi^1 + \psi^2\ (\partial_\tau - i \partial_x)\ \psi^2 \right) \\
+		&= \frac{g}{2}\int d^2x \,2\left(\psi^1 \bar{\partial} \psi^1 + \psi^2 \partial \psi^2 \right) \\
+		&= \frac{g}{2}\int d^2z\, \left(\psi^1 \bar{\partial} \psi^1 + \psi^2 \partial \psi^2 \right) \\
+	\end{aligned}
+\end{equation}
+or in terms of complex fermion
 \begin{eqnarray}
-    i\ S[\psi] &=& i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
-    &=& i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi + i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
-    &=& -\int dxd\tau \ \frac{g}{2} \psi^\dagger \partial_\tau \psi - \int dxd(-i t) \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
-    &=&  -\int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi - \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
-    &=&  -\int dxd\tau \ \frac{g}{2} \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
+    -i\ S[\psi] &=& -i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
+    &=& -i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi - i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
+    &=& \int dxd\tau \ \frac{g}{2} \psi^\dagger \partial_\tau \psi + \int dxd(-i t) \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
+    &=&  \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi + \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
+    &=&  \int dxd\tau \ \frac{g}{2} \psi^\dagger \gamma^1_E\gamma^\mu_E\partial_\mu \psi
 \end{eqnarray}
 where $\tau = -it$. The Eulidean space action can be written as
 \begin{equation}
-    S_E = \int d^2x \frac{g}{2} \ \psi^\dagger \gamma^0_E\gamma^\mu_E\partial_\mu \psi
+    S_E = \frac{g}{2} \int d^2x \, \bar{\psi}\, \gamma^\mu_E\partial_\mu \psi
 \end{equation}
+where
+\begin{equation}
+	\begin{aligned}
+		\gamma_E^1 &= \sigma^x \\
+		\gamma_E^2 &= \sigma^y \\
+	\end{aligned}
+\end{equation}
+denote gamma matrix after Wick rotation. Note that the integral meausre also contriutes a $1/2$ factor. 
+
+The two point correlation function reads 
+\begin{equation}
+	\begin{aligned}
+		&\langle \psi^1(z,\bar{z}) \, \psi^1(w,\bar{w}) \rangle = \frac{1}{2\pi g} \frac{1}{z-w} \\
+		&\langle \psi^2(z,\bar{z}) \, \psi^2(w,\bar{w}) \rangle = \frac{1}{2\pi g} \frac{1}{\bar{z}-\bar{w}} \\
+		&\langle \psi^1(z,\bar{z}) \, \psi^2(w,\bar{w}) \rangle = 0\\
+	\end{aligned}
+\end{equation} 
+which means $\psi^1$ is chiral and $\psi^2$ is anti-chiral.
 
 {\bf Hamiltonian formalism.---}
 A lattice version free fermion theory Eq.~$2.38$ reads
@@ -209,22 +209,32 @@ A lattice version free fermion theory Eq.~$2.38$ reads
 \end{equation}
 The canonical momentum corresponding to $\psi_n$ is
 \begin{equation}
-    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = -\frac{i}{2}\psi_n.
+    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = \frac{i}{2}\psi_n.
 \end{equation}
 So that the Hamiltonian is
 \begin{eqnarray}
     \mathcal{H} &=& \sum_n \pi_n \dot{\psi_n} - \mathcal{L} \nonumber\\
-      &=& -\frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
-      &=& -i \sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
+      &=& \frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
+      &=& - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
 \end{eqnarray}
-While it shoud be
+
+Note that in the above we have adopted
 \begin{equation}
-    \mathcal{H} = -\frac{i}{2}\sum_n\psi_n \psi_{n+1}.
+	\delta \mathcal{L} = \pi\,\delta \dot{\psi}
 \end{equation}
-If we'd like to keep defining the derivative of Grassmann number according to the order of left-to-right, we need to define the Hamiltonian as
+which fixes the transformation to be 
 \begin{equation}
-    \mathcal{H} = \sum_n \dot{\psi_n} \pi_n - \mathcal{L} =  - \frac{i}{2} \sum_n \psi_n \psi_{n+1}
+	\mathcal{H} = \pi \,\dot{\psi} - \mathcal{L}.
 \end{equation}
+Equivalently we can also define the derivative as
+\begin{equation}
+	\delta \mathcal{L} = \delta \dot{\psi} \,\pi
+\end{equation}
+Now we have 
+\begin{equation}
+	\mathcal{H} = \dot{\psi} \, \pi - \mathcal{L}.
+\end{equation}
+
 
 \subsection{Free boson}
 The non-compact free boson in the Minkoswki space time reads
@@ -250,27 +260,56 @@ to rewritte the theory on a plane parameterized with $z$.
 
 The two point correlation up to a constant term is
 \begin{equation}
-    \langle \phi(x) \phi(y) \rangle = -K\,\mathrm{log} (r),
+    \langle \phi(x) \phi(y) \rangle = -K\,\mathrm{\log} (r),
 \end{equation}
 where $r$ is the distance between the two points. This is consistent with the fact that the scaling dimension of $\phi$ is 0. The above result is actually not well defined as the two-point correlation has both short and long distance divergence. Let's rewritte the Euclidean action as 
 \begin{equation}
-	S_E = \frac{1}{2\pi\,K} \int\frac{d^2k}{(2\pi)^2}\, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
+	S_E = \frac{1}{2\pi\,K} \int\frac{d^2k}{(2\pi)^2} \, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
 \end{equation} 
 One finds the real-space two-point correlation function
 \begin{equation}
-	G(r) = \langle \phi(x) \phi(y) \rangle = 2\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}}{k^2}
+	G(r) = \langle \phi(x) \phi(y) \rangle = 2\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\cos(\theta)}}{k^2}
 \end{equation}
-which is divergent at IR and UV. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
+which is divergent at IR and UV\,. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
 \begin{equation}
 	G(r) - G(0) = 2\pi\,K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}-1}{k^2}.
 \end{equation}
 The large $k$ contribution results in
 \begin{equation}
-	G(r) - G(0) \sim -K\,\mathrm{log}(r)
+	G(r) - G(0) \sim -K\,\log(r)
 \end{equation}
 
+A class of useful operators are the so-called (normal ordered) vertex operator $V_{\alpha}(x) :=\, e^{i\alpha\,\phi(x)}$. Its two point correlation reads
+\begin{equation}
+	\langle\, V_\alpha(x)\, V_{-\beta}(y)\, \rangle \sim \frac{\delta_{\alpha,\beta}}{r^{\alpha^2 K}}.
+\end{equation}
+One can find that the exponents of vertex operators in the correlation functions must sum up to zero. This is usually called neutral conditon for vertex operators. This actually reflects the $U(1)$ symmetry of the free scalar boson. 
 
 
+\subsection{Maxwell equation}
+We define the vector-pontential or gauge field as 
+\begin{equation}
+	A^\mu := (\phi,\, A^i)
+\end{equation}
+and the field strength
+\begin{equation}
+	F^{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
+\end{equation}
+The conventional electric and magnetic field are related to $F^{\mu\nu}$ via
+\begin{equation}
+	\begin{aligned}
+		&F^{0i} = E_i \\
+		&F^{ij} = \epsilon^{ijk} B_k.
+	\end{aligned}
+\end{equation}
+Note that $E_i$ and $B_i$ are {\it not} vectors. The Maxwell equation now can be expressed in a compact form 
+\begin{equation}
+	\begin{aligned}
+		&\partial_\mu F^{\mu\nu} = j^\nu \\
+		&\epsilon_{\mu\nu\rho\sigma}\partial_\rho F_{\mu\nu} =0 
+	\end{aligned}
+\end{equation}
+where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$.
 
 
 \subsection{Symmetries at the classical level}
@@ -311,7 +350,7 @@ Another definition that makes the energy-momentum tensor symmetric follows. In t
 \end{equation}
 the action remains invariant since this is nothing but a reparametrization of the theory (general coordinate covariance). So that one finds
 \begin{equation}
-    \delta S = 0 = -\frac{1}{2} \int d^dx \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
+    \delta S = 0 = -\frac{1}{2} \int d^d x \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
 \end{equation}
 So that one can define the energy-momentum tensor as
 \begin{equation}
@@ -470,18 +509,38 @@ At one-loop approximation, using cumulant expansion one can find
 
 {\bf Example: perturbative RG analysis of BKT transition}
 
-\section{Conformal symmetry in $d>2$ dimensions}
+\section{Conformal symmetry in general dimensions}
 
 \section{Conformal symmetry in two dimension}
 In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$. Locally on the algebra level, it becomes the infinite dimensional Witt algebra. In a quantum theory, one can introduce a central extension term and get the famous Virasoro algegra. It is this infinite dimensional symmetry that ensures fields in a cft have nice local properties.
 
-\subsection{Global and local conformal symmetries}
+Any holomorphic or antiholomorphic transformations are allowed by the symmetry. Since the symmetry is represented by two independent Virasoro algebras (chiral and antichiral), in the following we only present the chiral part. This can also be shown from the the Noether current $T^{\mu\nu}$ corresponding to the coordinate translation symmetry. Recall that as a Noether current one has $\partial_\mu T^{\mu\nu} = 0$ and with rotation symmetry $T^{\mu\nu}$ is symmetric and traceless. In terms of the original coordinate
+\begin{equation}
+	\begin{aligned}
+		T^{zz} &= T^{00} + 2iT^{01} - T^{11} \\
+		T^{z\bar{z}} &= T^{00} - iT^{01} + iT^{10} + T^{11} \\
+		T^{\bar{z}\bar{z}} &= T^{00} - 2iT^{01} - T^{11}.
+	\end{aligned}
+\end{equation}
+One can find that 
+\begin{equation}
+	\begin{aligned}
+		\partial_z T^{zz} &= 0 \\
+		T^{z\bar{z}} &= 0 \\
+		\partial_{\bar{z}} T^{\bar{z}\bar{z}} &= 0.
+	\end{aligned}
+\end{equation}
+So that $T^{zz}$ and $T^{\bar{z}\bar{z}}$ are antiholomorphic and holomorphic functions respectively. We introduce $T(z) := T_{zz}(z)$ and $\bar{T}(\bar{z}) := T_{\bar{z}\bar{z}}(\bar{z})$ in the following. 
 
-{\it Conformal mappings and Witt algebra}
 
-{\it Conformal Ward identity}
 
-{\it Virasoro algebra: Central extension of Witt algebra}
+%\subsection{Global and local conformal symmetries}
+
+%{\it Conformal mappings and Witt algebra}
+
+%{\it Conformal Ward identity}
+
+%{\it Virasoro algebra: Central extension of Witt algebra}
 
 \subsection{From correlation functions to OPE}
 Due to the local nature of field theory, we promote the correlation functions to expansion of non-singular operators, which is termed as operator product expansion (OPE). The idea is basically that far away from the operators inside a bounded region other operators can only feel them as a superposition of single operators (non-singular). The first OPE example follows from the conformal ward identity, which builds up the OPE between the energy momentum tensor and primary fields
@@ -538,7 +597,7 @@ On the plane, one has the freedom to choose the direction of space or time for a
 \begin{equation}
 	\xi = \frac{L}{2\pi}\mathrm{log}\left(z\right)
 \end{equation}
-maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum thoery defined on a cylinder can be used to understand the plane.
+maps a point $z$ on a complex palne to a point $\xi=t+ix$ on a cylinder with $t$ being the time and $x\in[0,L)$ the space. The Hilbert space defined on the cylinder at a given time $t$ is defined within a circle with a radius $e^{2\pi t/L}$. Naturally the quantum theory defined on a cylinder can be used to understand the plane.
 
 One can immedialy find many important properties of the radial quantization from the confromal mapping. The time evolution operator, the Hamiltonian, on a cylinder corresponds the dialation operator on the plane and the translation operator, i.e.  the momentum, corresponds to the rotation operator on the plane. Such a quantization scheme for a cft is called radial quantization. The time ordering on a cylinder becomes radial ordering on a plane. As  a conseconce, the commutation of operators for a quantum theory is related to contour integrals through
 \begin{equation}
@@ -1121,6 +1180,69 @@ From the modular transformation properties of the $d$'s, it follows there are tw
 \end{align}
 This is twice the partition function of the Ising model on the torus!
 
+
+
+\section{FRS/Categorical construction of RCFT}
+The mordern lanuage (probaly not the final lanuage of course) for RCFTs is the so-called category theory. The chiral symmetry of a RCFT is described by a (semisimple) modular tensor category $\mathcal{C}$. A full CFT requires the knowledge of how to combine the chiral and anti-chiral parts. Historically modular invariance has been utilized to construct a full CFT. However there exist non-physical modular invariant theories. The required part is a semisimple module category $\mathcal{M}$ over $\mathcal{C}$. Physically $\mathcal{M}$ contain information of how bulk fields interact with boundaries or more generally defects. Category theory provides a unified and beautiful lanuage of how bulk, boudary and defect fields interact, which compose a full CFT. 
+
+\subsection{Chiral symmetry in RCFT}
+
+\subsection{Verlinde lines in diagonal RCFT}
+
+\subsection{Global symmetry and orbifold RCFT with discrete torsion}
+With a given CFT $\mathcal{T}$ defined on $\mathcal{M}$ with a discrete global group symmetry $G$, it is possible to define a different CFT $\tilde{T} \sim T/G$ by gauging the global symmetry $G$~\cite{Douglas:aa,Gaberdiel_2000,Chang2019}. The orbifold theory $\tilde{T}$ then has a fusion category symmetry $\mathrm{Rep}(G)$. A symmetry operator or simple object in $\mathrm{Rep}(G)$ is labeled by $G$-representation. One-dimensional symmetry operators are invitable, while higher dimensional representations correspond to non-invitable symmetries. 
+
+We first review the global symmetry $G$ in RCFT. Physically each symmetry operator $g$ can be represented by a line operator $\mathcal{L}_g$. We further require that $\mathcal{L}_g$ commutes with the chiral vertext algebra in RCFT, hence $\mathcal{L}_g$ is topological, which are denoted as topological defect lines (TDLs)~\footnote{There may exist conformal line operators which are not topological.}. Two symmetry operators can be fused into a new one, in which the fusion rule follows the multiplication of group elements. When fusing three operators, there are two different ways. These two fusion orders are related by a $F$-move, characterized by $\alpha(g,h,k)\,:\, 3$-cocycles $G^3 \rightarrow U(1)$ up to coboundaries. A non-trivival 3-cocycle means the global symmetry $G$ is anomalous in which the fusion of $\mathcal{L}_g$ not associative.
+
+When $G$ is non-anomalous, we can construct orbifold theories. We start by inserting a symmetry projector $P := \frac{1}{|G|} \sum_{g \in G} \mathcal{L}_g$ in the partition function 
+\begin{equation}
+	\begin{aligned}
+		Z = \mathrm{Tr}\left( P\,q^{L_0} \bar{q}^{\bar{L}_0} \right).
+	\end{aligned}
+\end{equation}
+However, this theory is usually not modular invariant, since a modular transformation can modifies the symmetry action in the time direction and generate different terms. One needs to consider the so-called twisted sectors in the Hilbert space $\mathcal{H}_h$ to construct a modular invariant theory. This twisted sector $\mathcal{H}_h$ is difind according to
+\begin{equation}
+	\phi(e^{2\pi i}z,e^{-2\pi i}\bar{z}) = \mathcal{L}_h \circ \phi(z,\bar{z}).
+\end{equation}
+Now after symmetrilization, one writes down the orbifold theory
+\begin{equation}
+	\begin{aligned}
+		Z(q,\bar{q}) = \frac{1}{|G|}\,\sum_{[g,h]=0}\mathrm{Tr}_{\mathcal{H}_h}\left( \mathcal{L}_g \, q^{L_0} \bar{q}^{\bar{L}_0} \right).
+	\end{aligned}
+\end{equation}
+
+For a given symmetry group $G$, there may exist different orbifold ways. It turns out one can use the second cohomology group $H^2(G,U(1))$ to classify orbifolds. This is known as discrete torsion in the literature. Specifically one can use $\epsilon(g,h)$ to characterize each orbifold theory
+\begin{equation}
+	\begin{aligned}
+		Z(q,\bar{q}) = \frac{1}{|G|} \, \sum_{[g,h]=0} \epsilon(g,h) \, \mathrm{Tr}_{\mathcal{H}_h}\left( \mathcal{L}_g \, q^{L_0} \bar{q}^{\bar{L}_0} \right),
+	\end{aligned}
+\end{equation}
+where $\epsilon(g,h) := \nu(g,h)/\nu(h,g)$ with $\nu(g_1,g_2)$ being two cocycles. The symmetry projector becomes $P_h := \frac{1}{|G|}\sum_g \epsilon(g,h)\,\mathcal{L}_g$. 
+
+\subsection{Duality TDL and Self-dual orbifold}
+
+\subsection{Topological defects in Ising CFT}
+Besides the closed manifolds, CFTs can also be defined on manifols with boundaries, or defects in more general setting. A boundary can be understood a special defect between a CFT and a trivial CFT with a central charge $c=0$. On the other hand a defect between CFT1 and CFT2 can be regarded as a boundary of stacking the two CFTs using the folding trick. It is natural to require the conformal symmetry still holds at boundaries and defects. For a boundary state $\vert a \rangle$ this means 
+\begin{equation}
+	\left ( L_n - \bar{L}_{-n} \right ) \vert a \rangle = 0.
+\end{equation}
+For a defect $O_\alpha$ it requires
+\begin{equation}
+	\left[ L_n - \bar{L}_{-n},\, O_\alpha \right] = 0.
+\end{equation}
+Usually we require stronger constraint for the conformal defects 
+\begin{equation}
+	\begin{aligned}
+		\left[ L_n,\, O_\alpha \right] = 0 \\
+		\left[ \bar{L}_{n},\, O_\alpha \right] = 0
+	\end{aligned}
+\end{equation}
+which are now called topological defects. They correspond to the topological aspects of CFT and serve the role of intertwiners between conformal boundaries. Since the topological defects commute with Virasoro generators, they can be viewed as genearlized symmetries. 
+
+Let's start with a simple example -- the Ising CFT $\mathcal{M}(4,3)$. There are three conformal boundaries/topological defects in Ising CFT which are labeled by primaries. Two defects can be fused into other defects when put close to each other. As a result their fusion forms a fusion algebra. In Ising CFT, the fusion algebra of defects is the same as that of primaries. This is true for all A-type minimal models. 
+
+\subsection{Boundary states}
+
 \section{Other topics}
 \subsection{Boundary conformal field theory}
 CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary conformal field theory (BCFT) is a CFT defined on a two dimension manifold with one dimension boundaries. It is important theoretical tool in the study of surface critical behavior, defects and open string theories. Note that one can also consider extended symmetry in a CFT, so that the Virasoro algebra is a subalgebra of the extended symmetry. The corresponding boundary condition (resp. boudary state) in the open (resp. closed) sector should also respect the extended algebra. It was shown than there are also symmetry-breaking boundary conditions which only respect the conformal symmetry. Here we only discuss conformal symmetry. 
@@ -1205,11 +1327,44 @@ Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$
 \subsection{Bosonization}
 In the discussion of free compact boson theory, we have seen the vertex operator $V_1 = :e^{i\phi(z,\bar{z})}:$ has the same scaling dimension as a fermion operator and more importantly the free complex fermion and and the free compact boson (with a radius $R=1$) share the same partiton function. These facts indicate that the fermion and boson theories are dual to each other. 
 
+{\bf Bosonization dictonary for free fermions---}
+With the chiral mass center introduced above the chiral part of the compact boson field $X(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson. The current operator can be defind as 
+\begin{equation}
+	J(z) = i\sqrt{\frac{2}{K}}\partial \phi (z).
+\end{equation} 
+So that the chiral/anti-chiral part of the free compact boson can be written as 
+\begin{equation}
+	\begin{split}
+		\phi(z) &= \sqrt{\frac{K}{2}}\left(\phi_0 -i\,j_0\,\mathrm{ln}\,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n}\right) \\
+		\bar{\phi}(\bar{z}) &= \sqrt{\frac{K}{2}} \left(\bar{\phi}_0 -i\,\bar{j}_0\,\ln \,\bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}\right).
+	\end{split}
+\end{equation} 
+The zero mode of the current operator is quantitized to be 
+\begin{equation}
+	\begin{aligned}
+		j_0 &= \frac{1}{\sqrt{2}} \left( \frac{\sqrt{K}m}{R} + \frac{R}{\sqrt{K}n} \right) \\
+		\bar{j}_0 &= \frac{1}{\sqrt{2}} \left( \frac{\sqrt{K}m}{R} - \frac{R}{\sqrt{K}n} \right)
+	\end{aligned}
+\end{equation}
+One can also introduce its dual field $\tilde{X} := \phi(z) - \bar{\phi}(z)$. It is compactified on a circle with a radius $K/R$. This indicates that there are two $U(1)$ symmetry in the free compact boson theory, which correspond to $X$ and $\bar{X}$ fields respectively.
+
+Now we are ready to bosonize the fermion fields with the vertex operators
+\begin{equation}
+	\begin{split}
+		&\psi(z) \sim e^{i\sqrt{\frac{2}{K}}\,\phi(z)} \\
+		&\bar{\psi}(\bar{z}) \sim e^{i\sqrt{\frac{2}{K}}\,\bar{\phi}(\bar{z})}.
+	\end{split}
+\end{equation}
+
+
+
+
+\if_false:
 {\bf Dual field approach}\\
 Recall the compact boson compactified on a $2\pi\,R$ circle (we have chosen $K=2$) has the mode expansion
 \begin{equation}
 	\begin{split}
-		X(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z + \bar{j}_0\,\mathrm{ln}\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}+\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
+		X(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z + \bar{j}_0\,\ln\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}+\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
 	\end{split}
 \end{equation} 
 Its conjugate momentum field $\pi(z,\bar{z}):=\frac{\partial\,L}{\partial\partial_t X(z,\bar{z}))} = \frac{1}{4\pi}\,i\,\partial_\tau X$ can be written as
@@ -1264,6 +1419,8 @@ Now we are ready to bosonize the fermion fields with the vertex operators
 	\end{split}
 \end{equation}
 
+
+\fi
 \appendix
 
 \section{Central extensions of Lie algebras}
