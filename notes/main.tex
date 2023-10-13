@@ -79,10 +79,11 @@ The Yellow Book Notes. It is good to write notes!
 
 \section{Preliminary}
 \subsection{Conventions}
+This part summrises conventions used in this note. 
 
-{\bf Metric tensor and Coordinate.--}  The metric tensor in Minkowski and Euclidean space-time is defined as
+{\bf Metric tensor and Coordinate.---}  The metric tensor in Minkowski and Euclidean space-time is defined as
 \begin{equation}
-    \eta = \begin{Bmatrix}
+    \eta_{\alpha\beta} = \begin{Bmatrix}
         +1 &   &\\
            & -1& \\
            &   & \cdots
@@ -90,22 +91,23 @@ The Yellow Book Notes. It is good to write notes!
 \end{equation}
 and
 \begin{equation}
-    g = \begin{Bmatrix}
+    g_{\alpha\beta} = \begin{Bmatrix}
         +1 &   &\\
            & +1& \\
            &   & \cdots
     \end{Bmatrix}
 \end{equation}
-respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = \{t, \mathop{x}\limits^\rightarrow\}$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
+respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = (t, x^{\alpha})$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
 
-{\bf $\gamma$ matrices.--}   The $\gamma$ matrices follow the Clifford algebra
+{\bf $\gamma$ matrices.--}   
+The $\gamma$ matrices follow the Clifford algebra
 \begin{equation}
     \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
 \end{equation}
 In Minkowski space time , the $\gamma$ matrices can be chosen as
 \begin{eqnarray}
     \gamma^0 &=& \sigma^x \nonumber \\
-    \gamma^1 &=&  -i\sigma^y,
+    \gamma^1 &=&  i\sigma^y,
 \end{eqnarray}
 while in Elidean space, they can be chosen as
 \begin{eqnarray}
@@ -137,11 +139,11 @@ Here $x^z$ and $x^{\bar{z}}$ denote coordinates with upper index. They are usual
 Note that one has the freedom to interprete $x^0$ as time or space, which only change conventions rather than physics. For example, the correlation functions of physical operators always contain the chiral and anti-chiral parts. In particular, in Euclidean space the theory has rotation symmetry. 
 
 \subsection{Free fermions}
-In Minkowski space time, the Lagrange density for the free fermion reads
+In Minkowski space time,  for the free fermion reads
 \begin{equation}
-    \mathcal{L} = \frac{g}{2}\left(\psi^1\ i(\partial t + \partial x)\ \psi^1 + \psi^2\ i(\partial t - \partial x)\ \psi^2 \right).
+    \mathcal{L} = \frac{g}{2}\left(\psi^1\ i(\partial t - \partial x)\ \psi^1 + \psi^2\ i(\partial t + \partial x)\ \psi^2 \right).
 \end{equation}
-In terms of $\psi = (\psi^1,\psi^2)$, one can write the theory as
+In terms of $\psi = (\psi^1,\psi^2)^t$, one can write the theory as
 \begin{equation}
 	\begin{aligned}
 		\mathcal{L} &= \frac{g}{2} \left ( \ \psi^\dagger i\partial_t \psi + \psi^\dagger \ \sigma^z \ i\partial_x \psi \ \right) \nonumber \\
@@ -237,19 +239,19 @@ Now we have
 
 
 \subsection{Free boson}
-The non-compact free boson in the Minkoswki space time reads
+The free (non-)compact boson in the Minkoswki space time reads~\cite{Blumenhagen:2009zz}
 \begin{equation}
-    S = \frac{1}{4\pi\,K}\int \ dxdt \ \partial_\mu \phi \partial^\mu \phi,
+    S = \frac{1}{8\pi\,K}\int \ dxdt \ \partial_\mu \phi \partial^\mu \phi,
 \end{equation}
 where $\phi$ is a real scalar field. After Wick rotation $\tau = it$, it becomes
 \begin{eqnarray}
-    i\ S &=& \frac{i}{4\pi\,K}\int \ dxdt \ \partial_t \phi \partial_t \phi - \frac{i}{2}g\int \ dxdt \ \partial_x \phi \partial_x \phi \nonumber \\
-    &=& -\frac{1}{4\pi\,K}\int \ dxd\tau \ \partial_\tau \phi \partial_\tau \phi - \frac{1}{2}g\int \ dxdit \ \partial_x \phi \partial_x \phi \nonumber \\
-    &=& -\frac{1}{4\pi\,K}\int \ dxd\tau \ \partial_\mu \phi \partial^\mu \phi
+    i\ S &=& \frac{i}{8\pi\,K}\int \ dxdt \ \partial_t \phi \partial_t \phi - \frac{i}{2}g\int \ dxdt \ \partial_x \phi \partial_x \phi \nonumber \\
+    &=& -\frac{1}{8\pi\,K}\int \ dxd\tau \ \partial_\tau \phi \partial_\tau \phi - \frac{1}{2}g\int \ dxdit \ \partial_x \phi \partial_x \phi \nonumber \\
+    &=& -\frac{1}{8\pi\,K}\int \ dxd\tau \ \partial_\mu \phi \partial^\mu \phi
 \end{eqnarray}
 The Euclidean action reads
 \begin{equation}
-    S_E = \frac{1}{4\pi\,K}\int \ d^2x \ \partial_\mu \phi \partial^\mu \phi.
+    S_E = \frac{1}{8\pi\,K}\int \ d^2x \ \partial_\mu \phi \partial^\mu \phi.
 \end{equation}
 
 The theory can be defined on a cylinder in which the coordinate is $\omega = \tau + i\sigma$ where $\sigma$ is defined on a circle with a unit radius. We can use another complex coordinate
@@ -260,56 +262,78 @@ to rewritte the theory on a plane parameterized with $z$.
 
 The two point correlation up to a constant term is
 \begin{equation}
-    \langle \phi(x) \phi(y) \rangle = -K\,\mathrm{\log} (r),
+    \langle \phi(x) \phi(y) \rangle = -2 K\,\mathrm{\log} (r),
 \end{equation}
 where $r$ is the distance between the two points. This is consistent with the fact that the scaling dimension of $\phi$ is 0. The above result is actually not well defined as the two-point correlation has both short and long distance divergence. Let's rewritte the Euclidean action as 
 \begin{equation}
-	S_E = \frac{1}{2\pi\,K} \int\frac{d^2k}{(2\pi)^2} \, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
+	S_E = \frac{1}{4\pi\,K} \int\frac{d^2k}{(2\pi)^2} \, \phi_k \left(\frac{k^2}{2}\right)\phi_{-k}.
 \end{equation} 
 One finds the real-space two-point correlation function
 \begin{equation}
-	G(r) = \langle \phi(x) \phi(y) \rangle = 2\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\cos(\theta)}}{k^2}
+	G(r) = \langle \phi(x) \phi(y) \rangle = 4\pi K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\cos(\theta)}}{k^2}
 \end{equation}
 which is divergent at IR and UV\,. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
 \begin{equation}
-	G(r) - G(0) = 2\pi\,K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\mathrm{cos}(\theta)}-1}{k^2}.
+	G(r) - G(0) = 4\pi\,K \int \frac{d^2k}{(2\pi)^2}\, \frac{e^{ikr\,\cos(\theta)}-1}{k^2}.
 \end{equation}
 The large $k$ contribution results in
 \begin{equation}
-	G(r) - G(0) \sim -K\,\log(r)
+	G(r) - G(0) \sim -2 K\,\log(r)
 \end{equation}
 
-A class of useful operators are the so-called (normal ordered) vertex operator $V_{\alpha}(x) :=\, e^{i\alpha\,\phi(x)}$. Its two point correlation reads
+A class of useful operators are the so-called (normal ordered) vertex operator $V_{\alpha}(x) := \, e^{i\alpha\,\phi(x)}$. Its two point correlation reads
 \begin{equation}
-	\langle\, V_\alpha(x)\, V_{-\beta}(y)\, \rangle \sim \frac{\delta_{\alpha,\beta}}{r^{\alpha^2 K}}.
+	\langle\, V_\alpha(x)\, V_{-\beta}(y)\, \rangle = e^ {\alpha^2 \langle \phi(x) \phi(y) \rangle} \sim \frac{\delta_{\alpha,\beta}}{r^{2\alpha^2 K}}.
 \end{equation}
 One can find that the exponents of vertex operators in the correlation functions must sum up to zero. This is usually called neutral conditon for vertex operators. This actually reflects the $U(1)$ symmetry of the free scalar boson. 
 
+One can also write down the Hamiltonian for the free boson. The canonical momentum corresponding to $\phi$ is $\pi = \frac{\partial L}  {\partial \dot\phi} = \frac{\dot{\phi}}{4\pi K}$. One finds the Hamiltonian is 
+\begin{equation}
+	H = \int dx \left( 2\pi K \pi^2 + \frac{1}{8\pi K} {\left(\partial_x \phi\right)}^2 \right).
+\end{equation}
+
+{\bf Complex coordinate---} 
+Let's look at the same theory in terms of the complex coordinate, which is heavily used in the $2d$ CFT. We first write down the action as
+\begin{equation}
+	S = \frac{1}{8\pi K}\int d^2 x \sqrt{g} g^{\mu \nu} \partial_\mu \varphi \partial_\nu \varphi.  
+\end{equation} 
+With the complex coordinate introduced previously, one can immedialy write down the action as
+\begin{equation}
+	\begin{aligned}
+		S &= \frac{1}{8\pi K}\int dz d\bar{z} \frac{1}{2} \left( 2 \partial \varphi \bar{\partial} \varphi + 2 \bar{\partial} \varphi \partial \varphi \right) \\
+		&= \frac{1}{4\pi K}\int dz d\bar{z} \left( \partial \varphi \bar{\partial} \varphi \right)
+	\end{aligned}
+\end{equation}
+The chiral two-point correlation can be deduced from the physical one to be $\langle \phi(z) \phi(0) \rangle \sim = -K \log(z) $.
+
 
 \subsection{Maxwell equation}
-We define the vector-pontential or gauge field as 
+We define the vector-pontential or gauge field and current as 
 \begin{equation}
-	A^\mu := (\phi,\, A^i)
+	\begin{aligned}
+		A^\mu &= (\phi,\, \mathbf{A}) \\
+		j^\mu &= (\rho,\,\mathbf{j})
+	\end{aligned}
 \end{equation}
 and the field strength
 \begin{equation}
-	F^{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
+	F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
 \end{equation}
-The conventional electric and magnetic field are related to $F^{\mu\nu}$ via
+The electric field $\mathbf{E} = -\nabla \phi - \dot{\mathbf{A}}$ and magnetic fields are related to $F_{\mu\nu}$ via
 \begin{equation}
 	\begin{aligned}
-		&F^{0i} = E_i \\
-		&F^{ij} = \epsilon^{ijk} B_k.
+		&F_{0i} = \mathbf{E} \\
+		&F_{ij} = -\epsilon_{ijk} B_k.
 	\end{aligned}
 \end{equation}
-Note that $E_i$ and $B_i$ are {\it not} vectors. The Maxwell equation now can be expressed in a compact form 
+Note that $\mathbf{E}$ and $\mathbf{B}$ are {\textit{not}} vectors, and $\epsilon_{ijk}$ is the Levi-Civita symbol (not a tensor). The Maxwell equation now can be expressed in a compact form 
 \begin{equation}
 	\begin{aligned}
 		&\partial_\mu F^{\mu\nu} = j^\nu \\
 		&\epsilon_{\mu\nu\rho\sigma}\partial_\rho F_{\mu\nu} =0 
 	\end{aligned}
 \end{equation}
-where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$.
+where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$. 
 
 
 \subsection{Symmetries at the classical level}
@@ -630,11 +654,13 @@ L_{-k_1}L_{-k_2} \cdots L_{-k_n} \vert \phi \rangle.
 \end{equation}
 
 \subsection{The Free Boson}
-{\it Canonical Quantization on the Cylinder}
+\textit{Canonical Quantization on the Cylinder}--.
+\textcolor{red}{Rewrite this part using the current operator to simplify the convention.}
 Let $\phi(x,t)$ be a free Boson field defined on a cylinder of circumference $L$, such that $\phi(x+L,t) = \phi(x,t)$. The Lagrangian of the boson field is
 \begin{equation}
-  \mathcal{L} = \frac{g}{2}\int dx \left\{(\partial_t\phi)^2-(\partial_x \phi)^2\right\}.
+  \mathcal{L} = \frac{g}{2}\int dx \left\{{(\partial_t\phi)}^2 - {(\partial_x \phi)}^2\right\}.
 \end{equation}
+Note that to connect to the convention in the previous part $g = \frac{1}{2\pi K}$.
 We can Fourier transform $\phi$ as
 \begin{align}
   \phi(x,t) &= \sum_n e^{\frac{2\pi}{L}inx}\phi_n(t), \\
@@ -685,12 +711,13 @@ The field $\phi$ is not a primary, however the holomorphic field $\partial \phi$
   i \partial \phi(z)  = \frac{\pi_0}{4\pi g z}+\frac{i}{\sqrt{4\pi g}}\sum_{n \neq 0} a_n z^{-n-1}
 \end{equation}
 
-{\it Vertex Operators}
+\textit{Vertex Operators}--.
 There exists an infinite variety of local fields related to $\phi$ without introducing a scale. These are called the vertex operators $\mathcal{V}_\alpha$.
 \begin{equation}
   \mathcal{V}_\alpha = :e^{i\alpha\phi(z,\bar{z})}:
 \end{equation}
-The vertex operators have conformal dimensions $h(\alpha)=\bar{h}(\alpha) = \frac{\alpha^2}{8\pi g}$.
+The vertex operators have conformal dimensions $h(\alpha)=\bar{h}(\alpha) = \frac{\alpha^2}{8\pi g} = \frac{\alpha^2 K}{4}$.
+
 \subsection{The Fock Space}
 The eigenstates of $H$ can be labeled by the eigenvalues of $\pi_0$. This means that the Fock space is built upon a one-parameter family of vacua $\lvert{\alpha}\rangle$.
 
@@ -1327,34 +1354,44 @@ Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$
 \subsection{Bosonization}
 In the discussion of free compact boson theory, we have seen the vertex operator $V_1 = :e^{i\phi(z,\bar{z})}:$ has the same scaling dimension as a fermion operator and more importantly the free complex fermion and and the free compact boson (with a radius $R=1$) share the same partiton function. These facts indicate that the fermion and boson theories are dual to each other. 
 
-{\bf Bosonization dictonary for free fermions---}
-With the chiral mass center introduced above the chiral part of the compact boson field $X(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson. The current operator can be defind as 
+{\bf Free compact boson---}
+With the chiral mass center introduced above the chiral part of the compact boson field $\varphi(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson $\langle \varphi (x) \varphi(y) \rangle = -2 K \log (r)$. The current operator can be defind as 
 \begin{equation}
-	J(z) = i\sqrt{\frac{2}{K}}\partial \phi (z).
+	j(z) = i \frac{\partial \varphi}{\sqrt{K}},
 \end{equation} 
-So that the chiral/anti-chiral part of the free compact boson can be written as 
+which ensures the the current operator normalized as $\langle j(z) j(z^\prime) \rangle = 1/z^2$.
+
+The chiral/anti-chiral part of the free compact boson can be written as 
 \begin{equation}
 	\begin{split}
-		\phi(z) &= \sqrt{\frac{K}{2}}\left(\phi_0 -i\,j_0\,\mathrm{ln}\,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n}\right) \\
-		\bar{\phi}(\bar{z}) &= \sqrt{\frac{K}{2}} \left(\bar{\phi}_0 -i\,\bar{j}_0\,\ln \,\bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}\right).
+		\phi(z) &= \sqrt{K}\left(\phi_0 -i\,j_0\,\mathrm{ln}\,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n}\right) \\
+		\bar{\phi}(\bar{z}) &= \sqrt{K} \left(\bar{\phi}_0 -i\,\bar{j}_0\,\ln \,\bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}\right).
 	\end{split}
 \end{equation} 
 The zero mode of the current operator is quantitized to be 
 \begin{equation}
 	\begin{aligned}
-		j_0 &= \frac{1}{\sqrt{2}} \left( \frac{\sqrt{K}m}{R} + \frac{R}{\sqrt{K}n} \right) \\
-		\bar{j}_0 &= \frac{1}{\sqrt{2}} \left( \frac{\sqrt{K}m}{R} - \frac{R}{\sqrt{K}n} \right)
+		j_0 &= \frac{\sqrt{K}m}{R} + \frac{R n}{2\sqrt{K}} \\
+		\bar{j}_0 &= \frac{\sqrt{K}m}{R} - \frac{R n}{2\sqrt{K}}
 	\end{aligned}
 \end{equation}
-One can also introduce its dual field $\tilde{X} := \phi(z) - \bar{\phi}(z)$. It is compactified on a circle with a radius $K/R$. This indicates that there are two $U(1)$ symmetry in the free compact boson theory, which correspond to $X$ and $\bar{X}$ fields respectively.
+One can also introduce its dual field $\theta(z,\bar{z}) := \phi(z) - \bar{\phi}(\bar{z})$. It is compactified on a circle with a different radius 
+\begin{equation}
+	\theta(x) \sim \theta(x) + 4\pi K /R.	
+\end{equation}
+This indicates that there are two $O(2)$ symmetry in the free compact boson theory, which correspond to $\varphi(x)$ and $\theta(x)$ respectively.
 
-Now we are ready to bosonize the fermion fields with the vertex operators
+
+{\bf Bosonization dictonary for free fermions---}
+The simplest way for bosonization of fermions is through the vertext operator $V_\alpha = :e^{i\alpha \phi(z)}:$ with a dimension $(K\alpha^2/2,0)$. Now we can bosonize the fermion fields
 \begin{equation}
 	\begin{split}
-		&\psi(z) \sim e^{i\sqrt{\frac{2}{K}}\,\phi(z)} \\
-		&\bar{\psi}(\bar{z}) \sim e^{i\sqrt{\frac{2}{K}}\,\bar{\phi}(\bar{z})}.
+		&\psi(z) \sim e^{i \phi/\sqrt{K}} \\
+		&\bar{\psi}(\bar{z}) \sim e^{i\bar{\phi} /\sqrt{K}}.
 	\end{split}
 \end{equation}
+
+
 
 
 
