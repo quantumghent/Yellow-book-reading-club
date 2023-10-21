@@ -143,8 +143,8 @@ Note that one has the freedom to interprete $x^0$ as time or space, which only c
 In Minkowski space time ($d=1+1$), the free Dirac spinor has two componenet. Its action reads~\cite{Blumenhagen:2009zz,tong_gr}
 \begin{equation}
 	\begin{aligned}
-		S &= \frac{1}{4\pi K}\int d^2x \ \left(i\psi_{+} (\partial t - \partial x) \psi_{+} + i \psi_{-}(\partial t + \partial x)\ \psi_{-} \right). \\		
-		&= \frac{1}{4\pi K}\int d^2x \ \left(i\psi_{+} \partial_{-} \psi_{+} + i \psi_{-} \partial_{+} \psi_{-} \right). 
+		S &= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+} (\partial t - \partial x) \psi_{+} + i \psi_{-}(\partial t + \partial x)\ \psi_{-} \right). \\		
+		&= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+} \partial_{-} \psi_{+} + i \psi_{-} \partial_{+} \psi_{-} \right). 
 	\end{aligned}
 \end{equation}
 The equation of motion has the solution for the chiral fermions 
@@ -157,11 +157,11 @@ The equation of motion has the solution for the chiral fermions
 They correspond to left and right moving particles as the speed of light. In terms of $\psi = {(\psi_{+},\psi_{-})}^t$, one can write the theory as
 \begin{equation}
 	\begin{aligned}
-		S &= \frac{1}{4\pi K} \int d^2x \ \left ( i \psi^\dagger \partial_t \psi - i\psi^\dagger \sigma^z \partial_x \psi \ \right) \\
-    &= \frac{1}{4\pi K} \int d^2x \ i \psi^\dagger \left( \partial_t - \sigma^z\partial_x\right)\psi \\
-    &= \frac{1}{4\pi K} \int d^2x \ i \psi^\dagger \left( \sigma^x \sigma^2 \partial_t + \sigma^x i\sigma^y \partial_x\right)\psi \\
-	&= \frac{1}{4\pi K} \int d^2x \ \psi^\dagger i \gamma^0 \gamma^\mu \partial_\mu \psi\\
-	&= \frac{1}{4\pi K} \int d^2x \ \bar{\psi} \, i \slashed{\partial} \psi
+		S &= \frac{1}{4\pi K} \int dxdt \ \left ( i \psi^\dagger \partial_t \psi - i\psi^\dagger \sigma^z \partial_x \psi \ \right) \\
+    &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \partial_t - \sigma^z\partial_x\right)\psi \\
+    &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \sigma^x \sigma^2 \partial_t + \sigma^x i\sigma^y \partial_x\right)\psi \\
+	&= \frac{1}{4\pi K} \int dxdt \ \psi^\dagger i \gamma^0 \gamma^\mu \partial_\mu \psi\\
+	&= \frac{1}{4\pi K} \int dxdt \ \bar{\psi} \, i \slashed{\partial} \psi
 	\end{aligned}
 \end{equation}
 where we used
@@ -170,57 +170,56 @@ where we used
 \end{equation}
 A mass term $m\bar{\psi}\psi = m \left(\psi_{+}^\dagger \psi_{-} +\psi_{-}^\dagger \psi_{+}\right) $ can be added into the action
 \begin{equation}
-	S = \frac{1}{4\pi K} \int d^2x \ \bar{\psi} \, \left( i \slashed{\partial} - m \right) \psi.
+	S = \frac{1}{4\pi K} \int dxdt \ \bar{\psi} \, \left( i \slashed{\partial} - m \right) \psi.
 \end{equation}
 The massless fermions are Weyl spinors without a mixing between the left and right moving parts. 
 
 {\bf Wick rotation.---}
-It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon Wick rotation, the action changes as
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. Upon Wick rotation, the action changes as ($t \rightarrow i\tau$)
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
 \end{equation}
 Specifically, in terms of real fermion one has
 \begin{equation}
 	\begin{aligned}
-		-i\,S[\psi] &= -i\frac{g}{2}\int dxdt\,\left(\psi^1\ i(\partial_t + \partial_x)\ \psi^1 + \psi^2\ i(\partial_t - \partial_x)\ \psi^2 \right)\\
-		&= \frac{g}{2}\int dx d(i\tau)\left(\psi^1\ (\partial_t + \partial_x)\ \psi^1 + \psi^2\ (\partial_t - \partial_x)\ \psi^2 \right) \\
-		&= \frac{g}{2}\int dx d\tau \left(\psi^1\ (\partial_\tau + i\partial_x)\ \psi^1 + \psi^2\ (\partial_\tau - i \partial_x)\ \psi^2 \right) \\
-		&= \frac{g}{2}\int d^2x \,2\left(\psi^1 \bar{\partial} \psi^1 + \psi^2 \partial \psi^2 \right) \\
-		&= \frac{g}{2}\int d^2z\, \left(\psi^1 \bar{\partial} \psi^1 + \psi^2 \partial \psi^2 \right) \\
+		-i\,S &= -i\frac{1}{4\pi K}\int dxdt\,\left(\psi_{+}\ i(\partial_t + \partial_x)\ \psi_{+} + \psi_{-}\ i(\partial_t - \partial_x)\ \psi_{-} \right)\\
+		&= -i\frac{1}{4\pi K}\int dx d(i\tau) i\left(\psi_{+}\ (\partial_{i\tau} + \partial_x)\ \psi_{+} + \psi_{-}\ i(\partial_{i\tau} - \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int dx d\tau \left(\psi_{+}\ (\partial_\tau + i\partial_x)\ \psi_{+} + \psi_{-}\ (\partial_\tau - i \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2x \,2\left(\psi_{+} \bar{\partial} \psi_{+} + \psi_{-} \partial \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2z\, \left(\psi_{+} \bar{\partial} \psi_{+} + \psi_{-} \partial \psi_{-} \right) \\
 	\end{aligned}
 \end{equation}
-or in terms of complex fermion
-\begin{eqnarray}
-    -i\ S[\psi] &=& -i\ \int dxdt \ \frac{g}{2} \psi^\dagger \gamma^0 i\gamma^\mu \partial_\mu \psi \nonumber \\
-    &=& -i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \partial_t \psi - i^2 \ \int dxdt \ \frac{g}{2} \psi^\dagger \sigma^x (-i) \sigma^y \partial_x \psi \nonumber \\
-    &=& \int dxd\tau \ \frac{g}{2} \psi^\dagger \partial_\tau \psi + \int dxd(-i t) \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
-    &=&  \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi + \int dxd\tau \ \frac{g}{2} \psi^\dagger \sigma^x \sigma^y \partial_x \psi \nonumber \\
-    &=&  \int dxd\tau \ \frac{g}{2} \psi^\dagger \gamma^1_E\gamma^\mu_E\partial_\mu \psi
-\end{eqnarray}
-where $\tau = -it$. The Eulidean space action can be written as
-\begin{equation}
-    S_E = \frac{g}{2} \int d^2x \, \bar{\psi}\, \gamma^\mu_E\partial_\mu \psi
-\end{equation}
-where
+or in terms of spinors
 \begin{equation}
 	\begin{aligned}
-		\gamma_E^1 &= \sigma^x \\
-		\gamma_E^2 &= \sigma^y \\
+		S &= \frac{1}{4\pi K} \int dx d\tau \left( \psi^\dagger \partial_\tau \psi + \psi^\dagger \sigma^x \sigma^y \partial_x \psi \right)\\
+		&=  \frac{1}{4\pi K} \int dxd\tau \left( \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi + \psi^\dagger \sigma^x \sigma^y \partial_x \psi \right)\\
+		&=  \frac{1}{4\pi K} \int dxd\tau \ \bar{\psi} \slashed{\partial} \psi
 	\end{aligned}
 \end{equation}
-denote gamma matrix after Wick rotation. Note that the integral meausre also contriutes a $1/2$ factor. 
+Note that the integral meausre also contriutes a $1/2$ factor. 
 
 The two point correlation function reads 
 \begin{equation}
 	\begin{aligned}
-		&\langle \psi^1(z,\bar{z}) \, \psi^1(w,\bar{w}) \rangle = \frac{1}{2\pi g} \frac{1}{z-w} \\
-		&\langle \psi^2(z,\bar{z}) \, \psi^2(w,\bar{w}) \rangle = \frac{1}{2\pi g} \frac{1}{\bar{z}-\bar{w}} \\
-		&\langle \psi^1(z,\bar{z}) \, \psi^2(w,\bar{w}) \rangle = 0\\
+		&\langle \psi_{+}(z) \, \psi_{+}(w) \rangle = K\frac{1}{z-w} \\
+		&\langle \psi_{-}(z) \, \psi_{-}(w) \rangle = K\frac{1}{\bar{z}-\bar{w}} \\
+		&\langle \psi_{+}(z) \, \psi_{-}(w) \rangle = 0\\
 	\end{aligned}
 \end{equation} 
-which means $\psi^1$ is chiral and $\psi^2$ is anti-chiral.
 
 {\bf Hamiltonian formalism.---}
+The canonical momentum reads $\frac{\partial L}{\partial \dot{\psi}} = i\psi^\dagger$ (\textcolor{red}{or $-i\psi^\dagger$?}). One can write down the Hammiltonian
+\begin{equation}
+	\begin{aligned}
+		H &= \int dx \left(-i\psi^\dagger \gamma^0\gamma^1 \partial_x \psi \right) \\
+		&= \int dx \left(i\psi^\dagger \sigma^z \partial_x \psi \right) \\
+		&= \int dx \left( i\psi_{+}^\dagger \partial_x \psi_{+} - i\psi_{-}^\dagger \partial_x \psi_{-}  \right) \\
+		&= \int dk \left( -k \psi_{+}^\dagger (k) \psi_{+}(k) + k \psi_{-}^\dagger (k)\psi_{-}^\dagger (k) \right)
+	\end{aligned}
+\end{equation} 
+which demonstrates that the left ($\psi_{+}$) and right ($\psi_{-}$) moving spinors have a dispersion relation $\omega \sim -k$ and $\omega \sim k$ respectively.
+
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
     \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
@@ -253,6 +252,19 @@ Now we have
 	\mathcal{H} = \dot{\psi} \, \pi - \mathcal{L}.
 \end{equation}
 
+\subsubsection{Symmetries and conserved current}
+{\bf Global continuous $U(1)$ symmetry}\\
+The free fermion has the global $U(1)$ symmetry defined by $\psi \rightarrow e^{i\alpha}\psi = \psi + i\alpha \psi$. The functional derivative is then $\frac{\delta F}{\delta \alpha} = i\psi$. One can find the corresponding Noether's curret reads
+\begin{equation}
+	j^\mu \sim -i\bar{\psi} \gamma^\mu \left(i\psi\right) = \bar{\psi} \gamma^\mu \psi.
+\end{equation}
+The charge density is the total fermion charge density $j^0 \sim \psi^\dagger \psi$.
+
+The free fermion theory also admits an axial $U(1)$ symmetry $\psi \rightarrow e^{i\alpha \gamma^5} \psi = \psi + i\alpha \gamma^5 \psi$. Its corresponding Noether's current writes
+\begin{equation}
+	j_a^\mu \sim \bar{\psi} \gamma^\mu\gamma^5 \psi
+\end{equation}
+whose charge density reads $j^0_a \sim \psi^\dagger \gamma^5 \psi = \psi_{+}^\dagger \psi_{+} - \psi_{-}^\dagger \psi_{-}$. It is the difference between the left and right movers.
 
 \subsection{Free boson}
 The free (non-)compact boson in the Minkoswki space time reads~\cite{Blumenhagen:2009zz}
@@ -689,7 +701,7 @@ L_{-k_1}L_{-k_2} \cdots L_{-k_n} \vert \phi \rangle.
 \textcolor{red}{Rewrite this part using the current operator to simplify the convention.}
 Let $\phi(x,t)$ be a free Boson field defined on a cylinder of circumference $L$, such that $\phi(x+L,t) = \phi(x,t)$. The Lagrangian of the boson field is
 \begin{equation}
-  \mathcal{L} = \frac{g}{2}\int dx \left\{{(\partial_t\phi)}^2 - {(\partial_x \phi)}^2\right\}.
+  \mathcal{L} = \frac{1}{4\pi K}\int dx \left\{{(\partial_t\phi)}^2 - {(\partial_x \phi)}^2\right\}.
 \end{equation}
 Note that to connect to the convention in the previous part $g = \frac{1}{2\pi K}$.
 We can Fourier transform $\phi$ as
@@ -699,7 +711,7 @@ We can Fourier transform $\phi$ as
 \end{align}
 The Lagrangian can be reexpressed as
 \begin{equation}
-  \mathcal{L} = \frac{g}{2}\sum_n\left\{\dot{\phi}_n\dot{\phi}_{-n}-\left(\frac{2\pi n}{L}\right)^2\phi_n\phi_{-n}\right\}.
+  \mathcal{L} = \frac{1}{4\pi K}\sum_n\left\{\dot{\phi}_n\dot{\phi}_{-n}-\left(\frac{2\pi n}{L}\right)^2\phi_n\phi_{-n}\right\}.
 \end{equation}
 The momentum conjugate to $\phi_n$ becomes
 \begin{equation}
@@ -1390,36 +1402,42 @@ Here we review the free compact boson theory in (1+1)d
 \begin{equation}
 	S = \frac{1}{4\pi K} \int \partial \varphi \bar{\partial}\varphi,
 \end{equation}
-where we used the convention in the note. With the chiral mass center introduced above the chiral part of the compact boson field $\varphi(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson $\langle \varphi (x) \varphi(y) \rangle = -2 K \log (r)$~\footnote{In Ref.~\cite{Blumenhagen:2009zz}, $K$ is set to be $K=1$.}. The current operator can be defind as 
+where we used the convention in the note. Under this convention, the two-point correlation of free boson $\langle \varphi (x) \varphi(y) \rangle = -2 K \log (r)$. However, it is clear that $K$ is directly related to the compactified radius $R$ of $\varphi$, meaning that one has the freedom to fix either $K$ or $R$ to a constant without causing any trouble. Here we thus set $K=1$ to simplify the notation
 \begin{equation}
-	j(z) = i \frac{\partial \varphi}{\sqrt{K}},
+	S = \frac{1}{4\pi} \int \partial \varphi \bar{\partial}\varphi.
+\end{equation}
+Or we can take another way in which we keep the $K$ factor and set the compact boson always compactified as $\varphi \sim \varphi + 2\pi$. In condensed matter community, it is usually taken the second one.
+
+With the chiral mass center introduced above the chiral part of the compact boson field $\varphi(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson $\langle \varphi (x) \varphi(y) \rangle = -2 K \log (r)$~\footnote{In Ref.~\cite{Blumenhagen:2009zz}, $K$ is set to be $K=1$.}. The current operator can be defind as 
+\begin{equation}
+	j(z) = i \partial \varphi,
 \end{equation} 
 which ensures the the current operator normalized as $\langle j(z) j(z^\prime) \rangle = 1/z^2$.
 
 The chiral/anti-chiral part of the free compact boson can be written as 
 \begin{equation}
 	\begin{split}
-		\phi(z) &= \sqrt{K}\left(\phi_0 -i\,j_0\,\ln \,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n}\right) \\
-		\bar{\phi}(\bar{z}) &= \sqrt{K} \left(\bar{\phi}_0 -i\,\bar{j}_0\,\ln \, \bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}\right).
+		\phi(z) &= \phi_0 -i\,j_0\,\ln \,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n} \\
+		\bar{\phi}(\bar{z}) &= \bar{\phi}_0 -i\,\bar{j}_0\,\ln \, \bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}.
 	\end{split}
 \end{equation} 
 Note here the complex coordinate denotes $z = e^\omega = e^{\tau + i\sigma}$. $\omega$ is the coordinate defined on the cylinder. Whenever we use a quantum theory, we should consult to the radial quantization. In terms of the chiral term, we can write down the free scalar $\varphi = \phi + \bar{\phi}$ and its dual field $\theta = \phi - \bar{\phi}$ as
 \begin{equation}
 	\begin{split}
-		\varphi &= \sqrt{K}\left(\varphi_0 -i \tau \left(j_0 + \bar{j_0}\right) + \sigma \left(j_0 - \bar{j_0}\right) + i\,\sum_{n\neq0} \frac{1}{n}\,\left( j_n\,z^{-n}+ \bar{j}_n\,{\bar{z}}^{-n}\right)\right) \\
-		\theta &= \sqrt{K}\left(\varphi_0 -i \tau \left(j_0 - \bar{j_0}\right) + \sigma \left(j_0 + \bar{j_0}\right) + i\,\sum_{n\neq0} \frac{1}{n}\,\left( j_n\,z^{-n}- \bar{j}_n\,{\bar{z}}^{-n}\right)\right).
+		\varphi &= \varphi_0 -i \tau \left(j_0 + \bar{j_0}\right) + \sigma \left(j_0 - \bar{j_0}\right) + i\,\sum_{n\neq0} \frac{1}{n}\,\left( j_n\,z^{-n}+ \bar{j}_n\,{\bar{z}}^{-n}\right)\\
+		\theta &= \theta_0 -i \tau \left(j_0 - \bar{j_0}\right) + \sigma \left(j_0 + \bar{j_0}\right) + i\,\sum_{n\neq0} \frac{1}{n}\,\left( j_n\,z^{-n}- \bar{j}_n\,{\bar{z}}^{-n}\right).
 	\end{split}
 \end{equation}
 
 Let's derive the quantum version (radial quantization) of the free compact boson in terms of the current operator. Recall the Hamiltonian for the free compact boson reads
 \begin{equation}
-	H = \int dx \left( 2\pi K \pi^2 + \frac{1}{8\pi K} {\left(\partial_x \phi\right)}^2 \right),
+	H = \int dx \left( 2\pi \Pi^2 + \frac{1}{8\pi} {\left(\partial_x \phi\right)}^2 \right),
 \end{equation}
-where the canonical momentum $\pi = \frac{1}{4\pi K} \dot{\phi}$. In terms of current operators we can write down (note $x := \sigma$ in the Hamiltonian is defind on the cylinder)
+where the canonical momentum $\Pi = \frac{1}{4\pi} \dot{\phi}$. In terms of current operators we can write down (note $x := \sigma$ in the Hamiltonian is defind on the cylinder)
 \begin{equation}
 	\begin{aligned}
-		\partial_x \varphi &= \partial \varphi\ i z + \bar{\varphi} (-i) z = \sqrt{K} \left( j_n/z^n -\bar{j}_n / \bar{z}^n \right) \\
-		4\pi K\pi &= \partial \varphi i z + \bar{\partial} \varphi i \bar{z} = \sqrt{K} \left( j_n/z^n + \bar{j}_n / \bar{z}^n \right) 
+		\partial_x \varphi &= \partial \varphi\ i z + \bar{\varphi} (-i) z = j_n/z^n -\bar{j}_n / \bar{z}^n \\
+		4\pi \Pi &= \partial \varphi i z + \bar{\partial} \varphi i \bar{z} = j_n/z^n + \bar{j}_n / \bar{z}^n
 	\end{aligned}
 \end{equation}
 Thus the Hamiltonian can be written down in terms of current operators
@@ -1437,102 +1455,135 @@ We thus identify the Virasoro generator
 	\end{aligned}
 \end{equation}
 
-Now let's derive the quantization of the zero modes of the current operator. It is clear that $j_0$ and $\bar{j}_0$ are converved quantuties. Let's denote their charge as $\Delta$ or $\bar{\Delta}$. Changing $z$ to $ze^{i2\pi}$ for the scalar field $\varphi$, it should be single valued, which resultes in the relation $\Delta - \bar{\Delta} = n\frac{R}{\sqrt{K}} $
-
-
-
-The zero mode of the current operator is quantitized to be 
+It is clear that $j_0$ and $\bar{j}_0$ are converved quantuties. In the following discussions, we will use the notation $j_0$ interchangably to represent both the operator and its charge. Now let's derive their charges in the quanttum theory. This relies on the modular invariance of the torus partition function. Thanks to the current operator algebra, we can construct the Hilbert space as
+\begin{equation}
+	\vert j_0;\ n_1, n_2,n_3,\dots \rangle = j_{-1}^{n_1}\,j_{-2}^{n_2} j_{-3}^{n_3} \dots \vert j_0\rangle, 
+\end{equation}
+where $j_0$ is a conserved quantity. The torus partition function thus reads
+\begin{equation}
+	Z_{cir}(q,\bar{q}) = q^{j_0^2/2} \, \bar{q}^{\bar{j}_0^2/2} \, Z^{\prime}_{boson} (q,\bar{q}),
+\end{equation}
+where $Z^\prime_{boson}$ denotes the part without zero modes. A modular $T$ transformation $\tau / \bar{\tau} \rightarrow \tau / \bar{\tau} + 1$ induces $q \rightarrow e^{2\pi i}q$ and $\bar{q} \rightarrow e^{-2\pi i}\bar{q}$. The partition function becomes
+\begin{equation}
+	Z_{cir}(e^{2\pi i}q,e^{-2\pi i}\bar{q}) = e^{2\pi i \left(j_0^2 - \bar{j}_0^2\right)/2} \, q^{j_0^2/2} \, \bar{q}^{\bar{j}_0^2/2} \, Z^{\prime}_{boson} (q,\bar{q}).
+\end{equation}
+A modular invariant partition function thus requires 
+\begin{equation}
+	j_0^2 - \bar{j}_0^2 = 2k,
+\end{equation}
+where $k$ is an integer. On the hand, since the theory is defined on a circle, the scalar $\varphi(z,\bar{z})$ is single valued when changing $z$ to $ze^{i2\pi}$. This resultes in another the relation
+\begin{equation}
+	j_0 - \bar{j}_0 = m\,R.
+\end{equation}
+where $m$ is an integer denoting the {\it magnetic} charge. Note that the second constraint is a factor of the first one, 
+\begin{equation}
+	j_0^2 - \bar{j}_0^2 = \frac{2k}{m\,R} \ m R = \frac{2k}{m} m
+\end{equation}
+which requires that the electronic charge $e := k/m$ is also an integer\footnote{See a more rigorous argument in the Yellow Book~\cite{francesco2012conformal}}. One then finds the zero mode of the current operator is quantitized to be 
 \begin{equation}
 	\begin{aligned}
-		j_0 &= \frac{\sqrt{K}m}{R} + \frac{R n}{2\sqrt{K}} \\
-		\bar{j}_0 &= \frac{\sqrt{K}m}{R} - \frac{R n}{2\sqrt{K}}
+		j_0 &= e \frac{1}{R} + m \frac{R}{2} \\
+		\bar{j}_0 &= e \frac{1}{R} - m \frac{R}{2}.
 	\end{aligned}
 \end{equation}
-One can also introduce its dual field $\theta(z,\bar{z}) := \phi(z) - \bar{\phi}(\bar{z})$. It is compactified on a circle with a different radius 
+
+From the quantization of zero modes $j_0$, it is also clear that the dual scalar $\theta(x)$ is compactified as $\theta \sim \theta + 4\pi/R$.
+
+{\bf Symmetries in free compact boson--.}
+In this section we discuss the continuoius symmetry (internal) in the free compact boson. Note that we used $z = \tau + i\sigma$ in the convention, which means
 \begin{equation}
-	\theta(x) \sim \theta(x) + 4\pi K /R.	
+	\begin{aligned}
+		\phi(z) 
+	\end{aligned}
 \end{equation}
-This indicates that there are two $O(2)$ symmetry in the free compact boson theory, which correspond to $\varphi(x)$ and $\theta(x)$ respectively.
-
-
-
-
-{\bf Bosonization dictonary for free fermions---}
-The simplest way for bosonization of fermions is through the vertext operator $V_\alpha = :e^{i\alpha \phi(z)}:$ with a dimension $(K\alpha^2/2,0)$. Now we can bosonize the fermion fields
+It is evident that there is a $U(1)_\varphi$ symmetry which acts as $\varphi \rightarrow \varphi + \mathrm{constant}$. The corresponding Noether's current reads
 \begin{equation}
-	\begin{split}
-		&\psi(z) \sim e^{i \phi/\sqrt{K}} \\
-		&\bar{\psi}(\bar{z}) \sim e^{i\bar{\phi} /\sqrt{K}}.
-	\end{split}
+	j^\mu_\varphi = \partial^\mu \varphi.
+\end{equation}  
+The componenets are (Note the upper index here)
+\begin{equation}
+	\begin{aligned}
+		&j^0_\varphi \sim \partial^t\varphi = i \left(\partial \varphi + \bar{\partial} {\varphi}\right) \\
+		&j^1_\varphi \sim \partial^x\varphi = -i\left( \partial \varphi - \bar{\partial}\varphi \right)
+	\end{aligned}
 \end{equation}
-
-
-
-
-
-
-\if_false:
-{\bf Dual field approach}\\
-Recall the compact boson compactified on a $2\pi\,R$ circle (we have chosen $K=2$) has the mode expansion
+The charge $Q_\varphi$ (electric) is 
 \begin{equation}
-	\begin{split}
-		X(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z + \bar{j}_0\,\ln\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}+\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
-	\end{split}
-\end{equation} 
-Its conjugate momentum field $\pi(z,\bar{z}):=\frac{\partial\,L}{\partial\partial_tX(z,\bar{z}))} = \frac{1}{4\pi}\,i\,\partial_\tau X$ can be written as
-\begin{equation}
-	\pi(z,\bar{z}) = \frac{1}{4\pi} \left(i\partial X + i\bar{\partial} X\right) = \frac{1}{4\pi} \left(j(z) + \bar{j}(\bar{z})\right) = \frac{1}{4\pi} \partial_t X(z,\bar{z}),
-\end{equation}
-which is consistent with the quantization condition $[X(\tau,\sigma),\pi (\tau,\sigma')] = i\,\delta(\sigma-\sigma')$. Note the communication relation $[x_0,\,\left(j_0+\bar{j}_0\right)/2] = i$ has been assumed here. 
-
-It is usually convenient to introduce the dual field of $X(z,\bar{z})$
-\begin{equation}
-	\begin{split}
-		\theta(z,\bar{z}) = x_0 -i\left(j_0\,\mathrm{ln}\,z - \bar{j}_0\,\mathrm{ln}\,\bar{z}\right) + i\,\sum_{n\neq0} \left(\frac{1}{n}\,j_n\,z^{-n}-\frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}\right).
-	\end{split}
-\end{equation} 
-One finds that 
-\begin{equation}
-	\begin{split}
-		j(z) &= i\partial\theta(z,\bar{z}) \\
-		\bar{j}(\bar{z}) &= -i\bar{\partial}\theta(z,\bar{z})\\
-		j+\bar{j} &= i\left(\partial\theta-\bar{\partial}\theta\right) = \partial_\sigma \theta(z,\bar{z}) = \partial_t X(z,\bar{z}) \\
-		j-\bar{j} &= i\left(\partial\theta+\bar{\partial}\theta\right) = \partial_t \theta(z,\bar{z}) = \partial_\sigma X(z,\bar{z})
-	\end{split}
-\end{equation}
-It is clear that the dual field $\theta(z,\bar{z})$ is compactified on a radius $\rho = 2/R$ circle. This means the duality above can be formulated as $R \rightarrow 2/R$. Now one can try to express the fermion operators in terms of $X$ and $\theta$. However, there are two difficulties using such an approach. 
-
-First, when one tries to rewritte the action in terms $\theta$ field, there is an extra minus sign in the action both in Minkoswki and Euclidean space. To ensure the convergence of the Euclidean space action, one has to use a different analytic continuuation $\tau = -i\,t$, which is not consistent with our convention.
-
-Second, the zero mode is not consistent with the quantization condition. This can be easily seen in the communicator $\left[x_0,\,\left(j_0+\bar{j}_0\right)\right] \neq i$. This contraction actually can be cured by introducing the chiral mass center $x_0 = \phi_0 + \bar{\phi}_0$ which satisfies
-\begin{equation}
-	\begin{split}
-		&\left[\phi_0,j_0\right] = i\\
-		&\left[\bar{\phi}_0,\bar{j}_0\right] = i\\
-		&\left[\phi_0,\bar{\phi}_0\right] = 0 \\
-		&\left[x_0,\left(j_0+\bar{j}_0\right)/2\right] = i.
-	\end{split}
+	Q_\varphi \sim j_0 + \bar{j}_0 = 2e / R.
 \end{equation}
 
-{\bf Chiral field approach}\\
-With the chiral mass center introduced above the compact boson field can be written as 
+The massless free scalar theory also enjoys another $U(1)_\theta$ symmetry acting as $\theta \rightarrow \theta + \mathrm{constant}$. From the current operator expression for the Hamiltonian, one can write down the action in terms of the $\theta$ scalar
 \begin{equation}
-	\begin{split}
-		X(z,\bar{z}) &= \phi(z) + \bar{\phi}(\bar{z}) \\
-		\phi(z) &= \phi_0 -i\,j_0\,\mathrm{ln}\,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n} \\
-		\bar{\phi}(\bar{z}) &= \bar{\phi}_0 -i\,\bar{j}_0\,\mathrm{ln}\,\bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,\bar{z}^{-n}.
-	\end{split}
-\end{equation} 
-Now we are ready to bosonize the fermion fields with the vertex operators
+	S = \frac{1}{8\pi K}\int \left(\partial \theta\right)^2
+\end{equation}
+which gives a Noether's current
 \begin{equation}
-	\begin{split}
-		&\psi(z) \sim \mathcal{N}\left(e^{i\phi(z)}\right) \\
-		&\bar{\psi}(\bar{z}) \sim \mathcal{N}\left(e^{i\bar{\phi}(\bar{z})}\right)
-	\end{split}
+	j^\mu_\theta \sim \partial^\mu \theta = \epsilon^{\mu\nu}j_{\varphi\nu}
+\end{equation}
+whose componenets
+\begin{equation}
+	\begin{aligned}
+		&j^0_\theta \sim \partial^t\theta = i \left(\partial \theta + \bar{\partial} {\theta}\right) = -\partial^x \varphi = -j^1_\varphi\\
+		&j^1_\theta \sim \partial^x\theta = -i\left( \partial \theta - \bar{\partial}\theta \right) = -\partial^t \varphi = -j^0_\varphi
+	\end{aligned}
+\end{equation}
+The charge for the $\theta$ scalar, the magnetic charge, reads
+\begin{equation}
+	Q_\theta \sim j_0 - \bar{j}_0 = m \, R.
 \end{equation}
 
 
-\fi
+{\bf Bosonization dictonary for free fermions---}.
+The simplest way for bosonization of fermions is through the vertext operator $V_\alpha = :e^{i\alpha \phi(z)}:$ with a dimension $(\alpha^2/2,0)$. Note that due to the compact nature of the free scalar, physical operators are expressed in terms of $e^{i\varphi}$ or $e^{i\theta}$. The vertext operator thus can be written as
+\begin{equation}
+	V_\alpha \sim e^{i\alpha\phi} \sim e^{i\alpha\varphi/2} e^{i\alpha\theta/2} 
+\end{equation}
+Now we can bosonize the fermion fields
+\begin{equation}
+	\begin{split}
+		&\psi^{\dagger}_{+} \sim e^{i \phi} \\
+		&{\psi}^{\dagger}_{-} \sim e^{i\bar{\phi}}.
+	\end{split}
+\end{equation}
+
+In the following we are going to show how to express the free fermion theory in terms of free compact boson. The fermion density reads
+\begin{equation}
+	\rho(x) = \psi^\dagger \psi \sim i \left(\partial \varphi + \bar{\partial} \varphi\right) \sim j^0_\varphi.
+\end{equation}
+It is clear that the fermion charge corresponds to electric charge for the free scalar field $\varphi$. 
+
+The axial current density maps to 
+\begin{equation}
+	\rho_a = \psi^\dagger \gamma^5 \psi \sim \left( \psi^{\dagger}_{+} \psi_{+} - \psi^{\dagger}_{-}\psi_{-} \right) \sim i \left(\partial \theta - \bar{\partial} \theta\right) \sim j^0_\theta
+\end{equation}
+which is the magnetic charge. 
+
+A mass term is mapped to be 
+\begin{equation}
+	\bar{\psi} \psi \sim \psi_{+}^\dagger \psi_{-} + \psi_{-}^\dagger \psi_{+} \sim e^{i\theta} + h.c. \sim \cos\left(\theta\right)
+\end{equation}
+whose dimensional is $\left(1/2,1/2\right)$.
+
+The density-density interaction $\rho_{+} \rho_{-}$ is mapped to 
+\begin{equation}
+	\rho_{+} \rho_{-} \sim -\partial \varphi \bar{\partial} \varphi,
+\end{equation}
+which is a marginal term and can be absorbed into the action. It changes the prefactor of the action, or equivalently the radius of the scalar field. 
+
+The density-density interaction $\rho_{+} \rho_{+}$ is mapped to 
+\begin{equation}
+	\rho_{+} \rho_{+} \sim -\left(\partial \varphi \right)^2.
+\end{equation}
+And similarly 
+\begin{equation}
+	\rho_{-} \rho_{-} \sim -\left(\bar{\partial} \varphi \right)^2.
+\end{equation}
+These density-density interactions can be absorbed into the redefinition of the action, which is still a free theory in the scalar field language.
+
+\subsubsection{Bosonization on the lattice}
+
+
+
 \appendix
 
 \section{Central extensions of Lie algebras}
