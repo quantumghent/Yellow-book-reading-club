@@ -105,18 +105,22 @@ The $\gamma$ matrices follow the Clifford algebra
     \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
 \end{equation}
 In Minkowski space time , the $\gamma$ matrices can be chosen as
+\begin{equation}
+	\begin{aligned}
+    	\gamma^0 &= \sigma^x \nonumber \\
+    	\gamma^1 &=  i\sigma^y \\
+		\gamma^3 &= -\gamma^0\gamma^1 = \sigma^z
+	\end{aligned}
+\end{equation}
+where $\gamma^3$ plays the role of $\gamma^5$. In Elidean space, they can be chosen as
 \begin{eqnarray}
     \gamma^0 &=& \sigma^x \nonumber \\
-    \gamma^1 &=&  i\sigma^y,
+    \gamma^1 &=& \sigma^y.
 \end{eqnarray}
-while in Elidean space, they can be chosen as
-\begin{eqnarray}
-    \gamma^0 &=& \sigma^x \nonumber \\
-    \gamma^1 &=& -\sigma^y.
-\end{eqnarray}
-We also usually a slashed notation for $\slashed{\partial} := \gamma^\mu \partial_\mu$.
+Below in the fermon case, we are going to show how we fix the convention for the Euclidean space gamma matrix. We also usually a slashed notation for $\slashed{\partial} := \gamma^\mu \partial_\mu$.\\
 
-{\bf Complex Coordinate.--}  In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp.\ antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates
+\noindent {\bf Complex Coordinate}\\
+In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp.\ antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates
 \begin{equation}
 \begin{aligned}
 x^z &= x^0 + i x^1 \\
@@ -143,8 +147,8 @@ Note that one has the freedom to interprete $x^0$ as time or space, which only c
 In Minkowski space time ($d=1+1$), the free Dirac spinor has two componenet. Its action reads~\cite{Blumenhagen:2009zz,tong_gr}
 \begin{equation}
 	\begin{aligned}
-		S &= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+} (\partial t - \partial x) \psi_{+} + i \psi_{-}(\partial t + \partial x)\ \psi_{-} \right). \\		
-		&= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+} \partial_{-} \psi_{+} + i \psi_{-} \partial_{+} \psi_{-} \right). 
+		S &= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+}^\dagger (\partial t - \partial x) \psi_{+} + i \psi_{-}^\dagger(\partial t + \partial x)\ \psi_{-} \right). \\		
+		&= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+}^\dagger \partial_{-} \psi_{+} + i \psi_{-}^\dagger \partial_{+} \psi_{-} \right). 
 	\end{aligned}
 \end{equation}
 The equation of motion has the solution for the chiral fermions 
@@ -157,61 +161,84 @@ The equation of motion has the solution for the chiral fermions
 They correspond to left and right moving particles as the speed of light. In terms of $\psi = {(\psi_{+},\psi_{-})}^t$, one can write the theory as
 \begin{equation}
 	\begin{aligned}
-		S &= \frac{1}{4\pi K} \int dxdt \ \left ( i \psi^\dagger \partial_t \psi - i\psi^\dagger \sigma^z \partial_x \psi \ \right) \\
-    &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \partial_t - \sigma^z\partial_x\right)\psi \\
-    &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \sigma^x \sigma^2 \partial_t + \sigma^x i\sigma^y \partial_x\right)\psi \\
+		S &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \partial_t - \sigma^z\partial_x\right)\psi \\
+    &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \sigma^x \sigma^x \partial_t + \sigma^x i\sigma^y \partial_x\right)\psi \\
 	&= \frac{1}{4\pi K} \int dxdt \ \psi^\dagger i \gamma^0 \gamma^\mu \partial_\mu \psi\\
 	&= \frac{1}{4\pi K} \int dxdt \ \overline{\psi} \, i \slashed{\partial} \psi
 	\end{aligned}
 \end{equation}
 where we used
 \begin{equation}
-    \gamma^0 = \sigma^x \quad \gamma^1 = i\sigma^y
+    \gamma^0 = \sigma^x \quad \gamma^1 = i\sigma^y \quad \mathrm{and} \quad \overline{\psi} = \psi^\dagger \gamma^0
 \end{equation}
 A mass term $m\overline{\psi}\psi = m \left(\psi_{+}^\dagger \psi_{-} +\psi_{-}^\dagger \psi_{+}\right) $ can be added into the action
 \begin{equation}
 	S = \frac{1}{4\pi K} \int dxdt \ \overline{\psi} \, \left( i \slashed{\partial} - m \right) \psi.
 \end{equation}
-The massless fermions are Weyl spinors without a mixing between the left and right moving parts. 
+The massless fermions are Weyl spinors without a mixing between the left and right moving parts. \\
 
-{\bf Wick rotation.---}
-It is usually more convenient to work in Euclidean space rather than Minkowski space time. We first assume the Wick rotation acts as $t \rightarrow i\tau$. The left mover $\psi_{+} \sim f(\tau-ix) \sim f(\overline{z})$. The action follows
+\noindent {\bf Wick rotation}\\
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. We first assume the Wick rotation acts as $t \rightarrow i\tau$. The left mover under this convention is antiholomorphic $\psi_{+} \sim f(\tau-ix)$. The action follows
 \begin{equation}
     i\ S_M \rightarrow -\ S_E.
 \end{equation}
-Specifically, in terms of real fermion one has
+Specifically, in terms of spinors one has
 \begin{equation}
 	\begin{aligned}
-		-i\,S &= -i\frac{1}{4\pi K}\int dxdt\,\left(\psi_{+}\ i(\partial_t - \partial_x)\ \psi_{+} + \psi_{-}\ i(\partial_t + \partial_x)\ \psi_{-} \right)\\
-		&= -i\frac{1}{4\pi K}\int dx d(i\tau) i\left(\psi_{+}\ (\partial_{i\tau} - \partial_x)\ \psi_{+} + \psi_{-}\ i(\partial_{i\tau} + \partial_x)\ \psi_{-} \right) \\
-		&= \frac{1}{4\pi K}\int dx d\tau \left(\psi_{+}\ (\partial_\tau - i\partial_x)\ \psi_{+} + \psi_{-}\ (\partial_\tau + i \partial_x)\ \psi_{-} \right) \\
-		&= \frac{1}{4\pi K}\int d^2x \,2\left(\psi_{+} {\partial} \psi_{+} + \psi_{-} \overline{\partial} \psi_{-} \right) \\
-		&= \frac{1}{4\pi K}\int d^2z\, \left(\psi_{+} {\partial} \psi_{+} + \psi_{-} \overline{\partial} \psi_{-} \right) \\
+		-i\,S &= -i\frac{1}{4\pi K}\int dx d(i\tau) i\left(\psi_{+}^\dagger \ (\partial_{i\tau} - \partial_x)\ \psi_{+} + \psi_{-}^\dagger \ i(\partial_{i\tau} + \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int dx d\tau \left(\psi_{+}^\dagger \ (\partial_\tau - i\partial_x)\ \psi_{+} + \psi_{-}^\dagger \ (\partial_\tau + i \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2x \,2\left(\psi_{+}^\dagger {\partial} \psi_{+} + \psi_{-}^\dagger \overline{\partial} \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2z\, \left(\psi_{+}^\dagger {\partial} \psi_{+} + \psi_{-}^\dagger \overline{\partial} \psi_{-} \right) \\
 	\end{aligned}
 \end{equation}
-The equation of motion tells us that, $\psi_{+}$ is antiholomorphic $\psi_{+} \sim f(\overline{z})$, consistent with the Wick rotation assumption. Respectively $\psi_{-}$ is a holomorphic field. One should be carful that we abuse the ustage of complex and real coordinates in the following. Namely we are going to use use $\psi_{+}(t+x)$ and $\psi_{+}(\overline{z})$.
+The equation of motion tells us that, $\psi_{+}$ is antiholomorphic $\psi_{+} \sim f(\overline{z})$, consistent with the Wick rotation assumption. Respectively $\psi_{-}$ is a holomorphic field.
 
+\textbf{\textit{If we choose}} $t \rightarrow -i\tau$, one can find $t+x \rightarrow -i\left(\tau + ix\right)$, which means that $\psi_{+}$ now becomes a holomorphic field $\psi_{+} \sim f(z)$. The action becomes
+\begin{equation}
+	\begin{aligned}
+		-i\,S &= -i\frac{1}{4\pi K}\int dx d(-i\tau) i\left(\psi_{+}^\dagger \ (\partial_{-i\tau} - \partial_x)\ \psi_{+} + \psi_{-}^\dagger \ i(\partial_{-i\tau} + \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int dx d\tau \left(\psi_{+}^\dagger \ (\partial_\tau + i\partial_x)\ \psi_{+} + \psi_{-}^\dagger \ (\partial_\tau - i \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2x \,2\left(\psi_{+}^\dagger \overline{\partial} \psi_{+} + \psi_{-}^\dagger {\partial} \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2z\, \left(\psi_{+}^\dagger \overline{\partial} \psi_{+} + \psi_{-}^\dagger {\partial} \psi_{-} \right) \\
+	\end{aligned}
+\end{equation}
+It is clear that under this convention, $\psi_{+}$ is a holomorphic field. To align with the boson theory, in this note we choos the latter one
+\begin{equation}
+	\begin{aligned}
+		&t \rightarrow -i\tau \\
+		&\psi_{+} \sim f(z) \\
+		&\psi_{-} \sim f(\overline{z}).
+	\end{aligned}
+\end{equation}
+It is essential to exercise caution when employing both complex and real coordinates in the subsequent discussions. Specifically, we will be utilizing both $\psi_{+}(t+x)$ and $\psi_{+}(z)$, although strictly speaking, the latter should be expressed as $\psi_{+}(-i(\tau+ix)) = \psi_{+}(-iz)$.
 
 In terms of spinors one can find that
 \begin{equation}
 	\begin{aligned}
-		S &= \frac{1}{4\pi K} \int dx d\tau \left( \psi^\dagger \partial_\tau \psi - \psi^\dagger \sigma^x \sigma^y \partial_x \psi \right)\\
-		&=  \frac{1}{4\pi K} \int dxd\tau \left( \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi - \psi^\dagger \sigma^x \sigma^y \partial_x \psi \right)\\
+		S &= \frac{1}{4\pi K} \int dx d\tau \left( \psi^\dagger \partial_\tau \psi + \psi^\dagger i\sigma^z \partial_x \psi \right)\\
+		&=  \frac{1}{4\pi K} \int dxd\tau \left( \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi + \psi^\dagger \sigma^x \sigma^y \partial_x \psi \right)\\
 		&=  \frac{1}{4\pi K} \int dxd\tau \ \overline{\psi} \slashed{\partial} \psi
 	\end{aligned}
 \end{equation}
-Note that the integral meausre also contriutes a $1/2$ factor. This fix our convention of $\gamma$ matrices in Euclidean space. 
-
+Note that the integral meausre also contriutes a $1/2$ factor. This fixes our convention of $\gamma$ matrices in Euclidean space
+\begin{equation}
+	\begin{aligned}
+		&\gamma^0 = \sigma^x \\
+		&\gamma^1 = \sigma^y
+	\end{aligned}
+\end{equation}
+		
 The two point correlation function reads 
 \begin{equation}
 	\begin{aligned}
-		&\langle \psi_{-}(z) \, \psi_{-}(w) \rangle = K\frac{1}{z-w} \\
-		&\langle \psi_{+}(\overline{z}) \, \psi_{+}(\overline{\omega}) \rangle = K\frac{1}{\overline{z}-\overline{w}} \\
-		&\langle \psi_{+}(\overline{z}) \, \psi_{-}(w) \rangle = 0\\
+		&\langle \psi_{+}^\dagger(z) \, \psi_{+}(w) \rangle = K\frac{1}{z-w} \\
+		&\langle \psi_{-}^\dagger(\overline{z}) \, \psi_{-}(\overline{\omega}) \rangle = K\frac{1}{\overline{z}-\overline{w}} \\
+		&\langle \psi_{-}(\overline{z}) \, \psi_{+}(w) \rangle = 0\\
 	\end{aligned}
-\end{equation} 
+\end{equation} \\
 
-{\bf Hamiltonian formalism.---}
+
+\noindent {\bf Hamiltonian formalism---} \\
 The canonical momentum reads $\frac{\partial L}{\partial \dot{\psi}} = i\psi^\dagger$ (\textcolor{red}{or $-i\psi^\dagger$?}). One can write down the Hammiltonian
 \begin{equation}
 	\begin{aligned}
@@ -225,17 +252,16 @@ which demonstrates that the left ($\psi_{+}$) and right ($\psi_{-}$) moving spin
 
 A lattice version free fermion theory Eq.~$2.38$ reads
 \begin{equation}
-    \mathcal{L} = \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right).
+    \mathcal{L} = \sum_n \left( i\psi_n^\dagger \dot{\psi_n} + \psi_n^\dagger \psi_{n+1} + \psi_{n+1}^\dagger \psi_{n}\right).
 \end{equation}
 The canonical momentum corresponding to $\psi_n$ is
 \begin{equation}
-    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = \frac{i}{2}\psi_n.
+    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = i \psi_n^\dagger.
 \end{equation}
 So that the Hamiltonian is
 \begin{eqnarray}
     \mathcal{H} &=& \sum_n \pi_n \dot{\psi_n} - \mathcal{L} \nonumber\\
-      &=& \frac{i}{2}\sum_n\psi_n \dot{\psi_n} - \frac{i}{2} \sum_n \left( \psi_n \dot{\psi_n} + \psi_n \psi_{n+1}\right) \\
-      &=& - \frac{i}{2} \sum_n \psi_n \psi_{n+1} \nonumber.
+      &=& - \sum_n \left(\psi_n^\dagger \psi_{n+1}  + \psi_{n+1}^\dagger \psi_{n}\right).
 \end{eqnarray}
 
 Note that in the above we have adopted
@@ -259,15 +285,15 @@ Now we have
 {\bf Global continuous $U(1)$ symmetry}\\
 The free fermion has the global $U(1)$ symmetry defined by $\psi \rightarrow e^{i\alpha}\psi = \psi + i\alpha \psi$. The functional derivative is then $\frac{\delta F}{\delta \alpha} = i\psi$. One can find the corresponding Noether's curret reads
 \begin{equation}
-	j^\mu \sim -i\overline{\psi} \gamma^\mu \left(i\psi\right) = \overline{\psi} \gamma^\mu \psi.
+	j_v^\mu \sim -i\overline{\psi} \gamma^\mu \left(i\psi\right) = \overline{\psi} \gamma^\mu \psi.
 \end{equation}
-The charge density is the total fermion charge density $j^0 \sim \psi^\dagger \psi$.
+The charge density is the total fermion charge density $j_v^0 \sim \psi^\dagger \psi = \psi_{+}^\dagger\psi_{+} + \psi_{-}^\dagger\psi_{-}$.
 
 The free fermion theory also admits an axial $U(1)$ symmetry $\psi \rightarrow e^{i\alpha \gamma^5} \psi = \psi + i\alpha \gamma^5 \psi$. Its corresponding Noether's current writes
 \begin{equation}
 	j_a^\mu \sim \overline{\psi} \gamma^\mu\gamma^5 \psi
 \end{equation}
-whose charge density reads $j^0_a \sim \psi^\dagger \gamma^5 \psi = \psi_{+}^\dagger \psi_{+} - \psi_{-}^\dagger \psi_{-}$. It is the difference between the left and right movers.
+whose charge density reads $j^0_a \sim \psi^\dagger \gamma^5 \psi = \psi_{+}^\dagger \psi_{+} - \psi_{-}^\dagger \psi_{-}$. It is the difference in the density between the left and right movers.
 
 \subsection{Free boson}
 The free (non-) compact boson in the Minkoswki space time reads~\cite{Blumenhagen:2009zz}
@@ -837,7 +863,7 @@ There are two possible types of boundary conditions. With the periodic (Ramond) 
 
 The Hamiltonian can be written as
 \begin{equation}
-  H = \sum_k>0\omega_k b_{-k}b_k +E_0, \qquad \omega_k = \frac{2\pi\lvert k\rvert}{L}.
+  H = \sum_{k>0} \omega_k b_{-k}b_k +E_0, \qquad \omega_k = \frac{2\pi\lvert k\rvert}{L}.
 \end{equation}\\
 
 \noindent {\bf Mapping onto the Plane}\\
@@ -850,10 +876,13 @@ and thus
   \psi(z) = \sum_k b_k z^{-k-\frac{1}{2}}
 \end{equation}
 This transformation swaps the boundary Conditions
-\begin{align}
-  \psi(e^{2\pi i}z) &=\psi(z) \qquad(Ramond)\\
-  \psi(e^{2\pi i}z) &\psi(z) \qquad(Neveu-Schwarz)\\
-\end{align}
+\begin{equation}
+	\begin{aligned}
+  		\psi(e^{2\pi i}z) &=-\psi(z) \qquad(Ramond)\\
+  		\psi(e^{2\pi i}z) &=\psi(z) \qquad(Neveu-Schwarz)
+	\end{aligned}
+\end{equation}
+Note that the fermion field has a dimension, which changes the boundary condition when mapped from the cylinder to the plane.
 
 The different sectors will have a different two-point correlation function. For the NS sector we have
 \begin{equation}
@@ -1402,7 +1431,7 @@ Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$
 \subsection{Bosonization}
 In the discussion of free compact boson theory, we have seen the vertex operator $V_1 = \mathop{:}e^{i\phi(z,\overline{z})}\mathop{:}$ has the same scaling dimension as a fermion operator and more importantly the free complex fermion and and the free compact boson (with a radius $R=1$) share the same partiton function. These facts indicate that the fermion and boson theories are dual to each other. 
 
-{\bf Free compact boson---}
+\subsubsection{Free compact boson}
 Here we review the free compact boson theory in (1+1) d
 \begin{equation}
 	S = \frac{1}{4\pi K} \int \partial \varphi \overline{\partial}\varphi,
@@ -1494,7 +1523,7 @@ which requires that the electronic charge $e := k/m$ is also an integer\footnote
 
 From the quantization of zero modes $j_0$, it is also clear that the dual scalar $\theta(x)$ is compactified as $\theta \sim \theta + 4\pi/R$.
 
-{\bf Symmetries in free compact boson--.}
+\subsubsection{Symmetries in free compact boson}
 In this section we discuss the continuoius symmetry (internal) in the free compact boson. Note that we used $z = \tau + i\sigma$ in the convention, which means
 \begin{equation}
 	\begin{aligned}
@@ -1512,10 +1541,22 @@ The componenets are (Note the upper index here)
 		&j^1_\varphi \sim \partial^x\varphi = -i\left( \partial \varphi - \overline{\partial}\varphi \right)
 	\end{aligned}
 \end{equation}
+
 The charge $Q_\varphi$ (electric) is 
 \begin{equation}
-	Q_\varphi \sim j_0 + \overline{j}_0 = 2e / R.
+	Q_\varphi = \int dx \ j^0_\varphi = 2\pi\left(j_0 + \overline{j}_0\right) = e \frac{4\pi}{R}.
 \end{equation}
+It indicates that $Q_\varphi$ is nothing but the winding number of the dual scalar $\theta$. Note that we can see this diractly by expressing the charge density in terms of the dual scalar $\theta$ through
+\begin{equation}
+	\begin{aligned}
+		j^0_\varphi = i \left(\partial \varphi + \overline{\partial} \varphi\right) = i \partial_\tau \varphi = \partial_x \theta.
+	\end{aligned}
+\end{equation}
+It is clear that the electric charge $e$ is indeed the winding number of $\theta$ 
+\begin{equation}
+	Q_\varphi = \int dx \ \partial_x \theta = e \frac{4\pi}{R}
+\end{equation}
+
 
 The massless free scalar theory also enjoys another ${U(1)}_\theta$ symmetry acting as $\theta \rightarrow \theta + \mathrm{constant}$. From the current operator expression for the Hamiltonian, one can write down the action in terms of the $\theta$ scalar
 \begin{equation}
@@ -1534,22 +1575,36 @@ whose componenets
 \end{equation}
 The charge for the $\theta$ scalar, the magnetic charge, reads
 \begin{equation}
-	Q_\theta \sim j_0 - \overline{j}_0 = m \, R.
+	Q_\theta = \int dx \ j^0_\theta = \int dx \ \partial_x \varphi = m\,2\pi R.
 \end{equation}
+The magnetic charge $m$ is nothing but the winding number of the scalar field $\varphi$.
+
+In summary, in the massless free compact boson theory, one can show that the charge of a field is the winding number of its dual field. These calculations show fascinating examples of particle-vertex duality. 
 
 
-{\bf Bosonization dictonary for free fermions---}.
-The simplest way for bosonization of fermions is through the vertext operator $V_\alpha = {:}e^{i\alpha \phi(z)}{:}$ with a dimension $(\alpha^2/2,0)$. Note that due to the compact nature of the free scalar, physical operators are expressed in terms of $e^{i\varphi}$ or $e^{i\theta}$. The vertext operator thus can be written as
+\subsubsection{Bosonization dictonary for free fermions}
+Sine the scalar field is dimensionless in free compact boson, the physical quantites should be expressed in terms of the so-called vertex operator.~\footnote{In this note, we assume all physical fields are normalized, even if not explicitly stated.} Due to the quantization of the zero modes for the current operator, the vertex operator should have the structure 
 \begin{equation}
-	V_\alpha \sim e^{i\alpha\phi} \sim e^{i\alpha\varphi/2} e^{i\alpha\theta/2} 
+	V_{e,m} := e^{i \varphi e/R} e^{i\theta R/2} = e^{i\phi \left(e/R + mR/2\right)} e^{i\overline{\phi} \left(e/R - mR/2\right)},	
 \end{equation}
-Now we can bosonize the fermion fields
+where $e$ and $m$ denote the electric and magnetic charge respectively.
+
+
+The simplest way for bosonization of fermions is by matching the conformal dimension of the fermion operator to the vertext operator. Take the right mover $\psi_{-}$, a holomorphic field $\left(1/2,0\right)$, as an example
+\begin{equation}
+	\begin{aligned}
+		&e/R + mR/2 = 1\\
+		&e/R - mR/2 = 0.
+	\end{aligned}
+\end{equation}
+One can easily find two solutions, either $V_{\frac{1}{2},1}$ with $R=1$ or $V_{1,\frac{1}{2}}$ with $R=2$. These two solutions are equivalent to each other since they are related to each other through a duality transformation. Here we take the first one to build up the bosonization dictonary for the free fermion
 \begin{equation}
 	\begin{split}
-		&\psi^{\dagger}_{-} \sim e^{i \phi} \\
-		&{\psi}^{\dagger}_{+} \sim e^{i\overline{\phi}}.
+		&\psi^{\dagger}_{-} \sim V_{\frac{1}{2},1} \sim e^{i \phi} \\
+		&{\psi}^{\dagger}_{+} \sim V_{\frac{1}{2},-1} \sim e^{i\overline{\phi}}.
 	\end{split}
 \end{equation}
+One can see that the fermion operator corresponds to a half charge boson operator, which means that the fermion degrees of freedom are always in pairs when using the bosonization to study a fermion theory. 
 
 In the following we are going to show how to express the free fermion theory in terms of free compact boson. The fermion density reads
 \begin{equation}
@@ -1590,17 +1645,41 @@ On the lattice, the slow modes are those close to the Fermi point $\pm k_f$. Ass
 \begin{equation}
 	E_k \sim -\cos (k),
 \end{equation}
-one can identify fermions around $\mp k_f$ as the left/right mover $\psi_{+}$/$\psi_{-}$.
-The slow modes are close to $\pm k_f$ ($k_f > 0$),
+one can identify fermions around $\mp k_f$ as the left/right mover $\psi_{+}$/$\psi_{-}$. Note there is another subtle point that we have normalized the correlation of fermion fields, while the canonical anticommutation relation requires the two-point correlation $\frac{1}{2\pi}\frac{1}{z-w}$. Thus one identifies that the slow modes are close to $\pm k_f$ ($k_f > 0$),
 \begin{equation}
 	\begin{aligned}
-		c_{t,x} \sim e^{-ik_f \left( t+x \right)} \psi_{+} + e^{ik_f\left(t-x\right)} \psi_{-}
+		c\left(t,x\right) \sim e^{-ik_f \left( t+x \right)} \psi_{+}/\sqrt{2\pi} + e^{-ik_f\left(t-x\right)} \psi_{-}/\sqrt{2\pi},
 	\end{aligned}
 \end{equation} 
+\textcolor{red}{Should we use $4\pi$? The holomorphic and antiholomorphic both contributes a factor. Is this the fermion doubling problem?}
 
+The lattice fermon density is 
+\begin{equation}
+	\begin{aligned}
+		2\pi\,\rho :=& 2\pi\,c^\dagger c \sim \psi_{+}^\dagger \psi_{+} + \psi_{-}^\dagger \psi_{-} + \left(e^{2i k_f}\psi_{+}^\dagger \psi_{-} + h.c. \right) \\
+		=& i \left(\partial \varphi + \overline{\partial} \varphi\right) + 2 \cos (\theta + 2k_f x) \\
+		=& \partial_x \theta + 2 \cos (\theta + 2k_f x)
+	\end{aligned}
+\end{equation}
 
-
-\appendix
+\subsubsection{Bosonization for quantum spin chains}
+We assume there is a $xx$ model 
+\begin{equation}
+	H = \frac{1}{2}\sum_n \left(\sigma_n^x\sigma_{n+1}^x + \sigma_n^y\sigma_{n+1}^y \right) = \sum_n \left(S^\dagger_n S^{-}_{n+1} + h.c.\right)
+\end{equation}
+where $S^\dagger := \sigma^x + i\sigma^y$. Indentifying the up spin state to the empty fermion state, one can use the transformation
+\begin{equation}
+	\begin{aligned}
+		S_n^\dagger &= \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
+		&= (-1)^n \left( (-1)^n e^{i\phi} + e^{i\overline{\phi}}\right) e^{i\frac{\theta}{2}} \\
+		&= (-1)^n e^{i\varphi/2} + e^{i\varphi/2} e^{i\theta}
+	\end{aligned}
+\end{equation}
+to rewrite the spin model as 
+\begin{equation}
+	H = -\sum_n \left(c_n^\dagger c_{n+1} + h.c.\right) = -2\sum_k \cos(k)\,c_k^\dagger c_k.
+\end{equation}
+From the dispersion, one can find that the fermi point $k_f = \pi/2$.
 
 \section{Central extensions of Lie algebras}
 In this section $\mathfrak{g},\mathfrak{h},\cdots $ denote (possibly infinite) Lie algebras over some field $\mathbb{K} = \mathbb{R}, \mathbb{C}$. This section is mainly based on Wikipedia and~\cite{Schottenloher}.
