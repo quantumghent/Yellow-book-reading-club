@@ -1590,7 +1590,7 @@ Sine the scalar field is dimensionless in free compact boson, the physical quant
 where $e$ and $m$ denote the electric and magnetic charge respectively.
 
 
-The simplest way for bosonization of fermions is by matching the conformal dimension of the fermion operator to the vertext operator. Take the right mover $\psi_{-}$, a holomorphic field $\left(1/2,0\right)$, as an example
+The simplest way for bosonization of fermions is by matching the conformal dimension of the fermion operator to the vertext operator. Take the left mover $\psi_{+}$, a holomorphic field $\left(1/2,0\right)$, as an example
 \begin{equation}
 	\begin{aligned}
 		&e/R + mR/2 = 1\\
@@ -1599,10 +1599,10 @@ The simplest way for bosonization of fermions is by matching the conformal dimen
 \end{equation}
 One can easily find two solutions, either $V_{\frac{1}{2},1}$ with $R=1$ or $V_{1,\frac{1}{2}}$ with $R=2$. These two solutions are equivalent to each other since they are related to each other through a duality transformation. Here we take the first one to build up the bosonization dictonary for the free fermion
 \begin{equation}
-	\begin{split}
-		&\psi^{\dagger}_{-} \sim V_{\frac{1}{2},1} \sim e^{i \phi} \\
-		&{\psi}^{\dagger}_{+} \sim V_{\frac{1}{2},-1} \sim e^{i\overline{\phi}}.
-	\end{split}
+	\begin{aligned}
+		&\psi^{\dagger}_{+} \sim V_{\frac{1}{2},1} \sim e^{i \phi} \\
+		&{\psi}^{\dagger}_{-} \sim V_{\frac{1}{2},-1} \sim e^{i\overline{\phi}}.
+	\end{aligned}
 \end{equation}
 One can see that the fermion operator corresponds to a half charge boson operator, which means that the fermion degrees of freedom are always in pairs when using the bosonization to study a fermion theory. 
 
@@ -1614,7 +1614,7 @@ It is clear that the fermion charge corresponds to electric charge for the free 
 
 The axial current density maps to 
 \begin{equation}
-	\rho_a = \psi^\dagger \gamma^5 \psi \sim \left( \psi^{\dagger}_{+} \psi_{+} - \psi^{\dagger}_{-}\psi_{-} \right) \sim i \left(\partial \theta - \overline{\partial} \theta\right) \sim j^0_\theta
+	\rho_a = \psi^\dagger \gamma^5 \psi \sim \left( \psi^{\dagger}_{+} \psi_{+} - \psi^{\dagger}_{-}\psi_{-} \right) \sim i \left(\partial \theta + \overline{\partial} \theta\right) \sim j^0_\theta
 \end{equation}
 which is the magnetic charge. 
 
@@ -1638,6 +1638,10 @@ And similarly
 \begin{equation}
 	\rho_{-} \rho_{-} \sim -{\left(\overline{\partial} \varphi \right)}^2.
 \end{equation}
+One finds that 
+\begin{equation}
+	\rho_{+}\rho_{+} + \rho_{-} \rho_{-} \sim 
+\end{equation}
 These density-density interactions can be absorbed into the redefinition of the action, which is still a free theory in the scalar field language.
 
 \subsubsection{Bosonization on the lattice} 
@@ -1645,31 +1649,60 @@ On the lattice, the slow modes are those close to the Fermi point $\pm k_f$. Ass
 \begin{equation}
 	E_k \sim -\cos (k),
 \end{equation}
-one can identify fermions around $\mp k_f$ as the left/right mover $\psi_{+}$/$\psi_{-}$. Note there is another subtle point that we have normalized the correlation of fermion fields, while the canonical anticommutation relation requires the two-point correlation $\frac{1}{2\pi}\frac{1}{z-w}$. Thus one identifies that the slow modes are close to $\pm k_f$ ($k_f > 0$),
+one can identify fermions around $\mp k_f$ as the left/right mover $\psi_{+}$/$\psi_{-}$. Note there is another subtle point that we have normalized the correlation of fermion fields to $\expval{\psi_{+}\psi_{+}^\dagger} \sim \frac{1}{z}$, while the canonical anticommutation relation requires the two-point correlation $\frac{1}{2\pi}\frac{1}{z-w}$. This can be shown explicitly via (here we showed the expectation of the anticommutator)
 \begin{equation}
 	\begin{aligned}
-		c\left(t,x\right) \sim e^{-ik_f \left( t+x \right)} \psi_{+}/\sqrt{2\pi} + e^{-ik_f\left(t-x\right)} \psi_{-}/\sqrt{2\pi},
+		\psi_{+}\psi_{+}^\dagger & \sim \frac{1}{z-w} = \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon + i\left(x-y\right)} = -i\,P\left(\frac{1}{x-y}\right) + \pi \delta(x-y)\\
+		\psi_{+}^\dagger\psi_{+} & \sim \frac{1}{w-z} = \lim_{\epsilon\rightarrow 0} \frac{1}{\epsilon + i\left(y-x\right)} = +i\,P\left(\frac{1}{x-y}\right) + \pi \delta(x-y)\\
+		\anticommutator{\psi_{+}}{\psi_{+}^\dagger} & \sim \psi_{+}\psi_{+}^\dagger + \psi_{+}^\dagger\psi_{+} \sim 2\pi \delta(x-y)
+	\end{aligned}
+\end{equation}
+
+
+Thus one identifies that the slow modes are close to $\pm k_f$ ($k_f > 0$),
+\begin{equation}
+	\begin{aligned}
+		c\left(t,x\right) \sim e^{-ik_f \left( t+x \right)} \psi_{+}/\sqrt{2\pi} + e^{-ik_f\left(t-x\right)} \psi_{-}/\sqrt{2\pi}.
 	\end{aligned}
 \end{equation} 
-\textcolor{red}{Should we use $4\pi$? The holomorphic and antiholomorphic both contributes a factor. Is this the fermion doubling problem?}
+\textcolor{red}{Q: Should we use $4\pi$ here? The holomorphic and antiholomorphic both contributes a factor $\delta(x-y)$, which gives rise a wrong anticommutator for the lattice fermion $c$. Is this the fermion doubling problem?}
 
 The lattice fermon density is 
 \begin{equation}
 	\begin{aligned}
-		2\pi\,\rho :=& 2\pi\,c^\dagger c \sim \psi_{+}^\dagger \psi_{+} + \psi_{-}^\dagger \psi_{-} + \left(e^{2i k_f}\psi_{+}^\dagger \psi_{-} + h.c. \right) \\
-		=& i \left(\partial \varphi + \overline{\partial} \varphi\right) + 2 \cos (\theta + 2k_f x) \\
-		=& \partial_x \theta + 2 \cos (\theta + 2k_f x)
+		2\pi\,\rho :=& 2\pi\,c^\dagger c \sim 2\pi \rho_0 + \psi_{+}^\dagger \psi_{+} + \psi_{-}^\dagger \psi_{-} + \left(e^{2i k_f}\psi_{+}^\dagger \psi_{-} + h.c. \right) \\
+		=&  2\pi \rho_0 +  i \left(\partial \varphi + \overline{\partial} \varphi\right) + 2 \cos (\theta + 2k_f x) \\
+		=& 2\pi \rho_0 +  \partial_x \theta + 2 \cos (\theta + 2k_f x)
 	\end{aligned}
 \end{equation}
+where $\rho_0$ is added since the lattice operator is not normalized. \\
+
+\noindent {\bf Renormalization effect from the interaction} \\
+As analysed above, the density-density interactions become free in the bonson language. However, it should be noted that, this renormalization procedure should be done in the Hammiltonian language since the density-density interactions are equal-time process. Once we build up the mapping, the calculation of free compact boson can be carried out in the Lagrangian framework, which is simply a computation technique. One can find the two density-density interactions discussed above change the radius of the free compact boson from $1$ to $R$ through $\varphi_0 \rightarrow \varphi/R$. 
+
+Another point is how to understand the fermion operator with interactions. The correct logic is that the bosonization build up the relation between the fermion operator and the scalar field on the algebra level. The true ground state after the interaction effect is the one of the renormalized free scalar theory. To calculate, for example the correlation function with respect to the true ground state (after the renormalization of the interaction), one should write down the fermon operator in terms of the new scalar field 
+\begin{equation}
+	\psi_{+}^\dagger \sim e^{i\phi_0} \sim e^{i\frac{1}{2} \left(\varphi_0+\theta_0\right)} \sim e^{i\frac{\varphi}{2R}}e^{i\frac{\theta R}{2}} \sim e^{i\left(\frac{1}{2R}+\frac{R}{2}\right)\phi}e^{i\left(\frac{1}{2R}-\frac{R}{2}\right)\overline{\phi}}
+\end{equation} 
+where $\varphi_0$ and $\theta_0$ denote the bare scalar fields.
+
 
 \subsubsection{Bosonization for quantum spin chains}
 We assume there is a $xx$ model 
 \begin{equation}
 	H = \frac{1}{2}\sum_n \left(\sigma_n^x\sigma_{n+1}^x + \sigma_n^y\sigma_{n+1}^y \right) = \sum_n \left(S^\dagger_n S^{-}_{n+1} + h.c.\right)
 \end{equation}
-where $S^\dagger := \sigma^x + i\sigma^y$. Indentifying the up spin state to the empty fermion state, one can use the transformation
+where $S^\dagger := \sigma^x + i\sigma^y$. Indentifying the up spin state to the empty fermion state
 \begin{equation}
 	\begin{aligned}
+		&\ket*{\uparrow} \leftrightarrow \ket*{0}\\
+		&\ket*{\downarrow} \leftrightarrow \ket*{1}
+	\end{aligned}
+\end{equation}
+one can use the transformation
+\begin{equation}
+	\begin{aligned}
+		S_n^z &= \frac{1}{2} - c_n^\dagger c_n \\
 		S_n^\dagger &= \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
 		&= (-1)^n \left( (-1)^n e^{i\phi} + e^{i\overline{\phi}}\right) e^{i\frac{\theta}{2}} \\
 		&= (-1)^n e^{i\varphi/2} + e^{i\varphi/2} e^{i\theta}
@@ -1679,7 +1712,19 @@ to rewrite the spin model as
 \begin{equation}
 	H = -\sum_n \left(c_n^\dagger c_{n+1} + h.c.\right) = -2\sum_k \cos(k)\,c_k^\dagger c_k.
 \end{equation}
-From the dispersion, one can find that the fermi point $k_f = \pi/2$.
+From the dispersion, one can find that the fermi point $k_f = \pi/2$. 
+
+In terms of scalar fields, spin operators are expressed as 
+\begin{equation}
+	\begin{aligned}
+		S_x^z &\sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta) \\
+		S_n^\dagger &\sim \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
+		& \sim (-1)^n \left( e^{-ik_f x} e^{-i\phi} + e^{ik_f x}e^{-i\overline{\phi}}\right) e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \theta + \frac{1}{2}\right)}\\
+		&\sim (-1)^n \left( e^{-i\phi} + \left(-1\right)^n e^{-i\overline{\phi}}\right) e^{\frac{1}{2} \theta}\\
+		&\sim (-1)^n e^{-i\varphi/2} + e^{-i\varphi/2} e^{i\theta}
+	\end{aligned}
+\end{equation}
+
 
 \section{Central extensions of Lie algebras}
 In this section $\mathfrak{g},\mathfrak{h},\cdots $ denote (possibly infinite) Lie algebras over some field $\mathbb{K} = \mathbb{R}, \mathbb{C}$. This section is mainly based on Wikipedia and~\cite{Schottenloher}.
