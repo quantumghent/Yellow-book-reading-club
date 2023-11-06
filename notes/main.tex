@@ -568,11 +568,11 @@ where $\tilde{\lambda}_i$ is a linear combination of the orginal paramters (here
 
 There also exist many other RG schemes. For example, one may integrate out all high-energy modes $\vert k \vert > \Lambda$. There will be divergence at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ to be a real positive number and make perturbation around the upper or lower critical dimension, which is called as $d \mp \epsilon$ expansion in the literature. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. The scaling transformation of $a$ is canceled by the change of couplings in the theory. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point rather than doing Feynmann diagram calculations.
 
-{\bf Example: poor man's scaling of Kondo effect}
-{\bf Example: perturbative RG analysis of $\phi^4$ theory}
+\subsubsection*{Example: poor man's scaling of Kondo effect}
+\subsubsection*{Example: perturbative RG analysis of $\phi^4$ theory}
 The Ferromagnetic phase transition is usually modeled by a real scalar field theory
 \begin{equation}
-S = \int d^d x \ \left\{\frac{1}{2}{\left(\Delta\phi\right)}^2 + \sum_{n=1,2,4}\left(\frac{\lambda_n}{n!}\phi^n\right) \right\}
+S = \int d^d x \ \left\{\frac{1}{2}{\left(\partial\phi\right)}^2 + \sum_{n=1,2,4}\left(\frac{\lambda_n}{n!}\phi^n\right) \right\}
 \end{equation}
 where the field $\phi$ can be viewed as flucturations around the mean field solution $\phi_c$ of the action. Following the Wilson-Kadanoff RG scheme, we identify
 \begin{equation}
@@ -603,7 +603,137 @@ At one-loop approximation, using cumulant expansion one can find
 	\end{aligned}
 \end{equation}
 
-\noindent {\bf Example: perturbative RG analysis of BKT transition}
+\subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
+The sine-Gordon theory reads
+\begin{equation}
+S = \int \frac{1}{8 \pi  K}(\nabla \varphi )^2 + g \cos( \beta \varphi)
+\end{equation}
+where $K=1/2$, $\beta=2$ and $\varphi$ is compactified as $\varphi \sim \varphi + 2\pi$. The symmetry for the $\varphi$ scalar is spoiled down from $O(2)_\theta \times O(2)_\varphi$ to $O(2)_\theta \times Z_2^\varphi$ where $Z_2^\varphi : \varphi \rightarrow \varphi + \pi$. In the following we are going to use perturbative Wilsonian RG to analyse the effect of the marginal field $g$ ($\Delta_g =2 - \beta^2K = 0$) close to the free compact boson $K=1/2$.
+
+To the second order approximation, the effective action can be written down 
+\begin{equation}
+	\begin{aligned}
+		S_{\Lambda '}^{\text{eff}} ( \varphi  ) =& S_0(\varphi ) -\text{Log} \left( 1 - <S_1(\varphi ,h)>_h + \frac{1 }{2}<S_1(\varphi ,h)S_1(\varphi ,h)>_h \right) \\
+		= &S_0(\varphi) + <S_1(\varphi ,h)>_h \\
+		&- \frac{1}{2}<S_1(\varphi ,h)S_1(\varphi ,h)>_h + \frac{1}{2}<S_1(\varphi ,h)>_h<S_1(\varphi ,h)>_h.
+	\end{aligned}
+\end{equation}
+where we denote slow or fast field as $\varphi$ or $h$ respectively. 
+
+\begin{itemize}
+	\item First order term $\expval{S_1(\phi ,h)}_h$
+\end{itemize}
+\begin{equation}
+	\begin{aligned}
+		\expval{S_1(\phi ,h)}_h &= g \expval{\cos \beta \left(\varphi+h\right)} = \frac{g}{2}\sum _{\sigma }< e^{i \sigma  \beta  ( \phi  +h)}>_{h }\\
+		& = \sum_\sigma \frac{g}{2}e^{i \sigma
+		\beta  \varphi }e^{-\frac{1}{2}\beta ^2 <h(x)^2>_h } \\
+ 		&= \frac{g e^{i \sigma  \beta  \phi }}{2}e^{-\beta ^2 K\log 
+			\left(\frac{\Lambda }{\Lambda '}\right) } \\
+		&=g \cos  (\beta  \phi )\text{  }\left(\frac{\Lambda }{\Lambda '}\right)^{-\beta ^2K} \\
+		&= g \cos(\beta  \phi )\left( 1 - \beta ^2K\,\mathrm{d}l \right)
+	\end{aligned}
+\end{equation}
+After rescaling the coordinates with a factor $\frac{\Lambda}{\Lambda'}=1+\mathrm{d}l$, the effective action becomes
+\begin{equation}
+S^{\text{eff}}( \phi  ) = S_0(\phi ) +g \left(1 + \left(d-\beta^2K \right)\mathrm{d}l\right) \int \cos  (\beta  \phi ) .
+\end{equation}
+One concludes that \(g\) is relevant or irrelevant when \(\beta^2K<2\) or \(\beta ^2K>2\), respectively.
+
+\begin{itemize}
+	\item Second order perturbation \(\left(<S_1{}^2>-<S_1><S_1> \right)\) 
+\end{itemize}
+One can find
+\begin{equation}
+	\begin{aligned}
+		&\langle S_1(\phi ,h)S_2(\phi ,h)\rangle_h \\
+		&=\frac{g^2}{4} \langle e^{i \sigma _1 \beta  \left( \phi _1 +h_1\right)}e^{i \sigma _2 \beta  \left(\phi _2 +h_2\right)}\rangle_{h } \\
+		&= \frac{g^2 }{4} e^{i \sigma _1 \beta  \phi _1 +\text{  }i \sigma _2 \beta  \phi _2 }< e^{i \beta\sigma _1 h_1}e^{i \beta\sigma _2 h_2}>_{h }\\
+		&=\frac{g^2 }{4}e^{i \sigma  \beta  \left(\phi _1 - \phi _2\right) }e^{\beta ^2 \left( <h_1h_2>-<h^2> \right)} +\frac{g^2}{4}e^{i \sigma  \beta  \left(\phi _1 + \phi _2\right) }e^{-\beta ^2 \left( <h_1h_2>+<h^2> \right)}\\
+		&= \frac{g^2 }{2}\cos \left(\beta  \left(\phi _1 - \phi _2\right) \right){} e^{+\frac{\beta^2}{2}  \expval{\left(h_1-h_2\right)^2}_h} \\
+		&+\frac{g^2}{2} \cos \left(\beta  \left(\phi _1 + \phi _2\right) \right){} e^{-\frac{\beta^2}{2}  \expval{\left(h_1-h_2\right)^2}_h}
+	\end{aligned}
+\end{equation}
+and another term
+\begin{equation}
+	\begin{aligned}
+		&\expval{S_1(\phi ,h)}_h \expval{S_2(\phi ,h)}_h = g^2 \cos \left( \beta  \phi _1\right) \cos \left(\beta \phi _2\right) e^{-\beta ^2 \expval{h^2}_h}\\
+		&= \frac{g^2 }{2}(1 - 2\beta^2 K \text{d}l) \left( \cos \left( \beta  \left(\phi _1 - \phi _2\right) + \cos \left( \beta  \left(\phi _1 + \phi _2\right) \right)\right.\right.		
+	\end{aligned}
+\end{equation}
+So that to second order perturbation, the effective action is
+\begin{equation}
+	\begin{aligned}
+		&S_{\Lambda '}^{\text{eff}} ( \phi  ) \\
+		=& S_0(\phi ) +<S_1(\phi ,h)>_h - \frac{1}{2}\left(<S_1(\phi ,h)S_1(\phi ,h)>_h - <S_1(\phi ,h)>_h<S_1(\phi ,h)>_h\right)\\
+		=& S_0( \phi  ) + g \cos  (\beta  \phi ) e^{-\frac{\beta ^2}{2} \expval{h^2}_h} - \frac{ g^2 }{4}e^{-\beta ^2 \expval{h^2}_h}\int d^2x_1d^2x_2 \\
+		& \left[\text{  }\left( e^{\beta
+		^2 \expval{h_1h_2}_h}-1\right) \cos \left( \beta  \left(\phi _1 - \phi _2\right) \right)+ \left( e^{-\beta ^2 \expval{h_1h_2}_h}-1\right) \cos \left( \beta  \left(\phi _1 + \phi _2\right) \right) \right]
+	\end{aligned}
+\end{equation}
+
+Note that the integral is from \(\Lambda '\) to $\Lambda $, so that the neutrality condition is not applied here. Now we assume the two point correlation $e^{\beta ^2 \expval{h_1h_2}_h}$ to be short ranged, which allow us to do approximation and only keep the leading order of the relative distance $r$. With a hard cutoff used above, the two point correlation $(\expval{h_1h_2}_h)$ has a long fluctuating tail. One can add a smooth factor $(e^{-k/\Lambda })$ for the fast modes to suppress the integral to obtain a short range correlation functions. Due to short range nature of the two point correlation, one can introduce the new coordinate 
+\begin{equation}
+R = \frac{x+y}{2}, \ r = x-y
+\end{equation}
+The last term is approximated to be
+\begin{equation}
+\left.\cos \left( \beta  \left(\phi _1 + \phi _2\right) \right) \right] = \cos  (2 \beta  \phi  (R)) + \mathrm{higher \ order \ terms} 
+\end{equation}
+which is less relevant compared with the first one since its scaling dimension $4\beta^2 K$.
+
+Another term reads
+\begin{equation}
+	\begin{aligned}
+		\cos \left( \beta  \left(\phi _1 - \phi _2\right) \right) = e^{-\beta^2\expval{\varphi^2}_{\varphi}}:\cos ( \beta \text{  }r\cdot \nabla \phi  ): = e^{-\beta^2\expval{\varphi^2}_{\varphi}}\left(1 - \frac{\beta ^2}{2} ( r\cdot \nabla \varphi)^2 \right)		
+	\end{aligned}
+\end{equation}
+
+One finds
+\begin{equation}
+	\begin{aligned}
+		&- \frac{ g^2 }{4} \, \int e^{-\beta^2 \expval{h^2}_h} \left( e^{\beta ^2 \expval{h_1h_2}_h}-1\right) \cos \left( \beta  \left(\phi _1 - \phi _2\right) \right) \\
+		&- \frac{ g^2 }{4} \, \int e^{-\beta^2 \expval{\varphi^2}_\Lambda} \left( e^{\beta ^2 \expval{h_1h_2}_h}-1\right) :\cos \left( \beta  \left(\phi _1 - \phi _2\right) \right):\\
+		&- \frac{ g^2 }{4} \, \sim \int \, \left\{ C(\Lambda)\right\} \ \times \left\{\beta^2 K f(r) \mathrm{d}l\right\} \ \times \left(1 - \frac{\beta ^2}{2} ( r\cdot \nabla \varphi)^2\right)\\
+		&\sim f(\Lambda) g^2 \beta^4 K\mathrm{d}l \int \mathrm{d}^2R\,  \left(\partial \varphi\right)^2
+	\end{aligned}
+\end{equation}
+in which we used
+\begin{equation}
+e^{\beta^2 \expval{h_1h_2}_h}-1 = \beta^2 K f(r) \text{d}l
+\end{equation}
+and
+\begin{equation}
+	\begin{aligned}
+		\int \mathrm{d}^2r \ f(r) ( r\cdot \nabla \phi (R ) )^2 =&\int d^2r \ f(r) \left(r \cos \left(\theta _{r\cdot \nabla \phi }\right) |\nabla \varphi(R)| \right){}^2 \\ 
+		&= \int \text{d}r \text{d$\theta $}\text{  }r f(r)\text{  }r^2 \cos ^2\left(\theta _{r\cdot \nabla \phi }\right)\text{  }(\nabla \phi(R) )^2\\
+		&\sim (\nabla \phi(R)^2 \ \int \text{d}r \ \tilde{f}(r).		
+	\end{aligned}
+\end{equation}
+Note that the normalization of the $\cos$ term combing with the fast mode contribution makes the second perturbation does not depends on $\Lambda^\prime$. One does not need to do rescaling for the cutoff. The second order term renormalize the parameter $K$.
+
+In summary, to the second order perturbation the effective action reads
+\begin{equation}
+	\begin{aligned}
+		&S^{\text{eff}} ( \phi  ) = S_0(\phi ) + g( 1 - \beta^2 K \text{d}l )\int_{\Lambda^\prime} d^2x \cos  (\beta  \varphi ) + f(\Lambda) g^2 \beta^4 K\mathrm{d}l \int \mathrm{d}^2R\,  \left(\partial \varphi\right)^2 \\ 
+		&= \left(\frac{1}{8\pi K} + f(\Lambda) g^2 \beta^4 K\mathrm{d}l\right) \int_\Lambda \left( \partial \varphi \right)^2 + g\left(1 + \left(2-\beta^2 K\right)\mathrm{d}l\right)\int_\Lambda \cos (\beta \varphi)
+	\end{aligned}
+\end{equation}
+Now one can write down the \(\beta\) function of \(K\) and \(g\)
+\begin{equation}
+	\begin{aligned}
+		&\frac{\partial g}{\partial l}=(2-\beta^2 K)g\\
+		&\frac{\partial K}{\partial l} = -C\,\beta^4 K^2\,g^2 		
+	\end{aligned}
+\end{equation}
+We assume $g$ is small and $K \sim 1/2$
+\begin{equation}
+	\begin{aligned}
+		&\frac{\partial \tilde{g}}{\partial l} = - \tilde{K} \tilde{g}\\
+		&\frac{\partial \tilde{K}}{\partial l} = -\tilde{g}^2 		
+	\end{aligned}
+\end{equation}
+where $\tilde{K} := 4 K - 2$ and $\tilde{g}$ is normalized to simplify the notation.
 
 \section{Conformal symmetry in general dimensions}
 
@@ -1432,64 +1562,6 @@ Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$
 In the discussion of free compact boson theory, we have seen the vertex operator $V_1 = \mathop{:}e^{i\phi(z,\overline{z})}\mathop{:}$ has the same scaling dimension as a fermion operator and more importantly the free complex fermion and and the free compact boson (with a radius $R=1$) share the same partiton function. These facts indicate that the fermion and boson theories are dual to each other. 
 
 \subsubsection{Free compact boson}
-Here we review the free compact boson theory in (1+1)d
-\begin{equation}
-	S = \frac{1}{4\pi K} \int \partial \varphi \bar{\partial}\varphi,
-\end{equation}
-where we used the convention in the note. With the chiral mass center introduced above the chiral part of the compact boson field $\varphi(z,\bar{z}) = \phi(z) + \bar{\phi}(\bar{z})$ can be expanded in terms of current operators. Recall that the two-point correlation of free boson $\langle \varphi (x) \varphi(y) \rangle = -2 K \log (r)$~\footnote{In Ref.~\cite{Blumenhagen:2009zz}, $K$ is set to be $K=1$.}. The current operator can be defind as 
-\begin{equation}
-	j(z) = i \frac{\partial \varphi}{\sqrt{K}},
-\end{equation} 
-which ensures the the current operator normalized as $\langle j(z) j(z^\prime) \rangle = 1/z^2$.
-
-The chiral/anti-chiral part of the free compact boson can be written as 
-\begin{equation}
-	\begin{split}
-		\phi(z) &= \sqrt{K}\left(\phi_0 -i\,j_0\,\ln \,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n}\right) \\
-		\bar{\phi}(\bar{z}) &= \sqrt{K} \left(\bar{\phi}_0 -i\,\bar{j}_0\,\ln \, \bar{z} + i\,\sum_{n\neq0} \frac{1}{n}\,\bar{j}_n\,{\bar{z}}^{-n}\right).
-	\end{split}
-\end{equation} 
-Note here the complex coordinate denotes $z = e^\omega = e^{\tau + i\sigma}$. $\omega$ is the coordinate defined on the cylinder. Whenever we use a quantum theory, we should consult to the radial quantization. In terms of the chiral term, we can write down the free scalar $\varphi = \phi + \bar{\phi}$ and its dual field $\theta = \phi - \bar{\phi}$ as
-\begin{equation}
-	\begin{split}
-		\varphi &= \sqrt{K}\left(\varphi_0 -i \tau \left(j_0 + \bar{j_0}\right) + \sigma \left(j_0 - \bar{j_0}\right) + i\,\sum_{n\neq0} \frac{1}{n}\,\left( j_n\,z^{-n}+ \bar{j}_n\,{\bar{z}}^{-n}\right)\right) \\
-		\theta &= \sqrt{K}\left(\varphi_0 -i \tau \left(j_0 - \bar{j_0}\right) + \sigma \left(j_0 + \bar{j_0}\right) + i\,\sum_{n\neq0} \frac{1}{n}\,\left( j_n\,z^{-n}- \bar{j}_n\,{\bar{z}}^{-n}\right)\right).
-	\end{split}
-\end{equation}
-
-Let's derive the quantum version (radial quantization) of the free compact boson in terms of the current operator. Recall the Hamiltonian for the free compact boson reads
-\begin{equation}
-	H = \int dx \left( 2\pi K \pi^2 + \frac{1}{8\pi K} {\left(\partial_x \phi\right)}^2 \right),
-\end{equation}
-where the canonical momentum $\pi = \frac{1}{4\pi K} \dot{\phi}$. In terms of current operators we can write down (note $x := \sigma$ in the Hamiltonian is defind on the cylinder)
-\begin{equation}
-	\begin{aligned}
-		\partial_x \varphi &= \partial \varphi\ i z + \bar{\varphi} (-i) z = \sqrt{K} \left( j_n/z^n -\bar{j}_n / \bar{z}^n \right) \\
-		4\pi K\pi &= \partial \varphi i z + \bar{\partial} \varphi i \bar{z} = \sqrt{K} \left( j_n/z^n + \bar{j}_n / \bar{z}^n \right) 
-	\end{aligned}
-\end{equation}
-Thus the Hamiltonian can be written down in terms of current operators
-\begin{equation}
-	\begin{aligned}
-		H &= \frac{1}{4\pi} \int_0^{2\pi} d\sigma \sum_{n,m} \left( \frac{j_n j_m}{z^{n+m}} + \frac{\bar{j}_n \bar{j}_m}{{\bar{z}}^{n+m}} \right) \\
-		&= \frac{1}{2} j_0 j_0 + \frac{1}{2} \bar{j}_{0} \bar{j}_0 + \sum_{n>0} j_{-n} j_n + \bar{j}_{-n} \bar{j}_n.
-	\end{aligned}
-\end{equation}
-We thus identify the Virasoro generator
-\begin{equation}
-	\begin{aligned}
-		L_0 &= \frac{1}{2} j_0 j_0 + \sum_{n>0} j_{-n} j_n \\
-		\bar{L}_0 &= \frac{1}{2} \bar{j}_{0} \bar{j}_0 + \sum_{n>0} \bar{j}_{-n} \bar{j}_n.
-	\end{aligned}
-\end{equation}
-
-Now let's derive the quantization of the zero modes of the current operator. It is clear that $j_0$ and $\bar{j}_0$ are converved quantuties. Let's denote their charge as $\Delta$ or $\bar{\Delta}$. Changing $z$ to $ze^{i2\pi}$ for the scalar field $\varphi$, it should be single valued, which resultes in the relation $\Delta - \bar{\Delta} = n\frac{R}{\sqrt{K}} $
-
-
-
-
-
-
 Here we review the free compact boson theory in (1+1) d
 \begin{equation}
 	S = \frac{1}{4\pi K} \int \partial \varphi \overline{\partial}\varphi,
@@ -1598,7 +1670,20 @@ where the vertex operator has a dimension $\Delta_{e,m} = \frac{1}{2}\left(\left
 		V_{e,m} &\sim e^{ie\varphi}\,e^{im\theta/2\,K}
 	\end{aligned}
 \end{equation}
-where $\Delta_{e,m} = \frac{1}{2}\left(\left(e\sqrt{K}+\frac{m}{2\sqrt{K}}\right)^2,\left(e\sqrt{K}-\frac{m}{2\sqrt{K}}\right)^2\right)$. In the later case, one can also redefine $\theta \rightarrow \theta / K$ to simplify the notation. In this note we choose the first convention and set $K=1$.
+where $\Delta_{e,m} = \frac{1}{2}\left(\left(e\sqrt{K}+\frac{m}{2\sqrt{K}}\right)^2,\left(e\sqrt{K}-\frac{m}{2\sqrt{K}}\right)^2\right)$. In the later case, one can also redefine $\theta \rightarrow \theta / K$ to simplify the notation. In this note we choose the first convention and set $K=1$. \\
+
+\noindent {\bf Another way to understand the quantization of $j_0 + \overline{j}_0$} \\
+ The above derivation for the quantization of $j_0 + \overline{j}_0$ uses the modular invarariance. Another simple way is to look at the conjugate momentum of the scalar $\varphi$
+ \begin{equation}
+	\Pi_0 = \int dx \, \Pi_\varphi = \int dx \, \frac{1}{4\pi} \left(j_0 + \overline{j}_0\right) + \sum_{n\neq0}... = \frac{j_0+\overline{j}_0}{2}
+ \end{equation} 
+The vertex operator can be interpreted as the displace operator $e^{i\Pi_0 \varphi}$, which means $e^{i\frac{1}{2}\left(j_0+\overline{j}_0\right)2\pi R}$ is single valued. This gives rise to the quantization condition
+\begin{equation}
+	\begin{aligned}
+		j_0 + \overline{j}_0 \sim \frac{2\,e}{R}
+	\end{aligned}
+\end{equation}
+which means the total momentum has to be integers.
 
 \subsubsection{Symmetries in free compact boson}
 In this section we discuss the continuoius symmetry (internal) in the free compact boson. Note that we used $z = \tau + i\sigma$ in the convention, which means
@@ -1637,7 +1722,7 @@ It is clear that the electric charge $e$ is indeed the winding number of $\theta
 
 The massless free scalar theory also enjoys another ${U(1)}_\theta$ symmetry acting as $\theta \rightarrow \theta + \mathrm{constant}$. From the current operator expression for the Hamiltonian, one can write down the action in terms of the $\theta$ scalar
 \begin{equation}
-	S = \frac{1}{8\pi K}\int {\left(\partial \theta\right)}^2
+	S = \frac{1}{8\pi}\int {\left(\partial \theta\right)}^2
 \end{equation}
 which gives a Noether's current
 \begin{equation}
@@ -1662,7 +1747,7 @@ In summary, in the massless free compact boson theory, one can show that the cha
 \subsubsection{Bosonization dictonary for free fermions}
 Sine the scalar field is dimensionless in free compact boson, the physical quantites should be expressed in terms of the so-called vertex operator.~\footnote{In this note, we assume all physical fields are normalized, even if not explicitly stated.} Due to the quantization of the zero modes for the current operator, the vertex operator should have the structure 
 \begin{equation}
-	V_{e,m} := e^{i \varphi e/R} e^{i\theta R/2} = e^{i\phi \left(e/R + mR/2\right)} e^{i\overline{\phi} \left(e/R - mR/2\right)},	
+	V_{e,m} := e^{i \varphi e/R} e^{i\theta m R/2} = e^{i\phi \left(e/R + mR/2\right)} e^{i\overline{\phi} \left(e/R - mR/2\right)},	
 \end{equation}
 where $e$ and $m$ denote the electric and magnetic charge respectively.
 
@@ -1744,7 +1829,14 @@ Thus one identifies that the slow modes are close to $\pm k_f$ ($k_f > 0$),
 		c\left(t,x\right) \sim e^{-ik_f \left( t+x \right)} \psi_{+}/\sqrt{2\pi} + e^{-ik_f\left(t-x\right)} \psi_{-}/\sqrt{2\pi}.
 	\end{aligned}
 \end{equation} 
-\textcolor{red}{Q: Should we use $4\pi$ here? The holomorphic and antiholomorphic both contributes a factor $\delta(x-y)$, which gives rise a wrong anticommutator for the lattice fermion $c$. Is this the fermion doubling problem?}
+\textcolor{red}{Q: Should we use $4\pi$ here? The holomorphic and antiholomorphic both contributes a factor $\delta(x-y)$, which gives rise a wrong anticommutator for the lattice fermion $c$. Is this the fermion doubling problem?} A probaly better understanding is to treat the two branches independently
+\begin{equation}
+	\begin{aligned}
+		c_{+}\left(t,x\right) &\sim \frac{1}{\sqrt{2\pi}}e^{-ik_f \left( t+x \right)} \psi_{+}\\
+		c_{-}\left(t,x\right) &\sim \frac{1}{\sqrt{2\pi}}e^{-ik_f\left(t-x\right)} \psi_{-}.
+	\end{aligned}
+\end{equation}
+
 
 The lattice fermon density is 
 \begin{equation}
@@ -1754,7 +1846,11 @@ The lattice fermon density is
 		=& 2\pi \rho_0 +  \partial_x \theta + 2 \cos (\theta + 2k_f x)
 	\end{aligned}
 \end{equation}
-where $\rho_0$ is added since the lattice operator is not normalized. \\
+where $\rho_0$ is added since the lattice operator is not normalized. The total charge is given by 
+\begin{equation}
+	Q \sim \int \rho \sim Q_0 + 2e
+\end{equation}
+\\
 
 \noindent {\bf Renormalization effect from the interaction} \\
 As analysed above, the density-density interactions become free in the bonson language.
@@ -1823,7 +1919,16 @@ We have used the relation
 		c_i^\dagger c_i \sim \frac{1}{2\pi}\partial_x \theta + \frac{1}{2}
 	\end{aligned}
 \end{equation}
-where $\frac{1}{2}$ is the particle number density since the field operators are all normal ordered and describing the quantum fluctuations near their corresponding expectation value.\\
+where $\frac{1}{2}$ is the particle number density since the field operators are all normal ordered and describing the quantum fluctuations near their corresponding expectation value. The string operator reads
+\begin{equation}
+	\begin{aligned}
+		\prod_{i<n}e^{i\pi\,c_i^\dagger c_i} &\sim e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \theta + \frac{1}{2}\right)} \\
+		&\sim e^{i\,k_f n} e^{i\frac{\theta}{2}} \\
+		&\sim e^{i\,k_f n} \, V_{0,1}
+	\end{aligned}
+\end{equation}
+One sees that a string operator corresponds to generate a $\theta$ vertex. \\
+
 
 \noindent {\bf Correlation functions} \\
 Using the mapping above, one can calculate the equal-time spin-spin operator correlation functions
