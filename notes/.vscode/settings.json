@@ -1,7 +1,7 @@
 {
         // LaTeX
     // 不在保存的时候自动编译
-    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.run": "onSave",
     // 编译工具
     "latex-workshop.latex.tools": [
         {
@@ -15,6 +15,20 @@
                 "%DOCFILE%"
             ]
         },
+
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+
         {
             "name": "pdflatex",
             "command": "pdflatex",
@@ -36,11 +50,20 @@
   // 编译命令
     "latex-workshop.latex.recipes": [
         {
+            "name": "lualatex",
+            "tools": [
+                "lualatex"
+            ],
+        },
+
+        {
             "name": "xelatex",
             "tools": [
                 "xelatex"
             ],
         },
+
+
         {
             "name": "xelatex*2",
             "tools": [

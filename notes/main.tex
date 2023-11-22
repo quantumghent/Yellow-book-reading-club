@@ -13,6 +13,7 @@
 \usepackage{amsmath,slashed}
 \urlstyle{sf}
 \usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{simpler-wick, physics,interval} % Genius package!
 \usepackage{epigraph} 
 
@@ -603,6 +604,46 @@ At one-loop approximation, using cumulant expansion one can find
 	\end{aligned}
 \end{equation}
 
+
+\subsubsection*{Field theoretical renormalization of the $\phi^4$ theory}
+In higher perturbation RG analysis of an interacting field theory, it is usually more convenient to consult the field theoretical renormalization. We briefly review how to renormalize the $\phi^4$ theory
+\begin{equation}
+	S = \int \frac{1}{2}\left(\partial \phi\right)^2 + \frac{1}{2}m_0^2\phi^2 + \frac{1}{4!}\lambda_0 \phi^4
+\end{equation}
+to the one-loop in $d\leq4$ dimension. Higher order terms are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. 
+
+At one-loop, we only need to perform first order contribution
+\begin{align*}
+	\feynmandiagram [horizontal=a to b, layered layout] {
+		a --[scalar] b [dot] -- [loop, min distance=3cm] b --[scalar] c,
+	};
+\end{align*}
+for the $\Gamma^{(2)}$ vertex, and the diagram
+\[\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.6cm of x] (y);
+	\vertex[above left=of x] (a);
+	\vertex[below left=of x] (b);
+	\vertex[above right=of y] (c);
+	\vertex[below right=of y] (d);
+	
+	\diagram*{
+		(x) --[half left] (y),
+		%(x) --[fermion, half left] (y),
+		(x) --[half right] (y),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(y) --[scalar] (c),
+		(y) --[scalar] (d),
+	};
+	\end{feynman}
+\end{tikzpicture}\]
+for $\Gamma^{(4)}$.
+
+
+
+
 \subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
 The sine-Gordon theory reads
 \begin{equation}
@@ -734,6 +775,7 @@ We assume $g$ is small and $K \sim 1/2$
 	\end{aligned}
 \end{equation}
 where $\tilde{K} := 4 K - 2$ and $\tilde{g}$ is normalized to simplify the notation.
+ 
 
 \section{Conformal symmetry in general dimensions}
 
