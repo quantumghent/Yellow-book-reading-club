@@ -282,7 +282,7 @@ Now we have
 	\mathcal{H} = \dot{\psi} \, \pi - \mathcal{L}.
 \end{equation}
 
-\subsubsection{Symmetries and conserved current}
+\subsubsection*{Symmetries and conserved current}
 {\bf Global continuous $U(1)$ symmetry}\\
 The free fermion has the global $U(1)$ symmetry defined by $\psi \rightarrow e^{i\alpha}\psi = \psi + i\alpha \psi$. The functional derivative is then $\frac{\delta F}{\delta \alpha} = i\psi$. One can find the corresponding Noether's curret reads
 \begin{equation}
@@ -610,16 +610,19 @@ In higher perturbation RG analysis of an interacting field theory, it is usually
 \begin{equation}
 	S = \int \frac{1}{2}\left(\partial \phi\right)^2 + \frac{1}{2}m_0^2\phi^2 + \frac{1}{4!}\lambda_0 \phi^4
 \end{equation}
-to the one-loop in $d\leq4$ dimension. Higher order terms are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. 
+to the one-loop in $d\leq4$ dimension. Higher order terms are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. We ignore the composite field~\footnote{The composite field is related to the dimension of $\phi^2$ or the critical exponent $\nu$.} renormalization here.
 
+\begin{itemize}
+	\item One-loop renormalization 
+\end{itemize}
 At one-loop, we only need to perform first order contribution
 \begin{align*}
-	\feynmandiagram [horizontal=a to b, layered layout] {
+	\frac{\lambda_0}{2} \times \feynmandiagram [horizontal=a to b, layered layout] {
 		a --[scalar] b [dot] -- [loop, min distance=3cm] b --[scalar] c,
 	};
 \end{align*}
 for the $\Gamma^{(2)}$ vertex, and the diagram
-\[\begin{tikzpicture}[baseline=(current  bounding  box.center)]
+\[-\frac{\left(\lambda_0\right)^2}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
 	\begin{feynman}
 	\vertex (x);
 	\vertex[right=1.6cm of x] (y);
@@ -638,9 +641,52 @@ for the $\Gamma^{(2)}$ vertex, and the diagram
 		(y) --[scalar] (d),
 	};
 	\end{feynman}
-\end{tikzpicture}\]
-for $\Gamma^{(4)}$.
+\end{tikzpicture} + \mathrm{2 \ permutations}\]
+for $\Gamma^{(4)}$. Regularized by $\Lambda$, one can write down the one-loop resultes
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)} &= k^2 + \left(m_0\right)^2 + \frac{\lambda_0}{2} \int \frac{1}{q^2 + \left(m_0\right)^2} \\
+		\Gamma^{(4)} &= \lambda_0 - \frac{\left(\lambda_0\right)^2}{2} \int \frac{1}{q^2 + \left(m_0\right)^2}\ \frac{1}{\left(k_1 + k_2-q\right)^2 + \left(m_0\right)^2} + \mathrm{2\ permutations}.
+	\end{aligned}
+\end{equation}
+At large momentum they behave as
+\begin{equation}
+	\begin{aligned}
+		&\left[\Gamma^{(2)}\right] \sim \Lambda^{d-2} \\
+		&\left[\Gamma^{(4)}\right] \sim \Lambda^{d-4}
+	\end{aligned}
+\end{equation}
+so that $\Gamma^{(2)}$ is divergent at $d\leq4$, $\Gamma^{(4)}$ is logarithmic dimvergent at $d=4$. All the other higher order vertex functions are convergent when $\Lambda \rightarrow \infty$. 
 
+Keeping terms consistently at one loop, one can introduce renormalized physical parameters in terms of the bare ones
+\begin{equation}
+	\begin{aligned}
+		&\left(m_1\right)^2 = \left(m_0\right)^2 + \frac{\lambda_0}{2} \int \frac{1}{q^2 + \left(m_0\right)^2}\\
+		&\lambda_1 = \lambda_0 - \frac{3\left(\lambda_0\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_0\right)^2\right)^2}\\ 
+	\end{aligned}
+\end{equation} 
+or one can reverse the logic and express bare parameters in terms of physical ones
+\begin{equation}
+	\begin{aligned}
+		&\left(m_0\right)^2 = \left(m_1\right)^2 - \frac{\lambda}{2} \int \frac{1}{q^2 + \left(m_1\right)^2}\\
+		&\lambda_0 = \lambda_1 + \frac{3\left(\lambda_1\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_1\right)^2\right)^2}.\\ 
+	\end{aligned}
+\end{equation} 
+Now if the renormalized parameters $m_1$ and $\lambda$ are finite, the vertex functions 
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)}(k,m_1,\lambda_1) &= k^2 + \left(m_1\right)^2\\
+		\Gamma^{(4)}(k_i,m_1,\lambda_1) &= \lambda_1 - \frac{\left(\lambda_1\right)^2}{2} \int \frac{1}{q^2 + \left(m_1\right)^2}\ \frac{1}{\left(k_1 + k_2-q\right)^2 + \left(m_1\right)^2} + \mathrm{2\ permutations}\\
+		& \qquad + \frac{\left(\lambda_1\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_1\right)^2\right)^2}.
+	\end{aligned}
+\end{equation}
+do not suffer from the UV divergence at one loop.
+
+One can see that the one-loop corrections renormalize the critical point (the mass) and the coupling constant $\lambda_0$. The scaling relations remain the same though, meaning that the scaling dimensions are still the canonical ones. At the two loop, to remove all UV divergences one has to introduce the field renormalization factor $Z_\phi$ and redefine fields in the action, which give rise to the anormalous correction to critical exponents.
+
+\begin{itemize}
+	\item Two-loop renormalization 
+\end{itemize}
 
 
 
