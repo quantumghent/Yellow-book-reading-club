@@ -687,7 +687,206 @@ One can see that the one-loop corrections renormalize the critical point (the ma
 \begin{itemize}
 	\item Two-loop renormalization 
 \end{itemize}
+At the two-loop level, we need to consider more diagrams 
+\[ (a) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (b);
+	\vertex[left=of b] (a);
+	\vertex[left=of b] (a);
+	\vertex[right=of b] (c);
+	\vertex[above=of b] (d);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[scalar] (c),
+		(b) --[out=135,in=180,min distance=0.9cm] (d),
+		(b) --[out=45,in=0,min distance=0.9cm] (d),
+		d --[black, out=135, in=45, loop, min distance=3cm] d
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (d) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(b) \, \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (a);
+	\vertex[right=of a] (b);
+	\vertex[right=of b] (c);
+	\vertex[right=of c] (d);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[] (c),
+		(c) --[scalar] (d),
+		(b) --[half left] (c),
+		(b) --[half right] (c),
+		%d --[red, out=160, in=20, loop, min distance=3cm] d
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (c) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture}\]
+for $\Gamma^{(2)}$
+and 
+\[(a) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.3cm of x] (y);
+	\vertex[right=1.3cm of y] (z);
+	\vertex[above left= 1cm of x] (a);
+	\vertex[below left= 1cm of x] (b);
+	\vertex[above right= 1cm of z] (c);
+	\vertex[below right= 1cm of z] (d);
+	
+	\diagram*{
+		(x) --[half left] (y),
+		(x) --[half right] (y),
+		(y) --[half left] (z),
+		(y) --[half right] (z),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(z) --[scalar] (c),
+		(z) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(b) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.3cm of x] (y);
+	\vertex[above right= 0.5cm and 0.65cm of x] (z);
+	\vertex[above left= 1cm of x] (a);
+	\vertex[below left= 1cm of x] (b);
+	\vertex[above right= 1cm of y] (c);
+	\vertex[below right= 1cm of y] (d);
+	
+	\diagram*{
+		(x) --[bend left] (z), 
+		(y) --[bend right] (z), 
+		(x) --[half right] (y),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(y) --[scalar] (c),
+		(y) --[scalar] (d),
+		z --[black, out=135, in=45, loop, min distance=2cm] z,
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(c) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[above right=0.6cm and 1.5cm of x] (y);
+	\vertex[below right=0.6cm and 1.5cm of x] (z);
+	\vertex[above left=1cm of x] (a);
+	\vertex[below left=1cm of x] (b);
+	\vertex[above right=0.1cm and 1cm of y] (c);
+	\vertex[below right=0.1cm and 1cm of z] (d);
+	
+	\diagram*{
+		(a) --[scalar] (x),
+		(b) --[scalar] (x),
+		(x) --[out=45,in=190] (y),
+		(x) --[out=-45,in=170] (z),
+		(y) --[out=-135,in=135] (z),
+		(y) --[out=-45,in=45] (z),
+		(y) --[scalar] (c),
+		(z) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture}
+\]
+for $\Gamma^{(4)}$ vertex. 
 
+Let's first consider the renormalization of $\Gamma^{(2)}$. Again we choose the renormalized mass to be 
+\begin{equation}
+	\left(m_1\right)^2 = \Gamma^{(2)}(k=0) = f(m_0, \lambda, \Lambda).
+\end{equation}
+One can write the vertex function in terms of renormalized mass $m_1$. In two-loop diagrams one can directly replace $\left(m_0\right)^2$ with $\left(m_1\right)^2$. However, in one-loop contributions one has to expand the bare diagram in terms of the renormalized ones to two-loop level, which resultes in a diagram cancelling the first two-loop one. Finally one finds
+\begin{equation}
+	\begin{aligned}
+		\left(m_0\right)^2 = \left(m_1\right)^2 - \frac{\lambda_0}{2} \int \frac{1}{\left(m_1\right)^2+q^2} + \frac{\left(\lambda_0\right)^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}
+	\end{aligned}
+\end{equation} 
+and 
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)}(k) = k^2 + m_1^2 &- \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(k-q_1-q_2\right)^2+m_1^2\right)} \\
+		& + \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+Note that $\Gamma^{(2)}$ is convergent at $d<4$ dimensions. At $d=4$, there is a logarithmic divergence. 
+
+Similarly in $\Gamma^{(4)}$, one can expand the one-loop diagrams to two-loop level and replace the bare mass with the renormalized one. The second two-loop diagram is cancelled due to the renormalization of mass. Now $\Gamma^{(4)}$ contains only a logarithmic divergence when $d \rightarrow 4$. To cure the logarithmic divergence at $d=4$, one can introduce the renormalized coupling
+\begin{equation}
+	\begin{aligned}
+		\lambda &= \Gamma^{(4)}(k_i=0, m_1^2,\Lambda) \\
+		&= \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{\left(q^2 + m_1^2\right)^2} + \frac{3}{4}\lambda_0^3 \left(\int \frac{1}{\left(q^2 + m_1^2\right)^2} \right)^2 + \\
+		& \qquad 3\lambda_0^3 \int \frac{1}{\left(q_1^2+m_1^2\right)^2\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation} 
+Or inversely, one can write down the bare coupling in terms of the renormalized one
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= \lambda + \frac{3}{2}\lambda^2 \int \frac{1}{\left(q^2 + m_1^2\right)^2} + \frac{15}{4}\lambda^3 \left(\int \frac{1}{\left(q^2 + m_1^2\right)^2} \right)^2 - \\
+		& \qquad 3\lambda^3 \int \frac{1}{\left(q_1^2+m_1^2\right)^2\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+And one can also write down the vertex function $\Gamma^{(4)}$ in terms of $\lambda$ and $m_1$. Now $\Gamma^{(4)}(k_i,m_1^2,\lambda)$ is convergent at $d\leq4$.  
+
+Turning back $\Gamma^{(2)}$, one can replace $\lambda_0$ with $\lambda$ safely at the two-loop level. The bare mass should be replaced by
+\begin{equation}
+	\begin{aligned}
+		\left(m_0\right)^2 = & \left(m_1\right)^2 - \frac{\lambda}{2} \int \frac{1}{\left(m_1\right)^2+q^2} - \frac{3}{4} \lambda^2 \int \frac{1}{\left(q^2+m_1^2\right)^2}\int \frac{1}{\left(m_1\right)^2+q^2} + \\
+		& \quad \frac{\left(\lambda\right)^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation} 
+To cure the logarithmic divergent divergence, we introduce the field renormalization
+\begin{equation}
+	\Gamma_R^{(2)} = Z_\phi(\lambda,m_1,\Lambda) \Gamma^{(2)}(k,m_1^2,\Lambda),
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		Z_\phi &= 1 + \lambda^2 z_2 \\
+		z_2 &= \frac{1}{6}\frac{\partial}{\partial k^2} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(k-q_1-q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+Now we redefine the mass as 
+\begin{equation}
+	m^2 = Z_\phi m_1^2.
+\end{equation}
+This renormalization means we can choose
+\begin{equation}
+	\begin{aligned}
+		&G^{(2)} = Z_\phi G^{(2)}_R \\
+		&g = Z_\phi^2 \lambda \\
+		&G_c^{(4)} = Z_\phi^2 G_{cR}^{(4)} \\
+		&\Gamma^{(4)} = Z_\phi^{-2}\Gamma_R^{(4)}
+	\end{aligned}
+\end{equation}
+
+Note the replacement of $\lambda$ with $g$ generates terms with four loops, which means we can safely express bare quantities in terms of $g$ and $m^2$. The vertex functions are finite at the two-loop level when $d \leq 4$ with the chosen renormalization conditions
+\begin{equation}
+	\begin{aligned}
+		&\Gamma_R^{(E)}(k_i,m^2,g) = Z_\phi^{E/2}(k_i,m_0^2,\lambda,\Lambda) \\
+		&\Gamma_R^{(2)}(0,m^2,g) = m^2 \\
+		&\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,m^2,g)\vert_{k^2=0} = 1 \\
+		&\Gamma_R^{(4)}(0,m^2,g) = g
+	\end{aligned}
+\end{equation}
+
+\begin{itemize}
+	\item Critical exponents
+\end{itemize}
 
 
 \subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
