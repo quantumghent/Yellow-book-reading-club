@@ -606,40 +606,51 @@ At one-loop approximation, using cumulant expansion one can find
 
 
 \subsubsection*{Field theoretical renormalization of the $\phi^4$ theory}
-In higher perturbation RG analysis of an interacting field theory, it is usually more convenient to consult the field theoretical renormalization. We briefly review how to renormalize the $\phi^4$ theory
+In higher order perturbative RG analysis of an interacting field theory, it is usually more convenient to consult the field theoretical renormalization. We briefly review how to renormalize the $\phi^4$ theory
 \begin{equation}
 	S = \int \frac{1}{2}\left(\partial \phi\right)^2 + \frac{1}{2}m_0^2\phi^2 + \frac{1}{4!}\lambda_0 \phi^4
 \end{equation}
-to the one-loop in $d\leq4$ dimension. Higher order terms are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. We ignore the composite field~\footnote{The composite field is related to the dimension of $\phi^2$ or the critical exponent $\nu$.} renormalization here.
+to the two-loop level in $d\leq4$ dimension. Higher order terms ($\phi^p$ with $p>4$) are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. We ignore the composite field~\footnote{The composite field is related to the dimension of $\phi^2$ or the critical exponent $\nu$.} renormalization here.
 
 \begin{itemize}
 	\item One-loop renormalization 
 \end{itemize}
 At one-loop, we only need to perform first order contribution
-\begin{align*}
-	\frac{\lambda_0}{2} \times \feynmandiagram [horizontal=a to b, layered layout] {
-		a --[scalar] b [dot] -- [loop, min distance=3cm] b --[scalar] c,
+\[ \frac{\lambda_0}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (b);
+	\vertex[left=1cm of b] (a);
+	\vertex[right=1cm of b] (c);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[scalar] (c),
+		b --[black, out=135, in=45, loop, min distance=2.5cm] b
 	};
-\end{align*}
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \]
 for the $\Gamma^{(2)}$ vertex, and the diagram
 \[-\frac{\left(\lambda_0\right)^2}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
 	\begin{feynman}
 	\vertex (x);
-	\vertex[right=1.6cm of x] (y);
-	\vertex[above left=of x] (a);
-	\vertex[below left=of x] (b);
-	\vertex[above right=of y] (c);
-	\vertex[below right=of y] (d);
+	\vertex[right=1.2cm of x] (y);
+	\vertex[above left=1cm of x] (a);
+	\vertex[below left=1cm of x] (b);
+	\vertex[above right=1cm of y] (c);
+	\vertex[below right=1cm of y] (d);
 	
 	\diagram*{
 		(x) --[half left] (y),
-		%(x) --[fermion, half left] (y),
 		(x) --[half right] (y),
 		(x) --[scalar] (a),
 		(x) --[scalar] (b),
 		(y) --[scalar] (c),
 		(y) --[scalar] (d),
 	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+
 	\end{feynman}
 \end{tikzpicture} + \mathrm{2 \ permutations}\]
 for $\Gamma^{(4)}$. Regularized by $\Lambda$, one can write down the one-loop resultes
@@ -874,19 +885,158 @@ This renormalization means we can choose
 	\end{aligned}
 \end{equation}
 
-Note the replacement of $\lambda$ with $g$ generates terms with four loops, which means we can safely express bare quantities in terms of $g$ and $m^2$. The vertex functions are finite at the two-loop level when $d \leq 4$ with the chosen renormalization conditions
+Note that the replacement of $\lambda$ with $g$ generates terms with four loops, which means we can safely express bare quantities in terms of $g$ and $m^2$. The vertex functions are finite at the two-loop level when $d \leq 4$ with the normalization conditions
 \begin{equation}
 	\begin{aligned}
-		&\Gamma_R^{(E)}(k_i,m^2,g) = Z_\phi^{E/2}(k_i,m_0^2,\lambda,\Lambda) \\
+		&\Gamma_R^{(E)}(k_i,m^2,g) = Z_\phi^{E/2}\Gamma^{(E)}(k_i,m_0^2,\lambda,\Lambda) \\
 		&\Gamma_R^{(2)}(0,m^2,g) = m^2 \\
 		&\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,m^2,g)\vert_{k^2=0} = 1 \\
 		&\Gamma_R^{(4)}(0,m^2,g) = g
 	\end{aligned}
 \end{equation}
+One should be clear that the normalization condition is not unique. Actually there can be infinite number of normalization approaches. Moreover, the perturbative renormalization is an asymptopic series. In the above normalization, the mass is finite. For the critical theory, especially for the calculation of critical exponents, it is usually more convenient to choose the masless normalization $m^2 = 0$ at a finite (symmetric) momentum
+\begin{equation}
+	\begin{aligned}
+		\Gamma_R^{(2)}(0,0,g) &= 0 \\
+		\left.\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,0,g)
+		\right\vert_{k^2=\kappa^2} &= 1 \\
+		\Gamma_R^{(4)}(k_i,0,g)\vert_{\mathrm{SP}} &= g.
+	\end{aligned}
+\end{equation}
+Another approach is to look at small mass and large $k/m$. Of course these approaches are equivalent to each other. 
 
 \begin{itemize}
-	\item Critical exponents
+	\item Renormalization for the massless $\phi^4$ and critical exponents
 \end{itemize}
+The physical or renormalized parameters are running upon the renormalization, which means for a given bare theory one can obtain different renormalized theories with different UV cutoffs. One can also invert the logic and write down different bare theories corresponding to the same renormalized one. In either case, one can write down flow equations for the parameters in terms of the cutoff $\Lambda$ or the running dimensionless coupling $u$. At the fixed point, the flow equation disappears, meaning the physics there does not depend on the UV cutoff and one can safely sends $\Lambda \rightarrow \infty$. The solution of the flow equations can be conveniently used to calculate critical exponents. 
+
+To study critical behaivors, we first rewrite the parameters as 
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= \kappa^\epsilon \, u_0 \\
+		g &= \kappa^\epsilon u
+	\end{aligned}
+\end{equation}
+where $\kappa$ is the symmetric momentum used in the massless theory renormalization, $u_0$ and $u$ are dimensionless. As stated above the bare theory does not depend on the renormalization 
+\begin{equation}
+	\Gamma_R^{(N)}(k_i; u, \kappa) = Z_\phi^{N/2} \Gamma (k_i;u_0,\Lambda)
+\end{equation}
+which gives rise to the RG equation
+\begin{equation}
+	\left(\kappa\frac{\partial}{\partial \kappa} + \beta(u)\frac{\partial}{\partial u} - \frac{N}{2}\gamma_\phi \right)\Gamma_R^{(N)}(k_i;u,\kappa) = 0
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		&\beta(u) = \kappa\left(\frac{\partial u}{\partial \kappa}\right)_{\lambda,\Lambda} = -\epsilon\left(\frac{\partial \ln(u_0)}{\partial u}\right)^{-1}\\
+		&\gamma_\phi = \kappa \left(\frac{\partial \ln(Z_\phi)}{\partial \kappa}\right)_{\lambda,\Lambda} = \beta(u)\frac{\partial \ln(Z_\phi)}{\partial u}.
+	\end{aligned}
+\end{equation}
+The solution of the RG equation reads
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u,\kappa) = \exp\left\{-\frac{N}{2}\int_1^\rho \frac{\gamma_\phi(u(x))}{x}\right\} \Gamma_R^{(N)}(k_i;u(\rho),\rho\kappa).
+\end{equation}
+At the fixed point, it reduces to a simpler form
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u_c,\kappa) = \kappa^{\frac{1}{2}N\gamma_\phi(u_c)} \tilde{\Gamma}(k_i).
+\end{equation}
+Since the canonical dimension of $\Gamma_R^{(N)}$ is fixed to be $N+d-\frac{1}{2}Nd$, one can rewrite the vertex function as 
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u_c,\kappa) = \kappa^{N+d-\frac{1}{2}Nd} f_\Gamma(k_i/\kappa).
+\end{equation}
+One can find the scaling of the vertex function reads
+\begin{equation}
+	\Gamma_R^{(N)}(\rho k_i;u_c,\kappa) = \rho^{N+d-\frac{1}{2}Nd - \frac{1}{2}N\gamma_\phi(u_c)} \Gamma_R^{(N)}(k_i;u_c,\kappa).
+\end{equation}
+It is clear now $\gamma_\phi(u_c)$ is the so-called anormalous exponent 
+\begin{equation}
+	\eta = \gamma_\phi(u_c).
+\end{equation}
+for the $\phi$ operator.
+
+Now let's derive the renormalization at the two-loop level. Following similar calculations in the last section, one can express the bare quantites in terms of the renormalized ones, or the other way around. At the two-loop level the mass normalization condition determines the critical bare $\mu_c^2$  
+\begin{equation}
+	\begin{aligned}
+		\mu_c^2 = &-\frac{\lambda_0}{2} \int \frac{1}{q^2 + \mu_c^2} + \frac{\lambda_0^2}{4} \int \frac{1}{q^2 + \mu_c^2} \int \frac{1}{\left(q^2 + \mu_c^2\right)^2} \\
+		& \quad + \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2 + \mu_c^2\right)\left(q_2^2 + \mu_c^2\right)\left(\left(q_1+q_2\right)^2 + \mu_c^2\right)} \\
+		= & -\frac{\lambda_0}{2} \int \frac{1}{q^2} + \frac{\lambda_0^2}{6} \int \frac{1}{q_1^2 q_2^2 \left(q_1+q_2\right)^2 } \\
+		=& C_\mu^1 \lambda_0 + C_\mu^2 \lambda_0^2 
+	\end{aligned}
+\end{equation} 
+The second normalization condition gives
+\begin{equation}
+	\begin{aligned}
+		Z_\phi &= 1 + \frac{\lambda_0^2}{6} \left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{\left(q_1^2 + \mu_c^2\right)\left(q_2^2 + \mu_c^2\right)\left(\left(k - q_1-q_2\right)^2 + \mu_c^2\right)} \right)
+		\right\vert_{k^2=\kappa^2} \\
+		& = 1 + \frac{\lambda_0^2}{6} \left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{ q_1^2 q_2^2 \left(k - q_1-q_2\right)^2 } \right)
+		\right\vert_{k^2=\kappa^2} \\
+		&= 1 + C_Z \lambda_0^2
+	\end{aligned}
+\end{equation} 
+and the last one 
+\begin{equation}
+	\begin{aligned}
+		g &= Z_\phi^2 \left( \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{\left(q^2 + \mu_c^2\right)\left(\left(k_1+k_2-q\right)^2 + \mu_c^2\right)} + \frac{3}{4}\lambda_0^3 \left( \int \frac{1}{\left(q^2 + \mu_c^2\right)\left(\left(k_1+k_2-q\right)^2 + \mu_c^2\right)} \right)^2 + \right.\\
+		& \left.\qquad 3\lambda_0^3 \int \frac{1}{\left(q_1^2+\mu_c^2\right)\left(\left(k_1+k_2-q_1\right)^2+\mu_c^2\right)\left(q_2^2+\mu_c^2\right)\left(\left(q_1+q_2-k_3\right)^2+\mu_c^2\right)} \right)\\
+		&= Z_\phi^2 \left( \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} + \frac{3}{4}\lambda_0^3 \left( \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} \right)^2 + \right.\\
+		& \left.\qquad \qquad 3\lambda_0^3 \int \frac{1}{q_1^2 \left(k_1+k_2-q_1\right)^2 q_2^2 \left(q_1+q_2-k_3\right)^2} \right)\\
+		&=\left(1 + 2 C_Z \lambda_0^2\right) \left( \lambda_0 - \frac{3}{2}\lambda_0^2 C_2 + \frac{3}{4}\lambda_0^3 C_2^2 + 3\lambda_0^3 C_3 \right)\\
+		&=\lambda_0 - \frac{3}{2} C_2 \lambda_0^2 + \left(2 C_Z + \frac{3}{4} C_2^2 + 3 C_3\right) \lambda_0^3
+	\end{aligned}
+\end{equation} 
+or one can express the bare parameter in terms of the renormalized one
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= g + \frac{3}{2} C_2 \lambda_0^2 - \left(2 C_Z + \frac{3}{4} C_2^2 + 3 C_3\right) \lambda_0^3 \\
+		&=g + \frac{3}{2} C_2 g^2 + \left(\frac{15}{4} C_2^2 - 2 C_Z - 3 C_3\right) g^3
+	\end{aligned}
+\end{equation}
+where we have used 
+\begin{equation}
+	\begin{aligned}
+		C_z &= \frac{1}{6}\left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{ q_1^2 q_2^2 \left(k - q_1-q_2\right)^2 } \right) \right\vert_{k^2=\kappa^2} \\
+		C_2 &= \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} \\
+		C_3 &= \int \frac{1}{q_1^2 \left(k_1+k_2-q_1\right)^2 q_2^2 \left(q_1+q_2-k_3\right)^2}
+	\end{aligned}
+\end{equation}
+Using the dimensional expansion to the $O(\epsilon)$ order, they read
+\begin{equation}
+	\begin{aligned}
+		C_z \kappa^{2 \epsilon} &= -\frac{1}{48\epsilon}\left(1+\frac{5}{4}\epsilon\right) \\
+		C_2 \kappa^\epsilon &= \frac{1}{\epsilon} \left(1+\frac{1}{2}\epsilon\right) \\
+		C_3 \kappa^{2 \epsilon} &= \frac{1}{2 \epsilon ^2} \left(1+\frac{3}{2}\epsilon\right)
+	\end{aligned}
+\end{equation}
+
+Similarly the field renormalization constant can also be replaced by
+\begin{equation}
+	Z_\phi = 1 + C_Z g^2 \\
+\end{equation}
+at the two-loop level.
+
+In terms of dimensionless parameters, one can rewrite the above results as
+\begin{equation}
+	\begin{aligned}
+		&Z_\phi = 1 + C_Z \kappa^{2 \epsilon} u^2 \\
+		&u_0 = u + \frac{3}{2} C_2 \kappa^{\epsilon} u^2 + \left(\frac{15}{4} C_2^2 - 2 C_Z - 3 C_3\right) \kappa^{2\epsilon} u^3
+	\end{aligned}
+\end{equation}
+One finds the $\beta$ equation
+\begin{equation}
+	\begin{aligned}
+		\beta(u) = -\epsilon\left(\frac{\partial \ln(u_0)}{\partial u}\right)^{-1} = -\epsilon u \left( 1 - \frac{3}{2} C_2 u - \left(3C_2^2-4C_z-6C_3\right)u^3 \right)
+	\end{aligned}
+\end{equation}
+whose zeros contain two fixed points, the Gaussian one with $u_c = 0$ and the Wilson-Fisher fixed point
+\begin{equation}
+	u_c = \frac{2}{3}\epsilon.
+\end{equation}
+The anormalous exponent reads 
+\begin{equation}
+	\begin{aligned}
+		\gamma_\phi(u_c) = \frac{\epsilon^2}{54}. 
+	\end{aligned}
+\end{equation}
 
 
 \subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
