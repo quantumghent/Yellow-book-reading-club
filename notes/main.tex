@@ -1037,7 +1037,40 @@ The anormalous exponent reads
 		\gamma_\phi(u_c) = \frac{\epsilon^2}{54}. 
 	\end{aligned}
 \end{equation}
+At this order, $\gamma_\phi(u_c)$ is still far away from the high-termerature series expansion result $0.041$ at $d=3$ or the 2d Ising CFT exact result $1/4$. At the next order of dimensional expansion, it becomes better. However, it is known $\epsilon$ expansion is not convergent. Resummation techniques are necessary to obtain accurate critical exponents.
 
+\begin{itemize}
+	\item Renormalization for the massive $\phi^4$ and critical exponents
+\end{itemize}
+Though technically easier for massless renormalization, there is no fundamental difficult to stop one to renormalize an massive theory and calculate critical exponents using the massive $\phi^4$. Now the coupling constants become
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= u_0 \, m^\epsilon \\
+		g &= u \, m^\epsilon.
+	\end{aligned}
+\end{equation}
+One can use the fact that the divergent integrals when sending $\Lambda \rightarrow \infty$ have nothing to do with the mass and become poles in the $\epsilon$ expansion. Take the one-loop renormalization for the coupling as an example
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 / m^\epsilon &= m^{-\epsilon}\, \left( \lambda_1 + \frac{3}{2} \lambda_1^2 \int^\Lambda \frac{1}{\left(q^2 + m^2\right)^2} \right) \\
+		&= u_1 + \frac{3}{2}u_1^2 m^\epsilon \int^\Lambda \frac{1}{\left(q^2 + m^2\right)^2}
+	\end{aligned}
+\end{equation}
+which becomes 
+\begin{equation}
+	\begin{aligned}
+		u_0& = u_1 + \frac{3}{2} u_1^2 \int \frac{1}{\left(q^2 + 1\right)^2} \\
+		& = u_1 + \frac{3}{2} u_1^2 \left(\frac{1}{\epsilon} -\frac{1}{2} + \mathrm{O}(\epsilon)\right)
+	\end{aligned}
+\end{equation}
+when $\Lambda \rightarrow \infty$. Similarly, one can obtain the $\epsilon$ expansion for the bare coupling, $\beta$ equation and the anormalous exponent at the two-loop level. To the leading order of the $\epsilon$ expansion, one can find 
+\begin{equation}
+	\begin{aligned}
+		&u_c = \frac{2}{3}\epsilon \\
+		&\gamma_\phi = \frac{1}{54}\epsilon^2
+	\end{aligned}
+\end{equation}
+consistent with the massless renormalization.
 
 \subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
 The sine-Gordon theory reads
