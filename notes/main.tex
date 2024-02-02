@@ -603,6 +603,9 @@ At one-loop approximation, using cumulant expansion one can find
 	\end{aligned}
 \end{equation}
 
+\subsubsection*{Field theoretical renormalization of the $\phi^4$ theory}
+
+
 \subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
 The sine-Gordon theory reads
 \begin{equation}
@@ -1852,6 +1855,24 @@ where $\rho_0$ is added since the lattice operator is not normalized. The total 
 \end{equation}
 \\
 
+\noindent {\bf Symmetries on the lattice} \\
+The fermions on the lattice has a global $U(1)$ symmetry and translation invarariance $T$, defined as
+\begin{equation}
+	\begin{aligned}
+		&c_n \rightarrow e^{i\alpha} c_n \\
+		&c_n \rightarrow c_{n+1}
+	\end{aligned}
+\end{equation} 
+while for the field theory they are realized very differently
+\begin{equation}
+	\begin{aligned}
+		&\psi \rightarrow e^{i\alpha} \psi \\
+		&\psi \rightarrow e^{-i k_f \sigma^z}\psi.
+	\end{aligned}
+\end{equation} 
+They becomes the internal symmetry for the field theory. Interestingly, they are related to the chiral symmetry. It is known as an quantum anomaly, which prohibits a symmetric gapped ground state.  
+
+
 \noindent {\bf Renormalization effect from the interaction} \\
 As analysed above, the density-density interactions become free in the bonson language.
 However, it should be noted that, this renormalization or mapping procedure should be 
@@ -1871,7 +1892,7 @@ boson from $1$ to $R$.
 
 Another point is how to understand the fermion operator in an interacting theory. The correct logic is that the bosonization build up the relation between the fermion operator and the scalar field on the algebra level. The true ground state after the interaction effect is the one of the renormalized free scalar theory. To calculate, for example the correlation function with respect to the true ground state (after the renormalization of the interaction), one should write down the fermon operator in terms of the new scalar field 
 \begin{equation}
-	\psi_{+}^\dagger \sim e^{i\phi_0} \sim e^{i\frac{1}{2} \left(\varphi_0+\theta_0\right)} \sim e^{i\frac{\varphi}{2R}}e^{i\frac{\theta R}{2}} \sim e^{i\left(\frac{1}{2R}+\frac{R}{2}\right)\phi}e^{i\left(\frac{1}{2R}-\frac{R}{2}\right)\overline{\phi}}
+	\psi_{+}^\dagger \sim e^{i\phi_0} \sim e^{i\frac{1}{2} \left(\varphi_0+\theta_0\right)} \sim e^{i\frac{\varphi}{2R}}e^{i\frac{\theta R}{2}} \sim e^{i\left(\frac{1}{2R}+\frac{R}{2}\right)\phi}e^{i\left(\frac{1}{2R}-\frac{R}{2}\right)\bar{\phi}}
 \end{equation} 
 where $\varphi_0$ and $\theta_0$ denote the bare scalar fields.
 
@@ -1938,7 +1959,34 @@ Using the mapping above, one can calculate the equal-time spin-spin operator cor
 		\expval{S_n^z S^z_0} &\sim \frac{1}{r^2} + (-1)^n\frac{1}{r^{2R^2}}
 	\end{aligned}
 \end{equation}
-where $R$ is the raidus of the free compact boson.
+where $R$ is the raidus of the free compact boson.\\
+
+\noindent {\bf Relevant perturbations and boudary states} \\
+As analysed in the last section for the free fermions, the $U(1)$ symmetry and translation $T$ are anomalous that they prevent the existence of a symmetric gapped ground state. The mixed anomaly can also be the $U_\phi(1)$ and $U_\theta (1)$. Here we consider perturbations breaking at least part of the symmetries.
+
+
+(1) The spin operator 
+\begin{equation}
+	S^\dagger \sim (-1)^n e^{-i\varphi/2} + e^{-i\varphi/2} e^{i\theta}	
+\end{equation}
+ (equivalently $S^x$ or $S^y$).  It pinns down the $\varphi$ field, hence breaks the $U_\varphi (1)$ symmetry. 
+
+ (2) The spin operator 
+\begin{equation}
+	S^z \sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta)	
+\end{equation}
+pinns down the $\theta$ field, hence breaks the $U_\theta (1)$ symmetry. 
+ 
+(3) The dimerized term 
+\begin{equation}
+	\begin{aligned}
+		D(n) & := \left(-1\right)^n \left( S^x_n S^x_{n+1} + S^y_n S^y_{n+1} \right) \sim \sin (\theta)
+	\end{aligned}	
+\end{equation}
+This term pinns down the $\theta$ field, hence breaks the $U_\theta (1)$ symmetry. It also breaks the translation symmetry, which is realized by $\theta \rightarrow \theta + \pi$ and $\varphi \rightarrow \varphi + 2\pi$.
+
+
+
 
 \section{Central extensions of Lie algebras}
 In this section $\mathfrak{g},\mathfrak{h},\cdots $ denote (possibly infinite) Lie algebras over some field $\mathbb{K} = \mathbb{R}, \mathbb{C}$. This section is mainly based on Wikipedia and~\cite{Schottenloher}.
