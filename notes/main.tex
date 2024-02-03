@@ -13,6 +13,7 @@
 \usepackage{amsmath,slashed}
 \urlstyle{sf}
 \usepackage{tikz}
+\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{simpler-wick, physics,interval} % Genius package!
 \usepackage{epigraph} 
 
@@ -281,7 +282,7 @@ Now we have
 	\mathcal{H} = \dot{\psi} \, \pi - \mathcal{L}.
 \end{equation}
 
-\subsubsection{Symmetries and conserved current}
+\subsubsection*{Symmetries and conserved current}
 {\bf Global continuous $U(1)$ symmetry}\\
 The free fermion has the global $U(1)$ symmetry defined by $\psi \rightarrow e^{i\alpha}\psi = \psi + i\alpha \psi$. The functional derivative is then $\frac{\delta F}{\delta \alpha} = i\psi$. One can find the corresponding Noether's curret reads
 \begin{equation}
@@ -603,8 +604,473 @@ At one-loop approximation, using cumulant expansion one can find
 	\end{aligned}
 \end{equation}
 
-\subsubsection*{Field theoretical renormalization of the $\phi^4$ theory}
 
+\subsubsection*{Field theoretical renormalization of the $\phi^4$ theory}
+In higher order perturbative RG analysis of an interacting field theory, it is usually more convenient to consult the field theoretical renormalization. We briefly review how to renormalize the $\phi^4$ theory
+\begin{equation}
+	S = \int \frac{1}{2}\left(\partial \phi\right)^2 + \frac{1}{2}m_0^2\phi^2 + \frac{1}{4!}\lambda_0 \phi^4
+\end{equation}
+to the two-loop level in $d\leq4$ dimension. Higher order terms ($\phi^p$ with $p>4$) are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. We ignore the composite field~\footnote{The composite field is related to the dimension of $\phi^2$ or the critical exponent $\nu$.} renormalization here.
+
+\begin{itemize}
+	\item One-loop renormalization 
+\end{itemize}
+At one-loop, we only need to perform first order contribution
+\[ \frac{\lambda_0}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (b);
+	\vertex[left=1cm of b] (a);
+	\vertex[right=1cm of b] (c);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[scalar] (c),
+		b --[black, out=135, in=45, loop, min distance=2.5cm] b
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \]
+for the $\Gamma^{(2)}$ vertex, and the diagram
+\[-\frac{\left(\lambda_0\right)^2}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.2cm of x] (y);
+	\vertex[above left=1cm of x] (a);
+	\vertex[below left=1cm of x] (b);
+	\vertex[above right=1cm of y] (c);
+	\vertex[below right=1cm of y] (d);
+	
+	\diagram*{
+		(x) --[half left] (y),
+		(x) --[half right] (y),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(y) --[scalar] (c),
+		(y) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+
+	\end{feynman}
+\end{tikzpicture} + \mathrm{2 \ permutations}\]
+for $\Gamma^{(4)}$. Regularized by $\Lambda$, one can write down the one-loop resultes
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)} &= k^2 + \left(m_0\right)^2 + \frac{\lambda_0}{2} \int \frac{1}{q^2 + \left(m_0\right)^2} \\
+		\Gamma^{(4)} &= \lambda_0 - \frac{\left(\lambda_0\right)^2}{2} \int \frac{1}{q^2 + \left(m_0\right)^2}\ \frac{1}{\left(k_1 + k_2-q\right)^2 + \left(m_0\right)^2} + \mathrm{2\ permutations}.
+	\end{aligned}
+\end{equation}
+At large momentum they behave as
+\begin{equation}
+	\begin{aligned}
+		&\left[\Gamma^{(2)}\right] \sim \Lambda^{d-2} \\
+		&\left[\Gamma^{(4)}\right] \sim \Lambda^{d-4}
+	\end{aligned}
+\end{equation}
+so that $\Gamma^{(2)}$ is divergent at $d\leq4$, $\Gamma^{(4)}$ is logarithmic dimvergent at $d=4$. All the other higher order vertex functions are convergent when $\Lambda \rightarrow \infty$. 
+
+Keeping terms consistently at one loop, one can introduce renormalized physical parameters in terms of the bare ones
+\begin{equation}
+	\begin{aligned}
+		&\left(m_1\right)^2 = \left(m_0\right)^2 + \frac{\lambda_0}{2} \int \frac{1}{q^2 + \left(m_0\right)^2}\\
+		&\lambda_1 = \lambda_0 - \frac{3\left(\lambda_0\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_0\right)^2\right)^2}\\ 
+	\end{aligned}
+\end{equation} 
+or one can reverse the logic and express bare parameters in terms of physical ones
+\begin{equation}
+	\begin{aligned}
+		&\left(m_0\right)^2 = \left(m_1\right)^2 - \frac{\lambda}{2} \int \frac{1}{q^2 + \left(m_1\right)^2}\\
+		&\lambda_0 = \lambda_1 + \frac{3\left(\lambda_1\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_1\right)^2\right)^2}.\\ 
+	\end{aligned}
+\end{equation} 
+Now if the renormalized parameters $m_1$ and $\lambda$ are finite, the vertex functions 
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)}(k,m_1,\lambda_1) &= k^2 + \left(m_1\right)^2\\
+		\Gamma^{(4)}(k_i,m_1,\lambda_1) &= \lambda_1 - \frac{\left(\lambda_1\right)^2}{2} \int \frac{1}{q^2 + \left(m_1\right)^2}\ \frac{1}{\left(k_1 + k_2-q\right)^2 + \left(m_1\right)^2} + \mathrm{2\ permutations}\\
+		& \qquad + \frac{\left(\lambda_1\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_1\right)^2\right)^2}.
+	\end{aligned}
+\end{equation}
+do not suffer from the UV divergence at one loop.
+
+One can see that the one-loop corrections renormalize the critical point (the mass) and the coupling constant $\lambda_0$. The scaling relations remain the same though, meaning that the scaling dimensions are still the canonical ones. At the two loop, to remove all UV divergences one has to introduce the field renormalization factor $Z_\phi$ and redefine fields in the action, which give rise to the anormalous correction to critical exponents.
+
+\begin{itemize}
+	\item Two-loop renormalization 
+\end{itemize}
+At the two-loop level, we need to consider more diagrams 
+\[ (a) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (b);
+	\vertex[left=of b] (a);
+	\vertex[left=of b] (a);
+	\vertex[right=of b] (c);
+	\vertex[above=of b] (d);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[scalar] (c),
+		(b) --[out=135,in=180,min distance=0.9cm] (d),
+		(b) --[out=45,in=0,min distance=0.9cm] (d),
+		d --[black, out=135, in=45, loop, min distance=3cm] d
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (d) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(b) \, \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (a);
+	\vertex[right=of a] (b);
+	\vertex[right=of b] (c);
+	\vertex[right=of c] (d);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[] (c),
+		(c) --[scalar] (d),
+		(b) --[half left] (c),
+		(b) --[half right] (c),
+		%d --[red, out=160, in=20, loop, min distance=3cm] d
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (c) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture}\]
+for $\Gamma^{(2)}$
+and 
+\[(a) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.3cm of x] (y);
+	\vertex[right=1.3cm of y] (z);
+	\vertex[above left= 1cm of x] (a);
+	\vertex[below left= 1cm of x] (b);
+	\vertex[above right= 1cm of z] (c);
+	\vertex[below right= 1cm of z] (d);
+	
+	\diagram*{
+		(x) --[half left] (y),
+		(x) --[half right] (y),
+		(y) --[half left] (z),
+		(y) --[half right] (z),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(z) --[scalar] (c),
+		(z) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(b) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.3cm of x] (y);
+	\vertex[above right= 0.5cm and 0.65cm of x] (z);
+	\vertex[above left= 1cm of x] (a);
+	\vertex[below left= 1cm of x] (b);
+	\vertex[above right= 1cm of y] (c);
+	\vertex[below right= 1cm of y] (d);
+	
+	\diagram*{
+		(x) --[bend left] (z), 
+		(y) --[bend right] (z), 
+		(x) --[half right] (y),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(y) --[scalar] (c),
+		(y) --[scalar] (d),
+		z --[black, out=135, in=45, loop, min distance=2cm] z,
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(c) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[above right=0.6cm and 1.5cm of x] (y);
+	\vertex[below right=0.6cm and 1.5cm of x] (z);
+	\vertex[above left=1cm of x] (a);
+	\vertex[below left=1cm of x] (b);
+	\vertex[above right=0.1cm and 1cm of y] (c);
+	\vertex[below right=0.1cm and 1cm of z] (d);
+	
+	\diagram*{
+		(a) --[scalar] (x),
+		(b) --[scalar] (x),
+		(x) --[out=45,in=190] (y),
+		(x) --[out=-45,in=170] (z),
+		(y) --[out=-135,in=135] (z),
+		(y) --[out=-45,in=45] (z),
+		(y) --[scalar] (c),
+		(z) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture}
+\]
+for $\Gamma^{(4)}$ vertex. 
+
+Let's first consider the renormalization of $\Gamma^{(2)}$. Again we choose the renormalized mass to be 
+\begin{equation}
+	\left(m_1\right)^2 = \Gamma^{(2)}(k=0) = f(m_0, \lambda, \Lambda).
+\end{equation}
+One can write the vertex function in terms of renormalized mass $m_1$. In two-loop diagrams one can directly replace $\left(m_0\right)^2$ with $\left(m_1\right)^2$. However, in one-loop contributions one has to expand the bare diagram in terms of the renormalized ones to two-loop level, which resultes in a diagram cancelling the first two-loop one. Finally one finds
+\begin{equation}
+	\begin{aligned}
+		\left(m_0\right)^2 = \left(m_1\right)^2 - \frac{\lambda_0}{2} \int \frac{1}{\left(m_1\right)^2+q^2} + \frac{\left(\lambda_0\right)^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}
+	\end{aligned}
+\end{equation} 
+and 
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)}(k) = k^2 + m_1^2 &- \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(k-q_1-q_2\right)^2+m_1^2\right)} \\
+		& + \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+Note that $\Gamma^{(2)}$ is convergent at $d<4$ dimensions. At $d=4$, there is a logarithmic divergence. 
+
+Similarly in $\Gamma^{(4)}$, one can expand the one-loop diagrams to two-loop level and replace the bare mass with the renormalized one. The second two-loop diagram is cancelled due to the renormalization of mass. Now $\Gamma^{(4)}$ contains only a logarithmic divergence when $d \rightarrow 4$. To cure the logarithmic divergence at $d=4$, one can introduce the renormalized coupling
+\begin{equation}
+	\begin{aligned}
+		\lambda &= \Gamma^{(4)}(k_i=0, m_1^2,\Lambda) \\
+		&= \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{\left(q^2 + m_1^2\right)^2} + \frac{3}{4}\lambda_0^3 \left(\int \frac{1}{\left(q^2 + m_1^2\right)^2} \right)^2 + \\
+		& \qquad 3\lambda_0^3 \int \frac{1}{\left(q_1^2+m_1^2\right)^2\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation} 
+Or inversely, one can write down the bare coupling in terms of the renormalized one
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= \lambda + \frac{3}{2}\lambda^2 \int \frac{1}{\left(q^2 + m_1^2\right)^2} + \frac{15}{4}\lambda^3 \left(\int \frac{1}{\left(q^2 + m_1^2\right)^2} \right)^2 - \\
+		& \qquad 3\lambda^3 \int \frac{1}{\left(q_1^2+m_1^2\right)^2\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+And one can also write down the vertex function $\Gamma^{(4)}$ in terms of $\lambda$ and $m_1$. Now $\Gamma^{(4)}(k_i,m_1^2,\lambda)$ is convergent at $d\leq4$.  
+
+Turning back $\Gamma^{(2)}$, one can replace $\lambda_0$ with $\lambda$ safely at the two-loop level. The bare mass should be replaced by
+\begin{equation}
+	\begin{aligned}
+		\left(m_0\right)^2 = & \left(m_1\right)^2 - \frac{\lambda}{2} \int \frac{1}{\left(m_1\right)^2+q^2} - \frac{3}{4} \lambda^2 \int \frac{1}{\left(q^2+m_1^2\right)^2}\int \frac{1}{\left(m_1\right)^2+q^2} + \\
+		& \quad \frac{\left(\lambda\right)^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation} 
+To cure the logarithmic divergent divergence, we introduce the field renormalization
+\begin{equation}
+	\Gamma_R^{(2)} = Z_\phi(\lambda,m_1,\Lambda) \Gamma^{(2)}(k,m_1^2,\Lambda),
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		Z_\phi &= 1 + \lambda^2 z_2 \\
+		z_2 &= \frac{1}{6}\frac{\partial}{\partial k^2} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(k-q_1-q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+Now we redefine the mass as 
+\begin{equation}
+	m^2 = Z_\phi m_1^2.
+\end{equation}
+This renormalization means we can choose
+\begin{equation}
+	\begin{aligned}
+		&G^{(2)} = Z_\phi G^{(2)}_R \\
+		&g = Z_\phi^2 \lambda \\
+		&G_c^{(4)} = Z_\phi^2 G_{cR}^{(4)} \\
+		&\Gamma^{(4)} = Z_\phi^{-2}\Gamma_R^{(4)}
+	\end{aligned}
+\end{equation}
+
+Note that the replacement of $\lambda$ with $g$ generates terms with four loops, which means we can safely express bare quantities in terms of $g$ and $m^2$. The vertex functions are finite at the two-loop level when $d \leq 4$ with the normalization conditions
+\begin{equation}
+	\begin{aligned}
+		&\Gamma_R^{(E)}(k_i,m^2,g) = Z_\phi^{E/2}\Gamma^{(E)}(k_i,m_0^2,\lambda,\Lambda) \\
+		&\Gamma_R^{(2)}(0,m^2,g) = m^2 \\
+		&\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,m^2,g)\vert_{k^2=0} = 1 \\
+		&\Gamma_R^{(4)}(0,m^2,g) = g
+	\end{aligned}
+\end{equation}
+One should be clear that the normalization condition is not unique. Actually there can be infinite number of normalization approaches. Moreover, the perturbative renormalization is an asymptopic series. In the above normalization, the mass is finite. For the critical theory, especially for the calculation of critical exponents, it is usually more convenient to choose the masless normalization $m^2 = 0$ at a finite (symmetric) momentum
+\begin{equation}
+	\begin{aligned}
+		\Gamma_R^{(2)}(0,0,g) &= 0 \\
+		\left.\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,0,g)
+		\right\vert_{k^2=\kappa^2} &= 1 \\
+		\Gamma_R^{(4)}(k_i,0,g)\vert_{\mathrm{SP}} &= g.
+	\end{aligned}
+\end{equation}
+Another approach is to look at small mass and large $k/m$. Of course these approaches are equivalent to each other. 
+
+\begin{itemize}
+	\item Renormalization for the massless $\phi^4$ and critical exponents
+\end{itemize}
+The physical or renormalized parameters are running upon the renormalization, which means for a given bare theory one can obtain different renormalized theories with different UV cutoffs. One can also invert the logic and write down different bare theories corresponding to the same renormalized one. In either case, one can write down flow equations for the parameters in terms of the cutoff $\Lambda$ or the running dimensionless coupling $u$. At the fixed point, the flow equation disappears, meaning the physics there does not depend on the UV cutoff and one can safely sends $\Lambda \rightarrow \infty$. The solution of the flow equations can be conveniently used to calculate critical exponents. 
+
+To study critical behaivors, we first rewrite the parameters as 
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= \kappa^\epsilon \, u_0 \\
+		g &= \kappa^\epsilon u
+	\end{aligned}
+\end{equation}
+where $\kappa$ is the symmetric momentum used in the massless theory renormalization, $u_0$ and $u$ are dimensionless. As stated above the bare theory does not depend on the renormalization 
+\begin{equation}
+	\Gamma_R^{(N)}(k_i; u, \kappa) = Z_\phi^{N/2} \Gamma (k_i;u_0,\Lambda)
+\end{equation}
+which gives rise to the RG equation
+\begin{equation}
+	\left(\kappa\frac{\partial}{\partial \kappa} + \beta(u)\frac{\partial}{\partial u} - \frac{N}{2}\gamma_\phi \right)\Gamma_R^{(N)}(k_i;u,\kappa) = 0
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		&\beta(u) = \kappa\left(\frac{\partial u}{\partial \kappa}\right)_{\lambda,\Lambda} = -\epsilon\left(\frac{\partial \ln(u_0)}{\partial u}\right)^{-1}\\
+		&\gamma_\phi = \kappa \left(\frac{\partial \ln(Z_\phi)}{\partial \kappa}\right)_{\lambda,\Lambda} = \beta(u)\frac{\partial \ln(Z_\phi)}{\partial u}.
+	\end{aligned}
+\end{equation}
+The solution of the RG equation reads
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u,\kappa) = \exp\left\{-\frac{N}{2}\int_1^\rho \frac{\gamma_\phi(u(x))}{x}\right\} \Gamma_R^{(N)}(k_i;u(\rho),\rho\kappa).
+\end{equation}
+At the fixed point, it reduces to a simpler form
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u_c,\kappa) = \kappa^{\frac{1}{2}N\gamma_\phi(u_c)} \tilde{\Gamma}(k_i).
+\end{equation}
+Since the canonical dimension of $\Gamma_R^{(N)}$ is fixed to be $N+d-\frac{1}{2}Nd$, one can rewrite the vertex function as 
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u_c,\kappa) = \kappa^{N+d-\frac{1}{2}Nd} f_\Gamma(k_i/\kappa).
+\end{equation}
+One can find the scaling of the vertex function reads
+\begin{equation}
+	\Gamma_R^{(N)}(\rho k_i;u_c,\kappa) = \rho^{N+d-\frac{1}{2}Nd - \frac{1}{2}N\gamma_\phi(u_c)} \Gamma_R^{(N)}(k_i;u_c,\kappa).
+\end{equation}
+It is clear now $\gamma_\phi(u_c)$ is the so-called anormalous exponent 
+\begin{equation}
+	\eta = \gamma_\phi(u_c).
+\end{equation}
+for the $\phi$ operator.
+
+Now let's derive the renormalization at the two-loop level. Following similar calculations in the last section, one can express the bare quantites in terms of the renormalized ones, or the other way around. At the two-loop level the mass normalization condition determines the critical bare $\mu_c^2$  
+\begin{equation}
+	\begin{aligned}
+		\mu_c^2 = &-\frac{\lambda_0}{2} \int \frac{1}{q^2 + \mu_c^2} + \frac{\lambda_0^2}{4} \int \frac{1}{q^2 + \mu_c^2} \int \frac{1}{\left(q^2 + \mu_c^2\right)^2} \\
+		& \quad + \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2 + \mu_c^2\right)\left(q_2^2 + \mu_c^2\right)\left(\left(q_1+q_2\right)^2 + \mu_c^2\right)} \\
+		= & -\frac{\lambda_0}{2} \int \frac{1}{q^2} + \frac{\lambda_0^2}{6} \int \frac{1}{q_1^2 q_2^2 \left(q_1+q_2\right)^2 } \\
+		=& C_\mu^1 \lambda_0 + C_\mu^2 \lambda_0^2 
+	\end{aligned}
+\end{equation} 
+The second normalization condition gives
+\begin{equation}
+	\begin{aligned}
+		Z_\phi &= 1 + \frac{\lambda_0^2}{6} \left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{\left(q_1^2 + \mu_c^2\right)\left(q_2^2 + \mu_c^2\right)\left(\left(k - q_1-q_2\right)^2 + \mu_c^2\right)} \right)
+		\right\vert_{k^2=\kappa^2} \\
+		& = 1 + \frac{\lambda_0^2}{6} \left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{ q_1^2 q_2^2 \left(k - q_1-q_2\right)^2 } \right)
+		\right\vert_{k^2=\kappa^2} \\
+		&= 1 + C_Z \lambda_0^2
+	\end{aligned}
+\end{equation} 
+and the last one 
+\begin{equation}
+	\begin{aligned}
+		g &= Z_\phi^2 \left( \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{\left(q^2 + \mu_c^2\right)\left(\left(k_1+k_2-q\right)^2 + \mu_c^2\right)} + \frac{3}{4}\lambda_0^3 \left( \int \frac{1}{\left(q^2 + \mu_c^2\right)\left(\left(k_1+k_2-q\right)^2 + \mu_c^2\right)} \right)^2 + \right.\\
+		& \left.\qquad 3\lambda_0^3 \int \frac{1}{\left(q_1^2+\mu_c^2\right)\left(\left(k_1+k_2-q_1\right)^2+\mu_c^2\right)\left(q_2^2+\mu_c^2\right)\left(\left(q_1+q_2-k_3\right)^2+\mu_c^2\right)} \right)\\
+		&= Z_\phi^2 \left( \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} + \frac{3}{4}\lambda_0^3 \left( \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} \right)^2 + \right.\\
+		& \left.\qquad \qquad 3\lambda_0^3 \int \frac{1}{q_1^2 \left(k_1+k_2-q_1\right)^2 q_2^2 \left(q_1+q_2-k_3\right)^2} \right)\\
+		&=\left(1 + 2 C_Z \lambda_0^2\right) \left( \lambda_0 - \frac{3}{2}\lambda_0^2 C_2 + \frac{3}{4}\lambda_0^3 C_2^2 + 3\lambda_0^3 C_3 \right)\\
+		&=\lambda_0 - \frac{3}{2} C_2 \lambda_0^2 + \left(2 C_Z + \frac{3}{4} C_2^2 + 3 C_3\right) \lambda_0^3
+	\end{aligned}
+\end{equation} 
+or one can express the bare parameter in terms of the renormalized one
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= g + \frac{3}{2} C_2 \lambda_0^2 - \left(2 C_Z + \frac{3}{4} C_2^2 + 3 C_3\right) \lambda_0^3 \\
+		&=g + \frac{3}{2} C_2 g^2 + \left(\frac{15}{4} C_2^2 - 2 C_Z - 3 C_3\right) g^3
+	\end{aligned}
+\end{equation}
+where we have used 
+\begin{equation}
+	\begin{aligned}
+		C_z &= \frac{1}{6}\left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{ q_1^2 q_2^2 \left(k - q_1-q_2\right)^2 } \right) \right\vert_{k^2=\kappa^2} \\
+		C_2 &= \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} \\
+		C_3 &= \int \frac{1}{q_1^2 \left(k_1+k_2-q_1\right)^2 q_2^2 \left(q_1+q_2-k_3\right)^2}
+	\end{aligned}
+\end{equation}
+Using the dimensional expansion to the $O(\epsilon)$ order, they read
+\begin{equation}
+	\begin{aligned}
+		C_z \kappa^{2 \epsilon} &= -\frac{1}{48\epsilon}\left(1+\frac{5}{4}\epsilon\right) \\
+		C_2 \kappa^\epsilon &= \frac{1}{\epsilon} \left(1+\frac{1}{2}\epsilon\right) \\
+		C_3 \kappa^{2 \epsilon} &= \frac{1}{2 \epsilon ^2} \left(1+\frac{3}{2}\epsilon\right)
+	\end{aligned}
+\end{equation}
+
+Similarly the field renormalization constant can also be replaced by
+\begin{equation}
+	Z_\phi = 1 + C_Z g^2 \\
+\end{equation}
+at the two-loop level.
+
+In terms of dimensionless parameters, one can rewrite the above results as
+\begin{equation}
+	\begin{aligned}
+		&Z_\phi = 1 + C_Z \kappa^{2 \epsilon} u^2 \\
+		&u_0 = u + \frac{3}{2} C_2 \kappa^{\epsilon} u^2 + \left(\frac{15}{4} C_2^2 - 2 C_Z - 3 C_3\right) \kappa^{2\epsilon} u^3
+	\end{aligned}
+\end{equation}
+One finds the $\beta$ equation
+\begin{equation}
+	\begin{aligned}
+		\beta(u) = -\epsilon\left(\frac{\partial \ln(u_0)}{\partial u}\right)^{-1} = -\epsilon u \left( 1 - \frac{3}{2} C_2 u - \left(3C_2^2-4C_z-6C_3\right)u^3 \right)
+	\end{aligned}
+\end{equation}
+whose zeros contain two fixed points, the Gaussian one with $u_c = 0$ and the Wilson-Fisher fixed point
+\begin{equation}
+	u_c = \frac{2}{3}\epsilon.
+\end{equation}
+The anormalous exponent reads 
+\begin{equation}
+	\begin{aligned}
+		\gamma_\phi(u_c) = \frac{\epsilon^2}{54}. 
+	\end{aligned}
+\end{equation}
+At this order, $\gamma_\phi(u_c)$ is still far away from the high-termerature series expansion result $0.041$ at $d=3$ or the 2d Ising CFT exact result $1/4$. At the next order of dimensional expansion, it becomes better. However, it is known $\epsilon$ expansion is not convergent. Resummation techniques are necessary to obtain accurate critical exponents.
+
+\begin{itemize}
+	\item Renormalization for the massive $\phi^4$ and critical exponents
+\end{itemize}
+Though technically easier for massless renormalization, there is no fundamental difficult to stop one to renormalize an massive theory and calculate critical exponents using the massive $\phi^4$. Now the coupling constants become
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= u_0 \, m^\epsilon \\
+		g &= u \, m^\epsilon.
+	\end{aligned}
+\end{equation}
+One can use the fact that the divergent integrals when sending $\Lambda \rightarrow \infty$ have nothing to do with the mass and become poles in the $\epsilon$ expansion. Take the one-loop renormalization for the coupling as an example
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 / m^\epsilon &= m^{-\epsilon}\, \left( \lambda_1 + \frac{3}{2} \lambda_1^2 \int^\Lambda \frac{1}{\left(q^2 + m^2\right)^2} \right) \\
+		&= u_1 + \frac{3}{2}u_1^2 m^\epsilon \int^\Lambda \frac{1}{\left(q^2 + m^2\right)^2}
+	\end{aligned}
+\end{equation}
+which becomes 
+\begin{equation}
+	\begin{aligned}
+		u_0& = u_1 + \frac{3}{2} u_1^2 \int \frac{1}{\left(q^2 + 1\right)^2} \\
+		& = u_1 + \frac{3}{2} u_1^2 \left(\frac{1}{\epsilon} -\frac{1}{2} + \mathrm{O}(\epsilon)\right)
+	\end{aligned}
+\end{equation}
+when $\Lambda \rightarrow \infty$. Similarly, one can obtain the $\epsilon$ expansion for the bare coupling, $\beta$ equation and the anormalous exponent at the two-loop level. To the leading order of the $\epsilon$ expansion, one can find 
+\begin{equation}
+	\begin{aligned}
+		&u_c = \frac{2}{3}\epsilon \\
+		&\gamma_\phi = \frac{1}{54}\epsilon^2
+	\end{aligned}
+\end{equation}
+consistent with the massless renormalization.
 
 \subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
 The sine-Gordon theory reads
@@ -737,6 +1203,7 @@ We assume $g$ is small and $K \sim 1/2$
 	\end{aligned}
 \end{equation}
 where $\tilde{K} := 4 K - 2$ and $\tilde{g}$ is normalized to simplify the notation.
+ 
 
 \section{Conformal symmetry in general dimensions}
 
@@ -1762,54 +2229,45 @@ The simplest way for bosonization of fermions is by matching the conformal dimen
 		&e/R - mR/2 = 0.
 	\end{aligned}
 \end{equation}
-One can easily find two solutions, either $V_{\frac{1}{2},1}$ with $R=1$ or $V_{1,\frac{1}{2}}$ with $R=2$. These two solutions are equivalent to each other since they are related to each other through a duality transformation. Here we take the first one to build up the bosonization dictonary for the free fermion
+One can easily find two solutions, either $V_{\frac{1}{2},1}$ with $R=1$ or $V_{1,\frac{1}{2}}$ with $R=2$. These two solutions are equivalent to each other since they are related to each other through a duality transformation. Here we take the first one ($R=1$) to build up the bosonization dictonary for the free fermion. One can see that the fermion operator corresponds to a half charge boson operator, which means that the fermion degrees of freedom are always in pairs when using the bosonization to study a fermion theory.
+
+Note that one has the freedom to set the creation or annihalation operator to be the vertext operator. For example
 \begin{equation}
 	\begin{aligned}
-		&\psi^{\dagger}_{+} \sim V_{\frac{1}{2},1} \sim e^{i \phi} \\
-		&{\psi}^{\dagger}_{-} \sim V_{\frac{1}{2},-1} \sim e^{i\overline{\phi}}.
+		&\psi^{\dagger}_{+} \sim V_{(\frac{1}{2},1)} \sim e^{i \phi} \\
+		&{\psi}^{\dagger}_{-} \sim V_{(\frac{1}{2},-1)} \sim e^{i\overline{\phi}}.
 	\end{aligned}
 \end{equation}
-One can see that the fermion operator corresponds to a half charge boson operator, which means that the fermion degrees of freedom are always in pairs when using the bosonization to study a fermion theory. 
-
-In the following we are going to show how to express the free fermion theory in terms of free compact boson. The fermion density reads
+However, it is better to choose a different convention
 \begin{equation}
-	\rho(x) = \psi^\dagger \psi \sim i \left(\partial \varphi + \overline{\partial} \varphi\right) \sim j^0_\varphi.
+	\begin{aligned}
+		&\psi^{\dagger}_{+} \sim V_{(\frac{1}{2},1)} \sim e^{i \phi} \\
+		&{\psi}^{\dagger}_{-} \sim V_{(\frac{1}{2},-1)}^\dagger \sim e^{-i\overline{\phi}}.
+	\end{aligned}
 \end{equation}
-It is clear that the fermion charge corresponds to electric charge for the free scalar field $\varphi$. 
+This convention ensures that the density fluctuation can be written down as the spatial derivative of the scalare field $\varphi$, rather than the spatial derivative of its dual field $\theta$, to make connection to conventions of other research.\\
+
+\noindent {\bf Bosonization dictonary} \\
+In the following we are going to show how to express physical quantities of free fermion theory in terms of free compact boson. Using the convention discussed above, the fermion density reads
+\begin{equation}
+	\begin{aligned}
+		\rho(x) = \bar{\psi} \gamma^0 \psi \sim i \left(\partial \varphi - \bar{\partial} \varphi\right) \sim \partial_x \varphi \sim j_1^\varphi \sim j_0^\theta  
+	\end{aligned}
+\end{equation}
+It is clear that the fermion charge corresponds to magnetic charge for the dual scalar field $\theta$ or the winding number of the scalar field $\varphi$. 
 
 The axial current density maps to 
 \begin{equation}
-	\rho_a = \psi^\dagger \gamma^5 \psi \sim \left( \psi^{\dagger}_{+} \psi_{+} - \psi^{\dagger}_{-}\psi_{-} \right) \sim i \left(\partial \theta + \overline{\partial} \theta\right) \sim j^0_\theta
+	\rho_a = -i \bar{\psi} \sigma^y \psi \sim \left( \psi^{\dagger}_{+} \psi_{+} - \psi^{\dagger}_{-}\psi_{-} \right) \sim i \left(\partial \varphi + \bar{\partial} \varphi\right) \sim j_1^\theta \sim j_0^\varphi
 \end{equation}
-which is the magnetic charge. 
+which is the electronic charge of the scalar $\varphi$ or the vertex topological charge of the dual scalar $\theta$. 
 
 A mass term is mapped to be 
 \begin{equation}
-	\overline{\psi} \psi \sim \psi_{+}^\dagger \psi_{-} + \psi_{-}^\dagger \psi_{+} \sim e^{i\theta} + h.c. \sim \cos\left(\theta\right)
+	\bar{\psi} \psi \sim \psi_{+}^\dagger \psi_{-} + \psi_{-}^\dagger \psi_{+} \sim e^{i\varphi} + h.c. \sim \cos\left(\varphi\right)
 \end{equation}
 whose dimensional is $\left(1/2,1/2\right)$.
 
-The density-density interaction $\rho_{+} \rho_{-}$ is mapped to 
-\begin{equation}
-	\rho_{+} \rho_{-} \sim -\partial \varphi \overline{\partial} \varphi,
-\end{equation}
-which is a marginal term and can be absorbed into the action. It changes the prefactor of the action, or equivalently the radius of the scalar field. 
-
-The density-density interaction $\rho_{+} \rho_{+}$ is mapped to 
-\begin{equation}
-	\rho_{+} \rho_{+} \sim -{\left(\partial \varphi \right)}^2.
-\end{equation}
-And similarly 
-\begin{equation}
-	\rho_{-} \rho_{-} \sim -{\left(\overline{\partial} \varphi \right)}^2.
-\end{equation}
-One finds that 
-\begin{equation}
-	\rho_{+}\rho_{+} + \rho_{-} \rho_{-} \sim 
-\end{equation}
-These density-density interactions can be absorbed into the redefinition of the action, which is still a free theory in the scalar field language.
- 
-It is important to remember that the density-density interaction are equal time operators, which means we should do the bosonization mapping in the Hamiltonian language. 
 
 \subsubsection{Bosonization on the lattice} 
 On the lattice, the slow modes are those close to the Fermi point $\pm k_f$. Assuming the energy dispersion 
@@ -1845,8 +2303,8 @@ The lattice fermon density is
 \begin{equation}
 	\begin{aligned}
 		2\pi\,\rho :=& 2\pi\,c^\dagger c \sim 2\pi \rho_0 + \psi_{+}^\dagger \psi_{+} + \psi_{-}^\dagger \psi_{-} + \left(e^{2i k_f}\psi_{+}^\dagger \psi_{-} + h.c. \right) \\
-		=&  2\pi \rho_0 +  i \left(\partial \varphi + \overline{\partial} \varphi\right) + 2 \cos (\theta + 2k_f x) \\
-		=& 2\pi \rho_0 +  \partial_x \theta + 2 \cos (\theta + 2k_f x)
+		=&  2\pi \rho_0 +  i \left(\partial \varphi - \bar{\partial} \varphi\right) + 2 \cos (\varphi + 2k_f x) \\
+		=& 2\pi \rho_0 +  \partial_x \varphi + 2 \cos (\varphi + 2k_f x)
 	\end{aligned}
 \end{equation}
 where $\rho_0$ is added since the lattice operator is not normalized. The total charge is given by 
@@ -1870,7 +2328,7 @@ while for the field theory they are realized very differently
 		&\psi \rightarrow e^{-i k_f \sigma^z}\psi.
 	\end{aligned}
 \end{equation} 
-They becomes the internal symmetry for the field theory. Interestingly, they are related to the chiral symmetry. It is known as an quantum anomaly, which prohibits a symmetric gapped ground state.  
+They becomes the internal symmetry for the field theory. Interestingly, they are related to the chiral symmetry. It is known as an quantum anomaly, which prohibits a symmetric gapped ground state.  \\
 
 
 \noindent {\bf Renormalization effect from the interaction} \\
@@ -1892,7 +2350,7 @@ boson from $1$ to $R$.
 
 Another point is how to understand the fermion operator in an interacting theory. The correct logic is that the bosonization build up the relation between the fermion operator and the scalar field on the algebra level. The true ground state after the interaction effect is the one of the renormalized free scalar theory. To calculate, for example the correlation function with respect to the true ground state (after the renormalization of the interaction), one should write down the fermon operator in terms of the new scalar field 
 \begin{equation}
-	\psi_{+}^\dagger \sim e^{i\phi_0} \sim e^{i\frac{1}{2} \left(\varphi_0+\theta_0\right)} \sim e^{i\frac{\varphi}{2R}}e^{i\frac{\theta R}{2}} \sim e^{i\left(\frac{1}{2R}+\frac{R}{2}\right)\phi}e^{i\left(\frac{1}{2R}-\frac{R}{2}\right)\bar{\phi}}
+	\psi_{+}^\dagger := V_{(\frac{1}{2},1)}\sim e^{i\phi_0} \sim e^{i\frac{\varphi_0}{2}} e^{i\frac{\theta_0}{2}} \sim e^{i\frac{\varphi}{2R}}e^{i\frac{\theta R}{2}} \sim e^{i\left(\frac{1}{2R}+\frac{R}{2}\right)\phi}e^{i\left(\frac{1}{2R}-\frac{R}{2}\right)\bar{\phi}}
 \end{equation} 
 where $\varphi_0$ and $\theta_0$ denote the bare scalar fields.
 
@@ -1914,7 +2372,7 @@ one can use the transformation
 	\begin{aligned}
 		S_n^z &= \frac{1}{2} - c_n^\dagger c_n \\
 		S_n^\dagger &= \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
-		&= (-1)^n \left( (-1)^n e^{i\phi} + e^{i\overline{\phi}}\right) e^{i\frac{\theta}{2}} \\
+		&= (-1)^n \left( e^{-ik_f x} e^{i\phi} + e^{i\overline{\phi}}\right) e^{i\frac{\theta}{2}} \\
 		&= (-1)^n e^{i\varphi/2} + e^{i\varphi/2} e^{i\theta}
 	\end{aligned}
 \end{equation}
@@ -1927,29 +2385,13 @@ From the dispersion, one can find that the fermi point $k_f = \pi/2$.
 In terms of scalar fields, spin operators are expressed as 
 \begin{equation}
 	\begin{aligned}
-		S_x^z &\sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta) \\
-		S_n^\dagger &\sim \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
-		& \sim (-1)^n \left( e^{-ik_f x} e^{-i\phi} + e^{ik_f x}e^{-i\overline{\phi}}\right) e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \theta + \frac{1}{2}\right)}\\
-		&\sim (-1)^n \left( e^{-i\phi} + \left(-1\right)^n e^{-i\overline{\phi}}\right) e^{i\frac{1}{2} \theta}\\
-		&\sim (-1)^n e^{-i\varphi/2} + e^{-i\varphi/2} e^{i\theta}
+		S^z(x) &\sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta) \\
+		S^\dagger(n) &\sim \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
+		& \sim (-1)^n \left( e^{-ik_f x} e^{-i\phi} + e^{ik_f x}e^{i\bar{\phi}}\right) e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \varphi + \frac{1}{2}\right)}\\
+		&\sim (-1)^n \left( e^{-i\phi} + e^{2ik_f x} e^{i\bar{\phi}}\right) e^{i\frac{1}{2} \varphi}\\
+		&\sim (-1)^n e^{-i\theta/2} + e^{-i\theta/2} e^{i\varphi}
 	\end{aligned}
 \end{equation}
-We have used the relation
-\begin{equation}
-	\begin{aligned}
-		c_i^\dagger c_i \sim \frac{1}{2\pi}\partial_x \theta + \frac{1}{2}
-	\end{aligned}
-\end{equation}
-where $\frac{1}{2}$ is the particle number density since the field operators are all normal ordered and describing the quantum fluctuations near their corresponding expectation value. The string operator reads
-\begin{equation}
-	\begin{aligned}
-		\prod_{i<n}e^{i\pi\,c_i^\dagger c_i} &\sim e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \theta + \frac{1}{2}\right)} \\
-		&\sim e^{i\,k_f n} e^{i\frac{\theta}{2}} \\
-		&\sim e^{i\,k_f n} \, V_{0,1}
-	\end{aligned}
-\end{equation}
-One sees that a string operator corresponds to generate a $\theta$ vertex. \\
-
 
 \noindent {\bf Correlation functions} \\
 Using the mapping above, one can calculate the equal-time spin-spin operator correlation functions
@@ -1961,23 +2403,33 @@ Using the mapping above, one can calculate the equal-time spin-spin operator cor
 \end{equation}
 where $R$ is the raidus of the free compact boson.\\
 
-\noindent {\bf Relevant perturbations and boudary states} \\
-As analysed in the last section for the free fermions, the $U(1)$ symmetry and translation $T$ are anomalous that they prevent the existence of a symmetric gapped ground state. The mixed anomaly can also be the $U_\phi(1)$ and $U_\theta (1)$. Here we consider perturbations breaking at least part of the symmetries.
+\noindent {\bf Possible relevant perturbations and boudary states} \textcolor{red}{revision needed} \\
+As analysed in the last section for the free fermions, the $U(1)$ symmetry and translation $T$ are anomalous that they prevent the existence of a symmetric gapped ground state. The mixed anomaly can also be the $U_\phi(1)$ and $U_\theta (1)$. Here we consider perturbations breaking at least part of the symmetries.\\
 
 
-(1) The spin operator 
+(1) Uniform magnetic field in the $xy$ plane.
+Recal that the spin operator in the boson field language reads
 \begin{equation}
-	S^\dagger \sim (-1)^n e^{-i\varphi/2} + e^{-i\varphi/2} e^{i\theta}	
+	S^\dagger \sim (-1)^n e^{-i\varphi/2} + e^{-i\varphi/2} e^{i\theta}.
 \end{equation}
- (equivalently $S^x$ or $S^y$).  It pinns down the $\varphi$ field, hence breaks the $U_\varphi (1)$ symmetry. 
+The first term has strong phase fluctuation. The contribution to the uniform magnetic field thus becomes
+\begin{equation}
+	\begin{aligned}
+		& e^{-i\varphi (n) /2} - e^{-i\varphi(n+1)/2} \sim \partial_x \varphi
+	\end{aligned} 
+\end{equation}
+which is noting but the $U_\theta(1)$ charge density. The second term is the vertex operator $V_{(1,1)}$ with a scaling dimension $\Delta_{(1,1)} = \frac{1}{R^2} + \frac{R^2}{4}$
 
- (2) The spin operator 
+It pinns down the $\varphi$ field, hence breaks the $U_\varphi (1)$ symmetry. \\
+
+ (2) Uniform magnetic field in the $z$ direction.
+One finds
 \begin{equation}
 	S^z \sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta)	
 \end{equation}
-pinns down the $\theta$ field, hence breaks the $U_\theta (1)$ symmetry. 
+tends to pin down the $\theta$ field, hence breaks the $U_\theta (1)$ symmetry. In the gapless Luttinger liquid phase, the $\cos(\theta)$ operator becomes \textcolor{red}{irrelevant}. There is emergent $U_\theta(1)$ symmetry at the thermodynamic limit.\\
  
-(3) The dimerized term 
+(3) Spin-Peierls (dimerization or VBS)
 \begin{equation}
 	\begin{aligned}
 		D(n) & := \left(-1\right)^n \left( S^x_n S^x_{n+1} + S^y_n S^y_{n+1} \right) \sim \sin (\theta)
