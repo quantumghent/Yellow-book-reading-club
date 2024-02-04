@@ -1,1 +1,11 @@
-/main.pdf
+*.aux
+*.exp.gnuplot
+*.blg
+*.fdb_latexmk
+*.out
+*.log
+*.fls
+*.synctex.gz
+*.toc
+*.*.gnuplot
+*.DS_Store

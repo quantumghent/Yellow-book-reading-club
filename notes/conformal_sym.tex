@@ -1,0 +1,77 @@
+\section{Conformal symmetry in two dimension}
+In $d=2$ we have infinitely many \emph{local} conformal transformations. The 6 parameter subgroup of conformal transformations that are everywhere well defined is the \emph{global} conformal group $SL(2,\mathbb{C})/\mathbb{Z}_2$. Locally on the algebra level, it becomes the infinite dimensional Witt algebra. In a quantum theory, one can introduce a central extension term and get the famous Virasoro algegra. It is this infinite dimensional symmetry that ensures fields in a cft have nice local properties.
+
+Any holomorphic or antiholomorphic transformations are allowed by the symmetry. Since the symmetry is represented by two independent Virasoro algebras (chiral and antichiral), in the following we only present the chiral part. This can also be shown from the the Noether current $T^{\mu\nu}$ corresponding to the coordinate translation symmetry. Recall that as a Noether current one has $\partial_\mu T^{\mu\nu} = 0$ and with rotation symmetry $T^{\mu\nu}$ is symmetric and traceless. In terms of the original coordinate
+\begin{equation}
+	\begin{aligned}
+		T^{zz} &= T^{00} + 2iT^{01} - T^{11} \\
+		T^{z\overline{z}} &= T^{00} - iT^{01} + iT^{10} + T^{11} \\
+		T^{\overline{z}\overline{z}} &= T^{00} - 2iT^{01} - T^{11}.
+	\end{aligned}
+\end{equation}
+One can find that 
+\begin{equation}
+	\begin{aligned}
+		\partial_z T^{zz} &= 0 \\
+		T^{z\overline{z}} &= 0 \\
+		\partial_{\overline{z}} T^{\overline{z}\overline{z}} &= 0.
+	\end{aligned}
+\end{equation}
+So that $T^{zz}$ and $T^{\overline{z}\overline{z}}$ are antiholomorphic and holomorphic functions respectively. We introduce $T(z) := T_{zz}(z)$ and $\overline{T}(\overline{z}) := T_{\overline{z}\overline{z}}(\overline{z})$ in the following. 
+
+
+
+%\subsection{Global and local conformal symmetries}
+
+%{\it Conformal mappings and Witt algebra}
+
+%{\it Conformal Ward identity}
+
+%{\it Virasoro algebra: Central extension of Witt algebra}
+
+\subsection{From correlation functions to OPE}
+Due to the local nature of field theory, we promote the correlation functions to expansion of non-singular operators, which is termed as operator product expansion (OPE). The idea is basically that far away from the operators inside a bounded region other operators can only feel them as a superposition of single operators (non-singular). The first OPE example follows from the conformal ward identity, which builds up the OPE between the energy momentum tensor and primary fields
+\begin{equation}
+	T(z) \phi(\omega) \sim \frac{h}{{\left(z-\omega\right)}^2} \phi(\omega) + \frac{1}{z-\omega} \partial \phi(\omega)
+\end{equation}
+where on the right hand side, the operators should be understood as to be calculated correlation functions with some other operators located far away from them.  Following the conventions defined in the first chapter, one can easily obtain the OPE of $T(z)$ with $\partial \phi$ for free boson
+\begin{equation}
+T(z) \partial\phi(\omega) \sim \frac{\partial \phi(\omega)}{{\left(z-\omega\right)}^2} + \frac{\partial_\omega^2 \phi(\omega)}{z-\omega}
+\end{equation}
+and $T(z)$ with $\psi$ for free fermion
+\begin{equation}
+T(z) \psi(\omega) \sim \frac{\frac{1}{2} \psi(\omega)}{{\left(z-\omega\right)}^2} + \frac{\partial \psi(\omega)}{z-\omega}
+\end{equation}
+
+The OPE can be generalized to arbitrary fields
+\begin{equation}
+A(z) B(\omega) = \sum_{n=-\infty}^{\Delta(A) + \Delta(B)}\  \frac{{\{AB\}}_n(\omega)}{{\left(z-\omega\right)}^n}
+\end{equation}
+where ${\{AB\}}_n(\omega)$ are non-singular fields. Note that the total scaling dimensions can not be changed in OPE\@.
+
+
+
+\subsection{Energy-momentum tensor and central charge}
+The energy-momentum tensor is a quasi-primary field, which does not follow the OPE of $T$ with primaries. There is an aditional term proportional to central charge $c$ in the OPE
+\begin{equation}
+T(z)T(\omega) \sim \frac{c/2}{{\left(z-\omega\right)}^4} + \frac{2 T(\omega)}{{\left(z-\omega\right)}^2} + \frac{\partial T(\omega)}{z-\omega}.
+\end{equation}
+This term also exists in the conformal transormation of $T$
+\begin{equation}
+T'(\omega) = {\left(\frac{dw}{dz}\right)}^{-2} T(z) + \frac{c}{12}\{z;\omega\}
+\end{equation}
+where $\{z;\omega\}$ denotes the Schwarzian derivative. This is consistent with the fact that this term disappears under global conformal transtions which are true symmetry of CFT\@.
+
+The central charge $c$ is related to the number of degrees of freedom in the theory. This can be reflected in the calculation of free energy density for a cylinder, which is related to the plane via a conformal transormation
+\begin{equation}
+\omega = \frac{L}{2\pi} \log (z).
+\end{equation}
+The energy-momentum tensor becomes
+\begin{equation}
+T_{cyl}(\omega) = {\left(\frac{2\pi}{L}\right)}^2 \{T_{pl}(z)\ z^2 - \frac{c}{24}\}.
+\end{equation}
+The variation of free energy is a response to the change of metric. One can make another coordinate transformation only along with the circumference direction $\omega^0 \rightarrow \omega^0(1+\epsilon)$. Note that this is not a confromal transormation, which will result in the change of the metric tensor. One can find the free energy for a cylinder takes the form of
+\begin{equation}
+F = f_0 L - \frac{\pi c}{6L},
+\end{equation}
+which indicates that the conformal anomaly reflects the quantum fluctuation effect to the classifcal conformal symmetry.

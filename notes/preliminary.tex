@@ -1,0 +1,1125 @@
+\section{Preliminary}
+\subsection{Conventions}
+This part summrises conventions used in this note. 
+
+{\bf Metric tensor and Coordinate.---}  The metric tensor in Minkowski and Euclidean space-time is defined as
+\begin{equation}
+    \eta_{\alpha\beta} = \begin{Bmatrix}
+        +1 &   &\\
+           & -1& \\
+           &   & \cdots
+    \end{Bmatrix}
+\end{equation}
+and
+\begin{equation}
+    g_{\alpha\beta} = \begin{Bmatrix}
+        +1 &   &\\
+           & +1& \\
+           &   & \cdots
+    \end{Bmatrix}
+\end{equation}
+respectively, where the first index is the time. In the Yellow Book, without specifications, we are working in Eclidean space. The coordinate is defined as $x^\mu = (t, x^{\alpha})$. So that the norm of a vector in Minkowski space-time is $x^\mu x_\mu = t^2 - r^2$.
+
+{\bf $\gamma$ matrices.--}   
+The $\gamma$ matrices follow the Clifford algebra
+\begin{equation}
+    \{\gamma^a,\gamma^b\} = 2\eta^{ab}.
+\end{equation}
+In Minkowski space time , the $\gamma$ matrices can be chosen as
+\begin{equation}
+	\begin{aligned}
+    	\gamma^0 &= \sigma^x \nonumber \\
+    	\gamma^1 &=  i\sigma^y \\
+		\gamma^3 &= -\gamma^0\gamma^1 = \sigma^z
+	\end{aligned}
+\end{equation}
+where $\gamma^3$ plays the role of $\gamma^5$. In Elidean space, they can be chosen as
+\begin{eqnarray}
+    \gamma^0 &=& \sigma^x \nonumber \\
+    \gamma^1 &=& \sigma^y.
+\end{eqnarray}
+Below in the fermon case, we are going to show how we fix the convention for the Euclidean space gamma matrix. We also usually a slashed notation for $\slashed{\partial} := \gamma^\mu \partial_\mu$.\\
+
+\noindent {\bf Complex Coordinate}\\
+In CFT, there are two independent Virasoro algebras. Fields have holomorphic (resp.\ antiholomorphic) part $\phi_R(x-t)$ (reps. $\phi_L(x+t)$). It is usually more convenient to use imaginary time $\tau = it$ and complex coordinates
+\begin{equation}
+\begin{aligned}
+x^z &= x^0 + i x^1 \\
+x^{\overline{z}} &= x^0 - i x^1 \\
+\partial_z &= \frac{1}{2} \left( \partial_0 - i\partial_1 \right) \\
+\partial_{\overline{z}} &= \frac{1}{2} \left( \partial_0 + i\partial_1 \right).
+\end{aligned}
+\end{equation}  
+Here $x^z$ and $x^{\overline{z}}$ denote coordinates with upper index. They are usually denoted by $z$ and $\overline{z}$. One can simply treat $z$ and $\overline{z}$ as ordinary upper coordinates and write down the fields with the new coordinate. For example, the right and left mover scalar fields become $\phi(z)$ and $\overline{\phi}(\overline{z})$ respectively. In terms of the new coordinate the metric tensor is
+\begin{equation}
+	g_{\mu\nu} = \begin{Bmatrix}
+        0    & 1/2  \\
+        1/2  & 0     
+    \end{Bmatrix} \qquad
+	g^{\mu\nu} = \begin{Bmatrix}
+        0 & 2  \\
+        2 & 0
+    \end{Bmatrix}
+\end{equation}
+
+Note that one has the freedom to interprete $x^0$ as time or space, which only change conventions rather than physics. For example, the correlation functions of physical operators always contain the chiral and anti-chiral parts. In particular, in Euclidean space the theory has rotation symmetry. 
+
+\subsection{Free fermions}
+In Minkowski space time ($d=1+1$), the free Dirac spinor has two componenet. Its action reads~\cite{Blumenhagen:2009zz,tong_gr}
+\begin{equation}
+	\begin{aligned}
+		S &= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+}^\dagger (\partial t - \partial x) \psi_{+} + i \psi_{-}^\dagger(\partial t + \partial x)\ \psi_{-} \right). \\		
+		&= \frac{1}{4\pi K}\int dxdt \ \left(i\psi_{+}^\dagger \partial_{-} \psi_{+} + i \psi_{-}^\dagger \partial_{+} \psi_{-} \right). 
+	\end{aligned}
+\end{equation}
+The equation of motion has the solution for the chiral fermions 
+\begin{equation}
+	\begin{aligned}
+		\psi_{+} &= \psi_{+} \left(t+x\right) \\
+		\psi_{-} &= \psi_{-} \left( t-x \right)
+	\end{aligned}
+\end{equation}
+They correspond to left and right moving particles as the speed of light. In terms of $\psi = {(\psi_{+},\psi_{-})}^t$, one can write the theory as
+\begin{equation}
+	\begin{aligned}
+		S &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \partial_t - \sigma^z\partial_x\right)\psi \\
+    &= \frac{1}{4\pi K} \int dxdt \ i \psi^\dagger \left( \sigma^x \sigma^x \partial_t + \sigma^x i\sigma^y \partial_x\right)\psi \\
+	&= \frac{1}{4\pi K} \int dxdt \ \psi^\dagger i \gamma^0 \gamma^\mu \partial_\mu \psi\\
+	&= \frac{1}{4\pi K} \int dxdt \ \overline{\psi} \, i \slashed{\partial} \psi
+	\end{aligned}
+\end{equation}
+where we used
+\begin{equation}
+    \gamma^0 = \sigma^x \quad \gamma^1 = i\sigma^y \quad \mathrm{and} \quad \overline{\psi} = \psi^\dagger \gamma^0
+\end{equation}
+A mass term $m\overline{\psi}\psi = m \left(\psi_{+}^\dagger \psi_{-} +\psi_{-}^\dagger \psi_{+}\right) $ can be added into the action
+\begin{equation}
+	S = \frac{1}{4\pi K} \int dxdt \ \overline{\psi} \, \left( i \slashed{\partial} - m \right) \psi.
+\end{equation}
+The massless fermions are Weyl spinors without a mixing between the left and right moving parts. \\
+
+\noindent {\bf Wick rotation}\\
+It is usually more convenient to work in Euclidean space rather than Minkowski space time. We first assume the Wick rotation acts as $t \rightarrow i\tau$. The left mover under this convention is antiholomorphic $\psi_{+} \sim f(\tau-ix)$. The action follows
+\begin{equation}
+    i\ S_M \rightarrow -\ S_E.
+\end{equation}
+Specifically, in terms of spinors one has
+\begin{equation}
+	\begin{aligned}
+		-i\,S &= -i\frac{1}{4\pi K}\int dx d(i\tau) i\left(\psi_{+}^\dagger \ (\partial_{i\tau} - \partial_x)\ \psi_{+} + \psi_{-}^\dagger \ i(\partial_{i\tau} + \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int dx d\tau \left(\psi_{+}^\dagger \ (\partial_\tau - i\partial_x)\ \psi_{+} + \psi_{-}^\dagger \ (\partial_\tau + i \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2x \,2\left(\psi_{+}^\dagger {\partial} \psi_{+} + \psi_{-}^\dagger \overline{\partial} \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2z\, \left(\psi_{+}^\dagger {\partial} \psi_{+} + \psi_{-}^\dagger \overline{\partial} \psi_{-} \right) \\
+	\end{aligned}
+\end{equation}
+The equation of motion tells us that, $\psi_{+}$ is antiholomorphic $\psi_{+} \sim f(\overline{z})$, consistent with the Wick rotation assumption. Respectively $\psi_{-}$ is a holomorphic field.
+
+\textbf{\textit{If we choose}} $t \rightarrow -i\tau$, one can find $t+x \rightarrow -i\left(\tau + ix\right)$, which means that $\psi_{+}$ now becomes a holomorphic field $\psi_{+} \sim f(z)$. The action becomes
+\begin{equation}
+	\begin{aligned}
+		-i\,S &= -i\frac{1}{4\pi K}\int dx d(-i\tau) i\left(\psi_{+}^\dagger \ (\partial_{-i\tau} - \partial_x)\ \psi_{+} + \psi_{-}^\dagger \ i(\partial_{-i\tau} + \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int dx d\tau \left(\psi_{+}^\dagger \ (\partial_\tau + i\partial_x)\ \psi_{+} + \psi_{-}^\dagger \ (\partial_\tau - i \partial_x)\ \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2x \,2\left(\psi_{+}^\dagger \overline{\partial} \psi_{+} + \psi_{-}^\dagger {\partial} \psi_{-} \right) \\
+		&= \frac{1}{4\pi K}\int d^2z\, \left(\psi_{+}^\dagger \overline{\partial} \psi_{+} + \psi_{-}^\dagger {\partial} \psi_{-} \right) \\
+	\end{aligned}
+\end{equation}
+It is clear that under this convention, $\psi_{+}$ is a holomorphic field. To align with the boson theory, in this note we choos the latter one
+\begin{equation}
+	\begin{aligned}
+		&t \rightarrow -i\tau \\
+		&\psi_{+} \sim f(z) \\
+		&\psi_{-} \sim f(\overline{z}).
+	\end{aligned}
+\end{equation}
+It is essential to exercise caution when employing both complex and real coordinates in the subsequent discussions. Specifically, we will be utilizing both $\psi_{+}(t+x)$ and $\psi_{+}(z)$, although strictly speaking, the latter should be expressed as $\psi_{+}(-i(\tau+ix)) = \psi_{+}(-iz)$.
+
+In terms of spinors one can find that
+\begin{equation}
+	\begin{aligned}
+		S &= \frac{1}{4\pi K} \int dx d\tau \left( \psi^\dagger \partial_\tau \psi + \psi^\dagger i\sigma^z \partial_x \psi \right)\\
+		&=  \frac{1}{4\pi K} \int dxd\tau \left( \psi^\dagger \sigma^x\sigma^x\partial_\tau \psi + \psi^\dagger \sigma^x \sigma^y \partial_x \psi \right)\\
+		&=  \frac{1}{4\pi K} \int dxd\tau \ \overline{\psi} \slashed{\partial} \psi
+	\end{aligned}
+\end{equation}
+Note that the integral meausre also contriutes a $1/2$ factor. This fixes our convention of $\gamma$ matrices in Euclidean space
+\begin{equation}
+	\begin{aligned}
+		&\gamma^0 = \sigma^x \\
+		&\gamma^1 = \sigma^y
+	\end{aligned}
+\end{equation}
+		
+The two point correlation function reads 
+\begin{equation}
+	\begin{aligned}
+		&\langle \psi_{+}^\dagger(z) \, \psi_{+}(w) \rangle = K\frac{1}{z-w} \\
+		&\langle \psi_{-}^\dagger(\overline{z}) \, \psi_{-}(\overline{\omega}) \rangle = K\frac{1}{\overline{z}-\overline{w}} \\
+		&\langle \psi_{-}(\overline{z}) \, \psi_{+}(w) \rangle = 0\\
+	\end{aligned}
+\end{equation} \\
+
+
+\noindent {\bf Hamiltonian formalism---} \\
+The canonical momentum reads $\frac{\partial L}{\partial \dot{\psi}} = i\psi^\dagger$ (\textcolor{red}{or $-i\psi^\dagger$?}). One can write down the Hammiltonian
+\begin{equation}
+	\begin{aligned}
+		H &= \int dx \left(-i\psi^\dagger \gamma^0\gamma^1 \partial_x \psi \right) \\
+		&= \int dx \left(i\psi^\dagger \sigma^z \partial_x \psi \right) \\
+		&= \int dx \left( i\psi_{+}^\dagger \partial_x \psi_{+} - i\psi_{-}^\dagger \partial_x \psi_{-}  \right) \\
+		&= \int dk \left( -k \psi_{+}^\dagger (k) \psi_{+}(k) + k \psi_{-}^\dagger (k)\psi_{-}^\dagger (k) \right)
+	\end{aligned}
+\end{equation} 
+which demonstrates that the left ($\psi_{+}$) and right ($\psi_{-}$) moving spinors have a dispersion relation $\omega \sim -k$ and $\omega \sim k$ respectively.
+
+A lattice version free fermion theory Eq.~$2.38$ reads
+\begin{equation}
+    \mathcal{L} = \sum_n \left( i\psi_n^\dagger \dot{\psi_n} + \psi_n^\dagger \psi_{n+1} + \psi_{n+1}^\dagger \psi_{n}\right).
+\end{equation}
+The canonical momentum corresponding to $\psi_n$ is
+\begin{equation}
+    \pi_n = \frac{\partial \mathcal{L}}{\partial \dot{\psi_n}} = i \psi_n^\dagger.
+\end{equation}
+So that the Hamiltonian is
+\begin{eqnarray}
+    \mathcal{H} &=& \sum_n \pi_n \dot{\psi_n} - \mathcal{L} \nonumber\\
+      &=& - \sum_n \left(\psi_n^\dagger \psi_{n+1}  + \psi_{n+1}^\dagger \psi_{n}\right).
+\end{eqnarray}
+
+Note that in the above we have adopted
+\begin{equation}
+	\delta \mathcal{L} = \pi\,\delta \dot{\psi}
+\end{equation}
+which fixes the transformation to be 
+\begin{equation}
+	\mathcal{H} = \pi \,\dot{\psi} - \mathcal{L}.
+\end{equation}
+Equivalently we can also define the derivative as
+\begin{equation}
+	\delta \mathcal{L} = \delta \dot{\psi} \,\pi
+\end{equation}
+Now we have 
+\begin{equation}
+	\mathcal{H} = \dot{\psi} \, \pi - \mathcal{L}.
+\end{equation}
+
+\subsubsection*{Symmetries and conserved current}
+{\bf Global continuous $U(1)$ symmetry}\\
+The free fermion has the global $U(1)$ symmetry defined by $\psi \rightarrow e^{i\alpha}\psi = \psi + i\alpha \psi$. The functional derivative is then $\frac{\delta F}{\delta \alpha} = i\psi$. One can find the corresponding Noether's curret reads
+\begin{equation}
+	j_v^\mu \sim -i\overline{\psi} \gamma^\mu \left(i\psi\right) = \overline{\psi} \gamma^\mu \psi.
+\end{equation}
+The charge density is the total fermion charge density $j_v^0 \sim \psi^\dagger \psi = \psi_{+}^\dagger\psi_{+} + \psi_{-}^\dagger\psi_{-}$.
+
+The free fermion theory also admits an axial $U(1)$ symmetry $\psi \rightarrow e^{i\alpha \gamma^5} \psi = \psi + i\alpha \gamma^5 \psi$. Its corresponding Noether's current writes
+\begin{equation}
+	j_a^\mu \sim \overline{\psi} \gamma^\mu\gamma^5 \psi
+\end{equation}
+whose charge density reads $j^0_a \sim \psi^\dagger \gamma^5 \psi = \psi_{+}^\dagger \psi_{+} - \psi_{-}^\dagger \psi_{-}$. It is the difference in the density between the left and right movers.
+
+\subsection{Free boson}
+The free (non-) compact boson in the Minkoswki space time reads~\cite{Blumenhagen:2009zz}
+\begin{equation}
+    S = \frac{1}{8\pi\,K}\int \ dxdt \ \partial_\mu \varphi \partial^\mu \varphi,
+\end{equation}
+where $\varphi$ is a real scalar field. After Wick rotation $\tau = it$, it becomes
+\begin{eqnarray}
+    i\ S &=& \frac{i}{8\pi\,K}\int \ dxdt \ \partial_t \varphi \partial_t \varphi - \frac{i}{2}g\int \ dxdt \ \partial_x \varphi \partial_x \varphi \nonumber \\
+    &=& -\frac{1}{8\pi\,K}\int \ dxd\tau \ \partial_\tau \varphi \partial_\tau \varphi - \frac{1}{2}g\int \ dxdit \ \partial_x \varphi \partial_x \varphi \nonumber \\
+    &=& -\frac{1}{8\pi\,K}\int \ dxd\tau \ \partial_\mu \varphi \partial^\mu \varphi
+\end{eqnarray}
+The Euclidean action reads
+\begin{equation}
+    S_E = \frac{1}{8\pi\,K}\int \ d^2x \ \partial_\mu \varphi \partial^\mu \varphi.
+\end{equation}
+
+To find the two-point correlation function, let's rewrite the action as
+\begin{equation}
+    S = \frac{1}{2}\int \ d^2xd^2y \ \varphi(x) A(x,y) \varphi(y),
+\end{equation}
+where $A(x,y) = -\frac{1}{4\pi K}\partial^2$. The two-point correlation function satisfies
+\begin{equation}
+    -\frac{1}{4\pi K}\partial^2 \langle \varphi(x) \varphi(y) \rangle = \delta(x-y). \\
+\end{equation}
+Integrating both sides, one can find
+\begin{equation}
+	\begin{aligned}
+		1 &= -\frac{1}{4\pi K} \int_0^\rho 2\pi r dr \left( \frac{1}{r} \frac{\partial}{\partial r} \left( r G^{\prime}(r) \right)\right)\\
+		&= -\frac{1}{2 K} \rho G^\prime (\rho).
+	\end{aligned}
+\end{equation}
+One then finds that the two point correlation up to a constant term is
+\begin{equation}
+    \langle \varphi(x) \varphi(y) \rangle = -2 K\,\mathrm{\log} (r),
+\end{equation}
+where $r$ is the distance between the two points. This is consistent with the fact that the scaling dimension of $\varphi$ is 0. The above result is actually not well defined as the two-point correlation has both short and long distance divergence. Let's rewritte the Euclidean action as 
+\begin{equation}
+	S_E = \frac{1}{4\pi\,K} \int {\frac{d^2k}{{(2\pi)}^2}} \, \varphi_k \left(\frac{k^2}{2}\right)\varphi_{-k}.
+\end{equation} 
+One finds the real-space two-point correlation function
+\begin{equation}
+	G(r) = \langle \varphi(x) \varphi(y) \rangle = 4\pi K \int \frac{d^2k}{{(2\pi)}^2}\, \frac{e^{ikr\,\cos(\theta)}}{k^2}
+\end{equation}
+which is divergent at IR and UV\,. One can remove the $k=0$ and high energy modes ($k>2\pi/a$) to redefine a convergent correlation function 
+\begin{equation}
+	G(r) - G(0) = 4\pi\,K \int \frac{d^2k}{{(2\pi)}^2}\, \frac{e^{ikr\,\cos(\theta)}-1}{k^2}.
+\end{equation}
+The large $k$ contribution results in
+\begin{equation}
+	G(r) - G(0) \sim -2 K\,\log(r)
+\end{equation}
+
+A class of useful operators are the so-called (normal ordered) vertex operator $V_{\alpha}(x) := \, e^{i\alpha\,\varphi(x)}$. Its two point correlation reads
+\begin{equation}
+	\langle\, V_\alpha(x)\, V_{-\beta}(y)\, \rangle = e^ {\alpha^2 \langle \varphi(x) \varphi(y) \rangle} \sim \frac{\delta_{\alpha,\beta}}{r^{2\alpha^2 K}}.
+\end{equation}
+One can find that the exponents of vertex operators in the correlation functions must sum up to zero. This is usually called neutral conditon for vertex operators. This actually reflects the $U(1)$ symmetry of the free scalar boson. 
+
+One can also write down the Hamiltonian for the free boson. The canonical momentum corresponding to $\varphi$ is $\pi = \frac{\partial L}  {\partial \dot\varphi} = \frac{\dot{\varphi}}{4\pi K}$. One finds the Hamiltonian is 
+\begin{equation}
+	H = \int dx \left( 2\pi K \pi^2 + \frac{1}{8\pi K} {\left(\partial_x \varphi\right)}^2 \right).
+\end{equation}
+
+\noindent {\bf Complex coordinate---}. \\
+The theory can be defined on a cylinder in which the coordinate is $\omega = \tau + i\sigma$ where $\sigma$ is defined on a circle with a unit radius. We can use another complex coordinate
+\begin{equation}
+  z = e^\omega = e^\tau e^{i\sigma}
+\end{equation}
+to rewritte the theory on a plane parameterized with $z$.
+
+Let's look at the same theory in terms of the complex coordinate, which is heavily used in the $2d$ CFT\@. We first write down the action as
+\begin{equation}
+	S = \frac{1}{8\pi K}\int d^2 x \sqrt{g} g^{\mu \nu} \partial_\mu \varphi \partial_\nu \varphi.  
+\end{equation} 
+With the complex coordinate introduced previously, one can immedialy write down the action as
+\begin{equation}
+	\begin{aligned}
+		S &= \frac{1}{8\pi K}\int dz d\overline{z} \frac{1}{2} \left( 2 \partial \varphi \overline{\partial} \varphi + 2 \overline{\partial} \varphi \partial \varphi \right) \\
+		&= \frac{1}{4\pi K}\int dz d\overline{z} \left( \partial \varphi \overline{\partial} \varphi \right)
+	\end{aligned}
+\end{equation}
+The chiral two-point correlation can be deduced from the physical one to be $\langle \varphi(z) \varphi(0) \rangle \sim = -K \log(z) $.
+
+
+\subsection{Maxwell equation}
+We define the vector-pontential or gauge field and current as 
+\begin{equation}
+	\begin{aligned}
+		A^\mu &= (\phi,\, \mathbf{A}) \\
+		j^\mu &= (\rho,\,\mathbf{j})
+	\end{aligned}
+\end{equation}
+and the field strength
+\begin{equation}
+	F_{\mu\nu} := \partial_\mu A_\nu - \partial_\nu A_\mu.
+\end{equation}
+The electric field $\mathbf{E} = -\nabla \phi - \dot{\mathbf{A}}$ and magnetic fields are related to $F_{\mu\nu}$ via
+\begin{equation}
+	\begin{aligned}
+		&F_{0i} = \mathbf{E} \\
+		&F_{ij} = -\epsilon_{ijk} B_k.
+	\end{aligned}
+\end{equation}
+Note that $\mathbf{E}$ and $\mathbf{B}$ are {\textit{not}} vectors, and $\epsilon_{ijk}$ is the Levi-Civita symbol (not a tensor). The Maxwell equation now can be expressed in a compact form 
+\begin{equation}
+	\begin{aligned}
+		&\partial_\mu F^{\mu\nu} = j^\nu \\
+		&\epsilon_{\mu\nu\rho\sigma}\partial_\rho F_{\mu\nu} =0 
+	\end{aligned}
+\end{equation}
+where the current $j^\mu$ is a vector $j^\mu := (\rho,\,j^i)$. 
+
+
+\subsection{Symmetries at the classical level}
+The action becomes different after a coordinate transformation. We say it has a symmetry if it remains unchanged and a Noether current can be derived from the symmetry. The coordinate transformation is denoted as
+\begin{equation}
+    x'^\mu = x^\mu + \omega_a \frac{\delta x^\mu}{\delta \omega_a}
+\end{equation}
+and the field changes according to
+\begin{equation}
+    \phi'(x') = \phi(x) + \omega_a \frac{\delta F}{\delta \omega_a}(x)
+\end{equation}
+where $\omega_a$ is a constant and small parameter.
+
+By definition, the change of the action $\delta S$ disappears for a symmetric transformation. We can get nothing new from this. If we allow $\omega_a$ to be arbitrary, the leading contribution to $\delta S$ becomes
+\begin{equation}
+    \delta S = -\int d^2x j^\mu \partial_\mu \omega_a,
+\end{equation}
+where we introduced the the current $j^\mu$. We assume it decreases fast when approaching infinite. So that one obtains
+\begin{equation}
+    \delta S = \int d^2x\ \partial_\mu j^\mu \ \omega_a.
+\end{equation}
+This equations holds for all the field configurations. If we require the field configuration to be the one obeying the equation, the action should be invariant for arbitrary coordinate transformation and one finds the conservation of $j^\mu$
+\begin{equation}
+    \partial_\mu j^\mu = 0.
+\end{equation}
+
+{\bf Energy-momentum tensor}
+The canonical energy-momentum tensor is defined to be the Noether current of the translation transformation
+\begin{eqnarray}
+    x'^\mu &=& x^\mu + \epsilon^\nu \delta^\mu_\nu \\
+    T^{\mu\nu} &=& -\eta^{\mu\nu} L + \frac{\partial L}{\partial(\partial_\mu \phi)}\partial_\nu \phi.
+\end{eqnarray}
+This definition of $T^{\mu\nu}$ is not guaranteed to be symmetric between the two indices (The requirement of a symmetric $T^{\mu\nu}$ will be clear later).
+
+Another definition that makes the energy-momentum tensor symmetric follows. In the coordinate transformation, if we also consider the variance of the metric tensor (which means the theory is coupled with the dynamical backgroud)
+\begin{equation}
+\delta g_{\mu\nu} = -\partial_\mu\epsilon_\nu -\partial_\nu\epsilon_\mu
+\end{equation}
+the action remains invariant since this is nothing but a reparametrization of the theory (general coordinate covariance). So that one finds
+\begin{equation}
+    \delta S = 0 = -\frac{1}{2} \int d^d x \ \left(\partial_\mu\epsilon_\nu + \partial_\nu\epsilon_\mu\right) \left(T^{\mu\nu} +2\frac{\delta S}{\delta g_{\mu\nu}}\right).
+\end{equation}
+So that one can define the energy-momentum tensor as
+\begin{equation}
+    T^{\mu\nu} = -2\frac{\delta S}{\delta g_{\mu\nu}}
+\end{equation}
+up to a surface term.
+
+Another way to make the energy-momentum tensor symmetric is add a surface term to the canonical one. One can show that with rotation symmetry, such a term can be constructed to make $T^{\mu\nu}$ symmetric.
+
+\subsection{Symmetry at the quantum level}
+All the field configurations contribute to the quantum theory, so that one has no Noether current in general. Still the symmetry has constraints to the quantum theory. For the $n-$point correlation functions, one has
+\begin{eqnarray}
+\langle \phi(x'_1)\cdots \phi(x'_n) \rangle &=& \frac{1}{Z}\int [D\phi]\ \phi(x'_1)\cdots\phi(x'_n) \ e^{-S[\phi]} \\
+&=& \frac{1}{Z}\int [D\phi']\ \phi'(x'_1)\cdots\phi'(x'_n) \ e^{-S'[\phi']} \\
+&=& \frac{1}{Z}\int [D\phi]\ F(\phi(x_1))\cdots F(\phi(x_n)) \ e^{-S[\phi]} \\
+&=& \langle\ F(\phi(x_1))\cdots F(\phi(x_n)) \ \rangle
+\end{eqnarray}
+in which we assumed the functional integral measure does not change and the coordinate transformation is a rigid one ($\omega_a$ is a constant).
+
+{\bf Ward identity}
+As stated above there is no conserved current at the quantum level. The infinitesimal coordinate transformation at the quantum level results in the so-called Ward identity.
+
+We denote the change of fields as
+\begin{equation}
+    \phi'(x) = \phi(x) -i\omega_a\ G_a\ \phi(x).
+\end{equation}
+The infinitesimal coordinate transformation ($\omega_a$ now is arbitrary) changes the correlation as (We only consider the first order perturbation contribution)
+\begin{eqnarray}
+\langle \phi'(x_1)\cdots  \phi'(x_n)\rangle &=& \langle \phi(x_1)\cdots  \phi(x_n)\rangle \\
+&=& \frac{1}{Z} \int [D\phi'] (X+\delta X) e^{-S[\phi] - \int d^d x\partial_\mu j^\mu \omega_a} \\
+&=& \frac{1}{Z} \int [D\phi] (X+\delta X) e^{-S[\phi] - \int d^d x\partial_\mu j^\mu \omega_a} \\
+&=& \langle X \rangle - \int [D\phi] \int d^d x\ X \partial_\mu j^\mu \omega_a e^{-S[\phi]} - \int [D\phi] \delta X  e^{-S[\phi]}
+\end{eqnarray}
+so that one finds
+\begin{equation}
+    \langle\delta X\rangle = \int d^d x \ \partial_\mu\langle j^\mu \ X\rangle \omega_a(x).
+\end{equation}
+As
+\begin{eqnarray}
+\delta X &=& -i \sum_i \phi(x_1)\cdots G_a \phi(x_i)\cdots \phi(x_n)\omega_a(x_i) \\
+&=& -i \int d^d x \sum_i \phi(x_1)\cdots G_a \phi(x_i)\cdots \phi(x_n)\delta(x-x_i)\omega_a(x)
+\end{eqnarray}
+Since $\omega_a$ is arbitrary, one obtains the Ward identity
+\begin{equation}
+    \partial_\mu\langle j^\mu \ X\rangle = -i \sum_i \delta(x-x_i)\ \langle \phi(x_1)\cdots G_a \phi(x_i)\cdots \phi(x_n).
+\end{equation}
+So that for each symmetry, there exists a Ward identity, i.e., a constraint to the correlation function. With enough symmetries, one can get all the information of the correlation functions.
+
+\subsection{Renormalization group}
+{\bf Dimensional analysis and renormalizability of QFT}
+Let's start with the canonical dimension of fields and couplings in the action,
+\begin{equation}
+    S = \int d^d x \ \mathcal{L}(\phi, \lambda).
+\end{equation}
+Since the action is dimensionless, every term in $\mathcal{L}$ has an energy scaling dimension of
+\begin{equation}
+    \Delta(\mathcal{L}) = [\mathcal{L}] = \omega^d
+\end{equation}
+which determines the canonical dimension fields and couplings. The renormalizability of a QFT is directly obtained from the energy dimension of Feynman diagrams,
+\begin{equation}
+    \mathcal{D} = d - E_{\phi} \Delta (\phi) - \Delta (\lambda_i)
+\end{equation}
+where $E_{\phi}$ is the number of external fields and $\lambda_i$ the couplings in the theory. A nice discussion about renormalizability can be found online (https://web2.ph.utexas.edu/~vadim/
+Classes/2022f/notes.html).
+
+Super-renormalizable theories have only couplings with positive dimensions. For such theories, there are finite Feynman diagrams become divergent in the perturbation calculation. Renormalizable theories have couplings with non-negative dimensions, in which a finite number of couplings have zero dimensions. There exists infinite number of divergent Feynman diagrams, but the number of divergent amplitudes is finite. If there is at least one coupling with a negative dimension, the theory is non-renormalizable.
+
+{\bf Wilson-Kadanoff RG scheme}
+The renormalization group (RG) builds up the modern understanding of QFT, which is regarded as an {\it effective field theory}. In the history, many different RG schemes have been developed, which are suitable for very different theories. Most of them are realized in a perturbation way around a known RG fixed point. Here we briefly recall the most popular one, i.e.\ the Wilson-Kadanoff RG scheme.
+
+In this scheme, a momentum cutoff $\boldsymbol{k}<\Lambda$ is introduced. One first divides modes into fast $\Lambda/s<\boldsymbol{k}<\Lambda$ and slow $\boldsymbol{k}<\Lambda/s$ parts $\phi = \phi_f +\phi_s$. The fast modes are integrated out to result in a new theory
+\begin{equation}
+    e^{-{S'(\phi)}_{\Lambda/s}} = \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)}
+\end{equation}
+with a smaller cutoff $\Lambda/s$. Generally, the action can be divided into three parts
+\begin{equation}
+S = S_f(\phi_f) + S_s(\phi_s) + S_c(\phi_f,\phi_s).
+\end{equation}
+The new theory thus can be written as
+\begin{equation}
+\begin{aligned}
+    e^{-{S'(\phi_s)}_{\Lambda/s}} &= \int D\phi_f e^{-S_f - S_s - S_c} \\
+    &= e^{-S_s} Z_f \ \frac{\int \mathrm{D}\phi_f \ e^{-S_f} e^{-S_c}} {Z_f} \\
+    &= e^{-S_s}\ Z_f \ \langle e^{-S_c} \rangle_f
+\end{aligned}
+\end{equation}
+where $ Z_f = \int \mathrm{D}\phi_f \ e^{-\phi_f}$ is a constant and can be neglected (Note that it does contribute to the total free energy). The new action thus is
+\begin{equation}
+\begin{aligned}
+{S(\phi_s)}_{\Lambda/s} &= -\log \left( \int \mathrm{D}\phi_{\Lambda/s<\boldsymbol{k}<\Lambda} \ e^{-S_{\Lambda}(\phi)} \right) \\
+&= S_s - \log \left(\langle e^{-S_c} \rangle_f\right)
+\end{aligned}
+\end{equation}
+Usually one can not integral out high energy modes exactly, hence cumulant perturbations based on Feynmann diagramm have to be adopted.
+
+This theory can not be compared with the original one, since they have different cutoffs. Another rescaling step
+\begin{equation}
+    \boldsymbol{k} \rightarrow s\ \boldsymbol{k}
+\end{equation}
+is required to restore the cutoff or energy scale. Since the field operators dependend on length scales, they also need to be rescaled
+\begin{equation}
+     \phi \rightarrow s^{\Delta_\phi}\ \phi
+\end{equation}
+Now one obtains a new theory ${S(\phi,\lambda)}_\Lambda$ at the same cutoff but with different parameters, in which we assumed the theory $S(\phi,\lambda)$ remains the same structure.
+
+Keep doing such RG procedures, one can find how the parameters $\lambda_i(s)$ flow in the parameter space along with the RG time $s$. These RG transformations of the parameters form a semi-group structure. In the whole parameter space, fixed points are special, since they are scale invariant. The parameter near a fixed point $\lambda^*$ is called relevant or irrelevant when it flows away or close to $\lambda^*$, respectively. A RG program is to find all fixed points and analyse how the parameters flow near fixed points. One needs to solve the so-called $\beta$ equation
+\begin{equation}
+\beta_i(\lambda_j) = \frac{\partial \lambda_i}{\partial \log(s)}.
+\end{equation}
+The zero points of the $\beta$ function are solutions of fixed points of the RG program
+\begin{equation}
+\beta_i(\lambda_j^*) = 0.
+\end{equation}
+Near the fixed point, usually one can approimate the $\beta$ function as an linear eigen problem. Eigenvalues of the RG transformation imply how fast $\lambda_i$ flow to or away from $\lambda^*$, which are nothing but the scaling dimensions $\Delta(\tilde{\lambda}_i)$ of the corresponding parameter
+\begin{equation}
+\frac{\partial \tilde{\lambda}_i}{\partial \log(s)} = \Delta \left(\tilde{\lambda}_i \right) \tilde{\lambda}_i
+\end{equation}
+where $\tilde{\lambda}_i$ is a linear combination of the orginal paramters (here we shifted the fixed point to be zero and $\tilde{\lambda}_i$ means the distance to the fixed point $\lambda^*_i$). Note that the RG analysis here is also consistent with the renormalizability of a QFT\@. An irrelevant field ($\Delta\left(\lambda_i\right)<0$) vanishes at IR means it becomes divergent at UV\@.
+
+There also exist many other RG schemes. For example, one may integrate out all high-energy modes $\vert k \vert > \Lambda$. There will be divergence at low dimensions. A popular way to deal with the divergence is to continue the space dimension $d$ to be a real positive number and make perturbation around the upper or lower critical dimension, which is called as $d \mp \epsilon$ expansion in the literature. Another popular and also elegent RG scheme is to introduce a real space short distance cutoff $a$. The scaling transformation of $a$ is canceled by the change of couplings in the theory. One can use operator product expansion (OPE) to write down the $\beta$ function. In this approach, one only needs to know the OPE coefficients at a known fixed point rather than doing Feynmann diagram calculations.
+
+\subsubsection*{Example: poor man's scaling of Kondo effect}
+\subsubsection*{Example: perturbative RG analysis of $\phi^4$ theory}
+The Ferromagnetic phase transition is usually modeled by a real scalar field theory
+\begin{equation}
+S = \int d^d x \ \left\{\frac{1}{2}{\left(\partial\phi\right)}^2 + \sum_{n=1,2,4}\left(\frac{\lambda_n}{n!}\phi^n\right) \right\}
+\end{equation}
+where the field $\phi$ can be viewed as flucturations around the mean field solution $\phi_c$ of the action. Following the Wilson-Kadanoff RG scheme, we identify
+\begin{equation}
+\begin{aligned}
+&S_f = \int d^d x \ \left\{\frac{1}{2}{\left(\Delta\phi_f\right)}^2 + \frac{\lambda_2}{2}\phi_f^2 \right\} \\
+&S_s = \int d^d x \ \left\{\frac{1}{2}{\left(\Delta\phi_s\right)}^2 + \lambda_1 \phi_s + \frac{\lambda_2}{2}\phi_s^2 \right\} \\
+&S_c = \int d^d x \ \left\{ \frac{\lambda_4}{4!}{\left(\phi_s + \phi_f\right)}^4 \right\}.
+\end{aligned}
+\end{equation}
+At one-loop approximation, using cumulant expansion one can find
+\begin{equation}
+\begin{aligned}
+\langle e^{-S_c} \rangle_f = \exp\left\{{-\ExOp{S_c}_f + \frac{1}{2}\left( \ExOp{S_c^2}_f - \ExOp{S_c}_f^2\right)}\right\}
+\end{aligned}
+\end{equation}%•
+
+\noindent In $\ExOp{S_c}_f$ there is a pure slow mode term $\frac{\lambda_4}{4!}\phi_s^4$ and another one
+\begin{equation}
+\begin{aligned}
+\frac{\lambda_4}{4!} C^2_4 \int d^d x  \phi_s^2 \ExOp{\phi_f(x)\phi_f(x)}_f = \int d^d x \left\{ \frac{\ExOp{\phi_f(x)\phi_f(x)}_f\lambda_4/2}{2}\ \phi_s^2\right\}
+\end{aligned}
+\end{equation}
+
+\noindent In $\ExOp{S_c^2}_f - \ExOp{S_c}_f^2$ there is one term contributing to the one-loop result
+\begin{equation}
+	\begin{aligned}
+		{\left( \frac{\lambda_4}{4!} C^2_4 \right)}^2 \int d^d x \int d^d y \ {\left(\phi_s(x){\phi}_s(y)\right)}^2 \ {\ExOp{{\phi}_f(x) {\phi}_f(y)}}_f^2
+	\end{aligned}
+\end{equation}
+
+
+\subsubsection*{Field theoretical renormalization of the $\phi^4$ theory}
+In higher order perturbative RG analysis of an interacting field theory, it is usually more convenient to consult the field theoretical renormalization. We briefly review how to renormalize the $\phi^4$ theory
+\begin{equation}
+	S = \int \frac{1}{2}\left(\partial \phi\right)^2 + \frac{1}{2}m_0^2\phi^2 + \frac{1}{4!}\lambda_0 \phi^4
+\end{equation}
+to the two-loop level in $d\leq4$ dimension. Higher order terms ($\phi^p$ with $p>4$) are neglected, since they are non-renormalizable, meaning one loses the ability to track information at high momentums. Or put it in another way, they are irrelevant in the Wilsonian RG. We ignore the composite field~\footnote{The composite field is related to the dimension of $\phi^2$ or the critical exponent $\nu$.} renormalization here.
+
+\begin{itemize}
+	\item One-loop renormalization 
+\end{itemize}
+At one-loop, we only need to perform first order contribution
+\[ \frac{\lambda_0}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (b);
+	\vertex[left=1cm of b] (a);
+	\vertex[right=1cm of b] (c);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[scalar] (c),
+		b --[black, out=135, in=45, loop, min distance=2.5cm] b
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \]
+for the $\Gamma^{(2)}$ vertex, and the diagram
+\[-\frac{\left(\lambda_0\right)^2}{2} \times \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.2cm of x] (y);
+	\vertex[above left=1cm of x] (a);
+	\vertex[below left=1cm of x] (b);
+	\vertex[above right=1cm of y] (c);
+	\vertex[below right=1cm of y] (d);
+	
+	\diagram*{
+		(x) --[half left] (y),
+		(x) --[half right] (y),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(y) --[scalar] (c),
+		(y) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+
+	\end{feynman}
+\end{tikzpicture} + \mathrm{2 \ permutations}\]
+for $\Gamma^{(4)}$. Regularized by $\Lambda$, one can write down the one-loop resultes
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)} &= k^2 + \left(m_0\right)^2 + \frac{\lambda_0}{2} \int \frac{1}{q^2 + \left(m_0\right)^2} \\
+		\Gamma^{(4)} &= \lambda_0 - \frac{\left(\lambda_0\right)^2}{2} \int \frac{1}{q^2 + \left(m_0\right)^2}\ \frac{1}{\left(k_1 + k_2-q\right)^2 + \left(m_0\right)^2} + \mathrm{2\ permutations}.
+	\end{aligned}
+\end{equation}
+At large momentum they behave as
+\begin{equation}
+	\begin{aligned}
+		&\left[\Gamma^{(2)}\right] \sim \Lambda^{d-2} \\
+		&\left[\Gamma^{(4)}\right] \sim \Lambda^{d-4}
+	\end{aligned}
+\end{equation}
+so that $\Gamma^{(2)}$ is divergent at $d\leq4$, $\Gamma^{(4)}$ is logarithmic dimvergent at $d=4$. All the other higher order vertex functions are convergent when $\Lambda \rightarrow \infty$. 
+
+Keeping terms consistently at one loop, one can introduce renormalized physical parameters in terms of the bare ones
+\begin{equation}
+	\begin{aligned}
+		&\left(m_1\right)^2 = \left(m_0\right)^2 + \frac{\lambda_0}{2} \int \frac{1}{q^2 + \left(m_0\right)^2}\\
+		&\lambda_1 = \lambda_0 - \frac{3\left(\lambda_0\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_0\right)^2\right)^2}\\ 
+	\end{aligned}
+\end{equation} 
+or one can reverse the logic and express bare parameters in terms of physical ones
+\begin{equation}
+	\begin{aligned}
+		&\left(m_0\right)^2 = \left(m_1\right)^2 - \frac{\lambda}{2} \int \frac{1}{q^2 + \left(m_1\right)^2}\\
+		&\lambda_0 = \lambda_1 + \frac{3\left(\lambda_1\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_1\right)^2\right)^2}.\\ 
+	\end{aligned}
+\end{equation} 
+Now if the renormalized parameters $m_1$ and $\lambda$ are finite, the vertex functions 
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)}(k,m_1,\lambda_1) &= k^2 + \left(m_1\right)^2\\
+		\Gamma^{(4)}(k_i,m_1,\lambda_1) &= \lambda_1 - \frac{\left(\lambda_1\right)^2}{2} \int \frac{1}{q^2 + \left(m_1\right)^2}\ \frac{1}{\left(k_1 + k_2-q\right)^2 + \left(m_1\right)^2} + \mathrm{2\ permutations}\\
+		& \qquad + \frac{\left(\lambda_1\right)^2}{2} \int \frac{1}{\left(q^2 + \left(m_1\right)^2\right)^2}.
+	\end{aligned}
+\end{equation}
+do not suffer from the UV divergence at one loop.
+
+One can see that the one-loop corrections renormalize the critical point (the mass) and the coupling constant $\lambda_0$. The scaling relations remain the same though, meaning that the scaling dimensions are still the canonical ones. At the two loop, to remove all UV divergences one has to introduce the field renormalization factor $Z_\phi$ and redefine fields in the action, which give rise to the anormalous correction to critical exponents.
+
+\begin{itemize}
+	\item Two-loop renormalization 
+\end{itemize}
+At the two-loop level, we need to consider more diagrams 
+\[ (a) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (b);
+	\vertex[left=of b] (a);
+	\vertex[left=of b] (a);
+	\vertex[right=of b] (c);
+	\vertex[above=of b] (d);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[scalar] (c),
+		(b) --[out=135,in=180,min distance=0.9cm] (d),
+		(b) --[out=45,in=0,min distance=0.9cm] (d),
+		d --[black, out=135, in=45, loop, min distance=3cm] d
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (d) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(b) \, \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (a);
+	\vertex[right=of a] (b);
+	\vertex[right=of b] (c);
+	\vertex[right=of c] (d);
+	
+	\diagram*{
+		(a) --[scalar] (b),
+		(b) --[] (c),
+		(c) --[scalar] (d),
+		(b) --[half left] (c),
+		(b) --[half right] (c),
+		%d --[red, out=160, in=20, loop, min distance=3cm] d
+	};
+	\draw[black] (b) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (c) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture}\]
+for $\Gamma^{(2)}$
+and 
+\[(a) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.3cm of x] (y);
+	\vertex[right=1.3cm of y] (z);
+	\vertex[above left= 1cm of x] (a);
+	\vertex[below left= 1cm of x] (b);
+	\vertex[above right= 1cm of z] (c);
+	\vertex[below right= 1cm of z] (d);
+	
+	\diagram*{
+		(x) --[half left] (y),
+		(x) --[half right] (y),
+		(y) --[half left] (z),
+		(y) --[half right] (z),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(z) --[scalar] (c),
+		(z) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(b) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[right=1.3cm of x] (y);
+	\vertex[above right= 0.5cm and 0.65cm of x] (z);
+	\vertex[above left= 1cm of x] (a);
+	\vertex[below left= 1cm of x] (b);
+	\vertex[above right= 1cm of y] (c);
+	\vertex[below right= 1cm of y] (d);
+	
+	\diagram*{
+		(x) --[bend left] (z), 
+		(y) --[bend right] (z), 
+		(x) --[half right] (y),
+		(x) --[scalar] (a),
+		(x) --[scalar] (b),
+		(y) --[scalar] (c),
+		(y) --[scalar] (d),
+		z --[black, out=135, in=45, loop, min distance=2cm] z,
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture} \qquad
+(c) \begin{tikzpicture}[baseline=(current  bounding  box.center)]
+	\begin{feynman}
+	\vertex (x);
+	\vertex[above right=0.6cm and 1.5cm of x] (y);
+	\vertex[below right=0.6cm and 1.5cm of x] (z);
+	\vertex[above left=1cm of x] (a);
+	\vertex[below left=1cm of x] (b);
+	\vertex[above right=0.1cm and 1cm of y] (c);
+	\vertex[below right=0.1cm and 1cm of z] (d);
+	
+	\diagram*{
+		(a) --[scalar] (x),
+		(b) --[scalar] (x),
+		(x) --[out=45,in=190] (y),
+		(x) --[out=-45,in=170] (z),
+		(y) --[out=-135,in=135] (z),
+		(y) --[out=-45,in=45] (z),
+		(y) --[scalar] (c),
+		(z) --[scalar] (d),
+	};
+	\draw[black] (x) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (y) node[fill=black, circle, inner sep=1pt];
+	\draw[black] (z) node[fill=black, circle, inner sep=1pt];
+	\end{feynman}
+\end{tikzpicture}
+\]
+for $\Gamma^{(4)}$ vertex. 
+
+Let's first consider the renormalization of $\Gamma^{(2)}$. Again we choose the renormalized mass to be 
+\begin{equation}
+	\left(m_1\right)^2 = \Gamma^{(2)}(k=0) = f(m_0, \lambda, \Lambda).
+\end{equation}
+One can write the vertex function in terms of renormalized mass $m_1$. In two-loop diagrams one can directly replace $\left(m_0\right)^2$ with $\left(m_1\right)^2$. However, in one-loop contributions one has to expand the bare diagram in terms of the renormalized ones to two-loop level, which resultes in a diagram cancelling the first two-loop one. Finally one finds
+\begin{equation}
+	\begin{aligned}
+		\left(m_0\right)^2 = \left(m_1\right)^2 - \frac{\lambda_0}{2} \int \frac{1}{\left(m_1\right)^2+q^2} + \frac{\left(\lambda_0\right)^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}
+	\end{aligned}
+\end{equation} 
+and 
+\begin{equation}
+	\begin{aligned}
+		\Gamma^{(2)}(k) = k^2 + m_1^2 &- \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(k-q_1-q_2\right)^2+m_1^2\right)} \\
+		& + \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+Note that $\Gamma^{(2)}$ is convergent at $d<4$ dimensions. At $d=4$, there is a logarithmic divergence. 
+
+Similarly in $\Gamma^{(4)}$, one can expand the one-loop diagrams to two-loop level and replace the bare mass with the renormalized one. The second two-loop diagram is cancelled due to the renormalization of mass. Now $\Gamma^{(4)}$ contains only a logarithmic divergence when $d \rightarrow 4$. To cure the logarithmic divergence at $d=4$, one can introduce the renormalized coupling
+\begin{equation}
+	\begin{aligned}
+		\lambda &= \Gamma^{(4)}(k_i=0, m_1^2,\Lambda) \\
+		&= \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{\left(q^2 + m_1^2\right)^2} + \frac{3}{4}\lambda_0^3 \left(\int \frac{1}{\left(q^2 + m_1^2\right)^2} \right)^2 + \\
+		& \qquad 3\lambda_0^3 \int \frac{1}{\left(q_1^2+m_1^2\right)^2\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation} 
+Or inversely, one can write down the bare coupling in terms of the renormalized one
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= \lambda + \frac{3}{2}\lambda^2 \int \frac{1}{\left(q^2 + m_1^2\right)^2} + \frac{15}{4}\lambda^3 \left(\int \frac{1}{\left(q^2 + m_1^2\right)^2} \right)^2 - \\
+		& \qquad 3\lambda^3 \int \frac{1}{\left(q_1^2+m_1^2\right)^2\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+And one can also write down the vertex function $\Gamma^{(4)}$ in terms of $\lambda$ and $m_1$. Now $\Gamma^{(4)}(k_i,m_1^2,\lambda)$ is convergent at $d\leq4$.  
+
+Turning back $\Gamma^{(2)}$, one can replace $\lambda_0$ with $\lambda$ safely at the two-loop level. The bare mass should be replaced by
+\begin{equation}
+	\begin{aligned}
+		\left(m_0\right)^2 = & \left(m_1\right)^2 - \frac{\lambda}{2} \int \frac{1}{\left(m_1\right)^2+q^2} - \frac{3}{4} \lambda^2 \int \frac{1}{\left(q^2+m_1^2\right)^2}\int \frac{1}{\left(m_1\right)^2+q^2} + \\
+		& \quad \frac{\left(\lambda\right)^2}{6} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(q_1+q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation} 
+To cure the logarithmic divergent divergence, we introduce the field renormalization
+\begin{equation}
+	\Gamma_R^{(2)} = Z_\phi(\lambda,m_1,\Lambda) \Gamma^{(2)}(k,m_1^2,\Lambda),
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		Z_\phi &= 1 + \lambda^2 z_2 \\
+		z_2 &= \frac{1}{6}\frac{\partial}{\partial k^2} \int \frac{1}{\left(q_1^2+m_1^2\right)\left(q_2^2+m_1^2\right)\left(\left(k-q_1-q_2\right)^2+m_1^2\right)}.
+	\end{aligned}
+\end{equation}
+Now we redefine the mass as 
+\begin{equation}
+	m^2 = Z_\phi m_1^2.
+\end{equation}
+This renormalization means we can choose
+\begin{equation}
+	\begin{aligned}
+		&G^{(2)} = Z_\phi G^{(2)}_R \\
+		&g = Z_\phi^2 \lambda \\
+		&G_c^{(4)} = Z_\phi^2 G_{cR}^{(4)} \\
+		&\Gamma^{(4)} = Z_\phi^{-2}\Gamma_R^{(4)}
+	\end{aligned}
+\end{equation}
+
+Note that the replacement of $\lambda$ with $g$ generates terms with four loops, which means we can safely express bare quantities in terms of $g$ and $m^2$. The vertex functions are finite at the two-loop level when $d \leq 4$ with the normalization conditions
+\begin{equation}
+	\begin{aligned}
+		&\Gamma_R^{(E)}(k_i,m^2,g) = Z_\phi^{E/2}\Gamma^{(E)}(k_i,m_0^2,\lambda,\Lambda) \\
+		&\Gamma_R^{(2)}(0,m^2,g) = m^2 \\
+		&\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,m^2,g)\vert_{k^2=0} = 1 \\
+		&\Gamma_R^{(4)}(0,m^2,g) = g
+	\end{aligned}
+\end{equation}
+One should be clear that the normalization condition is not unique. Actually there can be infinite number of normalization approaches. Moreover, the perturbative renormalization is an asymptopic series. In the above normalization, the mass is finite. For the critical theory, especially for the calculation of critical exponents, it is usually more convenient to choose the masless normalization $m^2 = 0$ at a finite (symmetric) momentum
+\begin{equation}
+	\begin{aligned}
+		\Gamma_R^{(2)}(0,0,g) &= 0 \\
+		\left.\frac{\partial}{\partial k^2}\Gamma_R^{(2)}(k,0,g)
+		\right\vert_{k^2=\kappa^2} &= 1 \\
+		\Gamma_R^{(4)}(k_i,0,g)\vert_{\mathrm{SP}} &= g.
+	\end{aligned}
+\end{equation}
+Another approach is to look at small mass and large $k/m$. Of course these approaches are equivalent to each other. 
+
+\begin{itemize}
+	\item Renormalization for the massless $\phi^4$ and critical exponents
+\end{itemize}
+The physical or renormalized parameters are running upon the renormalization, which means for a given bare theory one can obtain different renormalized theories with different UV cutoffs. One can also invert the logic and write down different bare theories corresponding to the same renormalized one. In either case, one can write down flow equations for the parameters in terms of the cutoff $\Lambda$ or the running dimensionless coupling $u$. At the fixed point, the flow equation disappears, meaning the physics there does not depend on the UV cutoff and one can safely sends $\Lambda \rightarrow \infty$. The solution of the flow equations can be conveniently used to calculate critical exponents. 
+
+To study critical behaivors, we first rewrite the parameters as 
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= \kappa^\epsilon \, u_0 \\
+		g &= \kappa^\epsilon u
+	\end{aligned}
+\end{equation}
+where $\kappa$ is the symmetric momentum used in the massless theory renormalization, $u_0$ and $u$ are dimensionless. As stated above the bare theory does not depend on the renormalization 
+\begin{equation}
+	\Gamma_R^{(N)}(k_i; u, \kappa) = Z_\phi^{N/2} \Gamma (k_i;u_0,\Lambda)
+\end{equation}
+which gives rise to the RG equation
+\begin{equation}
+	\left(\kappa\frac{\partial}{\partial \kappa} + \beta(u)\frac{\partial}{\partial u} - \frac{N}{2}\gamma_\phi \right)\Gamma_R^{(N)}(k_i;u,\kappa) = 0
+\end{equation}
+where 
+\begin{equation}
+	\begin{aligned}
+		&\beta(u) = \kappa\left(\frac{\partial u}{\partial \kappa}\right)_{\lambda,\Lambda} = -\epsilon\left(\frac{\partial \ln(u_0)}{\partial u}\right)^{-1}\\
+		&\gamma_\phi = \kappa \left(\frac{\partial \ln(Z_\phi)}{\partial \kappa}\right)_{\lambda,\Lambda} = \beta(u)\frac{\partial \ln(Z_\phi)}{\partial u}.
+	\end{aligned}
+\end{equation}
+The solution of the RG equation reads
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u,\kappa) = \exp\left\{-\frac{N}{2}\int_1^\rho \frac{\gamma_\phi(u(x))}{x}\right\} \Gamma_R^{(N)}(k_i;u(\rho),\rho\kappa).
+\end{equation}
+At the fixed point, it reduces to a simpler form
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u_c,\kappa) = \kappa^{\frac{1}{2}N\gamma_\phi(u_c)} \tilde{\Gamma}(k_i).
+\end{equation}
+Since the canonical dimension of $\Gamma_R^{(N)}$ is fixed to be $N+d-\frac{1}{2}Nd$, one can rewrite the vertex function as 
+\begin{equation}
+	\Gamma_R^{(N)}(k_i;u_c,\kappa) = \kappa^{N+d-\frac{1}{2}Nd} f_\Gamma(k_i/\kappa).
+\end{equation}
+One can find the scaling of the vertex function reads
+\begin{equation}
+	\Gamma_R^{(N)}(\rho k_i;u_c,\kappa) = \rho^{N+d-\frac{1}{2}Nd - \frac{1}{2}N\gamma_\phi(u_c)} \Gamma_R^{(N)}(k_i;u_c,\kappa).
+\end{equation}
+It is clear now $\gamma_\phi(u_c)$ is the so-called anormalous exponent 
+\begin{equation}
+	\eta = \gamma_\phi(u_c).
+\end{equation}
+for the $\phi$ operator.
+
+Now let's derive the renormalization at the two-loop level. Following similar calculations in the last section, one can express the bare quantites in terms of the renormalized ones, or the other way around. At the two-loop level the mass normalization condition determines the critical bare $\mu_c^2$  
+\begin{equation}
+	\begin{aligned}
+		\mu_c^2 = &-\frac{\lambda_0}{2} \int \frac{1}{q^2 + \mu_c^2} + \frac{\lambda_0^2}{4} \int \frac{1}{q^2 + \mu_c^2} \int \frac{1}{\left(q^2 + \mu_c^2\right)^2} \\
+		& \quad + \frac{\lambda_0^2}{6} \int \frac{1}{\left(q_1^2 + \mu_c^2\right)\left(q_2^2 + \mu_c^2\right)\left(\left(q_1+q_2\right)^2 + \mu_c^2\right)} \\
+		= & -\frac{\lambda_0}{2} \int \frac{1}{q^2} + \frac{\lambda_0^2}{6} \int \frac{1}{q_1^2 q_2^2 \left(q_1+q_2\right)^2 } \\
+		=& C_\mu^1 \lambda_0 + C_\mu^2 \lambda_0^2 
+	\end{aligned}
+\end{equation} 
+The second normalization condition gives
+\begin{equation}
+	\begin{aligned}
+		Z_\phi &= 1 + \frac{\lambda_0^2}{6} \left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{\left(q_1^2 + \mu_c^2\right)\left(q_2^2 + \mu_c^2\right)\left(\left(k - q_1-q_2\right)^2 + \mu_c^2\right)} \right)
+		\right\vert_{k^2=\kappa^2} \\
+		& = 1 + \frac{\lambda_0^2}{6} \left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{ q_1^2 q_2^2 \left(k - q_1-q_2\right)^2 } \right)
+		\right\vert_{k^2=\kappa^2} \\
+		&= 1 + C_Z \lambda_0^2
+	\end{aligned}
+\end{equation} 
+and the last one 
+\begin{equation}
+	\begin{aligned}
+		g &= Z_\phi^2 \left( \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{\left(q^2 + \mu_c^2\right)\left(\left(k_1+k_2-q\right)^2 + \mu_c^2\right)} + \frac{3}{4}\lambda_0^3 \left( \int \frac{1}{\left(q^2 + \mu_c^2\right)\left(\left(k_1+k_2-q\right)^2 + \mu_c^2\right)} \right)^2 + \right.\\
+		& \left.\qquad 3\lambda_0^3 \int \frac{1}{\left(q_1^2+\mu_c^2\right)\left(\left(k_1+k_2-q_1\right)^2+\mu_c^2\right)\left(q_2^2+\mu_c^2\right)\left(\left(q_1+q_2-k_3\right)^2+\mu_c^2\right)} \right)\\
+		&= Z_\phi^2 \left( \lambda_0 - \frac{3}{2}\lambda_0^2 \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} + \frac{3}{4}\lambda_0^3 \left( \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} \right)^2 + \right.\\
+		& \left.\qquad \qquad 3\lambda_0^3 \int \frac{1}{q_1^2 \left(k_1+k_2-q_1\right)^2 q_2^2 \left(q_1+q_2-k_3\right)^2} \right)\\
+		&=\left(1 + 2 C_Z \lambda_0^2\right) \left( \lambda_0 - \frac{3}{2}\lambda_0^2 C_2 + \frac{3}{4}\lambda_0^3 C_2^2 + 3\lambda_0^3 C_3 \right)\\
+		&=\lambda_0 - \frac{3}{2} C_2 \lambda_0^2 + \left(2 C_Z + \frac{3}{4} C_2^2 + 3 C_3\right) \lambda_0^3
+	\end{aligned}
+\end{equation} 
+or one can express the bare parameter in terms of the renormalized one
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= g + \frac{3}{2} C_2 \lambda_0^2 - \left(2 C_Z + \frac{3}{4} C_2^2 + 3 C_3\right) \lambda_0^3 \\
+		&=g + \frac{3}{2} C_2 g^2 + \left(\frac{15}{4} C_2^2 - 2 C_Z - 3 C_3\right) g^3
+	\end{aligned}
+\end{equation}
+where we have used 
+\begin{equation}
+	\begin{aligned}
+		C_z &= \frac{1}{6}\left.\frac{\partial}{\partial k^2} \left( \int \frac{1}{ q_1^2 q_2^2 \left(k - q_1-q_2\right)^2 } \right) \right\vert_{k^2=\kappa^2} \\
+		C_2 &= \int \frac{1}{q^2 \left(k_1+k_2-q\right)^2} \\
+		C_3 &= \int \frac{1}{q_1^2 \left(k_1+k_2-q_1\right)^2 q_2^2 \left(q_1+q_2-k_3\right)^2}
+	\end{aligned}
+\end{equation}
+Using the dimensional expansion to the $O(\epsilon)$ order, they read
+\begin{equation}
+	\begin{aligned}
+		C_z \kappa^{2 \epsilon} &= -\frac{1}{48\epsilon}\left(1+\frac{5}{4}\epsilon\right) \\
+		C_2 \kappa^\epsilon &= \frac{1}{\epsilon} \left(1+\frac{1}{2}\epsilon\right) \\
+		C_3 \kappa^{2 \epsilon} &= \frac{1}{2 \epsilon ^2} \left(1+\frac{3}{2}\epsilon\right)
+	\end{aligned}
+\end{equation}
+
+Similarly the field renormalization constant can also be replaced by
+\begin{equation}
+	Z_\phi = 1 + C_Z g^2 \\
+\end{equation}
+at the two-loop level.
+
+In terms of dimensionless parameters, one can rewrite the above results as
+\begin{equation}
+	\begin{aligned}
+		&Z_\phi = 1 + C_Z \kappa^{2 \epsilon} u^2 \\
+		&u_0 = u + \frac{3}{2} C_2 \kappa^{\epsilon} u^2 + \left(\frac{15}{4} C_2^2 - 2 C_Z - 3 C_3\right) \kappa^{2\epsilon} u^3
+	\end{aligned}
+\end{equation}
+One finds the $\beta$ equation
+\begin{equation}
+	\begin{aligned}
+		\beta(u) = -\epsilon\left(\frac{\partial \ln(u_0)}{\partial u}\right)^{-1} = -\epsilon u \left( 1 - \frac{3}{2} C_2 u - \left(3C_2^2-4C_z-6C_3\right)u^3 \right)
+	\end{aligned}
+\end{equation}
+whose zeros contain two fixed points, the Gaussian one with $u_c = 0$ and the Wilson-Fisher fixed point
+\begin{equation}
+	u_c = \frac{2}{3}\epsilon.
+\end{equation}
+The anormalous exponent reads 
+\begin{equation}
+	\begin{aligned}
+		\gamma_\phi(u_c) = \frac{\epsilon^2}{54}. 
+	\end{aligned}
+\end{equation}
+At this order, $\gamma_\phi(u_c)$ is still far away from the high-termerature series expansion result $0.041$ at $d=3$ or the 2d Ising CFT exact result $1/4$. At the next order of dimensional expansion, it becomes better. However, it is known $\epsilon$ expansion is not convergent. Resummation techniques are necessary to obtain accurate critical exponents.
+
+\begin{itemize}
+	\item Renormalization for the massive $\phi^4$ and critical exponents
+\end{itemize}
+Though technically easier for massless renormalization, there is no fundamental difficult to stop one to renormalize an massive theory and calculate critical exponents using the massive $\phi^4$. Now the coupling constants become
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 &= u_0 \, m^\epsilon \\
+		g &= u \, m^\epsilon.
+	\end{aligned}
+\end{equation}
+One can use the fact that the divergent integrals when sending $\Lambda \rightarrow \infty$ have nothing to do with the mass and become poles in the $\epsilon$ expansion. Take the one-loop renormalization for the coupling as an example
+\begin{equation}
+	\begin{aligned}
+		\lambda_0 / m^\epsilon &= m^{-\epsilon}\, \left( \lambda_1 + \frac{3}{2} \lambda_1^2 \int^\Lambda \frac{1}{\left(q^2 + m^2\right)^2} \right) \\
+		&= u_1 + \frac{3}{2}u_1^2 m^\epsilon \int^\Lambda \frac{1}{\left(q^2 + m^2\right)^2}
+	\end{aligned}
+\end{equation}
+which becomes 
+\begin{equation}
+	\begin{aligned}
+		u_0& = u_1 + \frac{3}{2} u_1^2 \int \frac{1}{\left(q^2 + 1\right)^2} \\
+		& = u_1 + \frac{3}{2} u_1^2 \left(\frac{1}{\epsilon} -\frac{1}{2} + \mathrm{O}(\epsilon)\right)
+	\end{aligned}
+\end{equation}
+when $\Lambda \rightarrow \infty$. Similarly, one can obtain the $\epsilon$ expansion for the bare coupling, $\beta$ equation and the anormalous exponent at the two-loop level. To the leading order of the $\epsilon$ expansion, one can find 
+\begin{equation}
+	\begin{aligned}
+		&u_c = \frac{2}{3}\epsilon \\
+		&\gamma_\phi = \frac{1}{54}\epsilon^2
+	\end{aligned}
+\end{equation}
+consistent with the massless renormalization.
+
+\subsubsection*{Example: Momentum shell perturbative RG analysis of BKT transition}
+The sine-Gordon theory reads
+\begin{equation}
+S = \int \frac{1}{8 \pi  K}(\nabla \varphi )^2 + g \cos( \beta \varphi)
+\end{equation}
+where $K=1/2$, $\beta=2$ and $\varphi$ is compactified as $\varphi \sim \varphi + 2\pi$. The symmetry for the $\varphi$ scalar is spoiled down from $O(2)_\theta \times O(2)_\varphi$ to $O(2)_\theta \times Z_2^\varphi$ where $Z_2^\varphi : \varphi \rightarrow \varphi + \pi$. In the following we are going to use perturbative Wilsonian RG to analyse the effect of the marginal field $g$ ($\Delta_g =2 - \beta^2K = 0$) close to the free compact boson $K=1/2$.
+
+To the second order approximation, the effective action can be written down 
+\begin{equation}
+	\begin{aligned}
+		S_{\Lambda '}^{\text{eff}} ( \varphi  ) =& S_0(\varphi ) -\text{Log} \left( 1 - <S_1(\varphi ,h)>_h + \frac{1 }{2}<S_1(\varphi ,h)S_1(\varphi ,h)>_h \right) \\
+		= &S_0(\varphi) + <S_1(\varphi ,h)>_h \\
+		&- \frac{1}{2}<S_1(\varphi ,h)S_1(\varphi ,h)>_h + \frac{1}{2}<S_1(\varphi ,h)>_h<S_1(\varphi ,h)>_h.
+	\end{aligned}
+\end{equation}
+where we denote slow or fast field as $\varphi$ or $h$ respectively. 
+
+\begin{itemize}
+	\item First order term $\expval{S_1(\phi ,h)}_h$
+\end{itemize}
+\begin{equation}
+	\begin{aligned}
+		\expval{S_1(\phi ,h)}_h &= g \expval{\cos \beta \left(\varphi+h\right)} = \frac{g}{2}\sum _{\sigma }< e^{i \sigma  \beta  ( \phi  +h)}>_{h }\\
+		& = \sum_\sigma \frac{g}{2}e^{i \sigma
+		\beta  \varphi }e^{-\frac{1}{2}\beta ^2 <h(x)^2>_h } \\
+ 		&= \frac{g e^{i \sigma  \beta  \phi }}{2}e^{-\beta ^2 K\log 
+			\left(\frac{\Lambda }{\Lambda '}\right) } \\
+		&=g \cos  (\beta  \phi )\text{  }\left(\frac{\Lambda }{\Lambda '}\right)^{-\beta ^2K} \\
+		&= g \cos(\beta  \phi )\left( 1 - \beta ^2K\,\mathrm{d}l \right)
+	\end{aligned}
+\end{equation}
+After rescaling the coordinates with a factor $\frac{\Lambda}{\Lambda'}=1+\mathrm{d}l$, the effective action becomes
+\begin{equation}
+S^{\text{eff}}( \phi  ) = S_0(\phi ) +g \left(1 + \left(d-\beta^2K \right)\mathrm{d}l\right) \int \cos  (\beta  \phi ) .
+\end{equation}
+One concludes that \(g\) is relevant or irrelevant when \(\beta^2K<2\) or \(\beta ^2K>2\), respectively.
+
+\begin{itemize}
+	\item Second order perturbation \(\left(<S_1{}^2>-<S_1><S_1> \right)\) 
+\end{itemize}
+One can find
+\begin{equation}
+	\begin{aligned}
+		&\langle S_1(\phi ,h)S_2(\phi ,h)\rangle_h \\
+		&=\frac{g^2}{4} \langle e^{i \sigma _1 \beta  \left( \phi _1 +h_1\right)}e^{i \sigma _2 \beta  \left(\phi _2 +h_2\right)}\rangle_{h } \\
+		&= \frac{g^2 }{4} e^{i \sigma _1 \beta  \phi _1 +\text{  }i \sigma _2 \beta  \phi _2 }< e^{i \beta\sigma _1 h_1}e^{i \beta\sigma _2 h_2}>_{h }\\
+		&=\frac{g^2 }{4}e^{i \sigma  \beta  \left(\phi _1 - \phi _2\right) }e^{\beta ^2 \left( <h_1h_2>-<h^2> \right)} +\frac{g^2}{4}e^{i \sigma  \beta  \left(\phi _1 + \phi _2\right) }e^{-\beta ^2 \left( <h_1h_2>+<h^2> \right)}\\
+		&= \frac{g^2 }{2}\cos \left(\beta  \left(\phi _1 - \phi _2\right) \right){} e^{+\frac{\beta^2}{2}  \expval{\left(h_1-h_2\right)^2}_h} \\
+		&+\frac{g^2}{2} \cos \left(\beta  \left(\phi _1 + \phi _2\right) \right){} e^{-\frac{\beta^2}{2}  \expval{\left(h_1-h_2\right)^2}_h}
+	\end{aligned}
+\end{equation}
+and another term
+\begin{equation}
+	\begin{aligned}
+		&\expval{S_1(\phi ,h)}_h \expval{S_2(\phi ,h)}_h = g^2 \cos \left( \beta  \phi _1\right) \cos \left(\beta \phi _2\right) e^{-\beta ^2 \expval{h^2}_h}\\
+		&= \frac{g^2 }{2}(1 - 2\beta^2 K \text{d}l) \left( \cos \left( \beta  \left(\phi _1 - \phi _2\right) + \cos \left( \beta  \left(\phi _1 + \phi _2\right) \right)\right.\right.		
+	\end{aligned}
+\end{equation}
+So that to second order perturbation, the effective action is
+\begin{equation}
+	\begin{aligned}
+		&S_{\Lambda '}^{\text{eff}} ( \phi  ) \\
+		=& S_0(\phi ) +<S_1(\phi ,h)>_h - \frac{1}{2}\left(<S_1(\phi ,h)S_1(\phi ,h)>_h - <S_1(\phi ,h)>_h<S_1(\phi ,h)>_h\right)\\
+		=& S_0( \phi  ) + g \cos  (\beta  \phi ) e^{-\frac{\beta ^2}{2} \expval{h^2}_h} - \frac{ g^2 }{4}e^{-\beta ^2 \expval{h^2}_h}\int d^2x_1d^2x_2 \\
+		& \left[\text{  }\left( e^{\beta
+		^2 \expval{h_1h_2}_h}-1\right) \cos \left( \beta  \left(\phi _1 - \phi _2\right) \right)+ \left( e^{-\beta ^2 \expval{h_1h_2}_h}-1\right) \cos \left( \beta  \left(\phi _1 + \phi _2\right) \right) \right]
+	\end{aligned}
+\end{equation}
+
+Note that the integral is from \(\Lambda '\) to $\Lambda $, so that the neutrality condition is not applied here. Now we assume the two point correlation $e^{\beta ^2 \expval{h_1h_2}_h}$ to be short ranged, which allow us to do approximation and only keep the leading order of the relative distance $r$. With a hard cutoff used above, the two point correlation $(\expval{h_1h_2}_h)$ has a long fluctuating tail. One can add a smooth factor $(e^{-k/\Lambda })$ for the fast modes to suppress the integral to obtain a short range correlation functions. Due to short range nature of the two point correlation, one can introduce the new coordinate 
+\begin{equation}
+R = \frac{x+y}{2}, \ r = x-y
+\end{equation}
+The last term is approximated to be
+\begin{equation}
+\left.\cos \left( \beta  \left(\phi _1 + \phi _2\right) \right) \right] = \cos  (2 \beta  \phi  (R)) + \mathrm{higher \ order \ terms} 
+\end{equation}
+which is less relevant compared with the first one since its scaling dimension $4\beta^2 K$.
+
+Another term reads
+\begin{equation}
+	\begin{aligned}
+		\cos \left( \beta  \left(\phi _1 - \phi _2\right) \right) = e^{-\beta^2\expval{\varphi^2}_{\varphi}}:\cos ( \beta \text{  }r\cdot \nabla \phi  ): = e^{-\beta^2\expval{\varphi^2}_{\varphi}}\left(1 - \frac{\beta ^2}{2} ( r\cdot \nabla \varphi)^2 \right)		
+	\end{aligned}
+\end{equation}
+
+One finds
+\begin{equation}
+	\begin{aligned}
+		&- \frac{ g^2 }{4} \, \int e^{-\beta^2 \expval{h^2}_h} \left( e^{\beta ^2 \expval{h_1h_2}_h}-1\right) \cos \left( \beta  \left(\phi _1 - \phi _2\right) \right) \\
+		&- \frac{ g^2 }{4} \, \int e^{-\beta^2 \expval{\varphi^2}_\Lambda} \left( e^{\beta ^2 \expval{h_1h_2}_h}-1\right) :\cos \left( \beta  \left(\phi _1 - \phi _2\right) \right):\\
+		&- \frac{ g^2 }{4} \, \sim \int \, \left\{ C(\Lambda)\right\} \ \times \left\{\beta^2 K f(r) \mathrm{d}l\right\} \ \times \left(1 - \frac{\beta ^2}{2} ( r\cdot \nabla \varphi)^2\right)\\
+		&\sim f(\Lambda) g^2 \beta^4 K\mathrm{d}l \int \mathrm{d}^2R\,  \left(\partial \varphi\right)^2
+	\end{aligned}
+\end{equation}
+in which we used
+\begin{equation}
+e^{\beta^2 \expval{h_1h_2}_h}-1 = \beta^2 K f(r) \text{d}l
+\end{equation}
+and
+\begin{equation}
+	\begin{aligned}
+		\int \mathrm{d}^2r \ f(r) ( r\cdot \nabla \phi (R ) )^2 =&\int d^2r \ f(r) \left(r \cos \left(\theta _{r\cdot \nabla \phi }\right) |\nabla \varphi(R)| \right){}^2 \\ 
+		&= \int \text{d}r \text{d$\theta $}\text{  }r f(r)\text{  }r^2 \cos ^2\left(\theta _{r\cdot \nabla \phi }\right)\text{  }(\nabla \phi(R) )^2\\
+		&\sim (\nabla \phi(R)^2 \ \int \text{d}r \ \tilde{f}(r).		
+	\end{aligned}
+\end{equation}
+Note that the normalization of the $\cos$ term combing with the fast mode contribution makes the second perturbation does not depends on $\Lambda^\prime$. One does not need to do rescaling for the cutoff. The second order term renormalize the parameter $K$.
+
+In summary, to the second order perturbation the effective action reads
+\begin{equation}
+	\begin{aligned}
+		&S^{\text{eff}} ( \phi  ) = S_0(\phi ) + g( 1 - \beta^2 K \text{d}l )\int_{\Lambda^\prime} d^2x \cos  (\beta  \varphi ) + f(\Lambda) g^2 \beta^4 K\mathrm{d}l \int \mathrm{d}^2R\,  \left(\partial \varphi\right)^2 \\ 
+		&= \left(\frac{1}{8\pi K} + f(\Lambda) g^2 \beta^4 K\mathrm{d}l\right) \int_\Lambda \left( \partial \varphi \right)^2 + g\left(1 + \left(2-\beta^2 K\right)\mathrm{d}l\right)\int_\Lambda \cos (\beta \varphi)
+	\end{aligned}
+\end{equation}
+Now one can write down the \(\beta\) function of \(K\) and \(g\)
+\begin{equation}
+	\begin{aligned}
+		&\frac{\partial g}{\partial l}=(2-\beta^2 K)g\\
+		&\frac{\partial K}{\partial l} = -C\,\beta^4 K^2\,g^2 		
+	\end{aligned}
+\end{equation}
+We assume $g$ is small and $K \sim 1/2$
+\begin{equation}
+	\begin{aligned}
+		&\frac{\partial \tilde{g}}{\partial l} = - \tilde{K} \tilde{g}\\
+		&\frac{\partial \tilde{K}}{\partial l} = -\tilde{g}^2 		
+	\end{aligned}
+\end{equation}
+where $\tilde{K} := 4 K - 2$ and $\tilde{g}$ is normalized to simplify the notation.
