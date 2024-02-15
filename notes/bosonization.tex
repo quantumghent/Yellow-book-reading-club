@@ -42,6 +42,14 @@ where the canonical momentum $\Pi_\varphi = \frac{1}{4\pi K} \dot{\phi}$, which 
 	\left[\varphi(x), \ \Pi_\varphi(y) \right] = i\,\delta(x-y)
 \end{equation}
 
+where the canonical momentum $\Pi = \frac{1}{4\pi K} \dot{\phi}$. In terms of current operators we can write down (note $x := \sigma$ in the Hamiltonian is defind on the cylinder)
+\begin{equation}
+	\begin{aligned}
+		\partial_x \varphi &= \partial \varphi\ i z - \overline{\partial}\overline{\varphi} i z = j_n/z^n -\overline{j}_n / \overline{z}^n \\
+		4\pi K\, \Pi &= \partial \varphi i z + \overline{\partial} \varphi i \overline{z} = j_n/z^n + \overline{j}_n / \overline{z}^n
+	\end{aligned}
+\end{equation}
+
 The whole theory can be actuall reproduced using the current algebra $j_n$ and $\bar{j}_n$. One can write down (note the quantization is defined on the plane, or the so-called radial quantization)
 \begin{equation}
 	\begin{aligned}
@@ -317,8 +325,8 @@ Thus one identifies that the slow modes are close to $\pm k_f$ ($k_f > 0$),
 \textcolor{red}{Q: Should we use $4\pi$ here? The holomorphic and antiholomorphic both contributes a factor $\delta(x-y)$, which gives rise a wrong anticommutator for the lattice fermion $c$. Is this the fermion doubling problem?} A probaly better understanding is to treat the two branches independently
 \begin{equation}
 	\begin{aligned}
-		c_{+}\left(t,x\right) &\sim \frac{1}{\sqrt{2\pi}}e^{-ik_f \left( t+x \right)} \psi_{+}\\
-		c_{-}\left(t,x\right) &\sim \frac{1}{\sqrt{2\pi}}e^{-ik_f\left(t-x\right)} \psi_{-}.
+		c_{+}\left(t,x\right) &\sim \frac{1}{\sqrt{2\pi}}e^{-ik_f \left( t+x \right)} \psi_{+} \sim \frac{1}{\sqrt{2\pi}}e^{-ik_f \left( t+x \right)} e^{-i\phi} \\
+		c_{-}\left(t,x\right) &\sim \frac{1}{\sqrt{2\pi}}e^{-ik_f\left(t-x\right)} \psi_{-} \sim \frac{1}{\sqrt{2\pi}}e^{-ik_f\left(t-x\right)} e^{i\bar{\phi}}.
 	\end{aligned}
 \end{equation}
 
@@ -380,11 +388,11 @@ where $\varphi_0$ and $\theta_0$ denote the bare scalar fields.
 
 
 \subsubsection{Bosonization for quantum spin chains}
-We assume there is a $xx$ model 
+We use bosonization study the spin-half $xxz$ chain
 \begin{equation}
-	H = \frac{1}{2}\sum_n \left(\sigma_n^x\sigma_{n+1}^x + \sigma_n^y\sigma_{n+1}^y \right) = \sum_n \left(S^\dagger_n S^{-}_{n+1} + h.c.\right)
+	H = \frac{1}{2}\sum_n \left(S_n^x S_{n+1}^x + S_n^y S_{n+1}^y + g \Op{S}{n}{z} \Op{S}{n+1}{z} \right) = \sum_n \left(S^\dagger_n S^{-}_{n+1} + h.c. + g \Op{S}{n}{z} \Op{S}{n+1}{z} \right)
 \end{equation}
-where $S^\dagger := \sigma^x + i\sigma^y$. Indentifying the up spin state to the empty fermion state
+where $S^\dagger := S^x + i S^y$. Indentifying the up spin state to the empty fermion state
 \begin{equation}
 	\begin{aligned}
 		&\ket*{\uparrow} \leftrightarrow \ket*{0}\\
@@ -406,57 +414,68 @@ to rewrite the spin model as
 \end{equation}
 From the dispersion, one can find that the fermi point $k_f = \pi/2$. 
 
-In terms of scalar fields, spin operators are expressed as 
+In terms of scalar fields, spin operators are expressed as
 \begin{equation}
 	\begin{aligned}
-		S^z(x) &\sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta) \\
+		S^z(x) &\sim - \frac{1}{2\pi}\partial_x \varphi - \frac{1}{\pi}\cos (\varphi + 2k_f x) \\
 		S^\dagger(n) &\sim \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
 		& \sim (-1)^n \left( e^{-ik_f x} e^{-i\phi} + e^{ik_f x}e^{i\bar{\phi}}\right) e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \varphi + \frac{1}{2}\right)}\\
 		&\sim (-1)^n \left( e^{-i\phi} + e^{2ik_f x} e^{i\bar{\phi}}\right) e^{i\frac{1}{2} \varphi}\\
 		&\sim (-1)^n e^{-i\theta/2} + e^{-i\theta/2} e^{i\varphi}
 	\end{aligned}
 \end{equation}
+at the free fermion point $g=0$. Truning on interactions $|g|<1$, the dictonary becomes
+\begin{equation}
+	\begin{aligned}
+		S^z(x) &\sim - \frac{1}{2\pi R}\partial_x \varphi - \frac{1}{\pi}\cos (\varphi/R + 2k_f x) \\
+		S^\dagger(n) &\sim (-1)^n e^{-i\theta R/2} + e^{-i\theta R /2} e^{i\varphi/R}
+	\end{aligned}
+\end{equation}
+where the radius of the scalar fields are renormalized by the interactions. \\
 
 \noindent {\bf Correlation functions} \\
 Using the mapping above, one can calculate the equal-time spin-spin operator correlation functions
 \begin{equation}
 	\begin{aligned}
-		\expval{S^\dagger_n S^-_0} &\sim (-1)^n \frac{1}{r^{1/2R^2}} + \frac{1}{r^{2R^2+1/2R^2}}. \\
-		\expval{S_n^z S^z_0} &\sim \frac{1}{r^2} + (-1)^n\frac{1}{r^{2R^2}}
+		\expval{S_n^z S^z_0} &\sim c_1 \ExOp{\partial_n \varphi\, \partial_0 \varphi } + c_2 (-1)^n \ExOp{e^ {i\varphi(n)}\,e^{-i\varphi(0)}} + h.c. \\ 
+		& \sim \frac{c_1}{r^2} + (-1)^n\frac{c_2}{r^{2/R^2}} \\
+		\expval{S^\dagger_n S^-_0} &\sim (-1)^n \frac{1}{r^{R^2/2}} + \frac{1}{r^{2/R^2+R^2/2}}. \\
 	\end{aligned}
 \end{equation}
-where $R$ is the raidus of the free compact boson.\\
+where $R$ is the raidus of the free compact boson
+\begin{equation}
+	R = \sqrt{2-\frac{2}{\pi}\acosine (g)}.
+\end{equation}
+At the free fermion ($g=0$) point, the radisu $R=1$ as discussed previously. At the $SU(2)$ symmetric point (g=1), one has $R=\sqrt{2}$, which is the self-dual point between the scalar fields $\varphi$ and $\theta$ (R = 2/R).\\
 
-\noindent {\bf Possible relevant perturbations and boudary states} \textcolor{red}{revision needed} \\
+\noindent {\bf Possible relevant perturbations and boudary states} \\
 As analysed in the last section for the free fermions, the $U(1)$ symmetry and translation $T$ are anomalous that they prevent the existence of a symmetric gapped ground state. The mixed anomaly can also be the $U_\phi(1)$ and $U_\theta (1)$. Here we consider perturbations breaking at least part of the symmetries.\\
 
 
 (1) Uniform magnetic field in the $xy$ plane.
 Recal that the spin operator in the boson field language reads
 \begin{equation}
-	S^\dagger \sim (-1)^n e^{-i\varphi/2} + e^{-i\varphi/2} e^{i\theta}.
+	S^\dagger \sim (-1)^n e^{-i\theta/2} + e^{-i\theta/2} e^{i\varphi}.
 \end{equation}
 The first term has strong phase fluctuation. The contribution to the uniform magnetic field thus becomes
 \begin{equation}
 	\begin{aligned}
-		& e^{-i\varphi (n) /2} - e^{-i\varphi(n+1)/2} \sim \partial_x \varphi
+		& e^{-i\theta (n) /2} - e^{-i\theta(n+1)/2} \sim \partial_x \theta \sim i\partial_\tau \varphi
 	\end{aligned} 
 \end{equation}
-which is noting but the $U_\theta(1)$ charge density. The second term is the vertex operator $V_{(1,1)}$ with a scaling dimension $\Delta_{(1,1)} = \frac{1}{R^2} + \frac{R^2}{4}$
-
-It pinns down the $\varphi$ field, hence breaks the $U_\varphi (1)$ symmetry. \\
-
- (2) Uniform magnetic field in the $z$ direction.
-One finds
-\begin{equation}
-	S^z \sim - \frac{1}{2\pi}\partial_x \theta - \left(-1\right)^x\frac{1}{\pi}\cos (\theta)	
-\end{equation}
-tends to pin down the $\theta$ field, hence breaks the $U_\theta (1)$ symmetry. In the gapless Luttinger liquid phase, the $\cos(\theta)$ operator becomes \textcolor{red}{irrelevant}. There is emergent $U_\theta(1)$ symmetry at the thermodynamic limit.\\
+which is noting but the $U_\varphi(1)$ charge density. It can not be renormalized in the RG process. The second term is the vertex operator $V_{(1,1)}$ with a scaling dimension $\Delta_{(1,1)} = \frac{1}{R^2} + \frac{R^2}{4}$. It is relevant in the Luttinger liquid phase described the free compact boson. It breaks both $U(1)$ symmetries and results in an ordered state.\\ 
  
-(3) Spin-Peierls (dimerization or VBS)
+(2) Spin-Peierls (dimerization or VBS)
 \begin{equation}
 	\begin{aligned}
-		D(n) & := \left(-1\right)^n \left( S^x_n S^x_{n+1} + S^y_n S^y_{n+1} \right) \sim \sin (\theta)
+		D(n) & := \left(-1\right)^n \left( S^x_n S^x_{n+1} + S^y_n S^y_{n+1} \right) \sim \sin (\varphi)
 	\end{aligned}	
 \end{equation}
-This term pinns down the $\theta$ field, hence breaks the $U_\theta (1)$ symmetry. It also breaks the translation symmetry, which is realized by $\theta \rightarrow \theta + \pi$ and $\varphi \rightarrow \varphi + 2\pi$.
+This term pinns down the $\varphi$ field, hence breaks the $U_\varphi (1)$ symmetry. It also breaks the translation symmetry, which is realized by $\theta \rightarrow \theta + 2\pi$ and $\varphi \rightarrow \varphi + \pi$. Hence, it also breaks both $U(1)$ symmetries and results in an ordered state.
+
+(3) Uniform magnetic field in the $z$ direction.
+One finds
+\begin{equation}
+	S^z \sim - \frac{1}{2\pi}\partial_x \varphi - \frac{1}{\pi}\cos (\varphi + 2k_f x).
+\end{equation}
+The first term is a current operator. The second one has strong fluctuation and also becomes a current operator. There is emergent $U_\varphi(1) \otimes U_{\theta}(1)$ symmetry at the thermodynamic limit.\\
