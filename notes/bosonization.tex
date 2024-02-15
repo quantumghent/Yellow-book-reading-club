@@ -42,14 +42,6 @@ where the canonical momentum $\Pi_\varphi = \frac{1}{4\pi K} \dot{\phi}$, which 
 	\left[\varphi(x), \ \Pi_\varphi(y) \right] = i\,\delta(x-y)
 \end{equation}
 
-where the canonical momentum $\Pi = \frac{1}{4\pi K} \dot{\phi}$. In terms of current operators we can write down (note $x := \sigma$ in the Hamiltonian is defind on the cylinder)
-\begin{equation}
-	\begin{aligned}
-		\partial_x \varphi &= \partial \varphi\ i z - \overline{\partial}\overline{\varphi} i z = j_n/z^n -\overline{j}_n / \overline{z}^n \\
-		4\pi K\, \Pi &= \partial \varphi i z + \overline{\partial} \varphi i \overline{z} = j_n/z^n + \overline{j}_n / \overline{z}^n
-	\end{aligned}
-\end{equation}
-
 The whole theory can be actuall reproduced using the current algebra $j_n$ and $\bar{j}_n$. One can write down (note the quantization is defined on the plane, or the so-called radial quantization)
 \begin{equation}
 	\begin{aligned}
@@ -267,6 +259,8 @@ However, it is better to choose a different convention
 		&{\psi}^{\dagger}_{-} \sim V_{(\frac{1}{2},-1)}^\dagger \sim e^{-i\overline{\phi}}.
 	\end{aligned}
 \end{equation}
+In this convention the fermion charge is the winding number of the $\varphi$ scalar or the momentum charge for the dual scalar $\theta$.
+
 This convention ensures that the density fluctuation can be written down as the spatial derivative of the scalare field $\varphi$, rather than the spatial derivative of its dual field $\theta$, which is consistent with the fact that we already choose $\varphi$ to write down the Hamiltonian density.\\
 
 \noindent {\bf Construction approach of abelian bosonization dictonary} \\
@@ -334,15 +328,21 @@ Thus one identifies that the slow modes are close to $\pm k_f$ ($k_f > 0$),
 The lattice fermon density is 
 \begin{equation}
 	\begin{aligned}
-		2\pi\,\rho :=& 2\pi\,c^\dagger c \sim 2\pi \rho_0 + \psi_{+}^\dagger \psi_{+} + \psi_{-}^\dagger \psi_{-} + \left(e^{2i k_f}\psi_{+}^\dagger \psi_{-} + h.c. \right) \\
+		2\pi\,\rho :=& 2\pi\,c^\dagger c \\
+		\sim& 2\pi \rho_0 + \psi_{+}^\dagger \psi_{+} + \psi_{-}^\dagger \psi_{-} + \left(e^{2i k_f x}\psi_{+}^\dagger \psi_{-} + h.c. \right) \\
 		=&  2\pi \rho_0 +  i \left(\partial \varphi - \bar{\partial} \varphi\right) + 2 \cos (\varphi + 2k_f x) \\
 		=& 2\pi \rho_0 +  \partial_x \varphi + 2 \cos (\varphi + 2k_f x)
 	\end{aligned}
 \end{equation}
 where $\rho_0$ is added since the lattice operator is not normalized. The total charge is given by 
 \begin{equation}
-	Q \sim \int \rho \sim Q_0 + 2e
+	\begin{aligned}
+		Q &\sim \int dx\, \rho  \\
+		&= \int dx \, \rho_0 + \int dx \left(j_0-\bar{j}_0\right)\\
+		&= Q_0 + m/R
+	\end{aligned}
 \end{equation}
+This is consistent with the convention we chosed for the bosonization dictonary.
 \\
 
 \noindent {\bf Symmetries on the lattice} \\
@@ -414,21 +414,23 @@ to rewrite the spin model as
 \end{equation}
 From the dispersion, one can find that the fermi point $k_f = \pi/2$. 
 
-In terms of scalar fields, spin operators are expressed as
+In terms of scalar fields, close to the free fermion point ($g=0$)spin operators are expressed as
 \begin{equation}
 	\begin{aligned}
 		S^z(x) &\sim - \frac{1}{2\pi}\partial_x \varphi - \frac{1}{\pi}\cos (\varphi + 2k_f x) \\
 		S^\dagger(n) &\sim \left(-1\right)^n c_n \prod_{i<n}e^{i\pi\,c_i^\dagger c_i} \\
-		& \sim (-1)^n \left( e^{-ik_f x} e^{-i\phi} + e^{ik_f x}e^{i\bar{\phi}}\right) e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \varphi + \frac{1}{2}\right)}\\
+		& \sim (-1)^n \left( e^{-ik_f x} e^{-i\phi} + e^{ik_f x}e^{i\bar{\phi}}\right) e^{i\pi \int \left(\frac{1}{2\pi}\partial_x \varphi + \rho_0\right)}\\
 		&\sim (-1)^n \left( e^{-i\phi} + e^{2ik_f x} e^{i\bar{\phi}}\right) e^{i\frac{1}{2} \varphi}\\
-		&\sim (-1)^n e^{-i\theta/2} + e^{-i\theta/2} e^{i\varphi}
+		&\sim (-1)^n e^{-i\theta/2} + e^{i\left(2k_f+\pi\right)x}e^{-i\theta/2} e^{i\varphi}
 	\end{aligned}
 \end{equation}
-at the free fermion point $g=0$. Truning on interactions $|g|<1$, the dictonary becomes
+where we used $k_f = \pi \,\rho_0$. Note that according to the Luttinger theorem in 1D, the volume encircled by the fermi point can not be changed by the interactions, which gives rise to the value of $k_f = \pi/2$ at the free fermion point $g=0$. 
+
+Turning on interactions $|g|<1$, the dictonary becomes
 \begin{equation}
 	\begin{aligned}
 		S^z(x) &\sim - \frac{1}{2\pi R}\partial_x \varphi - \frac{1}{\pi}\cos (\varphi/R + 2k_f x) \\
-		S^\dagger(n) &\sim (-1)^n e^{-i\theta R/2} + e^{-i\theta R /2} e^{i\varphi/R}
+		S^\dagger(n) &\sim (-1)^n e^{-i\theta R/2} + e^{i\left(2k_f+\pi\right)x} \,e^{-i\theta R /2} e^{i\varphi/R}
 	\end{aligned}
 \end{equation}
 where the radius of the scalar fields are renormalized by the interactions. \\
