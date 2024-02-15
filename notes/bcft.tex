@@ -1,0 +1,79 @@
+\subsection{Boundary conformal field theory}
+CFT can also be defined in a manifold with boundaries, in which the nice local properties are still applied from the CFT defined on a plane. A boundary conformal field theory (BCFT) is a CFT defined on a two dimension manifold with one dimension boundaries. It is important theoretical tool in the study of surface critical behavior, defects and open string theories. Note that one can also consider extended symmetry in a CFT, so that the Virasoro algebra is a subalgebra of the extended symmetry. The corresponding boundary condition (resp.\ boudary state) in the open (resp.\ closed) sector should also respect the extended algebra. It was shown than there are also symmetry-breaking boundary conditions which only respect the conformal symmetry. Here we only discuss conformal symmetry. 
+
+{\bf BCFT in the open sector}
+We define a BCFT on a cylinder with two boundaries $B_a$ and $B_b$. The complex coordinate is denoted by $\omega = \tau + i \sigma$, where we identify the time $\tau$ ($\tau \in [0,2\pi t]$) direction to be periodic and space $\sigma$ ($\sigma \in [0,\pi]$) to be open. When the time direction range is unbounded $t\rightarrow\infty$, the cylinder becomes a strip. Since the Hamiltonian $H_{ab}$ generating time evolution is defined at a fixed time with two boundaries, the whole Hilbert space is constrained by the boundary conditions at $B_a$ and $B_b$. To apply the powerful conformal symmetry to the strip, one can apply the conformal mapping $z = e^\omega = e^\tau e^{i\sigma}$ to relate the strip to the upper half-plane. The energy-momentum tensor has to be real at the boundary, so that
+\begin{equation} \label{Eq_T_open}
+    T(z) - \overline{T}(\overline{z})\vert_{\sigma=0,\pi} = 0
+\end{equation}
+or in terms of Laurent series 
+\begin{equation}
+    \sum_n L_n z^{-n-2} - \sum_n \overline{L}_n \overline{z}^{-n-2}\vert_{\sigma=0,\pi} = 0. 
+\end{equation}
+One then finds the two Virasoro algebra now reduces to a single algebra under the constraint $L_n = \overline{L}_n$. This is naturally satisfied if one identifies the antiholomorphic coordinate $\overline{z}$ in the upper half-plane to be the holomorphic one $z^*$ in the lower half-plane. As a result, a BCFT defined on a strip is mapped to a chiral CFT defined on a plane. 
+
+With this identification, one can express operators defined on a cylinder in terms of those defined on a plane. The Hamiltonian operator is 
+\begin{equation}
+    H_{ab} = L_0 - \frac{c}{24}. 
+\end{equation}
+The partition function can also be written down 
+\begin{equation}
+    Z_{ab} = \mathrm{Tr}\,\left( e^{-2\pi t\, H_{ab}}\right) = \mathrm{Tr}\,\left( q^{L_0-c/24}\right),
+\end{equation}
+where $q=e^{\pi i\, \tau_{open}}$ and the modular parameter $\tau_{open} = i\,t$. As stated above, the Hilbert space is determined by the boundaries $B_{a/b}$. A conformal family $[\phi_{h}(z)]$ appearing in the chiral theory should be consistent with the boundary conditions. The partition function can be written as 
+\begin{equation}
+    Z_{ab} = \sum_h n_{ab}^h\, \chi_h(q)
+\end{equation}
+where the non-negative integer $n_{ab}^h$ selects the conformal families appearing in the theory and the character $\chi_h(q) = \mathrm{Tr}_h\,\left( q^{L_0-c/24}\right)$.
+
+{\bf BCFT in the closed sector}
+In the open sector the time direction is chosen to be periodic. Meanwhile one has the freedom to define the space $\sigma$ ($\sigma \in [0,2\pi]$) direction to be periodic and time $\tau$ to be open ($\tau \in [0,2\pi\,l]$), which is the closed sector. The calculation of partition function becomes a time evolution
+\begin{equation}
+    Z_{ab} = \langle a \vert e^{-2\pi l H} \vert b \rangle = \langle a \vert e^{-2\pi l (L_0 + \overline{L}_0 -c/12)} \vert b \rangle,
+\end{equation}
+where the time evolution operator $H$ defined on a cylinder is the dilation operator on the plane $H = L_0 + \overline{L}_0 - c/12$. 
+
+The physical constraint Eq.~\ref{Eq_T_open} in the closed sector now becomes 
+\begin{equation}
+    z^2 T(z) - \overline{z}^2 \overline{T}(\overline{z})\vert_{\tau=0,2\pi l} = 0.
+\end{equation}
+Note that due to the choice of time direction, the boundary condition is a constraint to the boundary state $\vert a \rangle$ and $\vert b\rangle$. In terms of Laurent modes, this is
+\begin{equation}
+    \begin{split}
+        \left(L_n - \overline{L}_{-n}\right) \vert a \rangle = 0.  
+    \end{split}
+\end{equation}
+The basis state of the solution is the so-called Ishibashi state
+\begin{equation}
+    \vert h \rangle\rangle = \sum_n \vert h,n\rangle \otimes U\overline{\vert h,n\rangle},
+\end{equation}
+where $U$ is an anti-unitary operator which commutes with Virasoro generators, $h$ denotes a conformal family $\phi_h$. If there are a finite number representations of the Virasoro algebar in the theory, one can construct physical boundary states, the Cardy states, in terms of the Ishibashi states
+\begin{equation}
+    \vert a \rangle = \sum_h c_a^h\, \vert h \rangle \rangle. 
+\end{equation}
+The partition function $Z_{ab}$ then reads
+\begin{equation}
+    Z_{ab} = \sum_h {\left(c_a^h\right)}^* c_b^h\, \chi_h(\tilde{q})
+\end{equation}
+where $\tilde{q} = e^{2\pi i \tau_{closed}}$ with the modular parameter $\tau_{closed} = 2i\,l = i/t$.
+
+{\bf Open-closed BCFT duality}
+The open and closed sector theories are essentially describing the same $Z_{ab}$. They are related through a modular transformation of the modular parameter $\tau \rightarrow -1/\tau$ which exchange the role of space and time. The characters are related by a $S$ matrix 
+\begin{equation}
+    \chi_j(\tilde{q}) = \sum_i S^i_j\, \chi_i(q).
+\end{equation}
+This gives the Cardy conditions to the BCFT
+\begin{equation}
+\begin{split}
+    & n_{ab}^h = \sum_i {\left(c_a^i\right)}^* c_b^i\, S_i^h \\
+    & {\left(c_a^h\right)}^* c_b^h = \sum_i n_{ab}^i S^h_i.  
+\end{split}
+\end{equation}
+For minimal models the Cardy states can be constructed by requiring
+\begin{equation}
+\begin{split}
+    c_a^h &= S_a^h / \sqrt{S^h_0} \\
+    n_{ab}^h &= \sum_i \frac{{\left(S_a^i\right)}^* S_b^i S_h^i}{S_0^i}.
+\end{split}
+\end{equation}
+Comparing with the Verlinde formula, one can identify the coefficient $n_{ab}^h$ is the same as the fusion multiplicities $N_{ab}^h$. It is now clear that the conformal families appearing in the open sector theory is determined by the fusion of the primaries representing the Cardy states in the closed sector. 
