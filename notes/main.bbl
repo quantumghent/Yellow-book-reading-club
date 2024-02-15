@@ -1,0 +1,51 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Blumenhagen:2009zz}
+R.~Blumenhagen and E.~Plauschinn,
+\newblock \emph{{Introduction to conformal field theory}: {with applications to
+  String theory}}, vol. 779,
+\newblock \doi{10.1007/978-3-642-00450-6} (2009).
+
+\bibitem{tong_gr}
+D.~Tong,
+\newblock \emph{{Lectures on Gauge Theory}},
+\newblock \url{https://www.damtp.cam.ac.uk/user/tong/gaugetheory.html},
+\newblock [Online; accessed 14-Oct-2023] (2018).
+
+\bibitem{Douglas:aa}
+M.~R. Douglas,
+\newblock \emph{D-branes and discrete torsion},
+\newblock RU-98-35 \eprint{hep-th/9807235}.
+
+\bibitem{Gaberdiel_2000}
+M.~R. Gaberdiel,
+\newblock \emph{Discrete torsion orbifolds and d-branes},
+\newblock Journal of High Energy Physics \textbf{2000}(11), 026 (2000),
+\newblock \doi{10.1088/1126-6708/2000/11/026}.
+
+\bibitem{Chang2019}
+C.-M. Chang, Y.-H. Lin, S.-H. Shao, Y.~Wang and X.~Yin,
+\newblock \emph{Topological defect lines and renormalization group flows in two
+  dimensions},
+\newblock Journal of High Energy Physics \textbf{2019}(1), 26 (2019),
+\newblock \doi{10.1007/JHEP01(2019)026}.
+
+\bibitem{francesco2012conformal}
+P.~Francesco, P.~Mathieu and D.~S{\'e}n{\'e}chal,
+\newblock \emph{Conformal field theory},
+\newblock Springer Science \& Business Media (2012).
+
+\bibitem{Schottenloher}
+M.~Schottenloher,
+\newblock \emph{{Central extensions of lie algebras and Bargmann’s theorem}},
+\newblock In \emph{A Mathematical Introduction to Conformal Field Theory}, pp.
+  63--73. Springer (2008).
+
+\end{thebibliography}

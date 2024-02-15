@@ -13,6 +13,7 @@
 \usepackage{amsmath,slashed}
 \urlstyle{sf}
 \usepackage{tikz}
+\usepackage{pgfplots} % for the axis environment
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{simpler-wick, physics,interval} % Genius package!
 \usepackage{epigraph} 
@@ -2048,7 +2049,7 @@ With the chiral mass center introduced above the chiral part of the compact boso
 \end{equation} 
 which ensures the the current operator normalized as $\langle j(z) j(z^\prime) \rangle = 1/z^2$.
 
-The chiral/anti-chiral part of the free compact boson can be written as 
+The chiral/anti-chiral part of the free compact boson can be written as ($z$ is defined on the plane)
 \begin{equation}
 	\begin{split}
 		\phi(z)/\sqrt{K} &= \phi_0 -i\,j_0\,\ln \,z + i\,\sum_{n\neq0} \frac{1}{n}\,j_n\,z^{-n} \\
@@ -2067,13 +2068,54 @@ Let's derive the quantum version (radial quantization) of the free compact boson
 \begin{equation}
 	H = \int dx \left( 2\pi K\, \Pi^2 + \frac{1}{8\pi K} {\left(\partial_x \phi\right)}^2 \right),
 \end{equation}
-where the canonical momentum $\Pi = \frac{1}{4\pi K} \dot{\phi}$. In terms of current operators we can write down (note $x := \sigma$ in the Hamiltonian is defind on the cylinder)
+where the canonical momentum $\Pi_\varphi = \frac{1}{4\pi K} \dot{\phi}$, which satisfies the standard canonical commutation (equal-time)
+\begin{equation}
+	\left[\varphi(x), \ \Pi_\varphi(y) \right] = i\,\delta(x-y)
+\end{equation}
+
+The whole theory can be actuall reproduced using the current algebra $j_n$ and $\bar{j}_n$. One can write down (note the quantization is defined on the plane, or the so-called radial quantization)
 \begin{equation}
 	\begin{aligned}
-		\partial_x \varphi &= \partial \varphi\ i z - \overline{\partial}\overline{\varphi} i z = j_n/z^n -\overline{j}_n / \overline{z}^n \\
-		4\pi K\, \Pi &= \partial \varphi i z + \overline{\partial} \varphi i \overline{z} = j_n/z^n + \overline{j}_n / \overline{z}^n
+		\partial_x \varphi &= i\,z\,\partial \varphi - i\,\bar{z}\,\overline{\partial}{\varphi}= j_n/z^n -\overline{j}_n / \overline{z}^n \\
+		\partial_t \varphi &= i\,z\,\partial \varphi + i\,\bar{z}\,\overline{\partial} \varphi = j_n/z^n + \overline{j}_n / \overline{z}^n \\
+		\partial_x \theta &= i\,z\,\partial \theta - i\,\bar{z}\,\overline{\partial}{\theta}= j_n/z^n +\overline{j}_n / \overline{z}^n = \partial_t \varphi\\
+		\partial_t \theta &= i\,z\,\partial \theta + i\,\bar{z}\,\overline{\partial}{\theta}= j_n/z^n - \overline{j}_n / \overline{z}^n = \partial_x \varphi
 	\end{aligned}
 \end{equation}
+
+One can verify the canonical communicator for the scalar $\varphi$ through the current algebra
+\begin{equation}
+	\begin{aligned}
+		\left[\phi(x),\ \phi(y)\right] &= \left[  \phi_0, -i\,j_0\log (\omega)\right] - \left[  \phi_0, -i\,j_0\log (z)\right] - \sum_{n\neq0} \frac{1}{nm} \left[ j_n, j_m \right] \frac{1}{z^n \omega^m} \\
+		&= \log(\omega/z) + \sum_{n\neq0} \frac{1}{n}\frac{\omega^n}{z^n} \\
+		&= i \left( y-x \right) - \sum_{n\neq0} \frac{1}{n}e^{i n \left(x-y\right)} \\
+		&=-2\pi i \,H(x-y)
+	\end{aligned}
+\end{equation}
+and
+\begin{equation}
+	\begin{aligned}
+		\left[\bar{\phi}(x),\ \bar{\phi}(y)\right]  = 2\pi i \,H(x-y)
+	\end{aligned}
+\end{equation}
+where $H(x)$ is the step function. Now one can easily find that
+\begin{equation}
+	\begin{aligned}
+		\left[\phi(x),\ \partial_y\phi(y)\right] &= i\sum_n e^{in(x-y)} = -2\pi i \delta(x-y) \\
+		\left[\bar{\phi}(x),\ \partial_y\bar{\phi}(y)\right] &= -i\sum_n e^{in(x-y)} = -2\pi i \delta(x-y)
+	\end{aligned}
+\end{equation}
+and 
+\begin{equation}
+	\begin{aligned}
+		&\left[\varphi(x), \ \varphi(y)\right] = 0 \\
+		&\left[\theta(x), \ \theta(y)\right] = 0 \\
+		&\left[\varphi(x), \ \theta(y)\right] = -4\pi i \ H(x-y)\\
+		&\left[\varphi(x), \ \Pi_\varphi(y)\right] = \left[\varphi(x), \ \partial_y \theta(y)/4\pi\right] = i\delta(x-y)\\
+		&\left[\theta(x), \ \Pi_\theta(y)\right] = \left[\theta(x), \ \partial_y \varphi(y)/4\pi\right] = i\delta(x-y)
+	\end{aligned}
+\end{equation}
+
 Thus the Hamiltonian can be written down in terms of current operators
 \begin{equation}
 	\begin{aligned}
@@ -2101,34 +2143,34 @@ where $Z^\prime_{boson}$ denotes the part without zero modes. A modular $T$ tran
 
 The partition function reads
 \begin{equation}
-	Z_{cir}(e^{2\pi i}q,e^{-2\pi i}\overline{q}) = e^{2\pi i \left(j_0^2 - \overline{j}_0^2\right)/2} \, q^{j_0^2/2} \, \overline{q}^{\overline{j}_0^2/2} \, Z^{\prime}_{boson} (q,\overline{q}).
+	\begin{aligned}
+		Z_{cir}(e^{2\pi i}q,e^{-2\pi i}\overline{q}) &= e^{2\pi i \left(j_0^2 - \overline{j}_0^2\right)/2} \, q^{j_0^2/2} \, \overline{q}^{\overline{j}_0^2/2} \, Z^{\prime}_{boson} (q,\overline{q}) \\
+		&=e^{2\pi i \left(j_0 - \overline{j}_0\right) \left(j_0 + \overline{j}_0\right)/2} \, q^{j_0^2/2} \, \overline{q}^{\overline{j}_0^2/2} \, Z^{\prime}_{boson} (q,\overline{q}) \\
+		&=e^{2\pi i m\, \left(j_0 + \overline{j}_0\right)/2\tilde{R}} \, q^{j_0^2/2} \, \overline{q}^{\overline{j}_0^2/2} \, Z^{\prime}_{boson} (q,\overline{q})
+	\end{aligned}
 \end{equation}
 A modular invariant partition function thus requires 
 \begin{equation}
-	j_0^2 - \overline{j}_0^2 = 2k,
+	\left(j_0 + \overline{j}_0\right)/2\tilde{R} = e,
 \end{equation}
-where $k$ is an integer. On the hand, since the theory is defined on a circle, the scalar $\varphi(z,\overline{z})$ is single valued when changing $z$ to $z\,e^{i2\pi}$. This resultes in another the relation
-\begin{equation}
-	j_0 - \overline{j}_0 = m\,\tilde{R}.
-\end{equation}
-where $m$ is an integer denoting the \textbf{\textit{magnetic}} charge. Note that the second constraint is a factor of the first one, 
-\begin{equation}
-	j_0^2 - \overline{j}_0^2 = \frac{2k}{m\,\tilde{R}} \ m \tilde{R} = \frac{2k}{m} m
-\end{equation}
-which requires that the electronic charge $e := k/m$ is also an integer\footnote{See a more rigorous argument in the Yellow Book~\cite{francesco2012conformal}}. One then finds the zero mode of the current operator is quantitized to be 
+where the electronic charge $e$ is also an integer\footnote{See a more rigorous argument in the Yellow Book~\cite{francesco2012conformal}}. One then finds the zero mode of the current operator is quantitized to be 
 \begin{equation}
 	\begin{aligned}
 		j_0 &= e \frac{1}{\tilde{R}} + m \frac{\tilde{R}}{2} \\
 		\overline{j}_0 &= e \frac{1}{\tilde{R}} - m \frac{\tilde{R}}{2}.
 	\end{aligned}
 \end{equation}
-From the quantization of zero modes $j_0$, it is also clear that the dual scalar $\theta(x)$ is compactified as $\theta \sim \theta + 4\pi\sqrt{K}/\tilde{R}$. 
+From the quantization of zero modes $j_0$, it is also clear that the dual scalar $\theta(x)$ is compactified as 
+\begin{equation}
+	\theta \sim \theta + 4\pi/\tilde{R} \sim \theta + 2\pi \frac{2}{\tilde{R}} \sim \theta + 2\pi \tilde{R}_\theta 
+\end{equation}
+or in other words the duality transformation ($\varphi \rightarrow  \theta$) changes the radius $\tilde{R} \rightarrow 2/\tilde{R}$.
 
 It is clear now $K$ and $R$ are not independent. The theory is actuall determined by the ratio $\tilde{R} := R/\sqrt{K}$. A parameter $K$ introduced in the action is equivalently to say the free scalar has a compactified radius $R = \sqrt{K}$. We can either choose $K=1$
 \begin{equation}
 	\begin{aligned}
 		\varphi &\sim \varphi + 2\pi R \\
-		\theta &\sim \theta + 4\pi/R \\
+		\theta &\sim \theta + 2\pi/R_\theta \sim \theta + 4\pi/R \\
 		V_{e,m} &\sim e^{ie\varphi/R}\,e^{im\theta R/2}
 	\end{aligned}
 \end{equation}
@@ -2188,7 +2230,7 @@ It is clear that the electric charge $e$ is indeed the winding number of $\theta
 \begin{equation}
 	Q_\varphi = \int dx \ \partial_x \theta = e \frac{4\pi}{R}
 \end{equation}
-
+The charge $e$ of $\varphi$ is the winding number of its dual scalar $\theta$.
 
 The massless free scalar theory also enjoys another ${U(1)}_\theta$ symmetry acting as $\theta \rightarrow \theta + \mathrm{constant}$. From the current operator expression for the Hamiltonian, one can write down the action in terms of the $\theta$ scalar
 \begin{equation}
@@ -2209,12 +2251,13 @@ The charge for the $\theta$ scalar, the magnetic charge, reads
 \begin{equation}
 	Q_\theta = \int dx \ j^0_\theta = \int dx \ \partial_x \varphi = m\,2\pi R.
 \end{equation}
-The magnetic charge $m$ is nothing but the winding number of the scalar field $\varphi$.
+The $\theta$ scalar charge $m$ is nothing but the winding number of the scalar field $\varphi$.
 
 In summary, in the massless free compact boson theory, one can show that the charge of a field is the winding number of its dual field. These calculations show fascinating examples of particle-vertex duality. 
 
 
-\subsubsection{Bosonization dictonary for free fermions}
+
+\subsubsection{Bosonization dictonary for the free fermion}
 Sine the scalar field is dimensionless in free compact boson, the physical quantites should be expressed in terms of the so-called vertex operator.~\footnote{In this note, we assume all physical fields are normalized, even if not explicitly stated.} Due to the quantization of the zero modes for the current operator, the vertex operator should have the structure 
 \begin{equation}
 	V_{e,m} := e^{i \varphi e/R} e^{i\theta m R/2} = e^{i\phi \left(e/R + mR/2\right)} e^{i\overline{\phi} \left(e/R - mR/2\right)},	
@@ -2225,11 +2268,13 @@ where $e$ and $m$ denote the electric and magnetic charge respectively.
 The simplest way for bosonization of fermions is by matching the conformal dimension of the fermion operator to the vertext operator. Take the left mover $\psi_{+}$, a holomorphic field $\left(1/2,0\right)$, as an example
 \begin{equation}
 	\begin{aligned}
-		&e/R + mR/2 = 1\\
+		&\left\vert e/R + mR/2 \right\vert = 1\\
 		&e/R - mR/2 = 0.
 	\end{aligned}
 \end{equation}
-One can easily find two solutions, either $V_{\frac{1}{2},1}$ with $R=1$ or $V_{1,\frac{1}{2}}$ with $R=2$. These two solutions are equivalent to each other since they are related to each other through a duality transformation. Here we take the first one ($R=1$) to build up the bosonization dictonary for the free fermion. One can see that the fermion operator corresponds to a half charge boson operator, which means that the fermion degrees of freedom are always in pairs when using the bosonization to study a fermion theory.
+One can easily find two solutions, either $V_{\frac{1}{2},1}$ with $R=1$ or $V_{1,\frac{1}{2}}$ with $R=2$. These two solutions are equivalent to each other since they are related to each other through a duality transformation $\varphi \rightarrow \theta$. 
+
+Here we take the first one ($R=1$) to build up the bosonization dictonary for the free fermion. One can see that the fermion operator corresponds to a half charge boson operator, which means that the fermion degrees of freedom are always in pairs when using the bosonization to study a fermion theory.
 
 Note that one has the freedom to set the creation or annihalation operator to be the vertext operator. For example
 \begin{equation}
@@ -2245,7 +2290,17 @@ However, it is better to choose a different convention
 		&{\psi}^{\dagger}_{-} \sim V_{(\frac{1}{2},-1)}^\dagger \sim e^{-i\overline{\phi}}.
 	\end{aligned}
 \end{equation}
-This convention ensures that the density fluctuation can be written down as the spatial derivative of the scalare field $\varphi$, rather than the spatial derivative of its dual field $\theta$, to make connection to conventions of other research.\\
+This convention ensures that the density fluctuation can be written down as the spatial derivative of the scalare field $\varphi$, rather than the spatial derivative of its dual field $\theta$, which is consistent with the fact that we already choose $\varphi$ to write down the Hamiltonian density.\\
+
+\noindent {\bf Construction approach of abelian bosonization dictonary} \\
+The above bosonization convention is not natural to understand. One may use a hydrodynamic viewpoint to construct the bosonization. First it is convenient to identify the totoal fermin charge density as 
+\begin{equation}
+	\rho(x) \sim \partial_x \varphi,
+\end{equation}
+which can be seen as the definition of the scalar $\varphi$. This also means we identify the fermion charge density to the momentum of $\theta$ scalar field. 
+
+A fermion creation or annihalation operator changes the fermion charge, hence the scalar $\varphi(x)$. The momentum operator satisfies such a requirement. One can choose the scalar operator $e^{i (j_0 - \bar{j}_0) \theta(x)/2} \sim e^{i \theta(x)/2}$ to construct the fermion operator. The last missing part is the Fermi-Dirac anticommutation relation. One can use the Jordan-Wigner transformation to realize the Fermi-Dirac condtion. In conclusion the fermion operator must take the form $\psi \sim e^{i\theta/2} e^{i\varphi/2}$.
+\\
 
 \noindent {\bf Bosonization dictonary} \\
 In the following we are going to show how to express physical quantities of free fermion theory in terms of free compact boson. Using the convention discussed above, the fermion density reads
