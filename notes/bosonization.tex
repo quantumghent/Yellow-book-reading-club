@@ -133,7 +133,7 @@ From the quantization of zero modes $j_0$, it is also clear that the dual scalar
 \begin{equation}
 	\theta \sim \theta + 4\pi/\tilde{R} \sim \theta + 2\pi \frac{2}{\tilde{R}} \sim \theta + 2\pi \tilde{R}_\theta 
 \end{equation}
-or in other words the duality transformation ($\varphi \rightarrow  \theta$) changes the radius $\tilde{R} \rightarrow 2/\tilde{R}$.
+or in other words the duality transformation ($\varphi \rightarrow  \theta$) changes the radius $\tilde{R} \rightarrow 2/\tilde{R}$. It can be easily shown there is a self-dual point $\tilde{R} = \sqrt{2}$, at which the duality transformation becomes a symmetry.
 
 It is clear now $K$ and $R$ are not independent. The theory is actuall determined by the ratio $\tilde{R} := R/\sqrt{K}$. A parameter $K$ introduced in the action is equivalently to say the free scalar has a compactified radius $R = \sqrt{K}$. We can either choose $K=1$
 \begin{equation}
@@ -475,7 +475,16 @@ which is noting but the $U_\varphi(1)$ charge density. It can not be renormalize
 \end{equation}
 This term pinns down the $\varphi$ field, hence breaks the $U_\varphi (1)$ symmetry. It also breaks the translation symmetry, which is realized by $\theta \rightarrow \theta + 2\pi$ and $\varphi \rightarrow \varphi + \pi$. Hence, it also breaks both $U(1)$ symmetries and results in an ordered state.
 
-(3) Uniform magnetic field in the $z$ direction.
+(3) Next nearest neighbor interaction
+\begin{equation}
+	\begin{aligned}
+		H_2 & := g \left( S^x_n S^x_{n+2} + S^y_n S^y_{n+2} \right) \sim \cos (2 \varphi)
+	\end{aligned}	
+\end{equation}
+This term is particularly interesting. Unlike the spin-Peierls term, $H_2$ respects the translation symmetry. In ther vertex operator language, it corresponds to $V_{(2,0)}$. Close to the free fermion limit $R_\varphi \sim 1$, it is irrelevant and the ground state remains Luttinger phase. Close to the self-dual point $R_\varphi \sim \sqrt{2}$, it becomes marginal. It keeps marginally irrelevant when $g$ is small, however it becomes marginally relevant for a sufficiently large $g$ and the ground state is spontaneously dimerized gapped states ($\varphi = \pm \frac{\pi}{2}$). Note that the excitations on top of the ground state are very different from the spin-Peierls case though. For $H_2$ perturbations, the translation symmetry is spontaneously broken which makes the elementarly are fractionalized topological solitons, while in the spin-Peierls case the excitations are integer-spin particles induced by local physical operators.
+
+
+(4) Uniform magnetic field in the $z$ direction.
 One finds
 \begin{equation}
 	S^z \sim - \frac{1}{2\pi}\partial_x \varphi - \frac{1}{\pi}\cos (\varphi + 2k_f x).
