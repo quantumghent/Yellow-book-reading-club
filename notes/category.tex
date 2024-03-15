@@ -58,3 +58,87 @@ which are now called topological defects. They correspond to the topological asp
 Let's start with a simple example --- the Ising CFT $\mathcal{M}(4,3)$. There are three conformal boundaries/topological defects in Ising CFT which are labeled by primaries. Two defects can be fused into other defects when put close to each other. As a result their fusion forms a fusion algebra. In Ising CFT, the fusion algebra of defects is the same as that of primaries. This is true for all A-type minimal models. 
 
 \subsection{Boundary states}
+
+\subsection{Potts CFT}
+Let's summarise the above contents using a simple, but non-trivial example. This is the minimal model $M(6,5)$ or the Potts CFT with a central charge $c=\frac{5}{6}$. The chiral operator contents for the $M(6,5)$ model are listed in Table.~\ref{kacm65}. There are $10$ chiral primaries in the minimal model $M(6,5)$. One of them is a spin-$3$ current operator $\Phi_{4,1}$ (or $\Phi_{1,5}$), which is the so-called simple current. 
+
+\subsubsection{Modular invariant partition function}
+It turns out one can construct different modular invariant partition functions
+\begin{equation}
+	Z = \sum_{i,j} \chi_i(q) \, M_{ij}\, \chi_j(\bar{q})
+\end{equation}
+where $M_{ij}$ contians only non-negative integers as its elements. One modular invariant belongs to the $A$ diagonal series and $M_{ij}$ is nothing but a 10-dimensional unit matrix. 
+
+\begin{table}
+	\begin{center}
+	\renewcommand{\arraystretch}{1.6}
+	\begin{tabular}{|c | c | c | c | c|} 
+		\hline 
+		Kac label & $\Delta$ & label & meaning & Lattice operator\\
+		\hline
+		(1,1) & 0 & $\mathcal{I}$ &identity& \\
+		\hline
+		(4,1) & 3 & $\mathcal{I}'$ & spin-3 current & \\
+		\hline
+		(2,1) & $\frac{2}{5}$  & $\mathcal{\epsilon}$ &thermal operator & $Z_i Z_{i+1}^\dagger - \frac{1}{2}(X_i+X_{i+1})+h.c.\sim \Phi_{\epsilon,\bar{\epsilon}}$ \\
+		\hline
+		(3,1) & $\frac{7}{5}$ & $\mathcal{\epsilon}'$& & \\
+		\hline
+		(3,3) & $\frac{1}{15}$  & $\mathcal{\sigma}$ & spin operator& $Z_i \sim \Phi_{\sigma,\bar{\sigma}}(z,\bar{z})$\\
+		\hline
+		(4,3) & $\frac{2}{3}$ & $\psi$ & &\\
+		\hline \hline
+		(4,2) & $\frac{13}{8}$ & & &\\
+		\hline
+		(2,2) & $\frac{1}{40}$ & & &\\
+		\hline
+		(3,2) & $\frac{21}{40}$ & & &\\
+		\hline 
+	\end{tabular}
+	\caption{Chiral primaries of $M(6,5)$ minimal model. The primaries above the double line are those shown in the Potts model.}
+		\label{kacm65}
+	\end{center}
+\end{table}
+
+\begin{table}
+	\begin{center}
+	\renewcommand{\arraystretch}{1.6}
+	\begin{tabular}{|c | c | c | c | c|} 
+		\hline 
+		Kac label & $\Delta$ & label & meaning & Lattice operator\\
+		\hline
+		(1,1)+(4,1) & 0 & $\mathcal{I}$ &identity& \\
+		\hline
+		(2,1)+(3,1) & $\frac{2}{5}$  & $\mathcal{\epsilon}$ &thermal operator & $Z_i Z_{i+1}^\dagger - \frac{1}{2}(X_i+X_{i+1})+h.c.\sim \Phi_{\epsilon,\bar{\epsilon}}$ \\
+		\hline
+		(3,3) & $\frac{1}{15}$  & $\mathcal{\sigma}$ & spin operator ($Z_3$ charge $q=1$) & $Z_i \sim \Phi_{\sigma,\bar{\sigma}}(z,\bar{z})$\\
+		\hline
+		(3,3) & $\frac{1}{15}$  & $\mathcal{\sigma}^\dagger$ & spin operator ($Z_3$ charge $q=2$)& $Z_i \sim \Phi_{\sigma,\bar{\sigma}}(z,\bar{z})$\\
+		\hline
+		(4,3) & $\frac{2}{3}$ & $\psi$& $Z_3$ charge $q=1$ & \\
+		\hline 
+		(4,3) & $\frac{2}{3}$ & $\psi^\dagger$&$Z_3$ charge $q=2$ & \\
+		\hline 
+	\end{tabular}
+	\caption{Chiral primaries of the parafermion CFT - the critical three-state Potts model.}
+		\label{potts_kacm65}`'
+	\end{center}
+\end{table}
+
+The other one uses the simple current to form block characters and belongs to a non-diagonal theory. One first needs to notice that the Potts model has an internal $Z_3$ symmetry. The $\Phi_{3,3}$ and $\Phi_{4,3}$ primaries splits into two spaces with different $Z_3$ charges. Under the action of the simple current (here we denote the spin-3 current operator as $J(z) := \Phi_{4,1}(z)$),
+\begin{equation}
+	\begin{aligned}
+		& J \times I \sim J\\
+		& J \times J \sim I\\
+		& J \times \epsilon \sim \epsilon'\\
+		& J \times \epsilon' \sim \epsilon\\
+		& J \times \sigma_i \sim \sigma_i\\
+		& J \times \psi_i \sim \psi_i
+	\end{aligned}
+\end{equation}
+There are two 2-orbits and two 1-orbits. Using the block-characters $C_i$, the partition function reads
+\begin{equation}
+	\label{eq_z_potts}
+	Z = \vert C_I(\tau) \vert^2 + \left\vert C_\epsilon(\tau) \right\vert^2 + \left\vert C_{\sigma_1}(\tau) \right\vert^2 + \left\vert C_{\sigma_2}(\tau) \right\vert^2 + \left\vert C_{\psi_1}(\tau) \right\vert^2 + \left\vert C_{\psi_2}(\tau) \right\vert^2
+\end{equation}
+Another way to look at this follows similar ideas in the $su(2)_k$ CFTs, where the Virasoro algebra is extended by a larger one. Here Potts model is extended by $W_3$ algebra. The $\Phi_{3,3}$ and $\Phi_{4,3}$ are not faithful representation of the $W_3$ algebra. Each one splits into two $W_3$-primaries. They contian different $Z_3$ charges.  From this viewpoint, one should use $W_3$-primaries rather than the Virasoro-primaries in the modular invariant, see Table.~\ref{potts_kacm65}, which gives the same modular invariant Eq.~\ref{eq_z_potts}.
